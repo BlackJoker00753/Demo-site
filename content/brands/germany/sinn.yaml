@@ -1,0 +1,90 @@
+brand:
+  slug: sinn
+  name: Sinn
+  aliases: [зинн, синн]
+  country: germany
+  founded: 1961
+  founder: Гельмут Зинн
+  city: Франкфурт-на-Майне
+  lat: 50.1109
+  lon: 8.6821
+  independent: true
+  tier: mid
+  manufacture: none
+  manufacture_note: Механизмы Sellita и ETA, но корпуса и технологии свои. Упрочнение стали Tegiment, осушающие капсулы Ar и корпуса из немагнитной подводной стали.
+  website: https://www.sinn.de
+  sort: 4
+  tagline: Инструментальные часы для пилотов, водолазов и спецназа из Франкфурта.
+  story:
+    - Пилот и лётный инструктор Гельмут Зинн основал компанию в 1961 году, чтобы делать надёжные бортовые и наручные часы для лётчиков.
+    - С 1994 года Sinn руководит инженер Лотар Шмидт. Марка известна технологиями. Корпус из стали немецких подводных лодок, покрытие Tegiment, которое почти не царапается, и капсула, вытягивающая влагу из корпуса.
+    - В 1985 году астронавт Райнхард Фуррер взял хронограф Sinn 140 S в полёт Spacelab D1. Часы марки выбирают и спецподразделения Германии.
+  facts:
+    - {label: "Основатель", value: "пилот Гельмут Зинн"}
+    - {label: "U1", value: "корпус из стали подводных лодок"}
+    - {label: "В космосе", value: "хронограф 140 S на Spacelab, 1985"}
+  milestones:
+    - {year: 1961, text: "Основание во Франкфурте"}
+    - {year: 1985, text: "Хронограф 140 в космосе"}
+    - {year: 1994, text: "Руководство Лотара Шмидта"}
+    - {year: 2005, text: "Модель U1"}
+
+movements:
+  - slug: sellita-sw220-1
+    caliber: Sellita SW220-1
+    maker: Sellita
+    type: automatic
+    in_house: false
+    power_reserve_h: 38
+    frequency_vph: 28800
+    jewels: 26
+    features: [День недели и дата]
+    description: Вариант SW200 с указателем дня недели.
+
+watches:
+  - slug: sinn-104-st-sa
+    name: 104 St Sa A
+    collection: "104"
+    reference: "104.011"
+    year_introduced: 2012
+    movement: sellita-sw220-1
+    complications: [day-date, date]
+    case: {diameter_mm: 41, thickness_mm: 11.5, material: Сталь, water_resistance_m: 200}
+    bracelet: Кожаный ремешок
+    dial: Чёрный матовый
+    price: {usd: 1600, kind: estimate, source: "розница по данным поиска 2026", checked: 2026-09-24}
+    summary: Классические часы пилота с вращающимся безелем. Лучшая точка входа в немецкие инструментальные часы.
+    icon: true
+    highlights: [Двунаправленный безель с щелчками, 200 м, День и дата]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: countdown, color: "#111214", material: aluminium}
+      dial: {color: "#121315", finish: matte, indices: arabic}
+      hands: {style: syringe, color: "#eef1f3"}
+      date: day_date
+      strap: {type: leather, color: "#4a3326"}
+      logo: SINN
+    sort: 10
+
+  - slug: sinn-u1
+    name: U1
+    collection: U-Modelle
+    reference: "1010.010"
+    year_introduced: 2005
+    movement: sellita-sw200-1
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 44, thickness_mm: 14.0, material: Немагнитная сталь подводных лодок, water_resistance_m: 1000}
+    bracelet: Силиконовый ремешок
+    dial: Чёрный матовый
+    price: {usd: 2900, kind: estimate, source: "оценка по данным поиска", checked: 2026-09-24}
+    summary: Дайвер на 1000 метров в корпусе из стали немецких подводных лодок.
+    highlights: [Сталь подводных лодок, 1000 м, Покрытие Tegiment]
+    render:
+      case: {shape: round, material: steel, finish: brushed, crown_guard: true}
+      bezel: {type: dive, color: "#9aa0a6", material: metal}
+      dial: {color: "#101113", finish: matte, indices: baton}
+      hands: {style: sword, color: "#e8513a"}
+      date: "3"
+      strap: {type: rubber, color: "#141517"}
+      logo: SINN
+    sort: 20

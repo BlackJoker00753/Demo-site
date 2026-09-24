@@ -1,0 +1,227 @@
+brand:
+  slug: patek-philippe
+  name: Patek Philippe
+  aliases: [патек, патек филипп, патек филип]
+  country: switzerland
+  founded: 1839
+  founder: Антуан Норбер де Патек и Франсуа Чапек, позже Адриен Филипп
+  city: Женева
+  lat: 46.1670
+  lon: 6.1220
+  group: Семья Стерн
+  independent: true
+  tier: haute
+  manufacture: full
+  manufacture_note: Полный цикл в Женеве и Валле-де-Жу. Каждые часы проходят проверку по собственному стандарту Patek Philippe Seal, строже женевского клейма.
+  website: https://www.patek.com
+  sort: 4
+  tagline: «Вы никогда не владеете Patek Philippe полностью. Вы лишь храните его для следующего поколения».
+  story:
+    - В 1839 году польский эмигрант Антуан Норбер де Патек основал в Женеве часовую компанию. В 1845 году к нему присоединился француз Адриен Филипп, изобретатель заводной головки вместо ключа, и в 1851 году компания стала называться Patek Philippe.
+    - Мануфактура создала первые швейцарские наручные часы (1868), одни из первых наручных вечных календарей и хронографов, а в 1933 году карманные часы Henry Graves Supercomplication с 24 усложнениями.
+    - С 1932 года компанией владеет семья Стерн. Сегодня это самая независимая и самая уважаемая часовая мануфактура мира. На аукционах Patek регулярно ставит рекорды.
+  facts:
+    - {label: "Владельцы", value: "семья Стерн с 1932 года"}
+    - {label: "Производство", value: "около 70 тысяч часов в год (оценка)"}
+    - {label: "Стандарт качества", value: "Patek Philippe Seal"}
+    - {label: "Рекорд", value: "Grandmaster Chime, 31 млн CHF (2019)"}
+  milestones:
+    - {year: 1839, text: "Основание в Женеве"}
+    - {year: 1845, text: "Адриен Филипп и заводная головка"}
+    - {year: 1868, text: "Первые швейцарские наручные часы"}
+    - {year: 1932, text: "Семья Стерн и коллекция Calatrava"}
+    - {year: 1933, text: "Henry Graves Supercomplication"}
+    - {year: 1976, text: "Nautilus Жеральда Женты"}
+    - {year: 1996, text: "Годовой календарь, патент"}
+    - {year: 2009, text: "Собственное клеймо Patek Philippe Seal"}
+
+movements:
+  - slug: patek-26-330
+    caliber: Patek Philippe 26-330 S C
+    maker: Patek Philippe
+    type: automatic
+    in_house: true
+    power_reserve_h: 45
+    frequency_vph: 28800
+    jewels: 30
+    year: 2019
+    certification: Patek Philippe Seal
+    accuracy: −3/+2 с в сутки
+    features: [Баланс Gyromax, Спираль Spiromax, Остановка секундной стрелки, Ротор из 21-каратного золота]
+    description: Современный базовый автомат Patek. Запас хода от 35 до 45 часов, прозрачная крышка, отделка по стандарту Seal.
+  - slug: patek-324-qa
+    caliber: Patek Philippe 324 S QA LU 24H/303
+    maker: Patek Philippe
+    type: automatic
+    in_house: true
+    power_reserve_h: 45
+    frequency_vph: 28800
+    jewels: 34
+    certification: Patek Philippe Seal
+    features: [Годовой календарь, Фаза Луны, 24-часовая индикация]
+    description: Калибр годового календаря. Механизм различает месяцы в 30 и 31 день и требует подвода даты лишь 1 марта.
+  - slug: patek-240-q
+    caliber: Patek Philippe 240 Q
+    maker: Patek Philippe
+    type: automatic
+    in_house: true
+    power_reserve_h: 48
+    frequency_vph: 21600
+    jewels: 27
+    year: 1977
+    certification: Patek Philippe Seal
+    features: ["Микроротор из 22-каратного золота", "Вечный календарь", "Толщина базы 2,53 мм"]
+    description: Легендарный ультратонкий калибр с микроротором, утопленным в механизм. Основа для вечных календарей.
+  - slug: patek-e15
+    caliber: Patek Philippe E15
+    maker: Patek Philippe
+    type: quartz
+    in_house: true
+    jewels: 6
+    features: [Кварцевый механизм с отделкой по стандарту Seal]
+    description: Собственный кварцевый калибр для женской линии Twenty~4.
+
+watches:
+  - slug: patek-philippe-nautilus-5811
+    name: Nautilus
+    collection: Nautilus
+    reference: 5811/1G-001
+    year_introduced: 1976
+    year_current: 2023
+    designer: Жеральд Жента
+    movement: patek-26-330
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 8.2, material: 18-каратное белое золото, water_resistance_m: 120}
+    bracelet: Интегрированный браслет из белого золота
+    dial: Синий с горизонтальным рельефом и градиентом к краю
+    price: {usd: 89767, kind: msrp, source: "официальная розница США 2026 (по данным WatchCharts)", checked: 2026-09-24, note: "на вторичном рынке $150-190 тыс."}
+    summary: Самые желанные спортивные часы в мире. Корпус-иллюминатор Жеральда Женты и горизонтальный рельеф циферблата.
+    icon: true
+    story:
+      - В 1974 году Жеральд Жента, по легенде, набросал Nautilus на салфетке в ресторане за пять минут. Форма корпуса повторяет иллюминатор трансатлантического лайнера с двумя «ушами» по бокам.
+      - Часы вышли в 1976 году из стали и стоили дороже многих золотых моделей. Реклама обещала, что это «одни из самых дорогих часов мира из стали».
+      - В 2021 году Patek прекратил выпуск стального 5711, и очередь в бутиках превратилась в легенду. С 2023 года классический Nautilus выпускается в белом золоте как ref. 5811/1G.
+    history:
+      - {year: 1976, ref: "3700/1A", title: "Jumbo", text: "Первый Nautilus, 42 мм, стальной корпус из двух частей."}
+      - {year: 2006, ref: "5711/1A", title: "5711", text: "40 мм и прозрачная задняя крышка. Самая известная версия модели."}
+      - {year: 2021, ref: "5711/1A-014", title: "Оливковый финал", text: "Последний стальной 5711 с оливково-зелёным циферблатом."}
+      - {year: 2023, ref: "5811/1G-001", title: "5811", text: "41 мм, белое золото и калибр 26-330 S C."}
+    highlights: ["Дизайн Жеральда Женты", "Корпус толщиной 8,2 мм", "Белое золото", "Прозрачная задняя крышка"]
+    render:
+      case: {shape: porthole, material: white_gold, lugs: integrated, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#233f63", color2: "#0c1624", finish: stripes, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: PATEK PHILIPPE
+    sort: 10
+
+  - slug: patek-philippe-calatrava-5227
+    name: Calatrava
+    collection: Calatrava
+    reference: 5227G-010
+    year_introduced: 1932
+    movement: patek-26-330
+    complications: [date]
+    case: {diameter_mm: 39, thickness_mm: 9.2, material: 18-каратное белое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Опаловый цвета слоновой кости
+    price: {usd: 47262, kind: msrp, source: "официальная розница США 2026 (по данным поиска)", checked: 2026-09-24}
+    summary: Эталон классических часов. Корпус «офицерского» типа со скрытой откидной крышкой.
+    icon: true
+    story:
+      - Calatrava 1932 года, ref. 96, стала первыми часами Patek под управлением семьи Стерн. Её строгий круглый корпус вдохновлён принципами Баухауса.
+      - Модель 5227 прячет под глухой откидной крышкой сапфировое окно, через которое виден механизм. Такая «офицерская» крышка без видимых петель требует ювелирной подгонки.
+    history:
+      - {year: 1932, ref: "96", title: "Первая Calatrava", text: "Строгий круглый корпус, ставший синонимом классики."}
+      - {year: 1985, ref: "3919", title: "Гвоздевой безель", text: "Безель с узором Clous de Paris и римскими цифрами."}
+      - {year: 2013, ref: "5227", title: "Офицерская крышка", text: "Невидимые петли и сапфировое окно под откидной крышкой."}
+    highlights: [Скрытая откидная крышка, Белое золото, Классика Patek с 1932 года]
+    render:
+      case: {shape: round, material: white_gold, lugs: standard}
+      bezel: {type: smooth}
+      dial: {color: "#efe8da", finish: lacquer, indices: baton, index_color: "#7d6a4e", text_color: "#4a3c28", lume: false}
+      hands: {style: dauphine, color: "#b89b6a", lume: false}
+      date: "3"
+      strap: {type: alligator, color: "#2a1a12"}
+      crystal: domed
+      logo: PATEK PHILIPPE
+    sort: 20
+
+  - slug: patek-philippe-annual-calendar-5205
+    name: Annual Calendar
+    collection: Grand Complications
+    reference: 5205G-013
+    year_introduced: 1996
+    movement: patek-324-qa
+    complications: [annual-calendar, moonphase, day-date, date]
+    case: {diameter_mm: 40, thickness_mm: 11.4, material: 18-каратное белое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Синий солнечный с чёрным градиентом
+    price: {usd: 67267, kind: msrp, source: "официальная розница США 2026 (wristcheck.com)", checked: 2026-09-24}
+    summary: Годовой календарь, который Patek запатентовал в 1996 году. День, дата, месяц и фаза Луны.
+    story:
+      - Patek Philippe изобрела годовой календарь как практичную середину между простой датой и вечным календарём. Механизм сам учитывает длину месяцев и требует вмешательства лишь раз в год.
+    highlights: [Патентованный годовой календарь, Фаза Луны, 24-часовая индикация]
+    render:
+      case: {shape: round, material: white_gold}
+      bezel: {type: smooth}
+      dial: {color: "#2a4468", color2: "#06090f", finish: fume, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: day_date
+      subdials: [{pos: 6, kind: moonphase}]
+      strap: {type: alligator, color: "#15181f"}
+      logo: PATEK PHILIPPE
+    sort: 30
+
+  - slug: patek-philippe-perpetual-calendar-5327
+    name: Perpetual Calendar
+    collection: Grand Complications
+    reference: 5327G-001
+    year_introduced: 1941
+    movement: patek-240-q
+    complications: [perpetual-calendar, moonphase, day-date, date]
+    case: {diameter_mm: 39, thickness_mm: 9.7, material: 18-каратное белое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Кремовый лаковый с цифрами Бреге
+    price: {usd: 120656, kind: msrp, source: "официальная розница США 2026 (wristcheck.com)", checked: 2026-09-24}
+    summary: Вечный календарь на тонком калибре с микроротором. Помнит високосные годы до 2100 года.
+    story:
+      - Patek Philippe первой начала серийно выпускать наручные часы с вечным календарём. Ref. 1526 появилась в 1941 году, и с тех пор это главная «большая сложность» мануфактуры.
+      - Модель 5327 сочетает кремовый лаковый циферблат, цифры Бреге и ультратонкий калибр 240 Q с золотым микроротором.
+    highlights: [Вечный календарь, Цифры Бреге, Микроротор из 22-каратного золота]
+    render:
+      case: {shape: round, material: white_gold}
+      bezel: {type: smooth}
+      dial: {color: "#f3eee2", finish: lacquer, indices: breguet, text_color: "#1d2433", lume: false, track: minutes}
+      hands: {style: feuille, color: "#1f3a8a", lume: false}
+      subdials:
+        - {pos: 3, kind: month, color: "#f1efe9"}
+        - {pos: 9, kind: day, color: "#f1efe9"}
+        - {pos: 6, kind: moonphase}
+      strap: {type: alligator, color: "#1a1f2b"}
+      logo: PATEK PHILIPPE
+    sort: 40
+
+  - slug: patek-philippe-twenty-4
+    name: Twenty~4
+    collection: Twenty~4
+    reference: 4910/1200A-001
+    year_introduced: 1999
+    movement: patek-e15
+    complications: []
+    case: {diameter_mm: 25.1, thickness_mm: 6.8, material: Сталь с бриллиантами, water_resistance_m: 30}
+    bracelet: Стальной браслет-манжета
+    dial: Серый солнечный
+    price: {usd: 18005, kind: msrp, source: "официальная розница США 2026 (wristcheck.com)", checked: 2026-09-24, note: "самые доступные часы Patek Philippe"}
+    summary: Женские часы-манжета «на 24 часа в сутки». Прямоугольный корпус с бриллиантовыми рядами.
+    highlights: [Бриллиантовый безель, Кварцевый калибр E15, Вход в мир Patek]
+    render:
+      case: {shape: rect, material: steel, aspect: 1.2}
+      bezel: {type: smooth}
+      dial: {color: "#8a9099", finish: sunburst, indices: roman, lume: false}
+      hands: {style: baton, color: "#eef1f3", lume: false, seconds: none}
+      strap: {type: three_link}
+      logo: PATEK PHILIPPE
+    sort: 50

@@ -1,0 +1,141 @@
+brand:
+  slug: jaeger-lecoultre
+  name: Jaeger-LeCoultre
+  aliases: [жагер, жежер лекультр, jlc, джей эл си]
+  country: switzerland
+  founded: 1833
+  founder: Антуан Лекультр
+  city: Ле-Сантье
+  lat: 46.6089
+  lon: 6.2239
+  group: Richemont
+  tier: luxury
+  manufacture: full
+  manufacture_note: «Гранд-мезон» долины Жу. Под одной крышей около 180 ремёсел, а за историю мануфактура создала более 1 200 калибров и поставляла механизмы многим именитым маркам.
+  website: https://www.jaeger-lecoultre.com
+  sort: 7
+  tagline: Часовщик для часовщиков и создатель Reverso с переворачивающимся корпусом.
+  story:
+    - Антуан Лекультр открыл мастерскую в Ле-Сантье в 1833 году и изобрёл миллионометр, первый инструмент, измеряющий микрон. Мануфактура быстро стала поставщиком механизмов для Женевы.
+    - В 1931 году для игроков в поло в Британской Индии создали Reverso. Корпус переворачивался, защищая стекло от ударов клюшкой. Сегодня это одна из главных икон ар-деко.
+    - Jaeger-LeCoultre делала самый маленький механический калибр в мире (101, 1929), вечные часы Atmos, заводящиеся от перепадов температуры, и десятки сложнейших механизмов.
+  facts:
+    - {label: "Калибров создано", value: "более 1 200"}
+    - {label: "Reverso", value: "1931, для игроков в поло"}
+    - {label: "Самый маленький механизм", value: "калибр 101, 1929"}
+  milestones:
+    - {year: 1833, text: "Мастерская Антуана Лекультра"}
+    - {year: 1844, text: "Миллионометр"}
+    - {year: 1928, text: "Часы Atmos"}
+    - {year: 1929, text: "Калибр 101"}
+    - {year: 1931, text: "Reverso"}
+    - {year: 1937, text: "Имя Jaeger-LeCoultre"}
+    - {year: 1968, text: "Memovox Polaris"}
+
+movements:
+  - slug: jlc-822
+    caliber: Jaeger-LeCoultre 822/2
+    maker: Jaeger-LeCoultre
+    type: manual
+    in_house: true
+    power_reserve_h: 42
+    frequency_vph: 21600
+    jewels: 19
+    features: [Прямоугольная форма, Малая секунда]
+    description: Прямоугольный калибр с ручным заводом, созданный специально для корпуса Reverso.
+  - slug: jlc-899
+    caliber: Jaeger-LeCoultre 899
+    maker: Jaeger-LeCoultre
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 32
+    features: [Дата, Ротор из 22-каратного золота]
+    description: Современный автомат мануфактуры для Polaris и Master.
+  - slug: jlc-925
+    caliber: Jaeger-LeCoultre 925/1
+    maker: Jaeger-LeCoultre
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    features: [Фаза Луны, Указатель даты]
+    description: Тонкий автомат с фазой Луны для Master Ultra Thin.
+
+watches:
+  - slug: jaeger-lecoultre-reverso-tribute
+    name: Reverso Tribute Monoface Small Seconds
+    collection: Reverso
+    year_introduced: 1931
+    movement: jlc-822
+    complications: [small-seconds]
+    case: {diameter_mm: 27.4, thickness_mm: 8.5, material: Сталь, water_resistance_m: 30}
+    bracelet: Кожаный ремешок Casa Fagliano
+    dial: Солнечный с вертикальной фактурой
+    price: {usd: 11400, kind: msrp, source: jaeger-lecoultre.com (US), checked: 2026-09-24}
+    summary: Корпус, который переворачивается на 180 градусов. Икона ар-деко с 1931 года.
+    icon: true
+    story:
+      - По легенде, британские офицеры в Индии пожаловались, что при игре в поло разбивают стёкла часов. Сезар де Трей предложил корпус, который можно перевернуть металлической крышкой наружу.
+      - Патент получили в 1931 году, а производство взяла на себя LeCoultre. Название Reverso в переводе с латыни значит «я переворачиваюсь».
+      - Прямоугольная форма с тремя горизонтальными гадронами наверху и внизу стала классикой ар-деко. На обратной стороне часто гравируют инициалы владельца.
+    history:
+      - {year: 1931, title: "Для поло", text: "Патент на переворачивающийся корпус."}
+      - {year: 1991, ref: "Reverso Grande Taille", title: "Большой Reverso", text: "Увеличенный корпус к 60-летию модели."}
+      - {year: 2016, title: "Reverso Tribute", text: "Коллекция, возвращающая пропорции 1930-х."}
+    highlights: [Переворачивающийся корпус, Ручной завод, Место для гравировки на обороте]
+    render:
+      case: {shape: rect, material: steel, aspect: 1.62, lugs: none}
+      bezel: {type: none}
+      dial: {color: "#1d2c48", finish: sunburst, indices: baton, track: railway}
+      hands: {style: dauphine, color: "#dfe3e8", lume: false, seconds: small}
+      subdials: [{pos: 6, kind: small_seconds}]
+      strap: {type: leather, color: "#1a2233"}
+      logo: JAEGER-LECOULTRE
+    sort: 10
+
+  - slug: jaeger-lecoultre-polaris-date
+    name: Polaris Date
+    collection: Polaris
+    year_introduced: 1968
+    year_current: 2018
+    movement: jlc-899
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 42, thickness_mm: 12.6, material: Сталь, water_resistance_m: 200}
+    bracelet: Каучуковый ремешок
+    dial: Синий с градиентом
+    price: {usd: 13100, kind: msrp, source: "jaeger-lecoultre.com (US), версия бутика", checked: 2026-09-24}
+    summary: Спортивные часы с внутренним вращающимся кольцом и двумя головками. Наследник Memovox Polaris 1968 года.
+    highlights: [Внутреннее вращающееся кольцо, Две заводные головки, 70 часов]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#1f3860", color2: "#070b14", finish: fume, indices: arabic, track: minutes}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "3"
+      strap: {type: rubber, color: "#16181c"}
+      logo: JAEGER-LECOULTRE
+    sort: 20
+
+  - slug: jaeger-lecoultre-master-ultra-thin-moon
+    name: Master Ultra Thin Moon
+    collection: Master
+    year_introduced: 2016
+    movement: jlc-925
+    complications: [moonphase, date]
+    case: {diameter_mm: 39, thickness_mm: 9.9, material: Сталь, water_resistance_m: 50}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый солнечный
+    price: {usd: 12700, kind: estimate, source: "оценка по прайсу 2025", checked: 2026-09-24}
+    summary: Тонкие классические часы с фазой Луны. Минимум деталей, максимум чистоты.
+    highlights: ["Фаза Луны", "Толщина 9,9 мм", "Прозрачная задняя крышка"]
+    render:
+      case: {shape: round, material: steel, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e2e3e2", finish: sunburst, indices: baton, index_color: "#4b5058", text_color: "#2c3035", lume: false}
+      hands: {style: dauphine, color: "#4b5058", lume: false}
+      moonphase: "6"
+      strap: {type: alligator, color: "#2a1a12"}
+      logo: JAEGER-LECOULTRE
+    sort: 30

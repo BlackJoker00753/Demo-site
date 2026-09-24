@@ -1,0 +1,70 @@
+brand:
+  slug: junghans
+  name: Junghans
+  aliases: [юнгханс, юнганс]
+  country: germany
+  founded: 1861
+  founder: Эрхард Юнгханс
+  city: Шрамберг
+  lat: 48.2257
+  lon: 8.3842
+  independent: true
+  tier: accessible
+  manufacture: none
+  manufacture_note: Механика на базе ETA и Sellita, собственные кварцевые модули с радиосинхронизацией и солнечной подзарядкой.
+  website: https://www.junghans.de
+  sort: 5
+  tagline: Немецкий дизайн Макса Билла и первые наручные часы с радиосинхронизацией.
+  story:
+    - Эрхард Юнгханс основал фабрику в Шварцвальде в 1861 году. К 1903 году Junghans была крупнейшей часовой фабрикой мира.
+    - В 1956 году архитектор и выпускник Баухауса Макс Билл спроектировал для Junghans кухонные часы, а в 1961 году наручные. Их минималистичный дизайн выпускают до сих пор.
+    - В 1990 году Junghans MEGA стали первыми наручными часами с радиосинхронизацией времени.
+  facts:
+    - {label: "1903", value: "крупнейшая часовая фабрика мира"}
+    - {label: "Max Bill", value: "дизайн 1961 года"}
+    - {label: "MEGA", value: "первые радиочасы на руку, 1990"}
+  milestones:
+    - {year: 1861, text: "Основание в Шрамберге"}
+    - {year: 1903, text: "Крупнейшая фабрика мира"}
+    - {year: 1961, text: "Наручные часы Макса Билла"}
+    - {year: 1990, text: "MEGA с радиосинхронизацией"}
+
+movements:
+  - slug: junghans-j800
+    caliber: Junghans J800.1
+    maker: ETA для Junghans
+    type: automatic
+    in_house: false
+    base: ETA 2824-2
+    power_reserve_h: 38
+    frequency_vph: 28800
+    jewels: 25
+    features: [Дата]
+    description: Автомат на базе ETA 2824-2 для классики Max Bill.
+
+watches:
+  - slug: junghans-max-bill-automatic
+    name: Max Bill Automatic
+    collection: Max Bill
+    reference: 027/3500.02
+    year_introduced: 1961
+    movement: junghans-j800
+    complications: []
+    case: {diameter_mm: 38, thickness_mm: 10.0, material: Сталь, water_resistance_m: 30, crystal: Выпуклое сапфировое стекло с покрытием}
+    bracelet: Кожаный ремешок
+    dial: Серебристый матовый
+    price: {usd: 1100, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Минимализм Баухауса от архитектора Макса Билла. Тонкие цифры и выпуклое стекло.
+    icon: true
+    story:
+      - Макс Билл учился в Баухаусе у Вальтера Гропиуса и Пауля Клее. Для Junghans он создал циферблаты, где нет ничего лишнего, и каждая линия подчинена пропорции.
+    highlights: [Дизайн Макса Билла, Выпуклое стекло, Тонкий корпус]
+    render:
+      case: {shape: round, material: steel, lugs: wire, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e7e7e4", finish: matte, indices: arabic, text_color: "#2a2c30", lume: false}
+      hands: {style: pencil, color: "#2a2c30", lume: false}
+      crystal: domed
+      strap: {type: leather, color: "#1b1c20"}
+      logo: JUNGHANS
+    sort: 10

@@ -1,0 +1,176 @@
+brand:
+  slug: grand-seiko
+  name: Grand Seiko
+  aliases: [гранд сейко, гранд сэйко, gs]
+  country: japan
+  founded: 1960
+  founder: Seiko (Суваси Сэйкося и Даини Сэйкося)
+  city: Сидзукуиси
+  lat: 39.6958
+  lon: 140.9842
+  group: Seiko Group
+  tier: luxury
+  manufacture: full
+  manufacture_note: Механику собирают в студии Сидзукуиси у подножия горы Ивате, Spring Drive и кварц в студии Синсю в Сиодзири. Корпуса полируют методом дзарацу.
+  website: https://www.grand-seiko.com
+  sort: 2
+  tagline: Японское совершенство. Полировка дзарацу, Spring Drive и циферблаты, вдохновлённые природой.
+  story:
+    - Grand Seiko появилась в 1960 году с целью сделать лучшие часы в мире. В 1967 году дизайнер Таро Танака сформулировал «стиль Grand Seiko» с плоскими гранями, отполированными до зеркала без искажений.
+    - В 1990-х Seiko довела до серии Spring Drive, механизм с пружиной и электронным тормозом. Его секундная стрелка скользит абсолютно плавно, а точность достигает ±1 секунды в сутки.
+    - С 2017 года Grand Seiko работает как отдельная марка. Её циферблаты повторяют снег на горе Ивате, кору белых берёз и воду озера Сува.
+  facts:
+    - {label: "Полировка", value: "дзарацу, зеркало без искажений"}
+    - {label: "Spring Drive", value: "±1 с в сутки"}
+    - {label: "Самостоятельная марка", value: "с 2017 года"}
+  milestones:
+    - {year: 1960, text: "Первые Grand Seiko"}
+    - {year: 1967, text: "Стиль Grand Seiko, 44GS"}
+    - {year: 1999, text: "Spring Drive"}
+    - {year: 2005, text: "Снежинка SBGA011"}
+    - {year: 2017, text: "Независимая марка"}
+    - {year: 2020, text: "Калибр 9SA5"}
+
+movements:
+  - slug: gs-9r65
+    caliber: Grand Seiko 9R65
+    maker: Grand Seiko
+    type: spring_drive
+    in_house: true
+    power_reserve_h: 72
+    jewels: 30
+    year: 2004
+    accuracy: ±1 с в сутки
+    features: [Плавное движение секундной стрелки, Регулятор Tri-synchro, Индикатор запаса хода]
+    description: Spring Drive. Пружина вращает колёса, а скользящее колесо-генератор тормозится электромагнитом по сигналу кварца.
+  - slug: gs-9sa5
+    caliber: Grand Seiko 9SA5
+    maker: Grand Seiko
+    type: automatic
+    in_house: true
+    power_reserve_h: 80
+    frequency_vph: 36000
+    jewels: 47
+    year: 2020
+    accuracy: +5/−3 с в сутки
+    features: [Спуск Dual Impulse, Частота 5 Гц, Мост баланса с двумя опорами]
+    description: Лучший механический калибр Grand Seiko с собственным спуском Dual Impulse.
+  - slug: gs-9s64
+    caliber: Grand Seiko 9S64
+    maker: Grand Seiko
+    type: manual
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    jewels: 24
+    accuracy: +5/−3 с в сутки
+    features: [Ручной завод, Спираль SPRON]
+    description: Классический калибр с ручным заводом и трёхдневным запасом хода.
+  - slug: gs-9f86
+    caliber: Grand Seiko 9F86
+    maker: Grand Seiko
+    type: quartz
+    in_house: true
+    accuracy: ±10 с в год
+    features: [GMT, Мгновенная смена даты, Компенсация температуры]
+    description: Кварц, который Seiko называет «механикой в мире кварца». Точность ±10 секунд в год.
+
+watches:
+  - slug: grand-seiko-snowflake
+    name: Snowflake
+    collection: Heritage
+    reference: SBGA211
+    year_introduced: 2005
+    year_current: 2017
+    movement: gs-9r65
+    complications: [power-reserve]
+    case: {diameter_mm: 41, thickness_mm: 12.5, material: Титан High-Intensity, water_resistance_m: 100}
+    bracelet: Титановый браслет
+    dial: Белый «снежинка»
+    price: {usd: 6900, kind: msrp, source: "grandseikoboutique.us по данным поиска", checked: 2026-09-24}
+    summary: Циферблат, похожий на заснеженное поле у студии в Сидзукуиси, и секундная стрелка, скользящая как вода.
+    icon: true
+    story:
+      - Snowflake повторяет вид заснеженных полей вокруг горы Ивате. Фактуру наносят на циферблат вручную, серебрят и покрывают лаком.
+      - Главное внутри. Spring Drive 9R65 соединяет заводную пружину с кварцевым регулятором, поэтому секундная стрелка не тикает, а плывёт.
+    highlights: [Spring Drive, Циферблат «снежинка», Лёгкий титан]
+    render:
+      case: {shape: round, material: titanium, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#eef0f2", finish: snowflake, indices: baton, index_color: "#8a9099", text_color: "#394150", lume: false}
+      hands: {style: dauphine, color: "#c9ced4", lume: false, seconds_color: "#2f58a5"}
+      subdials: [{pos: 9, kind: power_reserve, color: "#eef0f2"}]
+      date: "3"
+      strap: {type: titanium}
+      logo: GRAND SEIKO
+    sort: 10
+
+  - slug: grand-seiko-white-birch
+    name: White Birch
+    collection: Evolution 9
+    reference: SLGH005
+    year_introduced: 2021
+    movement: gs-9sa5
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 11.7, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Белый с фактурой берёзовой коры
+    price: {usd: 9800, kind: msrp, source: "grandseikoboutique.us по данным поиска", checked: 2026-09-24}
+    summary: Циферблат, повторяющий кору берёз вокруг студии Сидзукуиси, и калибр 9SA5 с частотой 5 Гц.
+    icon: true
+    highlights: [Калибр 9SA5 на 80 часов, Спуск Dual Impulse, Фактура берёзовой коры]
+    render:
+      case: {shape: round, material: steel, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#eceeef", finish: linen, indices: baton, index_color: "#8a9099", text_color: "#394150", lume: false}
+      hands: {style: dauphine, color: "#c9ced4", lume: false}
+      date: "3"
+      strap: {type: three_link}
+      logo: GRAND SEIKO
+    sort: 20
+
+  - slug: grand-seiko-sbgw231
+    name: Elegance SBGW231
+    collection: Elegance
+    reference: SBGW231
+    year_introduced: 1960
+    movement: gs-9s64
+    complications: []
+    case: {diameter_mm: 37.3, thickness_mm: 11.6, material: Сталь, water_resistance_m: 30}
+    bracelet: Ремешок из кожи крокодила
+    dial: Кремовый
+    price: {usd: 4300, kind: msrp, source: "grandseikoboutique.us по данным поиска", checked: 2026-09-24}
+    summary: Классика с ручным заводом в духе первых Grand Seiko 1960 года.
+    highlights: [Ручной завод, 72 часа, Полировка дзарацу]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: none}
+      dial: {color: "#efe8d8", finish: matte, indices: baton, index_color: "#8a8272", text_color: "#3a3428", lume: false}
+      hands: {style: dauphine, color: "#bcbfc3", lume: false}
+      crystal: box
+      strap: {type: alligator, color: "#1b1c20"}
+      logo: GRAND SEIKO
+    sort: 30
+
+  - slug: grand-seiko-quartz-gmt
+    name: Sport Quartz GMT
+    collection: Sport
+    reference: SBGN027
+    year_introduced: 1993
+    movement: gs-9f86
+    complications: [gmt, date]
+    case: {diameter_mm: 39, thickness_mm: 12.2, material: Сталь, water_resistance_m: 200}
+    bracelet: Стальной браслет
+    dial: Чёрный
+    price: {usd: 3700, kind: msrp, source: "grandseikoboutique.us по данным поиска", checked: 2026-09-24}
+    summary: Кварц уровня Grand Seiko. Точность ±10 секунд в год и функция GMT.
+    highlights: [±10 с в год, GMT, Самый доступный Grand Seiko]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: gmt, color: "#111214", color2: "#2b2e33", material: ceramic}
+      dial: {color: "#101113", finish: matte, indices: baton}
+      hands: {style: dauphine, color: "#dfe3e6", gmt_color: "#d9b44a"}
+      date: "3"
+      strap: {type: three_link}
+      logo: GRAND SEIKO
+    sort: 40

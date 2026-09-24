@@ -1,0 +1,104 @@
+brand:
+  slug: swatch
+  name: Swatch
+  aliases: [свотч, своч]
+  country: switzerland
+  founded: 1983
+  founder: Николас Хайек, Эрнст Томке, Эльмар Мок, Жак Мюллер
+  city: Биль
+  lat: 47.1368
+  lon: 7.2468
+  group: Swatch Group
+  tier: accessible
+  manufacture: full
+  manufacture_note: Механизмы делает ETA из той же группы. Sistem51 собирается полностью автоматически из 51 детали.
+  website: https://www.swatch.com
+  sort: 22
+  tagline: Пластиковые часы, которые спасли всю швейцарскую часовую индустрию.
+  story:
+    - К началу 1980-х кварц из Японии почти уничтожил швейцарскую отрасль. Инженеры Эльмар Мок и Жак Мюллер придумали часы из 51 детали, собираемые роботами, а Николас Хайек превратил их в модный аксессуар.
+    - Swatch (Second watch, «вторые часы») 1983 года продавались миллионами. На вырученные деньги Хайек собрал Swatch Group, в которую сегодня входят Omega, Breguet, Blancpain, Longines и Tissot.
+    - В 2022 году MoonSwatch, сделанные вместе с Omega, вызвали очереди у бутиков по всему миру.
+  facts:
+    - {label: "Деталей в первых Swatch", value: "51"}
+    - {label: "Спасение отрасли", value: "1983"}
+    - {label: "MoonSwatch", value: "2022, вместе с Omega"}
+  milestones:
+    - {year: 1983, text: "Первые Swatch"}
+    - {year: 1998, text: "Появилось название Swatch Group"}
+    - {year: 2013, text: "Механика Sistem51"}
+    - {year: 2022, text: "MoonSwatch"}
+
+movements:
+  - slug: swatch-sistem51
+    caliber: Swatch Sistem51
+    maker: Swatch (ETA)
+    type: automatic
+    in_house: true
+    power_reserve_h: 90
+    frequency_vph: 21600
+    jewels: 19
+    year: 2013
+    features: [51 деталь, Один центральный винт, Полностью автоматическая сборка]
+    description: Автоматический механизм из 51 детали, собранный без участия человека и закрытый навсегда. Обслуживать его не нужно.
+  - slug: swatch-quartz-chrono
+    caliber: Swatch кварцевый хронограф
+    maker: Swatch (ETA)
+    type: quartz
+    in_house: true
+    features: [Хронограф, Батарея под крышкой с изображением Луны]
+    description: Кварцевый хронограф MoonSwatch в корпусе из биокерамики.
+
+watches:
+  - slug: swatch-moonswatch
+    name: MoonSwatch Mission to the Moon
+    collection: MoonSwatch
+    reference: SO33M100
+    year_introduced: 2022
+    movement: swatch-quartz-chrono
+    complications: [chronograph, tachymeter]
+    case: {diameter_mm: 42, thickness_mm: 13.25, material: Биокерамика, water_resistance_m: 30, crystal: Биопластик}
+    bracelet: Велкро-ремешок
+    dial: Чёрный
+    price: {usd: 260, kind: estimate, source: "swatch.com, цена 2024 (по данным поиска)", checked: 2026-09-24}
+    summary: Speedmaster из биокерамики за несколько сотен долларов. Самый громкий запуск часов десятилетия.
+    icon: true
+    story:
+      - 26 марта 2022 года у бутиков Swatch по всему миру выстроились многочасовые очереди. MoonSwatch повторял форму Speedmaster Moonwatch, но стоил в тридцать раз дешевле.
+      - Одиннадцать версий посвящены планетам Солнечной системы, Солнцу и Луне. Биокерамика состоит из керамики и материала на основе касторового масла.
+    highlights: [Форма Speedmaster, Биокерамика, Одиннадцать «планет»]
+    render:
+      case: {shape: round, material: ceramic_black, pushers: 2}
+      bezel: {type: tachymeter, color: "#0f1012", material: aluminium}
+      dial: {color: "#0e0f11", finish: matte, indices: baton, track: railway}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#141518"}
+        - {pos: 6, kind: chrono_hr, color: "#141518"}
+        - {pos: 9, kind: small_seconds, color: "#141518"}
+      crystal: domed
+      strap: {type: nato, color: "#121315"}
+      logo: OMEGA X SWATCH
+    sort: 10
+
+  - slug: swatch-sistem51
+    name: Sistem51 Sea Flex
+    collection: Sistem51
+    year_introduced: 2013
+    movement: swatch-sistem51
+    complications: [date]
+    case: {diameter_mm: 42, material: Биопластик, water_resistance_m: 30}
+    bracelet: Силиконовый ремешок
+    dial: Синий
+    price: {usd: 190, kind: msrp, source: swatch.com (US), url: "https://www.swatch.com/en-us/sistem-51.html", checked: 2026-09-24}
+    summary: Самые доступные швейцарские механические часы в атласе. 51 деталь и 90 часов запаса хода.
+    highlights: [51 деталь, 90 часов, Прозрачная задняя крышка]
+    render:
+      case: {shape: round, material: resin_white, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#1f4f8c", finish: matte, indices: sticks}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: rubber, color: "#1f4f8c"}
+      logo: SWATCH
+    sort: 20

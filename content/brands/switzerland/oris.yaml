@@ -1,0 +1,104 @@
+brand:
+  slug: oris
+  name: Oris
+  aliases: [орис]
+  country: switzerland
+  founded: 1904
+  founder: Поль Каттен и Жорж Кристиан
+  city: Хёльштайн
+  lat: 47.4230
+  lon: 7.7700
+  independent: true
+  tier: mid
+  manufacture: partial
+  manufacture_note: С 2020 года Oris выпускает собственный калибр 400. В остальных моделях стоят доработанные механизмы Sellita.
+  website: https://www.oris.ch
+  sort: 19
+  tagline: Независимая марка из Хёльштайна. Механика, экология и красная точка на роторе.
+  story:
+    - Поль Каттен и Жорж Кристиан открыли фабрику в деревне Хёльштайн в 1904 году и назвали её в честь ближайшего ручья. К 1930-м Oris была крупнейшим работодателем в регионе.
+    - В 1982 году менеджмент выкупил компанию у группы ASUAG и решил выпускать только механические часы. Этот выбор помог пережить кварцевый кризис.
+    - Oris остаётся независимой и известна экологическими проектами. Калибр 400 2020 года получил пять суток запаса хода и 10 лет гарантии.
+  facts:
+    - {label: "Независимость", value: "с 1982 года"}
+    - {label: "Калибр 400", value: "120 часов, 10 лет гарантии"}
+    - {label: "Фирменный знак", value: "красный ротор"}
+  milestones:
+    - {year: 1904, text: "Основание в Хёльштайне"}
+    - {year: 1938, text: "Big Crown для пилотов"}
+    - {year: 1965, text: "Первые дайверские часы"}
+    - {year: 1982, text: "Выкуп менеджментом"}
+    - {year: 2020, text: "Калибр 400"}
+
+movements:
+  - slug: oris-400
+    caliber: Oris 400
+    maker: Oris
+    type: automatic
+    in_house: true
+    power_reserve_h: 120
+    frequency_vph: 28800
+    jewels: 21
+    year: 2020
+    features: [Два барабана, Устойчивость к магнитам 2 250 гаусс, Гарантия 10 лет]
+    description: Первый собственный автомат Oris нового времени. Детали из немагнитных сплавов и интервал обслуживания 10 лет.
+  - slug: oris-733
+    caliber: Oris 733
+    maker: Sellita для Oris
+    type: automatic
+    in_house: false
+    base: Sellita SW200-1
+    power_reserve_h: 41
+    frequency_vph: 28800
+    jewels: 26
+    features: [Красный ротор, Дата]
+    description: Надёжная база Sellita с фирменным красным ротором Oris.
+
+watches:
+  - slug: oris-aquis-date-calibre-400
+    name: Aquis Date Calibre 400
+    collection: Aquis
+    reference: 01 400 7763 4135-07 8 22 09PEB
+    year_introduced: 2011
+    year_current: 2020
+    movement: oris-400
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 41.5, thickness_mm: 12.7, material: Сталь, water_resistance_m: 300}
+    bracelet: Стальной браслет
+    dial: Синий солнечный
+    price: {usd: 5150, kind: estimate, source: "hamiltonjewelers.com, розница 2026", checked: 2026-09-24}
+    summary: Профессиональный дайвер с пятью сутками запаса хода и десятилетней гарантией.
+    icon: true
+    highlights: [120 часов, 300 м, Гарантия 10 лет]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: dive, color: "#1b2d52", material: ceramic}
+      dial: {color: "#1d3a6e", finish: sunburst, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "6"
+      strap: {type: three_link}
+      logo: ORIS
+    sort: 10
+
+  - slug: oris-divers-sixty-five
+    name: Divers Sixty-Five
+    collection: Divers Sixty-Five
+    year_introduced: 1965
+    year_current: 2015
+    movement: oris-733
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 40, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Чёрный с состаренным люминофором
+    price: {usd: 2500, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Переиздание первых дайверских часов Oris 1965 года с выпуклым стеклом и винтажным люминофором.
+    highlights: [Винтажный стиль, Выпуклое сапфировое стекло, 100 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#111214", material: aluminium}
+      dial: {color: "#0f1012", finish: matte, indices: dots, lume_color: "#e8d6ae"}
+      hands: {style: baton, color: "#e8e3d6"}
+      crystal: box
+      strap: {type: three_link}
+      logo: ORIS
+    sort: 20

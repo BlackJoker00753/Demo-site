@@ -1,0 +1,62 @@
+brand:
+  slug: orient
+  name: Orient
+  aliases: [ориент]
+  country: japan
+  founded: 1950
+  founder: Сёгоро Ёсида
+  city: Токио
+  lat: 35.6940
+  lon: 139.7530
+  group: Seiko Epson
+  tier: accessible
+  manufacture: full
+  manufacture_note: Собственные механизмы на фабрике в Аките. Марка годами выпускает механику там, где конкуренты ставят кварц.
+  website: https://www.orient-watch.com
+  sort: 5
+  tagline: Самая доступная японская механика. Классика Bambino за цену ужина в ресторане.
+  story:
+    - Компания выросла из токийского магазина часов Сёгоро Ёсиды и в 1950 году начала выпускать собственные часы. С 2009 года Orient входит в Seiko Epson.
+    - Марка остаётся верной механике даже в самом доступном сегменте. Bambino с выпуклым стеклом стали для многих первыми механическими часами.
+  facts:
+    - {label: "Владелец", value: "Seiko Epson"}
+    - {label: "Фабрика", value: "Акита"}
+  milestones:
+    - {year: 1950, text: "Первые часы Orient"}
+    - {year: 2009, text: "Вошла в Seiko Epson"}
+
+movements:
+  - slug: orient-f6724
+    caliber: Orient F6724
+    maker: Orient
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 21600
+    jewels: 22
+    features: [Ручной подзавод, Остановка секундной стрелки]
+    description: Недорогой собственный автомат Orient.
+
+watches:
+  - slug: orient-bambino
+    name: Bambino
+    collection: Bambino
+    reference: RA-AC0M03Y30B
+    year_introduced: 2012
+    movement: orient-f6724
+    complications: []
+    case: {diameter_mm: 38.4, thickness_mm: 12.4, material: Сталь, water_resistance_m: 30, crystal: Выпуклое минеральное стекло}
+    bracelet: Кожаный ремешок
+    dial: Синий выпуклый
+    price: {usd: 220, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Классические механические часы с выпуклым стеклом и циферблатом. Вход в механику дешевле некуда.
+    highlights: [Автоподзавод, Выпуклое стекло, Винтажный стиль]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: none}
+      dial: {color: "#1d3a6e", finish: sunburst, indices: roman, lume: false}
+      hands: {style: dauphine, color: "#eef1f3", lume: false}
+      crystal: domed
+      strap: {type: leather, color: "#3a2a20"}
+      logo: ORIENT
+    sort: 10

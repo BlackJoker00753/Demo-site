@@ -1,0 +1,144 @@
+brand:
+  slug: zenith
+  name: Zenith
+  aliases: [зенит, зенис]
+  country: switzerland
+  founded: 1865
+  founder: Жорж Фавр-Жако
+  city: Ле-Локль
+  lat: 47.0590
+  lon: 6.7440
+  group: LVMH
+  tier: luxury
+  manufacture: full
+  manufacture_note: Одна из немногих полноценных мануфактур. Легендарный высокочастотный хронограф El Primero работает с 1969 года.
+  website: https://www.zenith-watches.com
+  sort: 16
+  tagline: Дом El Primero, первого автоматического хронографа с частотой 5 Гц.
+  story:
+    - Жорж Фавр-Жако в 22 года основал в Ле-Локле мануфактуру, где впервые собрал все этапы производства под одной крышей. Его компания получила более двух тысяч наград за точность.
+    - В 1969 году Zenith представила El Primero, интегрированный автоматический хронограф с частотой 36 000 полуколебаний в час, измеряющий десятые доли секунды.
+    - Во время кварцевого кризиса руководство приказало уничтожить оснастку El Primero. Инженер Шарль Вермо спрятал её на чердаке, и в 1984 году производство легенды удалось возобновить.
+  facts:
+    - {label: "El Primero", value: "1969, 36 000 пк/ч"}
+    - {label: "Спаситель", value: "Шарль Вермо спрятал оснастку"}
+    - {label: "Премии за точность", value: "более 2 300"}
+  milestones:
+    - {year: 1865, text: "Основание в Ле-Локле"}
+    - {year: 1969, text: "El Primero"}
+    - {year: 1975, text: "Вермо прячет оснастку"}
+    - {year: 1988, text: "El Primero в Rolex Daytona"}
+    - {year: 1999, text: "Вошла в LVMH"}
+    - {year: 2022, text: "Defy Skyline"}
+
+movements:
+  - slug: zenith-el-primero-3600
+    caliber: Zenith El Primero 3600
+    maker: Zenith
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 36000
+    jewels: 35
+    year: 2019
+    features: [Хронограф 1/10 секунды, Колонное колесо, Частота 5 Гц]
+    description: Современный El Primero. Центральная стрелка хронографа делает оборот за 10 секунд и показывает десятые доли.
+  - slug: zenith-el-primero-3620
+    caliber: Zenith El Primero 3620
+    maker: Zenith
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 36000
+    jewels: 31
+    year: 2022
+    features: [Малая секунда с оборотом за 10 секунд, Частота 5 Гц]
+    description: Трёхстрелочный El Primero, у которого малая секундная стрелка отсчитывает десятые доли.
+
+watches:
+  - slug: zenith-chronomaster-original
+    name: Chronomaster Original
+    collection: Chronomaster
+    reference: 03.3200.3600/21.M3200
+    year_introduced: 1969
+    year_current: 2021
+    movement: zenith-el-primero-3600
+    complications: [chronograph, date, tachymeter]
+    case: {diameter_mm: 38, thickness_mm: 12.9, material: Сталь, water_resistance_m: 50}
+    bracelet: Стальной браслет «лесенка»
+    dial: Белый с трёхцветными счётчиками
+    price: {usd: 8560, kind: msrp, source: "prestigetime.com (прайс розницы)", checked: 2026-09-24}
+    summary: Точная копия El Primero 1969 года с трёхцветными счётчиками и механизмом, считающим десятые доли секунды.
+    icon: true
+    story:
+      - A386 1969 года с трёхцветными счётчиками (серый, синий, антрацит) стал лицом El Primero. Chronomaster Original повторяет его пропорции 38 мм.
+      - Центральная стрелка хронографа делает полный оборот за 10 секунд. Такое возможно только при частоте 5 Гц.
+    history:
+      - {year: 1969, ref: "A386", title: "El Primero", text: "Первый интегрированный автоматический хронограф 5 Гц."}
+      - {year: 2019, title: "El Primero 3600", text: "Десятые доли секунды на центральной стрелке."}
+      - {year: 2021, ref: "03.3200.3600", title: "Chronomaster Original", text: "Возвращение к 38 мм и трёхцветным счётчикам."}
+    highlights: [Частота 5 Гц, 1/10 секунды, Трёхцветные счётчики 1969 года]
+    render:
+      case: {shape: round, material: steel, pushers: 2, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#eeeeea", finish: matte, indices: baton, index_color: "#3a3d42", text_color: "#1d1f22", track: tachy}
+      hands: {style: baton, color: "#dfe3e6", seconds_color: "#c8322b"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#4a5a78"}
+        - {pos: 6, kind: chrono_hr, color: "#9aa0a8"}
+        - {pos: 9, kind: small_seconds, color: "#2a2d33"}
+      date: "4_30"
+      strap: {type: three_link}
+      logo: ZENITH
+    sort: 10
+
+  - slug: zenith-chronomaster-sport
+    name: Chronomaster Sport
+    collection: Chronomaster
+    reference: 03.3100.3600/69.M3100
+    year_introduced: 2021
+    movement: zenith-el-primero-3600
+    complications: [chronograph, date, tachymeter]
+    case: {diameter_mm: 41, thickness_mm: 13.6, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Чёрный с трёхцветными счётчиками
+    price: {usd: 11000, kind: msrp, source: "zenith-watches.com (US) по данным поиска", checked: 2026-09-24}
+    summary: Спортивный хронограф с керамическим безелем, размеченным для десятых долей секунды.
+    highlights: [Керамический безель с делениями 1/10 секунды, 5 Гц, 60 часов]
+    render:
+      case: {shape: round, material: steel, pushers: 2, crown_guard: false}
+      bezel: {type: tachymeter, color: "#0e0f11", material: ceramic}
+      dial: {color: "#101113", finish: matte, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#4a5a78"}
+        - {pos: 6, kind: chrono_hr, color: "#9aa0a8"}
+        - {pos: 9, kind: small_seconds, color: "#2a2d33"}
+      date: "4_30"
+      strap: {type: three_link}
+      logo: ZENITH
+    sort: 20
+
+  - slug: zenith-defy-skyline
+    name: Defy Skyline
+    collection: Defy
+    reference: 03.9300.3620/51.I001
+    year_introduced: 2022
+    movement: zenith-el-primero-3620
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 11.6, material: Сталь, water_resistance_m: 100}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий с гравировкой звёздочками
+    price: {usd: 9600, kind: estimate, source: "оценка по прайсу 2024", checked: 2026-09-24}
+    summary: Интегрированный браслет, двенадцатигранный безель и малая секунда, которая бежит быстрее обычной в шесть раз.
+    highlights: [Двенадцатигранный безель, 1/10 секунды на малой секундной стрелке, Сменный ремешок]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: octagon}
+      dial: {color: "#233c6e", finish: clous, indices: baton}
+      hands: {style: sword, color: "#eef1f3", seconds: small}
+      subdials: [{pos: 9, kind: small_seconds, color: "#233c6e"}]
+      date: "3"
+      strap: {type: integrated}
+      logo: ZENITH
+    sort: 30

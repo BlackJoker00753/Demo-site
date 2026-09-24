@@ -1,0 +1,70 @@
+brand:
+  slug: glashutte-original
+  name: Glashütte Original
+  aliases: [глашютте ориджинал, глашутте]
+  country: germany
+  founded: 1845
+  founder: Наследник мануфактур Глашютте (GUB)
+  city: Глашютте
+  lat: 50.8540
+  lon: 13.7760
+  group: Swatch Group
+  tier: luxury
+  manufacture: full
+  manufacture_note: Полный цикл в Глашютте, включая собственные циферблаты из пфорцхаймской мастерской.
+  website: https://www.glashuette-original.com
+  sort: 2
+  tagline: Наследник всей часовой традиции Глашютте и мастер асимметричных циферблатов.
+  story:
+    - После войны все мануфактуры Глашютте объединили в народное предприятие GUB, которое выпускало часы для стран соцлагеря.
+    - В 1990 году компанию приватизировали, в 1994 году она стала называться Glashütte Original, а в 2000 году вошла в Swatch Group.
+    - Фирменный стиль марки, смещённые от центра индикации «Pano» с большой датой и фазой Луны.
+  facts:
+    - {label: "Корни", value: "традиция Глашютте с 1845"}
+    - {label: "GUB", value: "1951-1990"}
+    - {label: "Swatch Group", value: "с 2000 года"}
+  milestones:
+    - {year: 1951, text: "Народное предприятие GUB"}
+    - {year: 1994, text: "Марка Glashütte Original"}
+    - {year: 2000, text: "Вошла в Swatch Group"}
+
+movements:
+  - slug: go-90-02
+    caliber: Glashütte Original 90-02
+    maker: Glashütte Original
+    type: automatic
+    in_house: true
+    power_reserve_h: 42
+    frequency_vph: 28800
+    jewels: 47
+    features: [Панорамная дата, Фаза Луны, Регулировка «лебединая шея», Скелетный ротор с золотым грузом]
+    description: Автомат для PanoMaticLunar с асимметричной компоновкой индикаций.
+
+watches:
+  - slug: glashutte-original-panomaticlunar
+    name: PanoMaticLunar
+    collection: Pano
+    reference: 1-90-02-42-32-61
+    year_introduced: 2003
+    movement: go-90-02
+    complications: [big-date, moonphase, small-seconds]
+    case: {diameter_mm: 40, thickness_mm: 12.7, material: Сталь, water_resistance_m: 50}
+    bracelet: Кожаный ремешок
+    dial: Серебристый
+    price: {usd: 11300, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Асимметричный циферблат с панорамной датой и фазой Луны. Визитная карточка марки.
+    icon: true
+    highlights: [Панорамная дата, Фаза Луны, Скелетный ротор]
+    render:
+      case: {shape: round, material: steel, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e6e6e3", finish: grained, indices: roman, text_color: "#23324f", index_color: "#23324f", lume: false}
+      hands: {style: leaf, color: "#1f3a8a", lume: false, seconds: small}
+      date: big_12
+      subdials:
+        - {pos: 6, kind: small_seconds, color: "#e1e1de"}
+        - {pos: 9, kind: moonphase}
+      strap: {type: leather, color: "#2a1a12"}
+      logo: GLASHÜTTE ORIGINAL
+      movement_plate: german_silver
+    sort: 10

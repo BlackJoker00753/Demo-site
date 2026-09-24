@@ -1,0 +1,102 @@
+brand:
+  slug: hublot
+  name: Hublot
+  aliases: [хублот, юбло]
+  country: switzerland
+  founded: 1980
+  founder: Карло Крокко
+  city: Ньон
+  lat: 46.3833
+  lon: 6.2400
+  group: LVMH
+  tier: luxury
+  manufacture: partial
+  manufacture_note: Хронограф Unico собственный. В базовых моделях стоят доработанные механизмы на базе Sellita.
+  website: https://www.hublot.com
+  sort: 20
+  tagline: "«Искусство синтеза»: золото и каучук, керамика и сапфир."
+  story:
+    - В 1980 году итальянец Карло Крокко выпустил золотые часы на каучуковом ремешке. Тогда это казалось кощунством, а Hublot (по-французски «иллюминатор») продавалась в основном королевским семьям.
+    - В 2005 году Жан-Клод Бивер представил Big Bang, массивный хронограф из разных материалов. Марка стала символом нового люкса и в 2008 году вошла в LVMH.
+    - "Hublot экспериментирует с материалами: собственное нецарапающееся золото Magic Gold, цветная керамика и корпуса из цельного сапфира."
+  facts:
+    - {label: "Имя", value: "«иллюминатор» по-французски"}
+    - {label: "Big Bang", value: "2005, Жан-Клод Бивер"}
+    - {label: "Magic Gold", value: "нецарапающееся золото"}
+  milestones:
+    - {year: 1980, text: "Золото на каучуке"}
+    - {year: 2005, text: "Big Bang"}
+    - {year: 2008, text: "Вошла в LVMH"}
+    - {year: 2010, text: "Хронограф Unico"}
+
+movements:
+  - slug: hublot-hub1280
+    caliber: Hublot HUB1280 Unico
+    maker: Hublot
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    jewels: 43
+    year: 2010
+    features: [Хронограф флайбэк, Колонное колесо со стороны циферблата]
+    description: Собственный хронограф Hublot, колонное колесо которого видно через скелетонированный циферблат.
+  - slug: hublot-hub1112
+    caliber: Hublot HUB1112
+    maker: Sellita для Hublot
+    type: automatic
+    in_house: false
+    base: Sellita SW300-1
+    power_reserve_h: 42
+    frequency_vph: 28800
+    features: [Дата]
+    description: Тонкий автомат на базе Sellita для Classic Fusion.
+
+watches:
+  - slug: hublot-big-bang-unico
+    name: Big Bang Original Unico Titanium 42
+    collection: Big Bang
+    year_introduced: 2005
+    year_current: 2026
+    movement: hublot-hub1280
+    complications: [chronograph, flyback, date]
+    case: {diameter_mm: 42, thickness_mm: 14.5, material: Титан, water_resistance_m: 100}
+    bracelet: Каучуковый ремешок
+    dial: Скелетонированный
+    price: {usd: 21000, kind: estimate, source: "пересчёт цены CHF 16 900 (monochrome-watches.com)", checked: 2026-09-24}
+    summary: Хронограф «Искусства синтеза» с шестью винтами на безеле и скелетонированным циферблатом.
+    icon: true
+    highlights: [Собственный хронограф Unico, Шесть винтов в форме H, Титан]
+    render:
+      case: {shape: round, material: titanium, pushers: 2}
+      bezel: {type: screws}
+      dial: {color: "#18191c", finish: skeleton, indices: baton}
+      hands: {style: skeleton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#202226"}
+        - {pos: 9, kind: small_seconds, color: "#202226"}
+      strap: {type: rubber, color: "#141517"}
+      logo: HUBLOT
+    sort: 10
+
+  - slug: hublot-classic-fusion
+    name: Classic Fusion Titanium 42
+    collection: Classic Fusion
+    year_introduced: 2008
+    movement: hublot-hub1112
+    complications: [date]
+    case: {diameter_mm: 42, material: Титан, water_resistance_m: 50}
+    bracelet: Каучуковый ремешок с фактурой кожи
+    dial: Чёрный матовый
+    price: {usd: 9300, kind: msrp, source: "hublot.com (US) по данным поиска", checked: 2026-09-24}
+    summary: Самые сдержанные Hublot. Корпус-иллюминатор с шестью винтами и тонкий автомат.
+    highlights: [Корпус-иллюминатор, Шесть винтов, Титан]
+    render:
+      case: {shape: round, material: titanium}
+      bezel: {type: screws}
+      dial: {color: "#141517", finish: matte, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: rubber, color: "#141517"}
+      logo: HUBLOT
+    sort: 20

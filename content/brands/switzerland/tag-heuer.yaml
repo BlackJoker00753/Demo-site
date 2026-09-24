@@ -1,0 +1,179 @@
+brand:
+  slug: tag-heuer
+  name: TAG Heuer
+  aliases: [таг хоер, таг хойер, хойер, heuer]
+  country: switzerland
+  founded: 1860
+  founder: Эдуар Хойер
+  city: Ла-Шо-де-Фон
+  lat: 47.1035
+  lon: 6.8328
+  group: LVMH
+  tier: premium
+  manufacture: partial
+  manufacture_note: Хронографы Heuer 02 марка делает сама. В трёхстрелочных моделях стоят доработанные механизмы на базе Sellita.
+  website: https://www.tagheuer.com
+  sort: 14
+  tagline: "Хронографы автогонок: Carrera, Monaco и Стив Маккуин."
+  story:
+    - Эдуар Хойер открыл мастерскую в Сент-Имье в 1860 году и в 1887 году запатентовал качающуюся шестерню, которая до сих пор используется в хронографах.
+    - В 1916 году Mikrograph впервые измерял время с точностью до сотой доли секунды. В 1969 году Heuer вместе с партнёрами выпустила Calibre 11, один из первых автоматических хронографов.
+    - Квадратный Monaco прославил Стив Маккуин в фильме «Ле-Ман» 1971 года. В 1985 году компанию купила группа TAG, а в 1999 году марка вошла в LVMH.
+  facts:
+    - {label: "Качающаяся шестерня", value: "патент 1887"}
+    - {label: "Mikrograph", value: "1/100 секунды, 1916"}
+    - {label: "Monaco", value: "первый квадратный водонепроницаемый хронограф-автомат"}
+  milestones:
+    - {year: 1860, text: "Основание Эдуаром Хойером"}
+    - {year: 1887, text: "Качающаяся шестерня"}
+    - {year: 1963, text: "Carrera"}
+    - {year: 1969, text: "Monaco и Calibre 11"}
+    - {year: 1985, text: "TAG Heuer"}
+    - {year: 2017, text: "Калибр Heuer 02"}
+
+movements:
+  - slug: tag-heuer-02
+    caliber: TAG Heuer Heuer 02
+    maker: TAG Heuer
+    type: automatic
+    in_house: true
+    power_reserve_h: 80
+    frequency_vph: 28800
+    jewels: 33
+    year: 2017
+    features: [Колонное колесо, Вертикальное сцепление, 80 часов]
+    description: Собственный хронограф марки с запасом хода больше трёх суток.
+  - slug: tag-heuer-calibre-5
+    caliber: TAG Heuer Calibre 5
+    maker: Sellita для TAG Heuer
+    type: automatic
+    in_house: false
+    base: Sellita SW200-1
+    power_reserve_h: 38
+    frequency_vph: 28800
+    jewels: 25
+    features: [Дата]
+    description: Надёжный автомат на базе Sellita для Aquaracer и Carrera Date.
+  - slug: tag-heuer-quartz
+    caliber: TAG Heuer Quartz
+    maker: Ronda для TAG Heuer
+    type: quartz
+    in_house: false
+    features: [Хронограф, Дата]
+    description: Кварцевый хронограф для коллекции Formula 1.
+
+watches:
+  - slug: tag-heuer-carrera-chronograph
+    name: Carrera Chronograph Glassbox
+    collection: Carrera
+    reference: CBS2210.FC6534
+    year_introduced: 1963
+    year_current: 2023
+    designer: Джек Хойер
+    movement: tag-heuer-02
+    complications: [chronograph, tachymeter, date]
+    case: {diameter_mm: 39, thickness_mm: 13.9, material: Сталь, water_resistance_m: 100}
+    bracelet: Кожаный ремешок
+    dial: Синий с кольцом тахиметра под куполом стекла
+    price: {usd: 6950, kind: estimate, source: "оценка по прайсу 2024, сайт закрыт антиботом", checked: 2026-09-24}
+    summary: Хронограф, названный в честь смертельно опасной гонки Carrera Panamericana. Шкала тахиметра уходит под выпуклое стекло.
+    icon: true
+    story:
+      - Джек Хойер назвал модель в честь мексиканской гонки Carrera Panamericana, которую проводили в 1950-х. Задача была одна. Максимальная читаемость на скорости.
+      - "Версия 2023 года к 60-летию модели получила «стеклянную коробку»: выпуклое сапфировое стекло, под которое уходит шкала тахиметра."
+    history:
+      - {year: 1963, ref: "2447", title: "Первый Carrera", text: "Ручной завод, чистый циферблат для гонщиков."}
+      - {year: 1969, title: "Calibre 11", text: "Автоматический хронограф."}
+      - {year: 2023, ref: "CBS2210", title: "Glassbox", text: "39 мм, выпуклое стекло и калибр Heuer 02."}
+    highlights: [Калибр Heuer 02 на 80 часов, Выпуклое стекло «глассбокс», Колонное колесо]
+    render:
+      case: {shape: round, material: steel, pushers: 2}
+      bezel: {type: none}
+      dial: {color: "#1d3c73", finish: sunburst, indices: baton, track: tachy}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#16203a"}
+        - {pos: 9, kind: small_seconds, color: "#16203a"}
+      date: "6"
+      crystal: box
+      strap: {type: leather, color: "#1f2230"}
+      logo: TAG HEUER
+    sort: 10
+
+  - slug: tag-heuer-monaco
+    name: Monaco
+    collection: Monaco
+    reference: CBL2111.BA0644
+    year_introduced: 1969
+    movement: tag-heuer-02
+    complications: [chronograph, date]
+    case: {diameter_mm: 39, thickness_mm: 14.5, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Синий солнечный
+    price: {usd: 7950, kind: estimate, source: "оценка по прайсу 2024, сайт закрыт антиботом", checked: 2026-09-24}
+    summary: Квадратный хронограф Стива Маккуина из фильма «Ле-Ман».
+    icon: true
+    story:
+      - Monaco 1969 года был первым квадратным водонепроницаемым корпусом для хронографа с автоподзаводом. Заводная головка стояла слева, чтобы показать, что часы не нужно заводить.
+      - В 1970 году Стив Маккуин выбрал Monaco для съёмок фильма «Ле-Ман», и с тех пор модель неразрывно связана с его образом.
+    highlights: [Квадратный корпус, Часы Стива Маккуина, Калибр Heuer 02]
+    render:
+      case: {shape: square, material: steel, pushers: 2, crown_side: left, aspect: 1.0}
+      bezel: {type: none}
+      dial: {color: "#1d3c78", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#e9ecef"}
+        - {pos: 9, kind: small_seconds, color: "#e9ecef"}
+      strap: {type: three_link}
+      logo: HEUER
+    sort: 20
+
+  - slug: tag-heuer-aquaracer-300
+    name: Aquaracer Professional 300
+    collection: Aquaracer
+    reference: WBP201A.BA0632
+    year_introduced: 2004
+    year_current: 2021
+    movement: tag-heuer-calibre-5
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 43, thickness_mm: 12.0, material: Сталь, water_resistance_m: 300}
+    bracelet: Стальной браслет
+    dial: Синий с горизонтальными полосами
+    price: {usd: 3450, kind: estimate, source: "оценка по прайсу 2024, сайт закрыт антиботом", checked: 2026-09-24}
+    summary: Дайверские часы с двенадцатигранным безелем и 300 метрами водонепроницаемости.
+    highlights: [Двенадцатигранный безель, 300 м, Керамическая вставка]
+    render:
+      case: {shape: round, material: steel, crown_guard: true}
+      bezel: {type: dive, color: "#1b2a4a", material: ceramic}
+      dial: {color: "#1d3462", finish: stripes, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "6"
+      strap: {type: three_link}
+      logo: TAG HEUER
+    sort: 30
+
+  - slug: tag-heuer-formula-1
+    name: Formula 1 Chronograph
+    collection: Formula 1
+    year_introduced: 1986
+    movement: tag-heuer-quartz
+    complications: [chronograph, date]
+    case: {diameter_mm: 43, material: Сталь, water_resistance_m: 200}
+    bracelet: Каучуковый ремешок
+    dial: Чёрный
+    price: {usd: 1550, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Самый доступный хронограф TAG Heuer. Кварц и гоночный характер.
+    highlights: [Кварцевый хронограф, 200 м, Вход в TAG Heuer]
+    render:
+      case: {shape: round, material: steel, pushers: 2}
+      bezel: {type: tachymeter, color: "#111214", material: aluminium}
+      dial: {color: "#111214", finish: matte, indices: arabic}
+      hands: {style: sword, color: "#eef1f3", seconds_color: "#d23a2a"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#1a1b1e"}
+        - {pos: 9, kind: small_seconds, color: "#1a1b1e"}
+      date: "6"
+      strap: {type: rubber, color: "#141517"}
+      logo: TAG HEUER
+    sort: 40

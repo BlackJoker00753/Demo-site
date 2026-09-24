@@ -1,0 +1,195 @@
+brand:
+  slug: omega
+  name: Omega
+  aliases: [омега]
+  country: switzerland
+  founded: 1848
+  founder: Луи Брандт
+  city: Биль
+  lat: 47.1330
+  lon: 7.2540
+  group: Swatch Group
+  tier: luxury
+  manufacture: full
+  manufacture_note: Все современные калибры Omega собственные, с коаксиальным спуском и сертификатом Master Chronometer, выдерживающим магнитное поле 15 000 гаусс.
+  website: https://www.omegawatches.com
+  sort: 2
+  tagline: Часы, побывавшие на Луне, и официальный хронометрист Олимпийских игр.
+  story:
+    - Луи Брандт открыл мастерскую в Ла-Шо-де-Фоне в 1848 году. Его сыновья перенесли производство в Биль, а в 1894 году выпустили калибр Omega, настолько удачный, что его имя стало названием всей компании.
+    - С 1932 года Omega хронометрирует Олимпийские игры. В 1965 году NASA после жёстких испытаний выбрало Speedmaster, и в 1969 году он оказался на Луне на руке Базза Олдрина.
+    - В 1999 году марка первой запустила в серию коаксиальный спуск английского мастера Джорджа Дэниелса. С 2015 года её калибры проходят испытания METAS и называются Master Chronometer.
+  facts:
+    - {label: "На Луне", value: "Speedmaster, 21 июля 1969"}
+    - {label: "Олимпиады", value: "официальный хронометрист с 1932"}
+    - {label: "Спуск", value: "коаксиальный, Джордж Дэниелс"}
+    - {label: "Сертификация", value: "METAS Master Chronometer"}
+  milestones:
+    - {year: 1848, text: "Луи Брандт открывает мастерскую"}
+    - {year: 1894, text: "Калибр Omega дал имя компании"}
+    - {year: 1932, text: "Хронометрист Олимпийских игр"}
+    - {year: 1948, text: "Seamaster"}
+    - {year: 1957, text: "Speedmaster"}
+    - {year: 1969, text: "Speedmaster на Луне"}
+    - {year: 1999, text: "Коаксиальный спуск в серии"}
+    - {year: 2015, text: "Сертификат Master Chronometer"}
+
+movements:
+  - slug: omega-3861
+    caliber: Omega 3861
+    maker: Omega
+    type: manual
+    in_house: true
+    power_reserve_h: 50
+    frequency_vph: 21600
+    jewels: 26
+    year: 2021
+    certification: METAS Master Chronometer
+    features: [Коаксиальный спуск, Спираль Si14 из кремния, Ручной завод, Устойчивость к магнитам 15 000 гаусс]
+    description: Наследник лунного калибра 321 и 1861. Сохранил ручной завод и классическую компоновку хронографа, но получил коаксиальный спуск и сертификат METAS.
+  - slug: omega-8800
+    caliber: Omega 8800
+    maker: Omega
+    type: automatic
+    in_house: true
+    power_reserve_h: 55
+    frequency_vph: 25200
+    jewels: 35
+    year: 2016
+    certification: METAS Master Chronometer
+    features: [Коаксиальный спуск, Двойной барабан, Спираль Si14]
+    description: Базовый автомат Omega для моделей 42 мм и меньше.
+  - slug: omega-8900
+    caliber: Omega 8900
+    maker: Omega
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 25200
+    jewels: 39
+    year: 2014
+    certification: METAS Master Chronometer
+    features: [Коаксиальный спуск, Два барабана, Отделка «женевские волны» по спирали]
+    description: Флагманский автомат Aqua Terra и Planet Ocean с быстрой перестановкой часовой стрелки.
+
+watches:
+  - slug: omega-speedmaster-moonwatch
+    name: Speedmaster Moonwatch Professional
+    collection: Speedmaster
+    reference: 310.30.42.50.01.001
+    year_introduced: 1957
+    year_current: 2021
+    movement: omega-3861
+    complications: [chronograph, tachymeter, small-seconds]
+    case: {diameter_mm: 42, thickness_mm: 13.2, material: Сталь, water_resistance_m: 50, crystal: Гесалит (акрил), lug_width_mm: 20}
+    bracelet: Стальной браслет, пять звеньев
+    dial: Чёрный матовый «ступенчатый»
+    price: {usd: 7800, kind: msrp, source: omegawatches.com (US), url: "https://www.omegawatches.com/en-us/watches/speedmaster/moonwatch-professional/catalog", checked: 2026-09-24}
+    summary: Единственные часы, сертифицированные NASA для выхода в открытый космос. Первые часы на Луне.
+    icon: true
+    story:
+      - Speedmaster появился в 1957 году как хронограф для автогонщиков и инженеров. Тахиметр на безеле вместо циферблата был смелым решением.
+      - "В 1962 году астронавты начали покупать эти часы сами, а в 1965 году NASA провело серию испытаний: жар, холод, вакуум, удары, вибрации. Выдержал только Speedmaster."
+      - 21 июля 1969 года Базз Олдрин вышел на поверхность Луны в Speedmaster. Через год часы помогли экипажу Apollo 13 рассчитать 14 секунд работы двигателя для возвращения на Землю.
+      - Современная версия сохранила ручной завод, гесалитовое стекло и асимметричный корпус, но получила калибр 3861 с коаксиальным спуском.
+    history:
+      - {year: 1957, ref: "CK2915", title: "Первый Speedmaster", text: "Стрелки «широкая стрела», калибр 321 и стальной безель с тахиметром."}
+      - {year: 1965, ref: "ST 105.003", title: "Выбор NASA", text: "Прошёл все испытания и стал официальными часами для космических полётов."}
+      - {year: 1969, ref: "ST 105.012", title: "На Луне", text: "Apollo 11. С этого момента модель называют Moonwatch."}
+      - {year: 1970, title: "Apollo 13", text: "Хронограф помог отсчитать 14 секунд работы двигателя при аварийном возвращении."}
+      - {year: 1996, ref: "3570.50", title: "Калибр 1861", text: "Надёжная версия с ручным заводом, выпускалась четверть века."}
+      - {year: 2021, ref: "310.30.42.50.01.001", title: "Master Chronometer", text: "Калибр 3861 с коаксиальным спуском и новым браслетом."}
+    highlights: [Сертифицированы NASA, Ручной завод, Калибр 3861 Master Chronometer, Гесалитовое стекло как в 1969]
+    render:
+      case: {shape: round, material: steel, pushers: 2, lugs: twisted}
+      bezel: {type: tachymeter, color: "#0e0f11", material: aluminium}
+      dial: {color: "#0c0d0f", finish: matte, indices: baton, track: railway}
+      hands: {style: baton, color: "#e9ecef"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#0c0d0f"}
+        - {pos: 6, kind: chrono_hr, color: "#0c0d0f"}
+        - {pos: 9, kind: small_seconds, color: "#0c0d0f"}
+      crystal: hesalite
+      strap: {type: five_link}
+      logo: OMEGA
+    sort: 10
+
+  - slug: omega-seamaster-diver-300m
+    name: Seamaster Diver 300M
+    collection: Seamaster
+    reference: 210.30.42.20.01.001
+    year_introduced: 1993
+    year_current: 2018
+    movement: omega-8800
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 42, thickness_mm: 13.6, material: Сталь, water_resistance_m: 300}
+    bracelet: Стальной браслет
+    dial: Чёрная керамика с лазерной гравировкой «волны»
+    price: {usd: 6700, kind: msrp, source: omegawatches.com (US), checked: 2026-09-24}
+    summary: Часы Джеймса Бонда с 1995 года. Волны на циферблате, керамика и гелиевый клапан.
+    icon: true
+    story:
+      - Seamaster Professional Diver 300M вышел в 1993 году, а уже в 1995-м Пирс Броснан надел его в фильме «Золотой глаз». С тех пор агент 007 не расставался с Omega.
+      - Нынешнее поколение 2018 года вернуло фирменные волны на циферблат, теперь выгравированные лазером по керамике.
+    history:
+      - {year: 1993, ref: "2531.80", title: "Seamaster Professional", text: "Волнистый циферблат, скелетные стрелки, гелиевый клапан."}
+      - {year: 1995, title: "GoldenEye", text: "Первое появление в фильме о Джеймсе Бонде."}
+      - {year: 2006, title: "Коаксиальный калибр", text: "Автомат с коаксиальным спуском."}
+      - {year: 2018, ref: "210.30.42.20.01.001", title: "Керамика и волны", text: "Керамический циферблат с лазерной гравировкой, калибр 8800."}
+    highlights: [300 м и гелиевый клапан, Керамический безель и циферблат, Часы Джеймса Бонда]
+    render:
+      case: {shape: round, material: steel, lugs: twisted}
+      bezel: {type: dive, color: "#0b0c0e", material: ceramic}
+      dial: {color: "#0d0e10", finish: wave, indices: dots}
+      hands: {style: skeleton, color: "#e9ecef"}
+      date: "6"
+      strap: {type: five_link}
+      logo: OMEGA
+    sort: 20
+
+  - slug: omega-aqua-terra-41
+    name: Seamaster Aqua Terra 150M
+    collection: Seamaster
+    reference: 220.10.41.21.03.004
+    year_introduced: 2002
+    year_current: 2017
+    movement: omega-8900
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 13.2, material: Сталь, water_resistance_m: 150}
+    bracelet: Стальной браслет
+    dial: Синий с вертикальными полосами «тик»
+    price: {usd: 7100, kind: msrp, source: omegawatches.com (US), url: "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog", checked: 2026-09-24}
+    summary: Универсальные спортивно-элегантные часы. Полосы на циферблате напоминают палубу парусной яхты.
+    highlights: [Циферблат «тиковая палуба», Калибр 8900 на 60 часов, 150 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#1d3a66", finish: stripes, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "6"
+      strap: {type: three_link}
+      logo: OMEGA
+    sort: 30
+
+  - slug: omega-de-ville-prestige
+    name: De Ville Prestige
+    collection: De Ville
+    reference: 434.10.40.20.10.001
+    year_introduced: 1994
+    movement: omega-8800
+    complications: [date]
+    case: {diameter_mm: 40, material: Сталь, water_resistance_m: 30}
+    bracelet: Стальной браслет
+    dial: Серебристый
+    price: {usd: 5500, kind: msrp, source: omegawatches.com (US), checked: 2026-09-24, note: самая доступная механическая Omega в коллекции Prestige}
+    summary: Классические часы на каждый день с тем же хронометрическим калибром, что и в Seamaster.
+    highlights: [Калибр Master Chronometer, Классический дизайн, Вход в мир Omega]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#dcdcda", finish: sunburst, indices: roman, text_color: "#2a2c2f", index_color: "#2a2c2f", lume: false}
+      hands: {style: dauphine, color: "#2a2c2f", lume: false}
+      date: "6"
+      strap: {type: three_link}
+      logo: OMEGA
+    sort: 40

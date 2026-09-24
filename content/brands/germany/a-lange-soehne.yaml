@@ -1,0 +1,151 @@
+brand:
+  slug: a-lange-soehne
+  name: A. Lange & Söhne
+  aliases: [ланге, ланге и зёне, ланге унд зене, lange]
+  country: germany
+  founded: 1845
+  founder: Фердинанд Адольф Ланге
+  city: Глашютте
+  lat: 50.8517
+  lon: 13.7797
+  group: Richemont
+  tier: haute
+  manufacture: full
+  manufacture_note: Каждый механизм собирают дважды. Мосты баланса гравируют вручную, а камни сидят в золотых шатонах на воронёных винтах.
+  website: https://www.alange-soehne.com
+  sort: 1
+  tagline: Саксонская высокая механика, которая дважды родилась в Глашютте.
+  story:
+    - В 1845 году дрезденский часовщик Фердинанд Адольф Ланге открыл мастерскую в бедном горняцком городке Глашютте и обучил местных жителей ремеслу. Так возник центр немецкого часового дела.
+    - В 1945 году бомбардировка уничтожила фабрику, а в 1948 году компанию национализировали. Имя Ланге исчезло на 42 года.
+    - 7 декабря 1990 года правнук основателя Вальтер Ланге вместе с Гюнтером Блюмляйном возродил марку. В 1994 году первая коллекция с Lange 1 произвела сенсацию. Сегодня Lange сравнивают с лучшими швейцарскими мануфактурами.
+  facts:
+    - {label: "Возрождение", value: "7 декабря 1990"}
+    - {label: "Сборка", value: "каждый механизм собирают дважды"}
+    - {label: "Фирменный металл", value: "нейзильбер без покрытия"}
+  milestones:
+    - {year: 1845, text: "Мастерская Ланге в Глашютте"}
+    - {year: 1948, text: "Национализация"}
+    - {year: 1990, text: "Возрождение Вальтером Ланге"}
+    - {year: 1994, text: "Lange 1"}
+    - {year: 2009, text: "Zeitwerk с цифровой индикацией"}
+    - {year: 2019, text: "Стальной Odysseus"}
+
+movements:
+  - slug: lange-l121
+    caliber: A. Lange & Söhne L121.1
+    maker: A. Lange & Söhne
+    type: manual
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 21600
+    jewels: 43
+    year: 2015
+    features: [Большая дата, Индикатор запаса хода, Трёхчетвертная платина из нейзильбера, Гравированный вручную мост баланса]
+    description: Калибр Lange 1 с мгновенной сменой большой даты ровно в полночь.
+  - slug: lange-l093
+    caliber: A. Lange & Söhne L093.1
+    maker: A. Lange & Söhne
+    type: manual
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 21600
+    jewels: 21
+    thickness_mm: 2.9
+    features: ["Толщина 2,9 мм", "Трёхчетвертная платина"]
+    description: Самый тонкий калибр Lange, созданный для Saxonia Thin.
+  - slug: lange-l155
+    caliber: A. Lange & Söhne L155.1 Datomatic
+    maker: A. Lange & Söhne
+    type: automatic
+    in_house: true
+    power_reserve_h: 50
+    frequency_vph: 28800
+    jewels: 31
+    year: 2019
+    features: [Большая дата и день недели, Центральный ротор из платины и золота]
+    description: Первый автомат Lange с большой датой, созданный для спортивного Odysseus.
+
+watches:
+  - slug: a-lange-soehne-lange-1
+    name: Lange 1
+    collection: Lange 1
+    reference: "191.032"
+    year_introduced: 1994
+    year_current: 2015
+    movement: lange-l121
+    complications: [big-date, power-reserve, small-seconds]
+    case: {diameter_mm: 38.5, thickness_mm: 9.8, material: 18-каратное розовое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый массивного серебра
+    price: {usd: 45000, kind: estimate, source: "оценка по данным WatchCharts (средняя цена коллекции)", checked: 2026-09-24}
+    summary: Асимметричный циферблат, где ни один элемент не пересекается с другим. Большая дата вдохновлена часами Дрезденской оперы.
+    icon: true
+    story:
+      - Lange 1 1994 года нарушил все правила. Циферблат смещён влево, секунды внизу, запас хода справа, а крупная дата в два окна наверху. При этом композиция подчиняется золотому сечению.
+      - Большая дата повторяет цифры «пятиминутных часов» Земпер-оперы в Дрездене, построенных придворным часовщиком Гутковым в 1841 году.
+    history:
+      - {year: 1994, ref: "101.001", title: "Первый Lange 1", text: "Асимметричный циферблат и большая дата."}
+      - {year: 2015, ref: "191.032", title: "Калибр L121.1", text: "Мгновенная смена даты и новая компоновка механизма."}
+    highlights: [Большая дата, Асимметричный циферблат, Гравировка вручную]
+    render:
+      case: {shape: round, material: rose_gold, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e8e5de", finish: grained, indices: roman, text_color: "#4a3a2c", index_color: "#b27f62", lume: false}
+      hands: {style: lance, color: "#c28a6c", lume: false, seconds: small}
+      date: big_12
+      subdials:
+        - {pos: 6, kind: small_seconds, color: "#e2dfd8"}
+        - {pos: 3, kind: power_reserve, color: "#e2dfd8"}
+      strap: {type: alligator, color: "#3a2418"}
+      logo: A. LANGE & SÖHNE
+      movement_plate: german_silver
+    sort: 10
+
+  - slug: a-lange-soehne-saxonia-thin
+    name: Saxonia Thin
+    collection: Saxonia
+    reference: "211.032"
+    year_introduced: 1994
+    year_current: 2015
+    movement: lange-l093
+    complications: []
+    case: {diameter_mm: 37, thickness_mm: 5.9, material: 18-каратное розовое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый
+    price: {usd: 26000, kind: estimate, source: "розница коллекции по данным поиска (апрель 2026)", checked: 2026-09-24}
+    summary: Самые чистые часы Lange. Корпус 5,9 мм и только часовая и минутная стрелки.
+    highlights: ["Толщина 5,9 мм", "Ручной завод", "Самый доступный Lange"]
+    render:
+      case: {shape: round, material: rose_gold, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e9e6df", finish: grained, indices: baton, index_color: "#b27f62", text_color: "#4a3a2c", lume: false}
+      hands: {style: lance, color: "#c28a6c", lume: false, seconds: none}
+      strap: {type: alligator, color: "#3a2418"}
+      logo: A. LANGE & SÖHNE
+      movement_plate: german_silver
+    sort: 20
+
+  - slug: a-lange-soehne-odysseus
+    name: Odysseus
+    collection: Odysseus
+    reference: "363.179"
+    year_introduced: 2019
+    movement: lange-l155
+    complications: [big-date, day-date]
+    case: {diameter_mm: 40.5, thickness_mm: 11.1, material: Сталь, water_resistance_m: 120}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий
+    price: {usd: 41200, kind: estimate, source: "розница по данным поиска, рынок около $55 000", checked: 2026-09-24}
+    summary: Первые серийные стальные часы Lange. Спортивный характер, большая дата и день недели.
+    highlights: [Сталь, Большая дата, 120 м]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#1e3a6a", finish: grained, indices: baton}
+      hands: {style: lance, color: "#eef1f3"}
+      date: big_12
+      strap: {type: integrated}
+      logo: A. LANGE & SÖHNE
+      movement_plate: german_silver
+    sort: 30

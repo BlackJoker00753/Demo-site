@@ -1,0 +1,87 @@
+brand:
+  slug: tissot
+  name: Tissot
+  aliases: [тиссо, тиссот]
+  country: switzerland
+  founded: 1853
+  founder: Шарль-Фелисьен Тиссо и Шарль-Эмиль Тиссо
+  city: Ле-Локль
+  lat: 47.0569
+  lon: 6.7489
+  group: Swatch Group
+  tier: accessible
+  manufacture: none
+  manufacture_note: Механизмы поставляет ETA из той же группы Swatch. Главный козырь марки, калибр Powermatic 80 с запасом хода трое суток.
+  website: https://www.tissotwatches.com
+  sort: 13
+  tagline: Самые продаваемые швейцарские механические часы и лучший вход в мир Swiss Made.
+  story:
+    - Отец и сын Тиссо открыли мастерскую в Ле-Локле в 1853 году. Шарль-Эмиль вскоре уехал в Россию и сделал Tissot поставщиком часов для российского двора и дворянства.
+    - В 1930 году Tissot выпустила первые антимагнитные часы, а в 1971 году IDEA 2001, одни из первых часов с корпусом из пластика.
+    - Сегодня марка принадлежит Swatch Group и продаёт миллионы часов в год. Её PRX 2021 года вернул моду на интегрированный браслет в доступном сегменте.
+  facts:
+    - {label: "Россия", value: "поставщик императорского двора"}
+    - {label: "Первые антимагнитные", value: "1930"}
+    - {label: "Powermatic 80", value: "80 часов запаса хода"}
+  milestones:
+    - {year: 1853, text: "Основание в Ле-Локле"}
+    - {year: 1930, text: "Первые антимагнитные часы"}
+    - {year: 1978, text: "Первый PRX"}
+    - {year: 2021, text: "Возрождение PRX"}
+
+watches:
+  - slug: tissot-prx-powermatic-80
+    name: PRX Powermatic 80
+    collection: PRX
+    reference: T137.407.11.041.00
+    year_introduced: 1978
+    year_current: 2021
+    movement: powermatic-80
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 10.93, material: Сталь, water_resistance_m: 100}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий с узором «вафля»
+    price: {usd: 850, kind: msrp, source: tissotwatches.com (US), url: "https://www.tissotwatches.com/en-us/T1374071104100.html", checked: 2026-09-24}
+    summary: Интегрированный браслет в стиле 1970-х и 80 часов запаса хода. Хит последних лет.
+    icon: true
+    story:
+      - PRX 1978 года расшифровывается как Precise, Robust, eXtra-thin. Переиздание 2021 года сохранило телевизионную форму корпуса и браслет, который плавно вытекает из корпуса.
+      - Модель стала хитом. Многие называют PRX «Royal Oak для всех» за похожую эстетику по цене в десятки раз ниже.
+    history:
+      - {year: 1978, title: "Первый PRX", text: "Кварцевые часы с интегрированным браслетом."}
+      - {year: 2021, ref: "T137.410", title: "Возвращение", text: "Кварцевое переиздание 40 мм."}
+      - {year: 2021, ref: "T137.407", title: "Powermatic 80", text: "Механика и циферблат с вафельным узором."}
+    highlights: [80 часов запаса хода, Антимагнитная спираль Nivachron, Интегрированный браслет]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#1f3f78", finish: tapisserie, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: TISSOT
+    sort: 10
+
+  - slug: tissot-prx-quartz
+    name: PRX 40 205
+    collection: PRX
+    reference: T137.410.11.041.00
+    year_introduced: 1978
+    year_current: 2021
+    movement: eta-f06-115
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 10.4, material: Сталь, water_resistance_m: 100}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий солнечный
+    price: {usd: 450, kind: estimate, source: "оценка по прайсу 2025", checked: 2026-09-24}
+    summary: Кварцевый PRX. Самые доступные швейцарские часы с интегрированным браслетом.
+    highlights: [Кварц, Интегрированный браслет, 100 м]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: smooth}
+      dial: {color: "#1f3a6c", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: TISSOT
+    sort: 20

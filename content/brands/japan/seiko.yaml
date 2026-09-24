@@ -1,0 +1,147 @@
+brand:
+  slug: seiko
+  name: Seiko
+  aliases: [сейко, сэйко]
+  country: japan
+  founded: 1881
+  founder: Кинтаро Хаттори
+  city: Токио (Гиндза)
+  lat: 35.6717
+  lon: 139.7650
+  group: Seiko Group
+  tier: accessible
+  manufacture: full
+  manufacture_note: Вертикальная интеграция. Seiko сама выращивает кварц, делает спирали, камни, масла и даже сплавы для пружин.
+  website: https://www.seikowatches.com
+  sort: 1
+  tagline: Изобретатель кварцевых наручных часов и самая честная механика за свои деньги.
+  story:
+    - В 1881 году 21-летний Кинтаро Хаттори открыл магазин часов в Гиндзе, а в 1892 году основал фабрику Seikosha. Название значит «дом точности».
+    - В 1913 году Seiko выпустила первые японские наручные часы Laurel, а 25 декабря 1969 года Astron, первые в мире кварцевые наручные часы. Это открытие изменило всю индустрию.
+    - Seiko делает всё сама, от кристаллов кварца до смазок. Её дайверские часы с 1965 года носят профессионалы, а в 1999 году марка представила гибридный механизм Spring Drive.
+  facts:
+    - {label: "Astron", value: "первые кварцевые наручные часы, 1969"}
+    - {label: "Первые дайверы", value: "62MAS, 1965"}
+    - {label: "Spring Drive", value: "1999"}
+  milestones:
+    - {year: 1881, text: "Магазин Кинтаро Хаттори в Гиндзе"}
+    - {year: 1892, text: "Фабрика Seikosha"}
+    - {year: 1913, text: "Laurel, первые японские наручные часы"}
+    - {year: 1965, text: "Первые дайверские часы"}
+    - {year: 1969, text: "Astron, кварцевая революция"}
+    - {year: 1999, text: "Spring Drive"}
+
+movements:
+  - slug: seiko-6r35
+    caliber: Seiko 6R35
+    maker: Seiko
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 21600
+    jewels: 24
+    year: 2019
+    features: [Ручной подзавод, Остановка секундной стрелки, Дата]
+    description: Автомат среднего класса с запасом хода почти трое суток.
+  - slug: seiko-4r36
+    caliber: Seiko 4R36
+    maker: Seiko
+    type: automatic
+    in_house: true
+    power_reserve_h: 41
+    frequency_vph: 21600
+    jewels: 24
+    year: 2011
+    features: [День недели и дата, Ручной подзавод]
+    description: Неубиваемая классика доступной механики Seiko.
+  - slug: seiko-4r35
+    caliber: Seiko 4R35
+    maker: Seiko
+    type: automatic
+    in_house: true
+    power_reserve_h: 41
+    frequency_vph: 21600
+    jewels: 23
+    features: [Дата, Ручной подзавод]
+    description: Трёхстрелочный автомат с датой для Presage.
+
+watches:
+  - slug: seiko-prospex-spb143
+    name: Prospex 62MAS Reinterpretation
+    collection: Prospex
+    reference: SPB143
+    year_introduced: 1965
+    year_current: 2020
+    movement: seiko-6r35
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 40.5, thickness_mm: 13.2, material: Сталь, water_resistance_m: 200}
+    bracelet: Стальной браслет
+    dial: Серый солнечный
+    price: {usd: 1200, kind: msrp, source: "seikowatches.com (US) по данным поиска", checked: 2026-09-24}
+    summary: Современная интерпретация первого японского дайвера 1965 года.
+    icon: true
+    story:
+      - 62MAS 1965 года стал первыми дайверскими часами Японии. Их брали в антарктические экспедиции.
+      - SPB143 возрождает его пропорции 40,5 мм, но получает сапфировое стекло и калибр 6R35 с запасом хода 70 часов.
+    history:
+      - {year: 1965, ref: "6217-8000", title: "62MAS", text: "Первые японские дайверские часы на 150 метров."}
+      - {year: 1975, ref: "6159-7010", title: "Тунец", text: "Профессиональный дайвер на 600 метров в защитном кожухе."}
+      - {year: 2020, ref: "SPB143", title: "Переосмысление", text: "40,5 мм, 70 часов и серый солнечный циферблат."}
+    highlights: [70 часов, 200 м, Наследие 1965 года]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#111214", material: aluminium}
+      dial: {color: "#4a4e55", finish: sunburst, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "3"
+      strap: {type: three_link}
+      logo: SEIKO
+    sort: 10
+
+  - slug: seiko-5-sports-srpd55
+    name: Seiko 5 Sports
+    collection: Seiko 5 Sports
+    reference: SRPD55
+    year_introduced: 1968
+    year_current: 2019
+    movement: seiko-4r36
+    complications: [day-date, date, dive-bezel]
+    case: {diameter_mm: 42.5, thickness_mm: 13.4, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Чёрный
+    price: {usd: 350, kind: msrp, source: "seikousa.com по данным поиска", checked: 2026-09-24}
+    summary: Первые механические часы для миллионов людей. Автоподзавод, день недели и дата за несколько сотен долларов.
+    highlights: [Самая доступная механика Seiko, День и дата, 100 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#111214", material: aluminium}
+      dial: {color: "#101113", finish: matte, indices: dots}
+      hands: {style: sword, color: "#eef1f3"}
+      date: day_date
+      strap: {type: three_link}
+      logo: SEIKO
+    sort: 20
+
+  - slug: seiko-presage-cocktail-time
+    name: Presage Cocktail Time
+    collection: Presage
+    reference: SRPB43
+    year_introduced: 2016
+    movement: seiko-4r35
+    complications: [date]
+    case: {diameter_mm: 40.5, thickness_mm: 11.8, material: Сталь, water_resistance_m: 50}
+    bracelet: Кожаный ремешок
+    dial: Голубой с узором, вдохновлённый коктейлем «Skydiving»
+    price: {usd: 450, kind: msrp, source: "seikowatches.com (US) по данным поиска", checked: 2026-09-24}
+    summary: Циферблат, придуманный легендарным барменом из Гиндзы. Самые красивые часы до 500 долларов.
+    highlights: [Узорчатый солнечный циферблат, Прозрачная задняя крышка, Автоподзавод]
+    render:
+      case: {shape: round, material: steel, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#8fb3cf", finish: sunburst, indices: baton, index_color: "#eef1f3", text_color: "#1f2f44"}
+      hands: {style: dauphine, color: "#eef1f3", lume: false}
+      date: "3"
+      crystal: domed
+      strap: {type: leather, color: "#3a2a20"}
+      logo: SEIKO
+    sort: 30

@@ -1,0 +1,103 @@
+brand:
+  slug: casio
+  name: Casio
+  aliases: [касио, джи шок, g-shock, джишок]
+  country: japan
+  founded: 1946
+  founder: Тадао Касио
+  city: Хамура
+  lat: 35.7672
+  lon: 139.3108
+  group: Casio Computer Co.
+  tier: accessible
+  manufacture: full
+  manufacture_note: Собственные электронные модули, датчики и корпуса. G-Shock разрабатывают в исследовательском центре в Хамуре.
+  website: https://www.casio.com
+  sort: 4
+  tagline: G-Shock, который невозможно разбить, и цифровые часы для всей планеты.
+  story:
+    - Тадао Касио основал компанию в 1946 году, а в 1957 году выпустил первый в мире компактный электрический калькулятор. Часы Casiotron появились в 1974 году.
+    - Инженер Кикуо Ибэ уронил отцовские часы и решил создать часы, которые не разобьются. Проект «Тройная десятка» требовал выдерживать падение с 10 метров, водозащиту 10 бар и 10 лет работы батарейки.
+    - Первый G-Shock DW-5000C вышел в 1983 году. С тех пор продано более 150 миллионов G-Shock, а модель F-91W стала одними из самых массовых часов в истории.
+  facts:
+    - {label: "G-Shock", value: "1983, проект «Тройная десятка»"}
+    - {label: "Продано G-Shock", value: "более 150 млн"}
+    - {label: "F-91W", value: "с 1989 года"}
+  milestones:
+    - {year: 1946, text: "Основание Тадао Касио"}
+    - {year: 1957, text: "Электрический калькулятор 14-A"}
+    - {year: 1974, text: "Casiotron"}
+    - {year: 1983, text: "Первый G-Shock"}
+    - {year: 1989, text: "F-91W"}
+    - {year: 2019, text: "GA-2100 «КасиОук»"}
+
+movements:
+  - slug: casio-digital-module
+    caliber: Casio модуль 3229
+    maker: Casio
+    type: quartz
+    in_house: true
+    accuracy: ±15 с в месяц
+    features: [Секундомер, Будильник, Подсветка, Противоударная конструкция]
+    description: Цифровой модуль, плавающий внутри корпуса на амортизаторах.
+  - slug: casio-analog-digital
+    caliber: Casio модуль 5611
+    maker: Casio
+    type: quartz
+    in_house: true
+    features: [Стрелки и цифровой дисплей, Мировое время, Будильник]
+    description: Комбинированный модуль со стрелками и небольшим дисплеем.
+
+watches:
+  - slug: casio-g-shock-dw5600
+    name: G-Shock DW-5600E
+    collection: G-Shock
+    reference: DW-5600E-1V
+    year_introduced: 1983
+    year_current: 1996
+    designer: Кикуо Ибэ
+    movement: casio-digital-module
+    complications: [chronograph, alarm]
+    case: {diameter_mm: 42.8, thickness_mm: 13.4, material: Смола, water_resistance_m: 200, crystal: Минеральное стекло}
+    bracelet: Ремешок из смолы
+    dial: Цифровой дисплей
+    price: {usd: 70, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Квадратный G-Shock прямой наследник первого DW-5000C. Выдерживает падение с 10 метров.
+    icon: true
+    story:
+      - В 1981 году инженер Кикуо Ибэ разбил подаренные отцом часы и предложил компании сделать неразрушимые. Его команда из трёх человек испытала более 200 прототипов, бросая их из окна третьего этажа.
+      - Решение пришло, когда Ибэ увидел детский мяч в парке. Модуль стали подвешивать внутри корпуса, как мяч внутри резины. Так в 1983 году появился DW-5000C.
+    history:
+      - {year: 1983, ref: "DW-5000C", title: "Первый G-Shock", text: "Проект «Тройная десятка»."}
+      - {year: 1987, ref: "DW-5600C", title: "5600", text: "Самая узнаваемая квадратная форма."}
+      - {year: 1996, ref: "DW-5600E", title: "Классика", text: "Модель, которая выпускается до сих пор."}
+    highlights: [Падение с 10 метров, 200 м, Легенда за доступные деньги]
+    render:
+      case: {shape: square, material: resin_black, aspect: 1.05, lugs: none}
+      bezel: {type: none}
+      dial: {color: "#1a1c1f", finish: lcd, indices: none, text_color: "#d23a2a"}
+      hands: {style: none}
+      strap: {type: resin, color: "#16171a"}
+    sort: 10
+
+  - slug: casio-g-shock-ga2100
+    name: G-Shock GA-2100
+    collection: G-Shock
+    reference: GA-2100-1A1
+    year_introduced: 2019
+    movement: casio-analog-digital
+    complications: [chronograph, alarm, world-time]
+    case: {diameter_mm: 45.4, thickness_mm: 11.8, material: Смола с карбоновым сердечником, water_resistance_m: 200, crystal: Минеральное стекло}
+    bracelet: Ремешок из смолы
+    dial: Чёрный со стрелками и дисплеем
+    price: {usd: 110, kind: estimate, source: "оценка по данным поиска 2026", checked: 2026-09-24}
+    summary: Восьмиугольный G-Shock, который фанаты прозвали «КасиОук» за сходство с Royal Oak.
+    highlights: ["Восьмиугольный безель", "Карбоновый сердечник", "11,8 мм толщины"]
+    render:
+      case: {shape: round, material: resin_black}
+      bezel: {type: octagon}
+      dial: {color: "#141517", finish: matte, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      strap: {type: resin, color: "#16171a"}
+      logo: G-SHOCK
+    sort: 20

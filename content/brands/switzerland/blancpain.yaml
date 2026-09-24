@@ -1,0 +1,109 @@
+brand:
+  slug: blancpain
+  name: Blancpain
+  aliases: [бланпа, бланпейн]
+  country: switzerland
+  founded: 1735
+  founder: Жеан-Жак Бланпен
+  city: Ле-Брассю
+  lat: 46.5840
+  lon: 6.2130
+  group: Swatch Group
+  tier: haute
+  manufacture: full
+  manufacture_note: Собственные механизмы, от дайверских автоматов до карусели и минутного репетира.
+  website: https://www.blancpain.com
+  sort: 18
+  tagline: Старейшая часовая марка мира и создатель первых современных дайверских часов.
+  story:
+    - Школьный учитель Жеан-Жак Бланпен начал делать часы в деревне Вильре в 1735 году. Blancpain считается самой старой часовой маркой, зарегистрированной в мире.
+    - В 1953 году Fifty Fathoms по заказу французских боевых пловцов стал первыми современными дайверскими часами с односторонним безелем, светящейся массой и защитой от магнитов.
+    - Марка чуть не исчезла в кварцевый кризис. В 1983 году её возродили Жан-Клод Бивер и Жак Пиге под девизом «С 1735 года никогда не было кварцевых Blancpain и никогда не будет».
+  facts:
+    - {label: "Основан", value: "1735, старейшая марка"}
+    - {label: "Fifty Fathoms", value: "1953, первые современные дайверы"}
+    - {label: "Девиз", value: "никогда не было кварца"}
+  milestones:
+    - {year: 1735, text: "Мастерская Бланпена в Вильре"}
+    - {year: 1953, text: "Fifty Fathoms"}
+    - {year: 1983, text: "Возрождение Бивером и Пиге"}
+    - {year: 1992, text: "Вошёл в Swatch Group"}
+
+movements:
+  - slug: blancpain-1315
+    caliber: Blancpain 1315
+    maker: Blancpain
+    type: automatic
+    in_house: true
+    power_reserve_h: 120
+    frequency_vph: 28800
+    jewels: 35
+    features: [Три барабана, Кремниевая спираль, Дата]
+    description: Дайверский автомат с пятью сутками запаса хода благодаря трём барабанам.
+  - slug: blancpain-6654
+    caliber: Blancpain 6654.4
+    maker: Blancpain
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    jewels: 28
+    features: [Полный календарь, Фаза Луны, Кремниевая спираль]
+    description: Калибр полного календаря с фазой Луны и указателем даты.
+
+watches:
+  - slug: blancpain-fifty-fathoms
+    name: Fifty Fathoms Automatique
+    collection: Fifty Fathoms
+    reference: 5010 12B30 B52A
+    year_introduced: 1953
+    year_current: 2023
+    movement: blancpain-1315
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 42, thickness_mm: 14.3, material: Титан, water_resistance_m: 300}
+    bracelet: Тканый ремешок
+    dial: Чёрный солнечный
+    price: {usd: 23900, kind: estimate, source: "розница по данным дилеров", checked: 2026-09-24}
+    summary: Первые современные дайверские часы, созданные в 1953 году для боевых пловцов французского флота.
+    icon: true
+    story:
+      - Капитан Робер Мализ и лейтенант Клод Рифо искали часы для подводных диверсантов французского флота. Никто не мог выполнить их требования, кроме Blancpain под руководством Жана-Жака Фиштера, самого увлечённого дайвера.
+      - Fifty Fathoms 1953 года получил вращающийся в одну сторону безель, крупные светящиеся метки, автоподзавод и антимагнитный корпус. Эти решения стали стандартом для всех дайверских часов.
+    history:
+      - {year: 1953, title: "Для боевых пловцов", text: "Односторонний безель, светящиеся метки, 50 морских саженей (91 м)."}
+      - {year: 2007, title: "Возвращение", text: "Современная версия 45 мм с сапфировым безелем."}
+      - {year: 2023, ref: "5010", title: "42 мм", text: "70-летие модели и компактный корпус."}
+    highlights: [Сапфировая вставка безеля, 120 часов, Изобретатель жанра]
+    render:
+      case: {shape: round, material: titanium}
+      bezel: {type: dive, color: "#0f1012", material: sapphire}
+      dial: {color: "#111214", finish: sunburst, indices: arabic}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "4_30"
+      strap: {type: fabric, color: "#1b1d22"}
+      logo: BLANCPAIN
+    sort: 10
+
+  - slug: blancpain-villeret-quantieme-complet
+    name: Villeret Quantième Complet
+    collection: Villeret
+    reference: 6654 1504 55B
+    year_introduced: 1983
+    movement: blancpain-6654
+    complications: [moonphase, day-date, date]
+    case: {diameter_mm: 40, thickness_mm: 10.9, material: 18-каратное белое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Светло-коричневый солнечный
+    price: {usd: 37700, kind: msrp, source: blancpain.com (US), url: "https://www.blancpain.com/en-us/villeret/villeret-quantieme-complet-6654-1504-55b", checked: 2026-09-24}
+    summary: Полный календарь с фазой Луны. Модель, с которой в 1983 году началось возрождение механики.
+    highlights: [Полный календарь, Фаза Луны с «лицом», 72 часа]
+    render:
+      case: {shape: round, material: white_gold}
+      bezel: {type: smooth}
+      dial: {color: "#b89a78", finish: sunburst, indices: roman, text_color: "#2b2118", index_color: "#2b2118", lume: false}
+      hands: {style: feuille, color: "#2b2118", lume: false}
+      date: day_date
+      moonphase: "6"
+      strap: {type: alligator, color: "#3a2418"}
+      logo: BLANCPAIN
+    sort: 20

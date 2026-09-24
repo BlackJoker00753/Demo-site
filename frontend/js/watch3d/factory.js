@@ -111,7 +111,7 @@ function computeLayout(spec, D, T, movementType) {
   const w = R, h = R * aspect;
   const toolBezel = ["dive", "gmt", "tachymeter", "countdown", "compass", "slide_rule"].includes(spec.bezel.type);
   const thinBezel = ["none", "smooth", "coin"].includes(spec.bezel.type);
-  const dialR = R * (toolBezel ? 0.72 : spec.bezel.type === "octagon" || spec.bezel.type === "screws" ? 0.76 : thinBezel ? 0.86 : 0.8);
+  const dialR = R * (toolBezel ? 0.72 : ["octagon", "hexagon", "screws"].includes(spec.bezel.type) ? 0.76 : thinBezel ? 0.86 : 0.8);
   const smart = movementType === "smart" || spec.dial.finish === "screen";
   const t = Math.max(T, 6);
   const L = {
@@ -409,8 +409,8 @@ function buildBezel(model, spec, L, detail) {
   const group = new THREE.Group();
   const scale = L.D / 40;
 
-  if (L.rectLike || L.shape === "cushion" || L.shape === "porthole" || type === "octagon") {
-    const pts = type === "octagon" ? outline("octagon", L.w * 0.93) : outline(L.shape, L.w * 0.97, L.h * 0.97);
+  if (L.rectLike || L.shape === "cushion" || L.shape === "porthole" || type === "octagon" || type === "hexagon") {
+    const pts = type === "octagon" || type === "hexagon" ? outline(type, L.w * 0.93) : outline(L.shape, L.w * 0.97, L.h * 0.97);
     const hole = L.rectLike ? outline(L.shape, L.dialW, L.dialH) : circlePoints(rin, 96);
     const g = extrude(shapeFromPoints(pts, [hole]), Math.max(0.4, z1 - z0 - 0.8), 0.45, 4, 64);
     g.translate(0, 0, z0 + 0.4);
@@ -482,7 +482,7 @@ function buildBezel(model, spec, L, detail) {
     group.add(mesh(lathe([[rin - 0.05, z1 - 0.9], [rin, z1 - 0.1], [rin + 0.3, z1]], 128), polished));
     const insertCol = spec.bezel.color ?? "#0c0d10";
     const tex = paintBezelInsert(type, {
-      color: insertCol, color2: spec.bezel.color2, inner: (rin + 0.1) / (R - 0.85), size: detail !== "card" ? 2048 : 1024,
+      color: insertCol, color2: spec.bezel.color2, textColor: spec.bezel.text_color, inner: (rin + 0.1) / (R - 0.85), size: detail !== "card" ? 2048 : 1024,
     });
     const insMat = new THREE.MeshPhysicalMaterial({
       map: tex, metalness: spec.bezel.material === "aluminium" ? 0.55 : 0.05,
@@ -516,7 +516,7 @@ function occupiedHours(spec) {
   const occ = new Set((spec.subdials ?? []).map((s) => (s.pos === 12 ? 0 : s.pos)));
   if (spec.date === "3" || spec.date === "day_date") occ.add(3);
   if (spec.date === "6" || spec.moonphase === "6") occ.add(6);
-  if (spec.moonphase === "12" || spec.date === "big_12" || spec.date === "day_date") occ.add(0);
+  if (spec.moonphase === "12" || spec.date === "big_12" || spec.date === "day_date" || spec.date === "12") occ.add(0);
   return occ;
 }
 

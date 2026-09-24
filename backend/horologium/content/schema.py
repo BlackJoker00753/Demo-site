@@ -120,11 +120,12 @@ class RenderCase(Strict):
 
 class RenderBezel(Strict):
     type: Literal[
-        "none", "smooth", "fluted", "dive", "gmt", "tachymeter", "octagon", "coin", "countdown", "compass",
+        "none", "smooth", "fluted", "dive", "gmt", "tachymeter", "octagon", "hexagon", "coin", "countdown", "compass",
         "slide_rule", "screws", "digital",
     ] = "smooth"
     color: str | None = None
     color2: str | None = None  # вторая половина GMT-безеля
+    text_color: str | None = None  # цвет шкалы (например, золотые цифры)
     material: Literal["metal", "ceramic", "aluminium", "sapphire", "resin"] = "metal"
 
 

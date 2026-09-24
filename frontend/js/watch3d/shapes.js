@@ -53,6 +53,8 @@ export function outline(shape, w, h = w) {
   switch (shape) {
     case "octagon":
       return roundedPolygon(8, w / Math.cos(Math.PI / 8), w * 0.08, Math.PI / 8);
+    case "hexagon":
+      return roundedPolygon(6, w / Math.cos(Math.PI / 6), w * 0.12, 0);
     case "porthole": {
       // «иллюминатор» Nautilus: скруглённый восьмиугольник, сплюснутый по вертикали
       return superellipse(w, h * 0.96, 3.2, 96);

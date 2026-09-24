@@ -295,7 +295,7 @@ function occupied(spec) {
   const occ = new Set((spec.subdials ?? []).map((s) => String(s.pos)));
   if (spec.date === "3" || spec.date === "day_date") occ.add("3");
   if (spec.date === "6" || spec.moonphase === "6") occ.add("6");
-  if (spec.moonphase === "12" || spec.date === "big_12" || spec.date === "day_date") occ.add("12");
+  if (spec.moonphase === "12" || spec.date === "big_12" || spec.date === "day_date" || spec.date === "12") occ.add("12");
   return occ;
 }
 
@@ -461,7 +461,7 @@ function drawMoonAperture(ctx, x, y, r, spec) {
 }
 
 function drawDateWindow(ctx, cx, cy, R, pos, dial, day = new Date()) {
-  const [x, y] = pos === "6" ? [cx, cy + R * 0.6] : pos === "4_30" ? polar(cx, cy, R * 0.62, 4.5) : [cx + R * 0.64, cy];
+  const [x, y] = pos === "6" ? [cx, cy + R * 0.6] : pos === "12" ? [cx, cy - R * 0.6] : pos === "4_30" ? polar(cx, cy, R * 0.62, 4.5) : [cx + R * 0.64, cy];
   const w = R * 0.19, h = R * 0.15;
   ctx.save();
   ctx.fillStyle = luminance(dial.color) < 0.35 ? "#f4f3ef" : "#ffffff";
@@ -537,7 +537,7 @@ export function paintDial(spec, { size = 1024, aspect = 1, rect = false } = {}) 
     const y = spec.moonphase === "6" ? cy + R * 0.48 : cy - R * 0.44;
     drawMoonAperture(ctx, cx, y, R * 0.24, spec);
   }
-  if (spec.date === "3" || spec.date === "6" || spec.date === "4_30" || spec.date === "day_date") drawDateWindow(ctx, cx, cy, R, spec.date === "day_date" ? "3" : spec.date, dial);
+  if (["3", "6", "12", "4_30", "day_date"].includes(spec.date)) drawDateWindow(ctx, cx, cy, R, spec.date === "day_date" ? "3" : spec.date, dial);
   if (spec.date === "day_date") drawDayWindow(ctx, cx, cy, R, dial);
   if (spec.date === "big_12") {
     ctx.fillStyle = "#f4f3ef";

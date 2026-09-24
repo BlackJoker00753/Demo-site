@@ -1,0 +1,187 @@
+brand:
+  slug: audemars-piguet
+  name: Audemars Piguet
+  aliases: [ап, одемар пиге, одемар, ap]
+  country: switzerland
+  founded: 1875
+  founder: Жюль-Луи Одемар и Эдвард-Огюст Пиге
+  city: Ле-Брассю
+  lat: 46.5835
+  lon: 6.2140
+  group: Семьи Одемар и Пиге
+  independent: true
+  tier: haute
+  manufacture: full
+  manufacture_note: Мануфактура в Ле-Брассю делает собственные механизмы, от простых автоматов до минутных репетиров.
+  website: https://www.audemarspiguet.com
+  sort: 5
+  tagline: Независимая мануфактура из долины Жу, подарившая миру Royal Oak.
+  story:
+    - В 1875 году два друга, Жюль-Луи Одемар и Эдвард-Огюст Пиге, открыли мастерскую в деревне Ле-Брассю в долине Жу. Они специализировались на сложных механизмах, и уже в 1892 году создали наручные часы с минутным репетиром.
+    - В 1972 году Audemars Piguet совершила революцию. Royal Oak Жеральда Женты стал первыми роскошными спортивными часами из стали и стоил дороже многих золотых.
+    - Компания до сих пор принадлежит потомкам основателей. Это одна из «святой троицы» швейцарского часового дела вместе с Patek Philippe и Vacheron Constantin.
+  facts:
+    - {label: "Владельцы", value: "семьи основателей"}
+    - {label: "Производство", value: "около 50 тысяч часов в год (оценка)"}
+    - {label: "Royal Oak", value: "1972, Жеральд Жента"}
+  milestones:
+    - {year: 1875, text: "Основание в Ле-Брассю"}
+    - {year: 1892, text: "Наручный минутный репетир"}
+    - {year: 1972, text: "Royal Oak"}
+    - {year: 1993, text: "Royal Oak Offshore"}
+    - {year: 2019, text: "Коллекция Code 11.59"}
+    - {year: 2022, text: "Royal Oak Jumbo 16202 и калибр 7121"}
+
+movements:
+  - slug: ap-4302
+    caliber: Audemars Piguet 4302
+    maker: Audemars Piguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 32
+    year: 2019
+    features: [Ротор из 22-каратного золота, Дата с быстрой перестановкой]
+    description: Современный базовый автомат мануфактуры с запасом хода почти трое суток.
+  - slug: ap-7121
+    caliber: Audemars Piguet 7121
+    maker: Audemars Piguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 55
+    frequency_vph: 28800
+    jewels: 33
+    year: 2022
+    thickness_mm: 3.2
+    features: [Ультратонкий, Без секундной стрелки, Дата]
+    description: Преемник легендарного 2121 для «Джамбо». Толщина механизма всего 3,2 мм.
+  - slug: ap-4404
+    caliber: Audemars Piguet 4404
+    maker: Audemars Piguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 40
+    year: 2019
+    features: [Интегрированный хронограф, Функция флайбэк, Колонное колесо]
+    description: Интегрированный хронограф с функцией флайбэк для Offshore и Code 11.59.
+  - slug: ap-2713
+    caliber: Audemars Piguet 2713
+    maker: Audemars Piguet
+    type: quartz
+    in_house: false
+    features: [Дата]
+    description: Кварцевый механизм для 33-миллиметрового Royal Oak.
+
+watches:
+  - slug: audemars-piguet-royal-oak-15510
+    name: Royal Oak Selfwinding 41
+    collection: Royal Oak
+    reference: 15510ST.OO.1320ST.06
+    year_introduced: 1972
+    year_current: 2022
+    designer: Жеральд Жента
+    movement: ap-4302
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 10.4, material: Сталь, water_resistance_m: 50}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий «Гранд Таписсери»
+    price: {usd: 31900, kind: estimate, source: "wristcheck.com, розница США 2026", checked: 2026-09-24, note: "по разным источникам $28 900-31 900"}
+    summary: Восьмиугольный безель с восемью винтами и узор «гобелен». Часы, которые придумали роскошный стальной спорт.
+    icon: true
+    story:
+      - В 1971 году, за день до выставки в Базеле, дизайнеру Жеральду Женте позвонил директор Audemars Piguet и попросил к утру нарисовать «стальные часы, каких ещё не было». Женте вдохновился водолазным шлемом с восемью болтами.
+      - Royal Oak 1972 года стоил дороже золотого Patek Philippe и поначалу продавался плохо. Сегодня это одна из самых узнаваемых и востребованных моделей в мире.
+      - Узор циферблата «Tapisserie» гравируют на старинных пантографах. Грани корпуса и браслета чередуют сатинирование и полировку, что требует сотен операций вручную.
+    history:
+      - {year: 1972, ref: "5402ST", title: "Первый Royal Oak", text: "39 мм, ультратонкий калибр 2121. Позже получил прозвище «Джамбо»."}
+      - {year: 1993, ref: "25721ST", title: "Offshore", text: "Массивный брат Royal Oak, которого называли «зверем»."}
+      - {year: 2012, ref: "15400ST", title: "41 мм", text: "Самый популярный размер Royal Oak."}
+      - {year: 2022, ref: "15510ST", title: "Калибр 4302", text: "Современный механизм с запасом хода 70 часов."}
+    highlights: [Дизайн Жеральда Женты, Восемь шестигранных винтов, Узор «Гранд Таписсери», 70 часов]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: octagon}
+      dial: {color: "#253b66", finish: tapisserie, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: AUDEMARS PIGUET
+    sort: 10
+
+  - slug: audemars-piguet-royal-oak-jumbo
+    name: Royal Oak Jumbo Extra-Thin
+    collection: Royal Oak
+    reference: 16202ST.OO.1240ST.01
+    year_introduced: 1972
+    year_current: 2022
+    designer: Жеральд Жента
+    movement: ap-7121
+    complications: [date]
+    case: {diameter_mm: 39, thickness_mm: 8.1, material: Сталь, water_resistance_m: 50}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий «Пти Таписсери» Bleu Nuit Nuage 50
+    price: {usd: 40100, kind: msrp, source: "wristcheck.com, розница США 2026", checked: 2026-09-24}
+    summary: Самый близкий к оригиналу 1972 года Royal Oak. 39 мм, 8,1 мм толщины и без секундной стрелки.
+    highlights: ["Толщина 8,1 мм", "Без секундной стрелки как в 1972", "Калибр 7121"]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: octagon}
+      dial: {color: "#1f3558", finish: clous, indices: baton}
+      hands: {style: baton, color: "#eef1f3", seconds: none}
+      date: "3"
+      strap: {type: integrated}
+      logo: AUDEMARS PIGUET
+    sort: 20
+
+  - slug: audemars-piguet-royal-oak-offshore
+    name: Royal Oak Offshore Chronograph
+    collection: Royal Oak Offshore
+    reference: 26420SO.OO.A002CA.01
+    year_introduced: 1993
+    year_current: 2021
+    movement: ap-4404
+    complications: [chronograph, flyback, date]
+    case: {diameter_mm: 43, thickness_mm: 14.4, material: Сталь, water_resistance_m: 100}
+    bracelet: Каучуковый ремешок
+    dial: Чёрный «Мега Таписсери»
+    price: {usd: 37000, kind: estimate, source: "оценка по прайсу 2025", checked: 2026-09-24}
+    summary: Мощный хронограф с функцией флайбэк и узором «Мега Таписсери».
+    highlights: [Хронограф флайбэк, Корпус 43 мм, Сменные ремешки]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, pushers: 2}
+      bezel: {type: octagon}
+      dial: {color: "#18191c", finish: tapisserie, indices: arabic}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#18191c"}
+        - {pos: 9, kind: small_seconds, color: "#18191c"}
+      date: "6"
+      strap: {type: rubber, color: "#121315"}
+      logo: AUDEMARS PIGUET
+    sort: 30
+
+  - slug: audemars-piguet-royal-oak-33
+    name: Royal Oak 33
+    collection: Royal Oak
+    reference: 67650ST
+    year_introduced: 1976
+    movement: ap-2713
+    complications: [date]
+    case: {diameter_mm: 33, thickness_mm: 8.8, material: Сталь, water_resistance_m: 50}
+    bracelet: Интегрированный стальной браслет
+    dial: Серебристый «Гранд Таписсери»
+    price: {usd: 19900, kind: msrp, source: "wristcheck.com, розница США 2026", checked: 2026-09-24, note: "начальная цена Royal Oak"}
+    summary: Компактный Royal Oak с кварцевым механизмом и тем же узнаваемым безелем.
+    highlights: [33 мм, Самый доступный Royal Oak, Кварц]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: octagon}
+      dial: {color: "#cfd2d6", finish: tapisserie, indices: baton, index_color: "#6b7078", text_color: "#2f3338", lume: false}
+      hands: {style: baton, color: "#9aa0a8", lume: false}
+      date: "3"
+      strap: {type: integrated}
+      logo: AUDEMARS PIGUET
+    sort: 40

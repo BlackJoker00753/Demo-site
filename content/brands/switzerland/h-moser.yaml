@@ -1,0 +1,66 @@
+brand:
+  slug: h-moser
+  name: H. Moser & Cie.
+  aliases: [мозер, мозер и ко, moser]
+  country: switzerland
+  founded: 1828
+  founder: Генрих Мозер
+  city: Нойхаузен-ам-Райнфалль
+  lat: 47.6770
+  lon: 8.6130
+  group: MELB Holding (семья Майлан)
+  independent: true
+  tier: haute
+  manufacture: full
+  manufacture_note: Собственные механизмы и спирали. Дочерняя компания Precision Engineering делает балансовые пружины для других марок.
+  website: https://h-moser.com
+  sort: 24
+  tagline: Швейцарская марка, основанная в Санкт-Петербурге. Мастера дымчатых циферблатов «фюме».
+  story:
+    - Шаффхаузенец Генрих Мозер в 1828 году открыл часовой бизнес в Санкт-Петербурге и стал одним из главных поставщиков часов в Российской империи. Его часы носили офицеры и чиновники, а сам он вернулся в Швейцарию богатым промышленником.
+    - После революции 1917 года российский бизнес Мозера национализировали. Марку возродили в 2005 году в Шаффхаузене.
+    - Сегодня Moser знаменита минималистичными циферблатами «фюме» с градиентом от центра к краю и дерзким юмором, например часами без логотипа.
+  facts:
+    - {label: "Основан", value: "в Санкт-Петербурге, 1828"}
+    - {label: "Возрождение", value: "2005"}
+    - {label: "Фирменный стиль", value: "циферблаты «фюме»"}
+  milestones:
+    - {year: 1828, text: "Основание в Санкт-Петербурге"}
+    - {year: 1917, text: "Национализация российского бизнеса"}
+    - {year: 2005, text: "Возрождение в Шаффхаузене"}
+    - {year: 2020, text: "Streamliner"}
+
+movements:
+  - slug: moser-hmc-200
+    caliber: H. Moser HMC 200
+    maker: H. Moser & Cie.
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 21600
+    jewels: 27
+    features: [Спираль собственного производства, Золотой ротор]
+    description: Собственный автомат с трёхдневным запасом хода.
+
+watches:
+  - slug: h-moser-endeavour-centre-seconds
+    name: Endeavour Centre Seconds
+    collection: Endeavour
+    reference: 1200-0400
+    year_introduced: 2012
+    movement: moser-hmc-200
+    complications: []
+    case: {diameter_mm: 40, thickness_mm: 11.2, material: 18-каратное красное золото, water_resistance_m: 120}
+    bracelet: Ремешок из кожи куду
+    dial: Синий фюме Midnight Blue
+    price: {usd: 19900, kind: estimate, source: "exquisitetimepieces.com, розница", checked: 2026-09-24}
+    summary: Минимализм в чистом виде. Дымчатый циферблат, золотой корпус и никаких надписей на циферблате.
+    icon: true
+    highlights: [Циферблат «фюме», Без логотипа на циферблате, Собственная спираль]
+    render:
+      case: {shape: round, material: rose_gold}
+      bezel: {type: none}
+      dial: {color: "#274b8c", color2: "#050910", finish: fume, indices: none, lume: false}
+      hands: {style: leaf, color: "#e6c9a7", lume: false}
+      strap: {type: leather, color: "#4a3a2e"}
+    sort: 10

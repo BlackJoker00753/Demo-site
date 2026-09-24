@@ -1,0 +1,109 @@
+brand:
+  slug: breguet
+  name: Breguet
+  aliases: [бреге]
+  country: switzerland
+  founded: 1775
+  founder: Абрахам-Луи Бреге
+  city: Л'Абеи, долина Жу
+  lat: 46.6490
+  lon: 6.3250
+  group: Swatch Group
+  tier: haute
+  manufacture: full
+  manufacture_note: Мануфактура в долине Жу делает механизмы и вручную гравирует циферблаты гильоше на станках XIX века.
+  website: https://www.breguet.com
+  sort: 17
+  tagline: Изобретатель турбийона, стрелок «Бреге» и первых наручных часов.
+  story:
+    - Абрахам-Луи Бреге, уроженец Невшателя, открыл мастерскую в Париже в 1775 году. Его клиентами были Мария-Антуанетта, Наполеон и российские императоры.
+    - Бреге изобрёл турбийон (патент 1801 года), гонг для репетира, противоударную систему «парашют» и спираль с загнутым концом. Его стрелки с «яблочком» и шрифт цифр до сих пор называют его именем.
+    - В 1810 году он создал для королевы Неаполя Каролины Мюрат первые известные наручные часы. Сегодня дом принадлежит Swatch Group и работает в долине Жу.
+  facts:
+    - {label: "Турбийон", value: "патент 26 июня 1801"}
+    - {label: "Первые наручные часы", value: "1810, королева Неаполя"}
+    - {label: "Клиенты", value: "Мария-Антуанетта, Наполеон, Александр I"}
+  milestones:
+    - {year: 1775, text: "Мастерская в Париже"}
+    - {year: 1783, text: "Заказ «Марии-Антуанетты»"}
+    - {year: 1801, text: "Патент на турбийон"}
+    - {year: 1810, text: "Первые наручные часы"}
+    - {year: 1954, text: "Хронограф Type XX для армии Франции"}
+    - {year: 1999, text: "Вошёл в Swatch Group"}
+
+movements:
+  - slug: breguet-777q
+    caliber: Breguet 777Q
+    maker: Breguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 55
+    frequency_vph: 28800
+    jewels: 26
+    features: [Спираль из кремния, Золотой ротор с гильоше]
+    description: Современный автомат для коллекции Classique.
+  - slug: breguet-728
+    caliber: Breguet 728
+    maker: Breguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 36000
+    jewels: 31
+    year: 2023
+    features: [Хронограф флайбэк, Колонное колесо, Частота 5 Гц]
+    description: Высокочастотный хронограф флайбэк для Type XX.
+
+watches:
+  - slug: breguet-classique-5177
+    name: Classique 5177
+    collection: Classique
+    reference: 5177BB/29/9V6
+    year_introduced: 1775
+    movement: breguet-777q
+    complications: [date]
+    case: {diameter_mm: 38, thickness_mm: 7.45, material: 18-каратное белое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Белая эмаль с цифрами Бреге
+    price: {usd: 33200, kind: estimate, source: "розница по данным авторизованных дилеров", checked: 2026-09-24}
+    summary: Квинтэссенция стиля Бреге. Рифлёный корпус, цифры Бреге и воронёные стрелки с «яблочком».
+    icon: true
+    story:
+      - Всё, что мы называем классикой, придумал Бреге. Тонкий корпус с рифлёными боковинами, эксцентрический циферблат, стрелки с полым кружком на конце и изящные арабские цифры.
+      - Модель 5177 собирает эти детали вместе. Белая эмаль, синие стрелки и калибр с кремниевой спиралью.
+    highlights: ["Эмалевый циферблат", "Стрелки «Бреге»", "Толщина 7,45 мм"]
+    render:
+      case: {shape: round, material: white_gold, lugs: wire}
+      bezel: {type: fluted}
+      dial: {color: "#f6f4ef", finish: enamel, indices: breguet, text_color: "#1d2433", lume: false}
+      hands: {style: breguet, color: "#1f3a8a", lume: false}
+      date: "3"
+      strap: {type: alligator, color: "#1a1f2b"}
+      logo: BREGUET
+    sort: 10
+
+  - slug: breguet-type-xx
+    name: Type XX Chronographe 2057
+    collection: Type XX
+    reference: 2057ST/92/3WU
+    year_introduced: 1954
+    year_current: 2023
+    movement: breguet-728
+    complications: [chronograph, flyback]
+    case: {diameter_mm: 42, thickness_mm: 14.1, material: Сталь, water_resistance_m: 100}
+    bracelet: Кожаный ремешок
+    dial: Чёрный матовый
+    price: {usd: 23300, kind: estimate, source: "розница по данным авторизованных дилеров", checked: 2026-09-24}
+    summary: Хронограф флайбэк для лётчиков французской армии в современном исполнении с частотой 5 Гц.
+    highlights: [Флайбэк, 5 Гц, Военная история]
+    render:
+      case: {shape: round, material: steel, pushers: 2}
+      bezel: {type: countdown, color: "#111214", material: aluminium}
+      dial: {color: "#121315", finish: matte, indices: arabic}
+      hands: {style: syringe, color: "#e7ecdf"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#17181b"}
+        - {pos: 9, kind: small_seconds, color: "#17181b"}
+      strap: {type: leather, color: "#3d2a1e"}
+      logo: BREGUET
+    sort: 20

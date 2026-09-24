@@ -1,0 +1,125 @@
+brand:
+  slug: nomos
+  name: NOMOS Glashütte
+  aliases: [номос, nomos]
+  country: germany
+  founded: 1990
+  founder: Роланд Швертнер
+  city: Глашютте
+  lat: 50.8500
+  lon: 13.7830
+  independent: true
+  tier: mid
+  manufacture: full
+  manufacture_note: Собственные калибры и даже собственный спуск swing system, что редкость для марки такой цены.
+  website: https://nomos-glashuette.com
+  sort: 3
+  tagline: Баухаус на запястье. Собственные механизмы и честные цены.
+  story:
+    - Компьютерщик и фотограф Роланд Швертнер зарегистрировал NOMOS в Глашютте 1 января 1990 года, через несколько недель после падения Берлинской стены.
+    - Дизайн марки вырос из немецкого Баухауса и Веркбунда 1920-х. Tangente 1992 года с тонкими стрелками и шрифтом без засечек стал классикой современного дизайна.
+    - В 2014 году NOMOS представила собственный спусковой механизм swing system. Независимая марка сама делает почти все детали механизмов.
+  facts:
+    - {label: "Основан", value: "1 января 1990"}
+    - {label: "Спуск swing system", value: "собственный с 2014"}
+    - {label: "Стиль", value: "Баухаус"}
+  milestones:
+    - {year: 1990, text: "Основание в Глашютте"}
+    - {year: 1992, text: "Tangente"}
+    - {year: 2005, text: "Первый собственный калибр"}
+    - {year: 2014, text: "Спуск swing system"}
+
+movements:
+  - slug: nomos-alpha
+    caliber: NOMOS Alpha
+    maker: NOMOS Glashütte
+    type: manual
+    in_house: true
+    power_reserve_h: 43
+    frequency_vph: 21600
+    jewels: 17
+    features: [Ручной завод, Глашюттская трёхчетвертная платина, Малая секунда]
+    description: Простой и надёжный калибр с ручным заводом, основа классических моделей NOMOS.
+  - slug: nomos-duw-6101
+    caliber: NOMOS DUW 6101
+    maker: NOMOS Glashütte
+    type: automatic
+    in_house: true
+    power_reserve_h: 42
+    frequency_vph: 21600
+    jewels: 27
+    year: 2018
+    features: ["Спуск swing system", "Кольцо даты по периметру циферблата", "Толщина 3,6 мм"]
+    description: Тонкий автомат с датой, показанной двумя красными метками вокруг окна по краю циферблата.
+
+watches:
+  - slug: nomos-tangente-38
+    name: Tangente 38
+    collection: Tangente
+    reference: "164"
+    year_introduced: 1992
+    movement: nomos-alpha
+    complications: [small-seconds]
+    case: {diameter_mm: 37.5, thickness_mm: 6.8, material: Сталь, water_resistance_m: 30}
+    bracelet: Кожаный ремешок Horween
+    dial: Белый посеребрённый
+    price: {usd: 2550, kind: msrp, source: nomos-glashuette.com (US), url: "https://nomos-glashuette.com/en-us/tangente/tangente-38-164", checked: 2026-09-24}
+    summary: Икона баухауса. Тонкие синие стрелки, чистый шрифт и корпус толщиной 6,8 мм.
+    icon: true
+    story:
+      - Tangente вдохновлена часами 1930-х годов, но стала символом нового немецкого дизайна. Корпус с тонкими прямыми ушками, воронёные стрелки-палочки и безупречно выверенный шрифт.
+    highlights: [Дизайн баухаус, Ручной завод, Воронёные стрелки]
+    render:
+      case: {shape: round, material: steel, lugs: wire, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#f1f0ec", finish: grained, indices: arabic, text_color: "#1b1d20", lume: false}
+      hands: {style: baton, color: "#1f3a8a", lume: false, seconds: small}
+      subdials: [{pos: 6, kind: small_seconds, color: "#ecebe6"}]
+      strap: {type: leather, color: "#6b4a34"}
+      logo: NOMOS
+    sort: 10
+
+  - slug: nomos-club-campus
+    name: Club Campus
+    collection: Club
+    reference: "708"
+    year_introduced: 2007
+    movement: nomos-alpha
+    complications: [small-seconds]
+    case: {diameter_mm: 38.5, thickness_mm: 8.2, material: Сталь, water_resistance_m: 100}
+    bracelet: Текстильный ремешок
+    dial: Кремовый с яркими акцентами
+    price: {usd: 1830, kind: msrp, source: nomos-glashuette.com (US), url: "https://nomos-glashuette.com/en-us/club/club-campus-708", checked: 2026-09-24, note: "самая доступная модель NOMOS"}
+    summary: Первые механические часы для выпускников. Молодёжная версия Club с водозащитой 100 м.
+    highlights: [Вход в NOMOS, Ручной завод, 100 м]
+    render:
+      case: {shape: round, material: steel, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#f0ebdf", finish: matte, indices: california, text_color: "#1b1d20"}
+      hands: {style: sword, color: "#1b1d20", seconds: small}
+      subdials: [{pos: 6, kind: small_seconds, color: "#ebe5d8"}]
+      strap: {type: fabric, color: "#2c3a52"}
+      logo: NOMOS
+    sort: 20
+
+  - slug: nomos-tangente-neomatik-update
+    name: Tangente neomatik 38 Update
+    collection: Tangente
+    year_introduced: 2018
+    year_current: 2026
+    movement: nomos-duw-6101
+    complications: [date]
+    case: {diameter_mm: 38, thickness_mm: 7.9, material: Сталь, water_resistance_m: 50}
+    bracelet: Кожаный ремешок
+    dial: Серебристый
+    price: {usd: 4690, kind: msrp, source: "nomos-glashuette.com (US) по данным monochrome-watches.com", checked: 2026-09-24}
+    summary: Tangente с автоподзаводом и датой, показанной двумя красными метками по краю циферблата.
+    highlights: [Кольцо даты по периметру, Собственный спуск swing system, Автоподзавод]
+    render:
+      case: {shape: round, material: steel, lugs: wire, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e7e7e4", finish: grained, indices: sticks, text_color: "#1b1d20", lume: false}
+      hands: {style: baton, color: "#1f3a8a", lume: false}
+      strap: {type: leather, color: "#3a2a20"}
+      logo: NOMOS
+    sort: 30

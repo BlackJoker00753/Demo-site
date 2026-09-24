@@ -1,0 +1,140 @@
+brand:
+  slug: iwc
+  name: IWC Schaffhausen
+  aliases: [iwc, ай дабл ю си, шаффхаузен]
+  country: switzerland
+  founded: 1868
+  founder: Флорентайн Ариосто Джонс
+  city: Шаффхаузен
+  lat: 47.6973
+  lon: 8.6349
+  group: Richemont
+  tier: luxury
+  manufacture: partial
+  manufacture_note: Хронографы и крупные калибры IWC делает сама. Часть базовых автоматов выпускает мануфактура группы Richemont ValFleurier.
+  website: https://www.iwc.com
+  sort: 8
+  tagline: Единственная крупная мануфактура на северо-востоке Швейцарии, основанная американцем.
+  story:
+    - Американский инженер Флорентайн Ариосто Джонс в 1868 году решил соединить швейцарское мастерство с американскими методами производства и открыл International Watch Company в Шаффхаузене. Энергию давала турбина на Рейне.
+    - IWC прославилась авиационными часами. Big Pilot 1940 года был создан для штурманов, а Mark XI стал эталоном для британских ВВС.
+    - Португизер появился в 1939 году по заказу португальских торговцев, которым нужны были наручные часы с точностью морского хронометра.
+  facts:
+    - {label: "Португизер", value: "1939"}
+    - {label: "Big Pilot", value: "1940"}
+    - {label: "Завод Пеллатон", value: "1950, автоподзавод с собачками"}
+  milestones:
+    - {year: 1868, text: "Основание в Шаффхаузене"}
+    - {year: 1939, text: "Португизер"}
+    - {year: 1940, text: "Большие часы пилота"}
+    - {year: 1948, text: "Mark XI"}
+    - {year: 1955, text: "Ingenieur"}
+    - {year: 2000, text: "Вошла в Richemont"}
+
+movements:
+  - slug: iwc-69355
+    caliber: IWC 69355
+    maker: IWC
+    type: automatic
+    in_house: true
+    power_reserve_h: 46
+    frequency_vph: 28800
+    jewels: 27
+    year: 2018
+    features: [Хронограф с колонным колесом, Счётчики на 12 и 6 часов]
+    description: Собственный хронограф IWC, спроектированный для Португизера и пилотских хронографов.
+  - slug: iwc-32111
+    caliber: IWC 32111
+    maker: ValFleurier (Richemont) для IWC
+    type: automatic
+    in_house: false
+    power_reserve_h: 120
+    frequency_vph: 28800
+    jewels: 21
+    year: 2022
+    features: [Пять суток запаса хода, Дата]
+    description: Автомат с запасом хода 120 часов, выпускаемый мануфактурой группы Richemont.
+
+watches:
+  - slug: iwc-portugieser-chronograph
+    name: Portugieser Chronograph
+    collection: Portugieser
+    reference: IW371605
+    year_introduced: 1939
+    year_current: 2020
+    movement: iwc-69355
+    complications: [chronograph]
+    case: {diameter_mm: 41, thickness_mm: 13.1, material: Сталь, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый с синими стрелками
+    price: {usd: 8900, kind: msrp, source: "розница США 2026 по данным поиска", checked: 2026-09-24}
+    summary: Самый продаваемый хронограф IWC. Вертикально расположенные счётчики и цифры в стиле карманных часов.
+    icon: true
+    story:
+      - В 1939 году два португальских торговца заказали у IWC большие наручные часы, точные как морской хронометр. Мастера поставили в корпус 41,5 мм механизм карманных часов.
+      - Хронограф с двумя счётчиками на 12 и 6 часов появился в 1998 году и стал главным бестселлером марки.
+    history:
+      - {year: 1939, ref: "IW325", title: "Первый Португизер", text: "Большой корпус с механизмом карманных часов."}
+      - {year: 1998, ref: "IW3714", title: "Хронограф", text: "Счётчики на 12 и 6 часов стали фирменной компоновкой."}
+      - {year: 2020, ref: "IW3716", title: "Калибр 69355", text: "Собственный механизм IWC и прозрачная задняя крышка."}
+    highlights: [Вертикальная компоновка счётчиков, Синие стрелки-листья, Колонное колесо]
+    render:
+      case: {shape: round, material: steel, pushers: 2, display_back: true}
+      bezel: {type: none}
+      dial: {color: "#e9eae8", finish: matte, indices: applied_arabic, text_color: "#1f2a44", index_color: "#1f2a44", lume: false, track: railway}
+      hands: {style: leaf, color: "#1f3a8a", lume: false}
+      subdials:
+        - {pos: 12, kind: chrono_min, color: "#e3e4e2"}
+        - {pos: 6, kind: small_seconds, color: "#e3e4e2"}
+      strap: {type: alligator, color: "#1a1d24"}
+      logo: IWC
+    sort: 10
+
+  - slug: iwc-pilots-watch-mark-xx
+    name: Pilot's Watch Mark XX
+    collection: Pilot's Watches
+    reference: IW328201
+    year_introduced: 1948
+    year_current: 2022
+    movement: iwc-32111
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 10.8, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Чёрный матовый
+    price: {usd: 5800, kind: msrp, source: "iwc.com (US) по данным поиска", checked: 2026-09-24}
+    summary: Наследник легендарного Mark XI. Чистый циферблат пилота и пять суток запаса хода.
+    highlights: [120 часов запаса хода, Треугольник на 12 для ориентации, 100 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#101113", finish: matte, indices: arabic, track: minutes}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "3"
+      strap: {type: three_link}
+      logo: IWC
+    sort: 20
+
+  - slug: iwc-ingenieur-40
+    name: Ingenieur Automatic 40
+    collection: Ingenieur
+    reference: IW328901
+    year_introduced: 1955
+    year_current: 2023
+    designer: Жеральд Жента (исходный дизайн 1976 года)
+    movement: iwc-32111
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 10.7, material: Сталь, water_resistance_m: 100}
+    bracelet: Интегрированный стальной браслет
+    dial: Чёрный с узором «сетка»
+    price: {usd: 12900, kind: estimate, source: "оценка по прайсу 2024", checked: 2026-09-24}
+    summary: Антимагнитные часы инженера, переосмысленные по эскизам Жеральда Женты с пятью винтами на безеле.
+    highlights: [Безель с пятью винтами, Антимагнитная защита, Узор циферблата «сетка»]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: screws}
+      dial: {color: "#141517", finish: clous, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: IWC
+    sort: 30

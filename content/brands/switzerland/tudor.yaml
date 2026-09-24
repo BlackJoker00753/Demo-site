@@ -1,0 +1,234 @@
+brand:
+  slug: tudor
+  name: Tudor
+  aliases: [тюдор, тудор]
+  country: switzerland
+  founded: 1926
+  founder: Ханс Вильсдорф
+  city: Женева
+  lat: 46.1920
+  lon: 6.1330
+  group: Фонд Ханса Вильсдорфа
+  independent: true
+  tier: premium
+  manufacture: partial
+  manufacture_note: С 2015 года большинство моделей работает на собственных калибрах серии MT, которые делает дочерняя мануфактура Kenissi. В доступных линейках стоят доработанные покупные механизмы.
+  website: https://www.tudorwatch.com
+  sort: 3
+  tagline: Младший брат Rolex, который давно вырос в самостоятельную легенду инструментальных часов.
+  story:
+    - В 1926 году часовой дом Veuve de Philippe Hüther зарегистрировал для Ханса Вильсдорфа марку The Tudor. Идея была простой. Предложить надёжность корпуса Oyster по более доступной цене.
+    - В 1950-х Tudor поставляла дайверские часы военно-морским силам нескольких стран. Французский флот носил модели со стрелками «снежинка», которые стали фирменной чертой марки.
+    - Возрождение началось в 2012 году с Black Bay. Сегодня Tudor сама разрабатывает механизмы с запасом хода 70 часов и хронометрической сертификацией.
+  facts:
+    - {label: "Механизмы", value: "собственные калибры MT, мануфактура Kenissi"}
+    - {label: "Стрелки «снежинка»", value: "с 1969 года"}
+    - {label: "Запас хода", value: "70 часов у калибров MT"}
+  milestones:
+    - {year: 1926, text: "Регистрация марки The Tudor"}
+    - {year: 1946, text: "Основана компания Montres Tudor SA"}
+    - {year: 1954, text: "Первые дайверские часы ref. 7922"}
+    - {year: 1969, text: "Стрелки «снежинка» для французского флота"}
+    - {year: 2012, text: "Коллекция Black Bay"}
+    - {year: 2015, text: "Первый собственный калибр MT5621"}
+    - {year: 2018, text: "Black Bay 58 и Black Bay GMT"}
+
+movements:
+  - slug: tudor-mt5402
+    caliber: Tudor MT5402
+    maker: Tudor (Kenissi)
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 27
+    year: 2018
+    diameter_mm: 26.0
+    certification: COSC
+    features: [Кремниевая спираль, Регулируемый мост баланса, Без даты]
+    description: Компактный калибр для 39-миллиметрового Black Bay 58. Кремниевая спираль не боится магнитов, а запаса хода хватает на выходные.
+  - slug: tudor-mt5652
+    caliber: Tudor MT5652
+    maker: Tudor (Kenissi)
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 28
+    year: 2018
+    certification: COSC
+    features: [Функция GMT с прыгающей часовой стрелкой, Кремниевая спираль]
+    description: Механизм GMT, в котором местная часовая стрелка переставляется отдельно от 24-часовой.
+  - slug: tudor-mt5813
+    caliber: Tudor MT5813
+    maker: Tudor на базе Breitling B01
+    type: automatic
+    in_house: false
+    base: Breitling B01
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 41
+    year: 2017
+    certification: COSC
+    features: [Колонное колесо, Вертикальное сцепление, Кремниевая спираль]
+    description: Хронограф, полученный по обмену технологиями с Breitling. Tudor поставляет Breitling свой базовый калибр, а взамен получает мануфактурный B01.
+  - slug: tudor-t601
+    caliber: Tudor T601
+    maker: Tudor на базе ETA
+    type: automatic
+    in_house: false
+    base: ETA 2824-2
+    power_reserve_h: 38
+    frequency_vph: 28800
+    jewels: 25
+    features: [Дата, Остановка секундной стрелки]
+    description: Проверенный покупной механизм для доступной коллекции 1926.
+
+watches:
+  - slug: tudor-black-bay-58
+    name: Black Bay 58
+    collection: Black Bay
+    reference: "79030N"
+    year_introduced: 2018
+    movement: tudor-mt5402
+    complications: [dive-bezel]
+    case: {diameter_mm: 39, thickness_mm: 11.9, material: Сталь, water_resistance_m: 200, lug_width_mm: 20}
+    bracelet: Стальной браслет с заклёпками
+    dial: Чёрный матовый с золотистыми надписями
+    price: {usd: 5350, kind: msrp, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "верхняя граница прайса Black Bay 54/58 на браслете"}
+    summary: Дайвер 39 мм с винтажной душой. Размер и пропорции 1950-х, современный калибр на 70 часов.
+    icon: true
+    story:
+      - Black Bay 58 назван в честь 1958 года, когда вышли часы ref. 7924 «Big Crown» с водонепроницаемостью 200 метров. Их 39-миллиметровый корпус стал образцом для современной модели.
+      - Золотистые надписи, «снежинка» на часовой стрелке и браслет с заклёпками отсылают к истории, а калибр MT5402 с хронометрическим сертификатом делает часы современным инструментом.
+      - Модель стала хитом с первого дня. Многие называют её лучшими дайверскими часами до 5 тысяч долларов.
+    history:
+      - {year: 1954, ref: "7922", title: "Первый дайвер Tudor", text: "Oyster Prince Submariner с водонепроницаемостью 100 метров."}
+      - {year: 1958, ref: "7924", title: "Big Crown", text: "200 метров и крупная заводная головка. Прообраз Black Bay 58."}
+      - {year: 1969, ref: "7016", title: "Снежинка", text: "Стрелки с квадратным наконечником для французского флота."}
+      - {year: 2018, ref: "79030N", title: "Black Bay 58", text: "39 мм, собственный калибр MT5402, золотистые акценты."}
+    highlights: ["39 мм и 11,9 мм толщины", "Калибр MT5402 с сертификатом COSC", "Стрелки «снежинка»"]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#121316", material: aluminium, text_color: "#d7bd82"}
+      dial: {color: "#0e0f11", finish: matte, indices: dots, index_color: "#d7bd82", text_color: "#d7bd82", lume_color: "#f1e2bd"}
+      hands: {style: snowflake, color: "#d7bd82"}
+      strap: {type: three_link}
+      logo: TUDOR
+    sort: 10
+
+  - slug: tudor-black-bay-54
+    name: Black Bay 54
+    collection: Black Bay
+    reference: "79000N"
+    year_introduced: 2023
+    movement: tudor-mt5402
+    complications: [dive-bezel]
+    case: {diameter_mm: 37, thickness_mm: 11.2, material: Сталь, water_resistance_m: 200}
+    bracelet: Каучуковый ремешок
+    dial: Чёрный матовый
+    price: {usd: 4475, kind: estimate, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "нижняя граница прайса Black Bay 54/58"}
+    summary: Самый компактный Black Bay. 37 мм, как у первого дайвера Tudor 1954 года.
+    highlights: [37 мм, 200 м, 70 часов запаса хода]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#141518", material: aluminium}
+      dial: {color: "#0f1012", finish: matte, indices: dots}
+      hands: {style: snowflake, color: "#e7e9ec"}
+      strap: {type: rubber, color: "#16171a"}
+      logo: TUDOR
+    sort: 20
+
+  - slug: tudor-pelagos-39
+    name: Pelagos 39
+    collection: Pelagos
+    reference: "25407N"
+    year_introduced: 2022
+    movement: tudor-mt5402
+    complications: [dive-bezel]
+    case: {diameter_mm: 39, thickness_mm: 11.8, material: Титан, water_resistance_m: 200}
+    bracelet: Титановый браслет
+    dial: Чёрный матовый
+    price: {usd: 5625, kind: estimate, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "нижняя граница прайса Pelagos"}
+    summary: Титановый профессиональный дайвер, лёгкий и прочный. Керамический безель и матовый циферблат.
+    highlights: [Корпус и браслет из титана, Керамический безель, 70 часов]
+    render:
+      case: {shape: round, material: titanium, finish: brushed}
+      bezel: {type: dive, color: "#121314", material: ceramic}
+      dial: {color: "#101113", finish: matte, indices: dots}
+      hands: {style: snowflake, color: "#e7e9ec"}
+      strap: {type: titanium}
+      logo: TUDOR
+    sort: 30
+
+  - slug: tudor-black-bay-gmt
+    name: Black Bay GMT
+    collection: Black Bay
+    reference: "79830RB"
+    year_introduced: 2018
+    movement: tudor-mt5652
+    complications: [date, gmt]
+    case: {diameter_mm: 41, thickness_mm: 14.6, material: Сталь, water_resistance_m: 200}
+    bracelet: Стальной браслет
+    dial: Чёрный матовый
+    price: {usd: 5650, kind: estimate, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "верхняя граница прайса Black Bay GMT"}
+    summary: Путешественник с бордово-синим безелем. Второй часовой пояс и прыгающая часовая стрелка.
+    highlights: [Второй часовой пояс, Бордово-синий безель, 200 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: gmt, color: "#6c1d2a", color2: "#1d2c52", material: aluminium}
+      dial: {color: "#0f1012", finish: matte, indices: dots}
+      hands: {style: snowflake, color: "#e7e9ec", gmt_color: "#b3202c"}
+      date: "3"
+      strap: {type: three_link}
+      logo: TUDOR
+    sort: 40
+
+  - slug: tudor-black-bay-chrono
+    name: Black Bay Chrono
+    collection: Black Bay
+    reference: "79360N"
+    year_introduced: 2017
+    movement: tudor-mt5813
+    complications: [chronograph, date, tachymeter]
+    case: {diameter_mm: 41, thickness_mm: 14.4, material: Сталь, water_resistance_m: 200}
+    bracelet: Стальной браслет
+    dial: Белый «панда» с чёрными счётчиками
+    price: {usd: 7000, kind: estimate, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "верхняя граница прайса Black Bay Chrono"}
+    summary: Хронограф с механизмом на базе Breitling B01. Колонное колесо и 70 часов запаса хода.
+    highlights: [Колонное колесо, Тахиметр на безеле, Циферблат «панда»]
+    render:
+      case: {shape: round, material: steel, pushers: 2}
+      bezel: {type: tachymeter, color: "#141518", material: aluminium}
+      dial: {color: "#eeeeea", finish: matte, indices: dots, index_color: "#2a2d31", text_color: "#16181b"}
+      hands: {style: snowflake, color: "#dfe3e6"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#141518"}
+        - {pos: 9, kind: small_seconds, color: "#141518"}
+      date: "6"
+      strap: {type: three_link}
+      logo: TUDOR
+    sort: 50
+
+  - slug: tudor-1926
+    name: "1926"
+    collection: "1926"
+    reference: "91650"
+    year_introduced: 2018
+    movement: tudor-t601
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 10.5, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Серебристый с вафельной фактурой
+    price: {usd: 2575, kind: msrp, source: "bobswatches.com (сводка MSRP США 2026)", checked: 2026-09-24, note: "начальная цена коллекции 1926"}
+    summary: Вход в мир Tudor. Классические часы с «вафельным» циферблатом в честь года основания марки.
+    highlights: [Вафельная фактура циферблата, Корпус Oyster-стиля, Самая доступная Tudor]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#d9dadb", finish: waffle, indices: arabic, text_color: "#2b2d31", index_color: "#2b2d31", lume: false}
+      hands: {style: dauphine, color: "#2b2d31", lume: false}
+      date: "3"
+      strap: {type: three_link}
+      logo: TUDOR
+    sort: 60

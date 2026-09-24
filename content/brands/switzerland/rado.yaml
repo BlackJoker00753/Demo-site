@@ -1,0 +1,66 @@
+brand:
+  slug: rado
+  name: Rado
+  aliases: [радо]
+  country: switzerland
+  founded: 1917
+  founder: Братья Шлуп
+  city: Ленгнау
+  lat: 47.1840
+  lon: 7.3680
+  group: Swatch Group
+  tier: mid
+  manufacture: none
+  manufacture_note: Механизмы поставляет ETA. Главная специализация Rado, высокотехнологичная керамика и нецарапающиеся материалы.
+  website: https://www.rado.com
+  sort: 23
+  tagline: Мастер керамики и первых в мире нецарапающихся часов.
+  story:
+    - Мастерская братьев Шлуп в Ленгнау выпускала механизмы с 1917 года, а марка Rado появилась в 1957-м.
+    - В 1962 году DiaStar стал первыми в мире часами, которые практически невозможно поцарапать. Корпус делали из твёрдого сплава на основе карбида вольфрама.
+    - С 1986 года Rado работает с высокотехнологичной керамикой. Её корпуса лёгкие, гипоаллергенные и не теряют блеск с годами.
+  facts:
+    - {label: "DiaStar", value: "1962, первые нецарапающиеся часы"}
+    - {label: "Керамика", value: "с 1986 года"}
+  milestones:
+    - {year: 1917, text: "Мастерская братьев Шлуп"}
+    - {year: 1957, text: "Марка Rado"}
+    - {year: 1962, text: "DiaStar"}
+    - {year: 1986, text: "Керамика Integral"}
+
+movements:
+  - slug: rado-r808
+    caliber: Rado R808
+    maker: ETA для Rado
+    type: automatic
+    in_house: false
+    base: ETA C07
+    power_reserve_h: 80
+    frequency_vph: 21600
+    features: [Спираль Nivachron, 80 часов]
+    description: Вариант Powermatic 80 с антимагнитной спиралью.
+
+watches:
+  - slug: rado-captain-cook
+    name: Captain Cook Automatic
+    collection: Captain Cook
+    reference: R32505203
+    year_introduced: 1962
+    year_current: 2021
+    movement: rado-r808
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 42, thickness_mm: 12.3, material: Сталь, water_resistance_m: 300}
+    bracelet: Стальной браслет
+    dial: Синий с градиентом
+    price: {usd: 2500, kind: msrp, source: rado.com (US), checked: 2026-09-24}
+    summary: Переиздание дайвера 1962 года с вогнутым керамическим безелем.
+    highlights: [Керамический безель, 80 часов, 300 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#1b2d52", material: ceramic}
+      dial: {color: "#1d3a6e", color2: "#0a1224", finish: fume, indices: baton}
+      hands: {style: arrow, color: "#eef1f3"}
+      date: "3"
+      strap: {type: three_link}
+      logo: RADO
+    sort: 10

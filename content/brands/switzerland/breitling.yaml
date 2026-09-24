@@ -1,0 +1,119 @@
+brand:
+  slug: breitling
+  name: Breitling
+  aliases: [брайтлинг, бретлинг]
+  country: switzerland
+  founded: 1884
+  founder: Леон Брайтлинг
+  city: Гренхен
+  lat: 47.1920
+  lon: 7.3960
+  group: Partners Group (частный фонд)
+  tier: premium
+  manufacture: partial
+  manufacture_note: Хронографы B01 и B19 собственные. В части трёхстрелочных моделей стоят механизмы на базе ETA и Sellita.
+  website: https://www.breitling.com
+  sort: 15
+  tagline: Инструменты для пилотов. Изобретатели отдельной кнопки хронографа.
+  story:
+    - Леон Брайтлинг основал мастерскую в Сент-Имье в 1884 году и специализировался на хронографах. В 1915 году его внук Гастон добавил отдельную кнопку старта хронографа, а в 1934 году Вилли Брайтлинг вторую кнопку для сброса.
+    - В 1952 году появился Navitimer с круговой логарифмической линейкой, ставший официальными часами Ассоциации пилотов и владельцев самолётов (AOPA).
+    - В 2009 году марка выпустила собственный хронограф B01 с колонным колесом и вертикальным сцеплением.
+  facts:
+    - {label: "Кнопка хронографа", value: "1915 и 1934"}
+    - {label: "Navitimer", value: "1952, логарифмическая линейка"}
+    - {label: "Калибр B01", value: "2009, 70 часов"}
+  milestones:
+    - {year: 1884, text: "Основание в Сент-Имье"}
+    - {year: 1915, text: "Отдельная кнопка хронографа"}
+    - {year: 1934, text: "Вторая кнопка сброса"}
+    - {year: 1952, text: "Navitimer"}
+    - {year: 1957, text: "Superocean"}
+    - {year: 2009, text: "Калибр B01"}
+
+movements:
+  - slug: breitling-b01
+    caliber: Breitling B01
+    maker: Breitling
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 47
+    year: 2009
+    certification: COSC
+    features: [Колонное колесо, Вертикальное сцепление, Хронометр]
+    description: Собственный хронограф Breitling, настолько удачный, что его по обмену получила Tudor.
+  - slug: breitling-b31
+    caliber: Breitling B31
+    maker: Breitling
+    type: automatic
+    in_house: true
+    power_reserve_h: 78
+    frequency_vph: 28800
+    jewels: 27
+    certification: COSC
+    features: [Трёхстрелочный автомат, Хронометр]
+    description: Собственный трёхстрелочный калибр с запасом хода более трёх суток.
+
+watches:
+  - slug: breitling-navitimer-b01-43
+    name: Navitimer B01 Chronograph 43
+    collection: Navitimer
+    reference: AB0138211B1P1
+    year_introduced: 1952
+    year_current: 2022
+    movement: breitling-b01
+    complications: [chronograph, date]
+    case: {diameter_mm: 43, thickness_mm: 13.6, material: Сталь, water_resistance_m: 30}
+    bracelet: Кожаный ремешок
+    dial: Чёрный с серебристыми счётчиками
+    price: {usd: 10300, kind: msrp, source: breitling.com (US), url: "https://www.breitling.com/us-en/watches/navitimer/", checked: 2026-09-24}
+    summary: Хронограф пилота с круговой логарифмической линейкой на безеле. Считает скорость, расход топлива и перевод единиц.
+    icon: true
+    story:
+      - В 1952 году Breitling выпустила Navitimer для пилотов. Вращающийся безель с логарифмической шкалой позволял прямо в кабине вычислять среднюю скорость, расход топлива и время набора высоты.
+      - Часы стали официальным инструментом AOPA, а в 1962 году Скотт Карпентер взял на орбиту версию Cosmonaute с 24-часовым циферблатом.
+    history:
+      - {year: 1952, ref: "806", title: "Первый Navitimer", text: "Логарифмическая линейка и эмблема AOPA."}
+      - {year: 1962, title: "Cosmonaute", text: "24-часовой циферблат для полёта Скотта Карпентера."}
+      - {year: 2009, title: "Калибр B01", text: "Собственный хронограф с колонным колесом."}
+      - {year: 2022, title: "Обновление", text: "Эмблема AOPA вернулась на циферблат, корпус стал элегантнее."}
+    highlights: [Логарифмическая линейка, Калибр B01 на 70 часов, Хронометр COSC]
+    render:
+      case: {shape: round, material: steel, pushers: 2, display_back: true}
+      bezel: {type: slide_rule, color: "#dfe2e6", material: metal}
+      dial: {color: "#121315", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#c9ccd0"}
+        - {pos: 6, kind: chrono_hr, color: "#c9ccd0"}
+        - {pos: 9, kind: small_seconds, color: "#c9ccd0"}
+      date: "4_30"
+      strap: {type: alligator, color: "#2a1a12"}
+      logo: BREITLING
+    sort: 10
+
+  - slug: breitling-superocean-heritage
+    name: Superocean Heritage B31 42
+    collection: Superocean Heritage
+    reference: AB3111161C1S1
+    year_introduced: 1957
+    year_current: 2024
+    movement: breitling-b31
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 42, material: Сталь, water_resistance_m: 200}
+    bracelet: Стальной браслет-сетка
+    dial: Синий солнечный
+    price: {usd: 6500, kind: msrp, source: breitling.com (US), checked: 2026-09-24}
+    summary: Дайвер в духе 1957 года с керамическим безелем и браслетом-сеткой.
+    highlights: [Собственный калибр B31, Браслет-сетка, 200 м]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: dive, color: "#1c2b4a", material: ceramic}
+      dial: {color: "#1d3462", finish: sunburst, indices: baton}
+      hands: {style: arrow, color: "#eef1f3"}
+      date: "3"
+      strap: {type: mesh}
+      logo: BREITLING
+    sort: 20

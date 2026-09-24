@@ -1,0 +1,175 @@
+brand:
+  slug: longines
+  name: Longines
+  aliases: [лонжин, лонгинес]
+  country: switzerland
+  founded: 1832
+  founder: Огюст Агассис
+  city: Сент-Имье
+  lat: 47.1526
+  lon: 6.9964
+  group: Swatch Group
+  tier: premium
+  manufacture: partial
+  manufacture_note: Механизмы для Longines эксклюзивно делает ETA по собственным спецификациям марки, многие с кремниевой спиралью и хронометрическим сертификатом.
+  website: https://www.longines.com
+  sort: 12
+  tagline: Крылатые песочные часы, авиация и лучшая классика за свои деньги.
+  story:
+    - Огюст Агассис открыл часовую контору в Сент-Имье в 1832 году. Его племянник Эрнест Франсийон в 1867 году построил фабрику на лугах, которые местные называли Les Longines.
+    - Логотип с крылатыми песочными часами зарегистрирован в 1889 году. Он считается старейшим неизменным товарным знаком, до сих пор зарегистрированным в ВОИС.
+    - Longines хронометрировала первые авиарекорды. В 1931 году по идее Чарльза Линдберга она создала часы с часовым углом для навигации, а в 1936 году выпустила один из первых хронографов флайбэк.
+  facts:
+    - {label: "Логотип", value: "с 1889 года без изменений"}
+    - {label: "Часы Линдберга", value: "Hour Angle, 1931"}
+    - {label: "Флайбэк", value: "калибр 13ZN, 1936"}
+  milestones:
+    - {year: 1832, text: "Основание в Сент-Имье"}
+    - {year: 1867, text: "Фабрика на лугах Les Longines"}
+    - {year: 1889, text: "Крылатые песочные часы"}
+    - {year: 1931, text: "Hour Angle Линдберга"}
+    - {year: 1936, text: "Флайбэк 13ZN"}
+    - {year: 2020, text: "Коллекция Spirit"}
+
+movements:
+  - slug: longines-l844
+    caliber: Longines L844.4
+    maker: ETA для Longines
+    type: automatic
+    in_house: false
+    power_reserve_h: 72
+    frequency_vph: 25200
+    certification: COSC
+    features: [GMT, Кремниевая спираль]
+    description: Эксклюзивный калибр GMT для Spirit Zulu Time с независимой часовой стрелкой.
+  - slug: longines-l888
+    caliber: Longines L888.4
+    maker: ETA для Longines
+    type: automatic
+    in_house: false
+    base: ETA A31.L11
+    power_reserve_h: 72
+    frequency_vph: 25200
+    jewels: 21
+    certification: COSC
+    features: [Кремниевая спираль, Дата]
+    description: Трёхстрелочный автомат с запасом хода 72 часа и антимагнитной спиралью.
+  - slug: longines-l791
+    caliber: Longines L791.4
+    maker: ETA для Longines
+    type: automatic
+    in_house: false
+    power_reserve_h: 68
+    frequency_vph: 28800
+    certification: COSC
+    features: [Хронограф флайбэк, Колонное колесо, Кремниевая спираль]
+    description: Эксклюзивный хронограф флайбэк, продолжающий традицию калибра 13ZN.
+  - slug: longines-l899
+    caliber: Longines L899.5
+    maker: ETA для Longines
+    type: automatic
+    in_house: false
+    power_reserve_h: 72
+    frequency_vph: 25200
+    features: [Фаза Луны, Дата]
+    description: Классический автомат с фазой Луны.
+
+watches:
+  - slug: longines-spirit-zulu-time
+    name: Spirit Zulu Time
+    collection: Spirit
+    reference: L3.812.4.50.6
+    year_introduced: 2022
+    movement: longines-l844
+    complications: [gmt, date]
+    case: {diameter_mm: 42, thickness_mm: 13.9, material: Сталь, water_resistance_m: 100}
+    bracelet: Стальной браслет
+    dial: Чёрный солнечный
+    price: {usd: 3550, kind: msrp, source: longines.com (US), url: "https://www.longines.com/en-us/watches/spirit", checked: 2026-09-24}
+    summary: Часы путешественника с керамическим 24-часовым безелем. Zulu означает время по Гринвичу в авиации.
+    icon: true
+    story:
+      - В 1925 году Longines выпустила Zulu Time, одни из первых часов, показывающих время нескольких поясов. Буква Z в авиации обозначает время по Гринвичу.
+      - Современный Spirit Zulu Time 2022 года стал одним из лучших GMT в своём классе благодаря хронометрическому калибру с независимой часовой стрелкой.
+    highlights: [Настоящий GMT с прыгающей часовой стрелкой, Хронометр COSC, 72 часа]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: gmt, color: "#16181c", color2: "#3a3e45", material: ceramic}
+      dial: {color: "#151619", finish: sunburst, indices: applied_arabic}
+      hands: {style: sword, color: "#eef1f3", gmt_color: "#d9b44a"}
+      date: "3"
+      strap: {type: three_link}
+      logo: LONGINES
+    sort: 10
+
+  - slug: longines-spirit-pilot
+    name: Spirit Pilot
+    collection: Spirit
+    reference: L3.809.4.93.9
+    year_introduced: 2020
+    movement: longines-l888
+    complications: [date]
+    case: {diameter_mm: 39, material: Сталь, water_resistance_m: 100}
+    bracelet: Кожаный ремешок
+    dial: Чёрный матовый
+    price: {usd: 2700, kind: msrp, source: longines.com (US), checked: 2026-09-24}
+    summary: Авиационные часы с хронометрическим сертификатом по очень честной цене.
+    highlights: [Хронометр COSC, 72 часа, Крупные цифры пилота]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#121315", finish: matte, indices: applied_arabic}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "3"
+      strap: {type: leather, color: "#4a3326"}
+      logo: LONGINES
+    sort: 20
+
+  - slug: longines-spirit-flyback
+    name: Spirit Pilot Flyback
+    collection: Spirit
+    reference: L3.721.4.93.9
+    year_introduced: 2023
+    movement: longines-l791
+    complications: [chronograph, flyback, date]
+    case: {diameter_mm: 39.5, material: Сталь, water_resistance_m: 100}
+    bracelet: Кожаный ремешок
+    dial: Чёрный матовый
+    price: {usd: 5250, kind: msrp, source: longines.com (US), checked: 2026-09-24}
+    summary: Хронограф флайбэк в честь калибра 13ZN 1936 года. Колонное колесо и хронометр.
+    highlights: [Флайбэк, Колонное колесо, Хронометр COSC]
+    render:
+      case: {shape: round, material: steel, pushers: 2}
+      bezel: {type: smooth}
+      dial: {color: "#121315", finish: matte, indices: applied_arabic}
+      hands: {style: sword, color: "#eef1f3"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#17181b"}
+        - {pos: 9, kind: small_seconds, color: "#17181b"}
+      date: "6"
+      strap: {type: leather, color: "#4a3326"}
+      logo: LONGINES
+    sort: 30
+
+  - slug: longines-master-collection-moonphase
+    name: Master Collection Moonphase
+    collection: Master Collection
+    year_introduced: 2005
+    movement: longines-l899
+    complications: [moonphase, date]
+    case: {diameter_mm: 40, material: Сталь, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый с вертикальными полосами
+    price: {usd: 3150, kind: estimate, source: "оценка по прайсу 2025", checked: 2026-09-24}
+    summary: Классические часы с фазой Луны на 6 часах и синими стрелками.
+    highlights: [Фаза Луны, 72 часа, Синие стрелки]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: none}
+      dial: {color: "#e4e4e2", finish: stripes, indices: arabic, text_color: "#2b2f36", lume: false}
+      hands: {style: leaf, color: "#1f3a8a", lume: false}
+      moonphase: "6"
+      date: "3"
+      strap: {type: alligator, color: "#2a1a12"}
+      logo: LONGINES
+    sort: 40

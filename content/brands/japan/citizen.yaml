@@ -1,0 +1,100 @@
+brand:
+  slug: citizen
+  name: Citizen
+  aliases: [ситизен, цитизен]
+  country: japan
+  founded: 1918
+  founder: Сёкося (Институт исследования часов)
+  city: Нисиотокё, Токио
+  lat: 35.7255
+  lon: 139.5383
+  group: Citizen Watch Co.
+  tier: accessible
+  manufacture: full
+  manufacture_note: Одна из крупнейших часовых компаний мира. Ей принадлежат производитель механизмов Miyota, швейцарские La Joux-Perret, Frédérique Constant и американская Bulova.
+  website: https://www.citizenwatch.com
+  sort: 3
+  tagline: Часы, которые заряжаются от любого света. Eco-Drive с 1995 года.
+  story:
+    - Институт исследования часов Сёкося основали в Токио в 1918 году. В 1924 году мэр Токио Симпэй Гото назвал их карманные часы Citizen, чтобы их любил и мог купить каждый гражданин.
+    - В 1976 году Citizen выпустила первые в мире аналоговые часы с солнечной батареей, а в 1995 году технологию Eco-Drive. Часы заряжаются от любого света и месяцами работают в темноте.
+    - Сегодня Citizen входит в тройку крупнейших часовых групп мира.
+  facts:
+    - {label: "Имя", value: "дал мэр Токио, 1924"}
+    - {label: "Солнечные часы", value: "первые аналоговые, 1976"}
+    - {label: "Eco-Drive", value: "с 1995 года"}
+  milestones:
+    - {year: 1918, text: "Институт Сёкося"}
+    - {year: 1924, text: "Имя Citizen"}
+    - {year: 1976, text: "Первые аналоговые солнечные часы"}
+    - {year: 1995, text: "Eco-Drive"}
+    - {year: 2008, text: "Покупка Bulova"}
+
+movements:
+  - slug: citizen-e168
+    caliber: Citizen E168 Eco-Drive
+    maker: Citizen
+    type: solar
+    in_house: true
+    accuracy: ±15 с в месяц
+    features: [Зарядка от любого света, Работа около 180 дней в темноте, Индикатор заряда]
+    description: Кварц с солнечным элементом под циферблатом и аккумулятором вместо батарейки.
+  - slug: miyota-8210
+    caliber: Miyota 8210
+    maker: Miyota (Citizen)
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 21600
+    jewels: 21
+    features: [Дата, Ручной подзавод]
+    description: Выносливый автомат собственного производства группы Citizen.
+
+watches:
+  - slug: citizen-promaster-diver
+    name: Promaster Diver Eco-Drive
+    collection: Promaster
+    reference: BN0150-28E
+    year_introduced: 1983
+    movement: citizen-e168
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 44, thickness_mm: 12.5, material: Сталь, water_resistance_m: 200}
+    bracelet: Полиуретановый ремешок
+    dial: Чёрный
+    price: {usd: 450, kind: msrp, source: citizenwatch.com (US), url: "https://www.citizenwatch.com/us/en/product/BN0150-28E", checked: 2026-09-24, note: "на сайте встречается скидка до $360"}
+    summary: Дайвер ISO 6425, которому никогда не нужна батарейка. Заряжается от любого света.
+    icon: true
+    highlights: [Eco-Drive, Сертификат ISO 6425, 200 м]
+    render:
+      case: {shape: round, material: steel, crown_guard: true}
+      bezel: {type: dive, color: "#121315", material: aluminium}
+      dial: {color: "#101113", finish: matte, indices: dots}
+      hands: {style: arrow, color: "#eef1f3"}
+      date: "3"
+      strap: {type: rubber, color: "#141517"}
+      logo: CITIZEN
+    sort: 10
+
+  - slug: citizen-tsuyosa
+    name: Tsuyosa Automatic
+    collection: Tsuyosa
+    reference: NJ0150-56W
+    year_introduced: 2023
+    movement: miyota-8210
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 11.7, material: Сталь, water_resistance_m: 50}
+    bracelet: Интегрированный стальной браслет
+    dial: Бирюзовый солнечный
+    price: {usd: 495, kind: estimate, source: "оценка по данным поиска", checked: 2026-09-24}
+    summary: Автомат с интегрированным браслетом и яркими циферблатами. Японский ответ Tissot PRX.
+    highlights: [Интегрированный браслет, Дата под лупой, Яркие цвета]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: smooth}
+      dial: {color: "#2aa3a0", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      cyclops: true
+      strap: {type: integrated}
+      logo: CITIZEN
+    sort: 20

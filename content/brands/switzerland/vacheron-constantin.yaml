@@ -1,0 +1,151 @@
+brand:
+  slug: vacheron-constantin
+  name: Vacheron Constantin
+  aliases: [вашерон, вашерон константин]
+  country: switzerland
+  founded: 1755
+  founder: Жан-Марк Вашерон
+  city: Женева
+  lat: 46.1665
+  lon: 6.1164
+  group: Richemont
+  tier: haute
+  manufacture: full
+  manufacture_note: Большинство моделей несут Женевское клеймо, которое требует сборки, отделки и проверки механизма в кантоне Женева.
+  website: https://www.vacheron-constantin.com
+  sort: 6
+  tagline: Старейшая мануфактура, работающая без перерыва с 1755 года.
+  story:
+    - 17 сентября 1755 года 24-летний Жан-Марк Вашерон нанял первого ученика. Контракт сохранился, и с тех пор мануфактура не прекращала работу ни на один год.
+    - В 1819 году к семье присоединился коммерсант Франсуа Константен. Его девиз «Делать лучше, если возможно, а это возможно всегда» до сих пор служит девизом дома.
+    - Vacheron Constantin создавала часы для королей и магнатов, а в 2015 году к 260-летию собрала карманные часы Reference 57260 с 57 усложнениями.
+  facts:
+    - {label: "Работает без перерыва", value: "с 1755 года"}
+    - {label: "Эмблема", value: "Мальтийский крест"}
+    - {label: "Самые сложные часы", value: "Les Cabinotiers Berkley, 63 усложнения"}
+  milestones:
+    - {year: 1755, text: "Контракт с первым учеником"}
+    - {year: 1819, text: "Франсуа Константен"}
+    - {year: 1880, text: "Мальтийский крест становится эмблемой"}
+    - {year: 1977, text: "Модель 222 Йорга Хизека"}
+    - {year: 1996, text: "Коллекция Overseas"}
+    - {year: 2015, text: "Reference 57260, 57 усложнений"}
+
+movements:
+  - slug: vc-5100
+    caliber: Vacheron Constantin 5100
+    maker: Vacheron Constantin
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 28800
+    jewels: 37
+    year: 2016
+    certification: Женевское клеймо
+    features: [Ротор из 22-каратного золота с розой ветров, Дата]
+    description: Автомат коллекции Overseas с золотым ротором, изображающим розу ветров.
+  - slug: vc-2455
+    caliber: Vacheron Constantin 2455/2
+    maker: Vacheron Constantin
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 28800
+    jewels: 27
+    certification: Женевское клеймо
+    features: [Тонкий автомат, Дата]
+    description: Тонкий автомат для исторической модели 222.
+  - slug: vc-2450
+    caliber: Vacheron Constantin 2450 Q6
+    maker: Vacheron Constantin
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 28800
+    jewels: 27
+    certification: Женевское клеймо
+    features: [Дата, Центральная секундная стрелка]
+    description: Классический автомат для коллекции Patrimony.
+
+watches:
+  - slug: vacheron-constantin-overseas
+    name: Overseas Self-Winding
+    collection: Overseas
+    reference: 4520V/210A-B128
+    year_introduced: 1996
+    year_current: 2016
+    movement: vc-5100
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 11.0, material: Сталь, water_resistance_m: 150}
+    bracelet: Стальной браслет со звеньями в форме полукреста и два сменных ремешка
+    dial: Синий лаковый с солнечным узором
+    price: {usd: 29200, kind: estimate, source: "розница США 2026 по данным поиска", checked: 2026-09-24}
+    summary: Спортивные часы с безелем в форме Мальтийского креста и системой быстрой смены ремешков.
+    icon: true
+    story:
+      - Overseas появился в 1996 году как наследник модели 222. Шестигранный безель повторяет форму Мальтийского креста, эмблемы мануфактуры.
+      - Нынешнее поколение 2016 года получило калибр 5100 и систему, позволяющую без инструментов менять браслет на кожаный или каучуковый ремешок.
+    history:
+      - {year: 1977, ref: "222", title: "Прародитель", text: "Стальные спортивные часы к 222-летию мануфактуры."}
+      - {year: 1996, ref: "42040", title: "Первый Overseas", text: "Безель в форме Мальтийского креста."}
+      - {year: 2004, ref: "47040", title: "Второе поколение", text: "Корпус крупнее и антимагнитная защита."}
+      - {year: 2016, ref: "4500V", title: "Третье поколение", text: "Калибр 5100 и быстрая смена ремешков."}
+    highlights: [Безель в форме Мальтийского креста, Смена ремешка без инструментов, Женевское клеймо]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, display_back: true}
+      bezel: {type: hexagon}
+      dial: {color: "#233d70", finish: sunburst, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: VACHERON CONSTANTIN
+    sort: 10
+
+  - slug: vacheron-constantin-222
+    name: Historiques 222
+    collection: Historiques
+    reference: 4200H/222A-B934
+    year_introduced: 1977
+    year_current: 2024
+    designer: Йорг Хизек
+    movement: vc-2455
+    complications: [date]
+    case: {diameter_mm: 37, thickness_mm: 7.95, material: Сталь, water_resistance_m: 50}
+    bracelet: Интегрированный стальной браслет
+    dial: Синий солнечный
+    price: {usd: 32000, kind: estimate, source: "розница США 2026 по данным поиска", checked: 2026-09-24}
+    summary: Переиздание спортивной модели 1977 года, созданной 23-летним Йоргом Хизеком.
+    highlights: ["Толщина 7,95 мм", "Рифлёный безель", "Мальтийский крест на корпусе"]
+    render:
+      case: {shape: round, material: steel, lugs: integrated}
+      bezel: {type: fluted}
+      dial: {color: "#26395e", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      strap: {type: integrated}
+      logo: VACHERON CONSTANTIN
+    sort: 20
+
+  - slug: vacheron-constantin-patrimony
+    name: Patrimony Self-Winding
+    collection: Patrimony
+    reference: 85180/000R-9248
+    year_introduced: 2004
+    movement: vc-2450
+    complications: [date]
+    case: {diameter_mm: 40, thickness_mm: 8.1, material: 18-каратное розовое золото, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Серебристый опаловый
+    price: {usd: 31000, kind: estimate, source: "оценка по прайсу 2025", checked: 2026-09-24}
+    summary: Минимализм в золоте. Тонкий круглый корпус, выпуклый циферблат и ничего лишнего.
+    highlights: [Тонкий золотой корпус, Женевское клеймо, Выпуклый циферблат]
+    render:
+      case: {shape: round, material: rose_gold}
+      bezel: {type: none}
+      dial: {color: "#e6e4df", finish: grained, indices: baton, index_color: "#c29a7a", text_color: "#6e5a48", lume: false}
+      hands: {style: dauphine, color: "#c29a7a", lume: false}
+      date: "6"
+      strap: {type: alligator, color: "#3a2418"}
+      crystal: domed
+      logo: VACHERON CONSTANTIN
+    sort: 30
