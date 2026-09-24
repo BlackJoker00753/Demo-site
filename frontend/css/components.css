@@ -252,11 +252,24 @@
 }
 .wcard:hover .wcard__photo { transform: scale(1.075); }
 .wcard__badge {
-  position: absolute; top: 14px; left: 14px;
-  padding: 3px 9px; border-radius: var(--r-pill);
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--text-3);
-  border: 1px solid var(--line);
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  padding: 4px 10px; border-radius: var(--r-pill);
+  font-size: 11px; letter-spacing: 0.02em; color: var(--text);
+  background: rgba(10, 12, 15, 0.62); border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
+/* типографская заглушка вместо фото */
+.wcard__stage--type {
+  display: grid; align-content: center; justify-items: center; gap: 10px; padding: 24px; text-align: center;
+  background:
+    radial-gradient(60% 55% at 50% 40%, rgba(210, 220, 232, 0.06), transparent 70%),
+    repeating-radial-gradient(circle at 50% 46%, transparent 0 22px, rgba(255, 255, 255, 0.018) 22px 23px);
+}
+.wcard__stage--type::after { display: none; }
+.wcard__mono { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-3); }
+.wcard__type-name { font-family: var(--font-display); font-size: clamp(1.8rem, 1.4rem + 1vw, 2.4rem); line-height: 1.05; color: var(--text-2); }
+.wcard__type-note { font-size: 11px; color: var(--text-4); }
 .wcard__body { padding: 18px 20px 20px; display: grid; gap: 10px; align-content: start; }
 .wcard__top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .wcard__name { font-family: var(--font-display); font-size: 1.55rem; line-height: 1.05; font-weight: 400; }

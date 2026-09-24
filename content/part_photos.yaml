@@ -197,50 +197,16 @@ dial:
 exploded_mechanical:
 - file: parts/exploded_mechanical/1
   width: 1600
-  height: 1064
+  height: 1200
   focus:
   - 0.5
   - 0.5
-  caption: Механизм карманных часов Manistee, разобранный на основные детали
-  title: Manistee watch main parts.JPG
-  author: Doug Coldwell
+  caption: Механические часы Prim (Чехословакия), разобранные для музейной витрины
+  title: Prim mechanical wrist watch disassembled whole.jpg
+  author: Kozuch
   license: CC BY-SA 3.0
   license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Manistee_watch_main_parts.JPG
-  hotspots:
-  - key: escape_wheel
-    x: 0.322
-    y: 0.216
-  - key: train
-    x: 0.485
-    y: 0.19
-  - key: barrel
-    x: 0.63
-    y: 0.16
-  - key: bridges
-    x: 0.556
-    y: 0.33
-  - key: ratchet
-    x: 0.765
-    y: 0.24
-  - key: balance
-    x: 0.675
-    y: 0.512
-  - key: balance_cock
-    x: 0.75
-    y: 0.446
-  - key: pallet
-    x: 0.525
-    y: 0.489
-  - key: mainplate
-    x: 0.23
-    y: 0.52
-  - key: cannon
-    x: 0.35
-    y: 0.606
-  - key: jewels
-    x: 0.519
-    y: 0.672
+  source_url: https://commons.wikimedia.org/wiki/File:Prim_mechanical_wrist_watch_disassembled_whole.jpg
 exploded_quartz:
 - file: parts/exploded_quartz/1
   width: 1600

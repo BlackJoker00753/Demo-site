@@ -24,7 +24,7 @@ export function photoImg(p, { sizes = "(max-width: 700px) 100vw, 480px", cls = "
 export function photoCredit(p, { cls = "" } = {}) {
   if (!p) return "";
   return html`<span class="credit ${cls}">
-    ${p.caption ? html`<span class="credit__note">${p.caption}</span>` : ""}
+    ${p.caption || p.context ? html`<span class="credit__note">${p.context ? "Похожая модель: " : ""}${p.caption ?? ""}</span>` : ""}
     <span>Фото: ${p.source_url ? html`<a href="${p.source_url}" target="_blank" rel="noopener" data-external>${p.author}</a>` : p.author},
     ${p.license_url ? html`<a href="${p.license_url}" target="_blank" rel="noopener" data-external>${p.license}</a>` : p.license}</span>
   </span>`;

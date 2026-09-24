@@ -1,5 +1,5 @@
-// Карточка модели часов: настоящая фотография, а если свободного снимка нет,
-// 3D-превью из общей галереи с честной пометкой «3D».
+// Карточка модели часов: только настоящие фотографии. Если своего снимка нет,
+// показывается родственная модель с пометкой, а без снимков вообще типографская заглушка.
 
 import { html } from "../core/dom.js";
 import { MOVEMENT, usd } from "../core/format.js";
@@ -13,10 +13,12 @@ export function watchCard(w, { showBrand = false, i = 0 } = {}) {
     ${w.photo
       ? html`<div class="wcard__stage wcard__stage--photo" data-shared="w-${w.slug}">
           ${photoImg(w.photo, { cls: "wcard__photo", sizes: "(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 380px", alt: `${w.brand_name} ${w.name}` })}
+          ${w.photo.context ? html`<span class="wcard__badge" title="${w.photo.caption ?? ""}">Похожая модель</span>` : ""}
         </div>`
-      : html`<div class="wcard__stage" data-watch="${w.slug}">
-          <i class="ph-thin ph-watch wcard__fallback" aria-hidden="true"></i>
-          <span class="wcard__badge" title="Свободной фотографии этой модели пока нет">3D</span>
+      : html`<div class="wcard__stage wcard__stage--type" aria-hidden="true">
+          <span class="wcard__mono">${w.brand_name}</span>
+          <span class="wcard__type-name">${w.name}</span>
+          <span class="wcard__type-note">Свободной фотографии пока нет</span>
         </div>`}
     <div class="wcard__body">
       <div class="wcard__top">

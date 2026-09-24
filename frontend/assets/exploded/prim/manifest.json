@@ -1,0 +1,384 @@
+{
+ "name": "prim",
+ "width": 2137,
+ "height": 1336,
+ "photo_key": "exploded_mechanical",
+ "zoom": 1.9,
+ "credit": {
+  "title": "Prim mechanical wrist watch disassembled whole.jpg",
+  "author": "Kozuch",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Prim_mechanical_wrist_watch_disassembled_whole.jpg"
+ },
+ "parts": [
+  {
+   "file": "p00.webp",
+   "key": "case",
+   "z": 60,
+   "fade": true,
+   "w": 0.2068,
+   "h": 0.33088,
+   "to": [
+    0.5,
+    0.5
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p01.webp",
+   "key": "dial",
+   "z": 50,
+   "fade": false,
+   "w": 0.19604,
+   "h": 0.30093,
+   "to": [
+    0.17,
+    0.3
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p02.webp",
+   "key": "date_disc",
+   "z": 45,
+   "fade": false,
+   "w": 0.14176,
+   "h": 0.22458,
+   "to": [
+    0.37,
+    0.19
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p03.webp",
+   "key": "calendar",
+   "z": 40,
+   "fade": false,
+   "w": 0.0524,
+   "h": 0.07486,
+   "to": [
+    0.33,
+    0.43
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p04.webp",
+   "key": "calendar",
+   "z": 40,
+   "fade": false,
+   "w": 0.04492,
+   "h": 0.07037,
+   "to": [
+    0.365,
+    0.45
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p05.webp",
+   "key": "calendar",
+   "z": 40,
+   "fade": false,
+   "w": 0.04351,
+   "h": 0.07037,
+   "to": [
+    0.4,
+    0.43
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p06.webp",
+   "key": "calendar",
+   "z": 40,
+   "fade": false,
+   "w": 0.03135,
+   "h": 0.06737,
+   "to": [
+    0.3,
+    0.46
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p07.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.07767,
+   "h": 0.06288,
+   "to": [
+    0.33,
+    0.77
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p08.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.06597,
+   "h": 0.09657,
+   "to": [
+    0.39,
+    0.8
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p09.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.05568,
+   "h": 0.06064,
+   "to": [
+    0.44,
+    0.76
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p10.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.04398,
+   "h": 0.03069,
+   "to": [
+    0.36,
+    0.7
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p11.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.06176,
+   "h": 0.03069,
+   "to": [
+    0.42,
+    0.69
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p12.webp",
+   "key": "setting",
+   "z": 38,
+   "fade": false,
+   "w": 0.0276,
+   "h": 0.04267,
+   "to": [
+    0.3,
+    0.72
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p13.webp",
+   "key": "mainplate",
+   "z": 30,
+   "fade": false,
+   "w": 0.14644,
+   "h": 0.22158,
+   "to": [
+    0.63,
+    0.2
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p14.webp",
+   "key": "bridges",
+   "z": 20,
+   "fade": false,
+   "w": 0.07907,
+   "h": 0.20137,
+   "to": [
+    0.8,
+    0.17
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p15.webp",
+   "key": "bridges",
+   "z": 20,
+   "fade": false,
+   "w": 0.08047,
+   "h": 0.14523,
+   "to": [
+    0.9,
+    0.3
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p16.webp",
+   "key": "bridges",
+   "z": 20,
+   "fade": false,
+   "w": 0.06223,
+   "h": 0.10106,
+   "to": [
+    0.8,
+    0.4
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p17.webp",
+   "key": "balance_cock",
+   "z": 20,
+   "fade": false,
+   "w": 0.04538,
+   "h": 0.12726,
+   "to": [
+    0.89,
+    0.52
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p18.webp",
+   "key": "bridges",
+   "z": 20,
+   "fade": false,
+   "w": 0.09732,
+   "h": 0.14672,
+   "to": [
+    0.77,
+    0.6
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p19.webp",
+   "key": "barrel",
+   "z": 12,
+   "fade": false,
+   "w": 0.07486,
+   "h": 0.12352,
+   "to": [
+    0.6,
+    0.8
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p20.webp",
+   "key": "barrel",
+   "z": 12,
+   "fade": false,
+   "w": 0.06784,
+   "h": 0.11154,
+   "to": [
+    0.7,
+    0.83
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p21.webp",
+   "key": "barrel",
+   "z": 12,
+   "fade": false,
+   "w": 0.07065,
+   "h": 0.12127,
+   "to": [
+    0.79,
+    0.8
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "file": "p22.webp",
+   "key": "dial",
+   "z": 8,
+   "fade": false,
+   "w": 0.1675,
+   "h": 0.26949,
+   "to": [
+    0.17,
+    0.72
+   ],
+   "from": [
+    0.5,
+    0.5
+   ]
+  }
+ ]
+}

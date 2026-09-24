@@ -66,7 +66,7 @@ def watch_card(w: Watch) -> S.WatchCard:
         frequency_vph=w.movement.frequency_vph, price=_price(w),
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
-        photo=_main_photo(w),
+        photo=_card_photo(w),
     )
 
 
@@ -76,9 +76,16 @@ def _main_photo(w: Watch) -> S.Photo | None:
     return S.Photo(**main) if main else None
 
 
+def _card_photo(w: Watch) -> S.Photo | None:
+    """Для карточки: своё фото, а если его нет, снимок родственной модели (помечен context)."""
+    if main := _main_photo(w):
+        return main
+    return S.Photo(**w.photos[0]) if w.photos else None
+
+
 def _hero_watch(b: Brand) -> Watch | None:
     """Главная модель бренда: культовая с фото, иначе любая с фото, иначе первая."""
-    ranked = sorted(b.watches, key=lambda w: (_main_photo(w) is None, not w.icon, w.sort))
+    ranked = sorted(b.watches, key=lambda w: (_main_photo(w) is None, not w.photos, not w.icon, w.sort))
     return ranked[0] if ranked else None
 
 
@@ -89,7 +96,7 @@ def brand_card(b: Brand) -> S.BrandCard:
         tier=b.tier, tagline=b.tagline, group=b.group, independent=b.independent, manufacture=b.manufacture,
         watch_count=len(b.watches), prices=price_stats(w.price_usd for w in b.watches),
         hero_render=hero.render if hero else None,
-        hero_photo=_main_photo(hero) if hero else None,
+        hero_photo=_card_photo(hero) if hero else None,
         hero_slug=hero.slug if hero else None,
         hero_name=hero.name if hero else None,
     )

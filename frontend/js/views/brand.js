@@ -1,10 +1,10 @@
-// Бренд: история, средняя цена и диапазон, каталог моделей с вкладками и 3D-превью.
+// Бренд: история, средняя цена и диапазон, каталог моделей с вкладками и настоящими фото.
 
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
 import { MANUFACTURE, models, TIER, usd } from "../core/format.js";
 import { countUp, reduced } from "../core/motion.js";
-import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
+import { attachGallery, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 
 const SORTS = [
@@ -72,8 +72,8 @@ export default {
                   ${photoCredit(b.hero_photo)}
                 </figcaption>
               </figure>`
-            : html`<div class="bhero__stage" aria-hidden="true">
-                <canvas class="bhero__canvas"></canvas>
+            : html`<div class="bhero__stage bhero__stage--type" aria-hidden="true">
+                <span class="bhero__type">${b.name}</span>
                 ${hero ? html`<a class="bhero__caption" href="/watch/${hero.slug}"><span>${hero.name}</span><span class="num">${usd(hero.price.usd)}</span></a>` : ""}
               </div>`}
         </header>
@@ -169,28 +169,7 @@ export default {
     const avg = qs("[data-count]", root);
     if (avg && b.prices.avg) countUp(avg, b.prices.avg, { duration: 1.8, format: (v) => usd(Math.round(v / 10) * 10) });
 
-    // 3D-витрина, только если у бренда ещё нет ни одной свободной фотографии
-    const hero = b.watches.find((w) => w.slug === b.hero_slug) ?? b.watches.find((w) => w.icon) ?? b.watches[0];
-    let stage = null;
-    if (hero && !plate) {
-      Promise.all([import("../watch3d/stage.js"), import("../watch3d/factory.js")]).then(([{ WatchStage }, { buildWatch }]) => {
-        if (!root.isConnected) return;
-        stage = new WatchStage(qs(".bhero__canvas", root));
-        stage.frameScale = 1.25;
-        stage.setModel(buildWatch(hero.render, { ...buildInfo(hero), detail: "showcase" }));
-        stage.pose.ry = 0.45;
-        stage.start();
-        if (g && !reduced()) {
-          g.to(stage.pose, {
-            ry: -0.25, rx: 0.05, dist: 1.15, ease: "none",
-            scrollTrigger: { trigger: root.querySelector(".bhero"), start: "top top", end: "bottom top", scrub: 1 },
-          });
-        }
-      });
-    }
-    cleanups.push(() => stage?.dispose());
-
-    // Каталог: 3D-превью в общей галерее
+    // Каталог: проявление фотографий
     attachGallery(grid, b.watches).then((off) => {
       cleanups.push(off);
       if (!grid.querySelector("[data-watch]")) return;
