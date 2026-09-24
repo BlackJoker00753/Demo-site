@@ -17,7 +17,7 @@ from pathlib import Path
 import yaml
 from pydantic import TypeAdapter, ValidationError
 
-from .schema import BrandFile, ContentComplication, ContentCountry, ContentMovement
+from .schema import BrandFile, ContentComplication, ContentCountry, ContentMovement, ContentPhoto
 
 
 class ContentError(RuntimeError):
@@ -31,6 +31,7 @@ class ContentBundle:
     movements: list[ContentMovement]
     brand_files: list[BrandFile]
     digest: str
+    photos: dict[str, list[ContentPhoto]] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
     @property
@@ -90,7 +91,13 @@ def load_content(content_dir: Path) -> ContentBundle:
         brand_files.append(bf)
         movements.extend(bf.movements)
 
+    photos_path = content_dir / "photos.yaml"
+    photos = {}
+    if photos_path.exists():
+        photos = _validate(TypeAdapter(dict[str, list[ContentPhoto]]), _load_yaml(photos_path) or {}, photos_path)
+
     bundle = ContentBundle(
+        photos=photos,
         countries=list(countries),
         complications=list(complications),
         movements=movements,
@@ -133,5 +140,9 @@ def _cross_check(bundle: ContentBundle) -> None:
             for c in w.complications:
                 if c not in comp_slugs:
                     errors.append(f"watch {w.slug}: unknown complication {c}")
+    known = set(watch_slugs)
+    for slug in bundle.photos:
+        if slug not in known:
+            errors.append(f"photos.yaml: unknown watch {slug}")
     if errors:
         raise ContentError("Content cross-check failed:\n  " + "\n  ".join(errors))

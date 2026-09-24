@@ -2,22 +2,22 @@
 
 import * as THREE from "three";
 import { reduced } from "../core/motion.js";
-import { studioEnvironment } from "./materials.js";
+import { applyEnvironment } from "./materials.js";
 
 export class WatchStage {
-  constructor(canvas, { interactive = true, fov = 20, exposure = 1.08 } = {}) {
+  constructor(canvas, { interactive = true, fov = 20, exposure = 1.0 } = {}) {
     this.canvas = canvas;
     this.interactive = interactive;
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMapping = THREE.NeutralToneMapping;
     renderer.toneMappingExposure = exposure;
     renderer.setClearColor(0x000000, 0);
     this.renderer = renderer;
 
     this.scene = new THREE.Scene();
-    this.scene.environment = studioEnvironment(renderer);
+    applyEnvironment(renderer, this.scene, () => this.render());
     this.camera = new THREE.PerspectiveCamera(fov, 1, 1, 2000);
 
     const key = new THREE.DirectionalLight(0xffffff, 1.4);

@@ -36,6 +36,19 @@ class PricePoint(Out):
     fetched_at: dt.datetime
 
 
+class Photo(Out):
+    file: str
+    width: int
+    height: int
+    focus: tuple[float, float]
+    title: str
+    caption: str | None = None
+    author: str
+    license: str
+    license_url: str
+    source_url: str | None = None
+
+
 class Fact(Out):
     label: str
     value: str
@@ -81,6 +94,9 @@ class BrandCard(Out):
     watch_count: int
     prices: PriceStats
     hero_render: dict[str, Any] | None = None
+    hero_photo: Photo | None = None
+    hero_slug: str | None = None
+    hero_name: str | None = None
 
 
 class CountryDetail(CountrySummary):
@@ -150,6 +166,7 @@ class WatchCard(Out):
     complications: list[ComplicationRef]
     icon: bool
     render: dict[str, Any]
+    photo: Photo | None = None
 
 
 class Facet(Out):
@@ -209,6 +226,7 @@ class WatchDetail(WatchCard):
     price_history: list[PricePoint]
     brand_prices: PriceStats
     siblings: list[WatchCard]
+    photos: list[Photo]
 
 
 # ---------------------------------------------------------------- misc
@@ -220,6 +238,12 @@ class SearchHit(Out):
     title: str
     subtitle: str
     url: str
+
+
+class Credit(Out):
+    watch: str
+    watch_name: str
+    photo: Photo
 
 
 class SiteStats(Out):

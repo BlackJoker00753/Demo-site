@@ -3,7 +3,7 @@
 
 import * as THREE from "three";
 import { reduced } from "../core/motion.js";
-import { studioEnvironment } from "./materials.js";
+import { applyEnvironment } from "./materials.js";
 import { buildWatch } from "./factory.js";
 
 export class Gallery {
@@ -16,13 +16,13 @@ export class Gallery {
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.05;
+    renderer.toneMapping = THREE.NeutralToneMapping;
+    renderer.toneMappingExposure = 1.0;
     renderer.setClearColor(0x000000, 0);
     renderer.autoClear = false;
     this.renderer = renderer;
     this.scene = new THREE.Scene();
-    this.scene.environment = studioEnvironment(renderer);
+    applyEnvironment(renderer, this.scene);
     const key = new THREE.DirectionalLight(0xffffff, 1.3);
     key.position.set(-60, 90, 120);
     this.scene.add(key, new THREE.AmbientLight(0xffffff, 0.12));

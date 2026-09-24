@@ -66,12 +66,14 @@ def watch_card(w: Watch) -> S.WatchCard:
         frequency_vph=w.movement.frequency_vph, price=_price(w),
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
+        photo=S.Photo(**w.photos[0]) if w.photos else None,
     )
 
 
 def _hero_watch(b: Brand) -> Watch | None:
-    icons = [w for w in b.watches if w.icon]
-    return (icons or b.watches or [None])[0]
+    """Главная модель бренда: культовая с фото, иначе любая с фото, иначе первая."""
+    ranked = sorted(b.watches, key=lambda w: (not w.photos, not w.icon, w.sort))
+    return ranked[0] if ranked else None
 
 
 def brand_card(b: Brand) -> S.BrandCard:
@@ -81,6 +83,9 @@ def brand_card(b: Brand) -> S.BrandCard:
         tier=b.tier, tagline=b.tagline, group=b.group, independent=b.independent, manufacture=b.manufacture,
         watch_count=len(b.watches), prices=price_stats(w.price_usd for w in b.watches),
         hero_render=hero.render if hero else None,
+        hero_photo=S.Photo(**hero.photos[0]) if hero and hero.photos else None,
+        hero_slug=hero.slug if hero else None,
+        hero_name=hero.name if hero else None,
     )
 
 
@@ -226,6 +231,7 @@ def get_watch(s: Session, slug: str) -> S.WatchDetail | None:
         ],
         brand_prices=price_stats(brand_prices),
         siblings=[watch_card(x) for x in siblings[:8]],
+        photos=[S.Photo(**p) for p in w.photos],
     )
 
 
@@ -250,6 +256,14 @@ def get_movement(s: Session, slug: str) -> tuple[S.MovementOut, list[S.WatchCard
         return None
     watches = s.scalars(select(Watch).where(Watch.movement_id == m.id).options(*_WATCH_LOAD)).all()
     return S.MovementOut.model_validate(m), [watch_card(w) for w in watches]
+
+
+def credits(s: Session) -> list[S.Credit]:
+    rows = s.scalars(select(Watch).options(selectinload(Watch.brand)).order_by(Watch.slug))
+    return [
+        S.Credit(watch=w.slug, watch_name=f"{w.brand.name} {w.name}", photo=S.Photo(**p))
+        for w in rows for p in (w.photos or [])
+    ]
 
 
 def site_stats(s: Session) -> S.SiteStats:

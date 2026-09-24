@@ -196,6 +196,21 @@ class RenderSpec(Strict):
 # ---------------------------------------------------------------- watches & brands
 
 
+class ContentPhoto(Strict):
+    """Настоящая фотография под свободной лицензией (см. scripts/photos.py)."""
+
+    file: str  # путь без суффикса размера: <slug>/<n>, файлы <n>-480.jpg, -960.jpg, -1600.jpg
+    width: int
+    height: int
+    focus: tuple[float, float] = (0.5, 0.5)  # точка кадрирования (object-position)
+    title: str = ""
+    caption: str | None = None  # уточнение, если на фото другая версия модели
+    author: str
+    license: str
+    license_url: str = ""
+    source_url: str | None = None
+
+
 class ContentPrice(Strict):
     usd: int = Field(gt=0)
     kind: PriceKind = "msrp"

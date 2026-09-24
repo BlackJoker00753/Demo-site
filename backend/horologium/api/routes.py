@@ -107,6 +107,11 @@ def movement(slug: str, s: DB):
     return MovementPage(movement=mov, watches=watches)
 
 
+@router.get("/credits", response_model=list[S.Credit])
+def credits(s: DB):
+    return catalog.credits(s)
+
+
 @router.get("/search", response_model=list[S.SearchHit])
 def search(s: DB, q: str = Query(min_length=1, max_length=80)):
     return search_service.search(s, q)

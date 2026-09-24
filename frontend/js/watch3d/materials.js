@@ -4,6 +4,7 @@
 // несколько софтбоксов на чёрном фоне, как на предметной съёмке часов.
 
 import * as THREE from "three";
+import { HDRLoader } from "three/addons/loaders/HDRLoader.js";
 
 // ------------------------------------------------------------------ studio environment
 
@@ -47,6 +48,41 @@ export function studioEnvironment(renderer) {
   pmrem.dispose();
   envCache.set(renderer, env);
   return env;
+}
+
+const hdriCache = new WeakMap();
+
+/**
+ * Настоящая студийная HDRI-панорама (Poly Haven, CC0): отражения в металле как
+ * на предметной съёмке. Пока файл грузится, сцена использует процедурную студию.
+ */
+export function hdriEnvironment(renderer, url = "/assets/hdri/monochrome_studio_04_2k.hdr") {
+  if (hdriCache.has(renderer)) return hdriCache.get(renderer);
+  const promise = new HDRLoader().loadAsync(url).then((tex) => {
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const env = pmrem.fromEquirectangular(tex).texture;
+    pmrem.dispose();
+    tex.dispose();
+    return env;
+  });
+  promise.catch(() => {});
+  hdriCache.set(renderer, promise);
+  return promise;
+}
+
+/** Подключить окружение к сцене: сразу процедурное, затем HDRI. */
+export function applyEnvironment(renderer, scene, onReady) {
+  scene.environment = studioEnvironment(renderer);
+  scene.environmentIntensity = 1.0;
+  hdriEnvironment(renderer).then((env) => {
+    scene.environment = env;
+    scene.environmentIntensity = 0.55;
+    // Повернуть студию так, чтобы световые полосы легли на грани корпуса по диагонали,
+    // а в полированных плоскостях отражалась тёмная часть зала (контраст как на фото).
+    if (scene.environmentRotation) scene.environmentRotation.set(0.1, 2.2, 0);
+    onReady?.();
+  }, () => {});
 }
 
 // ------------------------------------------------------------------ procedural textures
@@ -192,15 +228,16 @@ export function forgedCarbon() {
 
 // ------------------------------------------------------------------ materials
 
+// Базовые цвета металлов близки к измеренным значениям F0 (линейный sRGB).
 const METALS = {
-  steel: { color: "#d4d7db", roughness: 0.16 },
-  white_gold: { color: "#dcdcd8", roughness: 0.14 },
-  platinum: { color: "#d9dbde", roughness: 0.15 },
-  yellow_gold: { color: "#f1c77a", roughness: 0.16 },
-  rose_gold: { color: "#eab299", roughness: 0.16 },
-  titanium: { color: "#a9aaab", roughness: 0.3 },
-  bronze: { color: "#b98a57", roughness: 0.34 },
-  aluminium: { color: "#c9ccd0", roughness: 0.3 },
+  steel: { color: "#cfd2d6", roughness: 0.12 },
+  white_gold: { color: "#d9d8d2", roughness: 0.1 },
+  platinum: { color: "#d6d7d9", roughness: 0.11 },
+  yellow_gold: { color: "#f3c67c", roughness: 0.12 },
+  rose_gold: { color: "#efb49a", roughness: 0.12 },
+  titanium: { color: "#b3b1ac", roughness: 0.26 },
+  bronze: { color: "#c08f5c", roughness: 0.3 },
+  aluminium: { color: "#d2d4d7", roughness: 0.24 },
 };
 
 const matCache = new Map();
@@ -228,11 +265,14 @@ export function metal(name, finish = "polished") {
     const base = name.startsWith("two_tone") ? "steel" : name;
     const m = METALS[base] ?? METALS.steel;
     mat = new THREE.MeshPhysicalMaterial({
-      color: m.color, metalness: 1, roughness: finish === "brushed" ? m.roughness + 0.16 : m.roughness * 0.6,
-      envMapIntensity: 1.35, side: THREE.DoubleSide,
+      color: m.color, metalness: 1, roughness: finish === "brushed" ? m.roughness + 0.18 : m.roughness * 0.5,
+      side: THREE.DoubleSide,
     });
     if (finish === "brushed") {
+      // Сатинирование: анизотропный блик вытягивается вдоль штрихов, как на настоящей стали.
       mat.roughnessMap = brushedRoughness();
+      mat.anisotropy = 0.75;
+      mat.anisotropyRotation = Math.PI / 2;
     }
   }
   matCache.set(key, mat);

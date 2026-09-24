@@ -74,6 +74,7 @@ THREE_ADDONS = [
     "environments/RoomEnvironment.js",
     "geometries/RoundedBoxGeometry.js",
     "utils/BufferGeometryUtils.js",
+    "loaders/HDRLoader.js",
     "lines/LineSegments2.js",
     "lines/LineSegmentsGeometry.js",
     "lines/LineMaterial.js",
@@ -295,7 +296,14 @@ def fetch_countries() -> None:
     save(ASSETS / "countries" / "frames.json", json.dumps(meta, indent=1))
 
 
-STEPS = {"vendor": fetch_vendor, "fonts": fetch_fonts, "earth": fetch_earth, "geo": fetch_geo, "countries": fetch_countries}
+def fetch_hdri() -> None:
+    """Студийное HDRI с Poly Haven (CC0) для реалистичных отражений в 3D-часах."""
+    print("hdri")
+    meta = httpx.get("https://api.polyhaven.com/files/monochrome_studio_04", timeout=30).json()
+    save(ASSETS / "hdri" / "monochrome_studio_04_2k.hdr", get(meta["hdri"]["2k"]["hdr"]["url"]))
+
+
+STEPS = {"hdri": fetch_hdri, "vendor": fetch_vendor, "fonts": fetch_fonts, "earth": fetch_earth, "geo": fetch_geo, "countries": fetch_countries}
 
 
 def main() -> int:

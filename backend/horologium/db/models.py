@@ -144,6 +144,7 @@ class Watch(Base):
     highlights: Mapped[list[Any]] = mapped_column(JSON, default=list)
     icon: Mapped[bool] = mapped_column(Boolean, default=False)
     render: Mapped[dict[str, Any]] = mapped_column(JSON)
+    photos: Mapped[list[Any]] = mapped_column(JSON, default=list)
     sort: Mapped[int] = mapped_column(Integer, default=100)
 
     brand: Mapped[Brand] = relationship(back_populates="watches")

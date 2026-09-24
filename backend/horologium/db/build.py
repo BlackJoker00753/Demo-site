@@ -92,6 +92,7 @@ def build_database(bundle: ContentBundle, engine: Engine | None = None) -> None:
                         price_url=w.price.url, price_checked=w.price.checked, price_note=w.price.note,
                         summary=w.summary, story=list(w.story), history=[h.model_dump() for h in w.history],
                         highlights=list(w.highlights), icon=w.icon, render=w.render.model_dump(), sort=w.sort,
+                        photos=[ph.model_dump() for ph in bundle.photos.get(w.slug, [])],
                         complications=[complications[c] for c in w.complications],
                     )
                 )
