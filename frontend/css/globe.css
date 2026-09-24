@@ -106,6 +106,14 @@
 .gpin.is-in .gpin__dot { transform: scale(1); }
 .gpin.is-in .gpin__list { opacity: 1; transform: none; }
 .gpin.is-behind { opacity: 0; }
+/* подпись, которой не хватило места: видна при наведении на точку или на бренд в панели */
+.gpin.is-collapsed .gpin__dot { pointer-events: auto; cursor: pointer; }
+.gpin.is-collapsed .gpin__dot::before { content: ""; position: absolute; inset: -10px; }
+.gpin.is-in.is-collapsed .gpin__list { opacity: 0; transform: translateX(-6px); transition-delay: 0ms; }
+.gpin.is-collapsed .gpin__item { pointer-events: none; }
+.gpin.is-in.is-collapsed:hover .gpin__list, .gpin.is-in.is-collapsed.is-hot .gpin__list { opacity: 1; transform: none; }
+.gpin.is-collapsed:hover .gpin__item, .gpin.is-collapsed.is-hot .gpin__item { pointer-events: auto; }
+.gpin:hover, .gpin.is-hot { z-index: 5; }
 .gpin__item {
   pointer-events: auto;
   display: flex; align-items: baseline; gap: 8px;

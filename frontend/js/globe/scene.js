@@ -410,7 +410,8 @@ export class GlobeScene {
     this.earthUniforms.uHover.value = -1;
 
     const alt = country.altitude * (this.size && this.size.w / this.size.h < 1 ? 1.25 : 1);
-    const tilt = Math.min(26, 10 + alt * 30);
+    // маленькой стране меньше наклона: иначе она сжимается у горизонта и подписи налезают
+    const tilt = Math.min(26, 4 + alt * 40);
     // Кратчайший путь по долготе.
     let lon = country.lon;
     while (lon - this.rig.lon > 180) lon -= 360;
@@ -637,6 +638,41 @@ export class GlobeScene {
       return { ...c, el };
     });
     this.#updatePins();
+    this.#resolveLabels();
+  }
+
+  /**
+   * Подписи не должны налезать друг на друга и на точки: известные бренды (раньше в списке)
+   * ставятся первыми, остальные пробуют другую сторону, а если места нет, прячутся до наведения.
+   */
+  #resolveLabels() {
+    const order = new Map(this.pins.map((p, i) => [p.slug, i]));
+    const rank = (c) => Math.min(...c.items.map((p) => order.get(p.slug) ?? 99));
+    const pad = 4;
+    const hit = (a, b) => a.left < b.right + pad && a.right + pad > b.left && a.top < b.bottom + pad && a.bottom + pad > b.top;
+    const dots = this.pinClusters.map((c) => c.el.querySelector(".gpin__dot").getBoundingClientRect());
+    const placed = [];
+    for (const c of [...this.pinClusters].sort((a, b) => rank(a) - rank(b))) {
+      if (c.el.classList.contains("is-behind")) continue;
+      const list = c.el.querySelector(".gpin__list");
+      const own = c.el.querySelector(".gpin__dot").getBoundingClientRect();
+      const free = () => {
+        const r = list.getBoundingClientRect();
+        return !placed.some((q) => hit(r, q)) && !dots.some((d) => d !== own && d.left !== own.left && hit(r, d));
+      };
+      const preferFlip = c.el.classList.contains("is-flip");
+      let ok = false;
+      for (const flip of [preferFlip, !preferFlip]) {
+        c.el.classList.toggle("is-flip", flip);
+        if (free()) {
+          ok = true;
+          break;
+        }
+      }
+      if (!ok) c.el.classList.toggle("is-flip", preferFlip);
+      c.el.classList.toggle("is-collapsed", !ok);
+      if (ok) placed.push(list.getBoundingClientRect());
+    }
   }
 
   #updatePins() {
