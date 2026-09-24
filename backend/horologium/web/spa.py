@@ -71,6 +71,17 @@ def mount_frontend(app: FastAPI) -> None:
         (front / sub).mkdir(parents=True, exist_ok=True)
         app.mount(f"/{sub}", StaticFiles(directory=front / sub), name=sub)
 
+    @app.middleware("http")
+    async def static_cache_headers(request: Request, call_next):
+        response = await call_next(request)
+        path = request.url.path
+        if path.startswith(("/css/", "/js/")):
+            # Код фронтенда всегда перепроверяется (ETag), чтобы правки были видны сразу.
+            response.headers["Cache-Control"] = "no-cache"
+        elif path.startswith(("/assets/", "/vendor/")):
+            response.headers["Cache-Control"] = "public, max-age=86400"
+        return response
+
     @app.get("/favicon.svg", include_in_schema=False)
     def favicon():
         return Response((front / "favicon.svg").read_bytes(), media_type="image/svg+xml")

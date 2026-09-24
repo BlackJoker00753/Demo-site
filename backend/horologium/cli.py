@@ -2,7 +2,7 @@
 
 Примеры::
 
-    uv run horologium serve            # сайт на http://127.0.0.1:8000
+    uv run horologium serve            # сайт на http://127.0.0.1:8765
     uv run horologium check            # валидировать YAML-контент
     uv run horologium build-db         # принудительно пересобрать SQLite
     uv run horologium prices report    # свежесть цен по брендам
@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 
 from .config import settings
@@ -27,6 +28,7 @@ def _cmd_serve(args: argparse.Namespace) -> int:
     uvicorn.run(
         "horologium.main:app", host=args.host, port=args.port, reload=args.reload,
         reload_dirs=[str(settings.root_dir / "backend"), str(settings.content_dir)] if args.reload else None,
+        reload_includes=["*.py", "*.yaml"] if args.reload else None,
     )
     return 0
 
@@ -72,7 +74,7 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("serve", help="запустить сайт")
     p.add_argument("--host", default="127.0.0.1")
-    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--port", type=int, default=int(os.environ.get("PORT", 8765)))
     p.add_argument("--reload", action="store_true", help="перезапуск при изменении кода/контента")
     p.set_defaults(func=_cmd_serve)
 

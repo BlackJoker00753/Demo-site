@@ -1,0 +1,97 @@
+/* Страница страны: стеклянная панель слева, глобус справа. */
+
+.country { min-height: 100dvh; }
+
+.cpanel {
+  position: fixed;
+  left: var(--gutter);
+  top: calc(var(--nav-h) + 8px);
+  bottom: 20px;
+  width: min(460px, 36vw);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+  padding: 28px 28px 32px;
+  border-radius: var(--r-surface);
+  background: linear-gradient(180deg, rgba(14, 16, 20, 0.78), rgba(10, 12, 15, 0.86));
+  border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  backdrop-filter: blur(22px) saturate(130%);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.cpanel__back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--fs-14); color: var(--text-3);
+  transition: color var(--t-fast);
+  margin-bottom: 18px;
+}
+.cpanel__back:hover { color: var(--text); }
+.cpanel__head { display: grid; gap: 12px; }
+.cpanel__head h1 { font-size: clamp(2.8rem, 2rem + 2.6vw, 4.6rem); }
+.cpanel__tagline { color: var(--text-2); font-size: var(--fs-16); max-width: 38ch; }
+
+.cpanel__facts {
+  margin-top: 26px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.cpanel__facts dt { font-size: var(--fs-12); color: var(--text-3); }
+.cpanel__facts dd { font-size: var(--fs-15); color: var(--text); line-height: 1.35; margin-top: 2px; }
+
+.cpanel__section { margin-top: 34px; }
+.cpanel__h2 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 400; line-height: 1.1; margin-bottom: 14px; }
+.cpanel__brands-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.cpanel__brands-head .cpanel__h2 { margin: 0; }
+
+.seg {
+  display: inline-flex; padding: 3px; gap: 2px;
+  border-radius: var(--r-pill); border: 1px solid var(--line);
+}
+.seg button {
+  height: 28px; padding: 0 10px; border-radius: var(--r-pill);
+  font-size: 12px; color: var(--text-3);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.seg button:hover { color: var(--text); }
+.seg button[aria-checked="true"] { background: var(--surface-3); color: var(--text); }
+
+.cbrands { list-style: none; margin: 0 -12px; padding: 0; }
+.cbrand {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "name price" "meta price" "tier tier";
+  column-gap: 16px;
+  padding: 14px 12px;
+  border-radius: var(--r-small);
+  transition: background var(--t-base) var(--ease-out);
+}
+.cbrand + .cbrand { border-top: 1px solid var(--line); }
+li + li .cbrand { border-top: 1px solid var(--line); }
+.cbrand__name { grid-area: name; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.15; transition: color var(--t-fast); }
+.cbrand__meta { grid-area: meta; font-size: var(--fs-13); color: var(--text-3); }
+.cbrand__price { grid-area: price; display: grid; justify-items: end; align-content: center; gap: 2px; }
+.cbrand__price .price { font-size: 1.2rem; }
+.cbrand__tier { grid-area: tier; font-size: var(--fs-12); color: var(--text-4); margin-top: 4px; }
+.cbrand:hover, .cbrand.is-hot { background: var(--surface-2); border-top-color: transparent; }
+.cbrand:hover .cbrand__name, .cbrand.is-hot .cbrand__name { color: var(--lume-2); }
+
+.ccities { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ccities li { display: grid; gap: 2px; }
+.ccities b { font-weight: 500; font-size: var(--fs-15); }
+.ccities span { color: var(--text-3); font-size: var(--fs-13); }
+
+.cpanel__others { display: flex; flex-wrap: wrap; gap: 8px; }
+.cpanel__others .chip { transition: border-color var(--t-fast), color var(--t-fast); }
+.cpanel__others .chip:hover { border-color: var(--line-3); color: var(--text); }
+.cpanel__credit { margin-top: 28px; font-size: 11px; color: var(--text-4); line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .cpanel {
+    left: 12px; right: 12px; top: auto; bottom: 12px;
+    width: auto; height: 54dvh;
+    padding: 22px 20px 28px;
+  }
+  .cpanel__head h1 { font-size: 2.6rem; }
+}

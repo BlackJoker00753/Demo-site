@@ -1,1 +1,101 @@
-<!doctype html><html lang="ru"><head><title><!--SSR:TITLE--></title><meta name="description" content="<!--SSR:DESCRIPTION-->"></head><body>placeholder</body></html>
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title><!--SSR:TITLE--></title>
+  <meta name="description" content="<!--SSR:DESCRIPTION-->">
+  <meta property="og:title" content="<!--SSR:TITLE-->">
+  <meta property="og:description" content="<!--SSR:DESCRIPTION-->">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07080a">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preload" href="/assets/earth/day-2k.jpg" as="image" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/vendor/phosphor/light/style.css">
+  <link rel="stylesheet" href="/vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/globe.css">
+  <link rel="stylesheet" href="/css/country.css">
+  <link rel="stylesheet" href="/css/brand.css">
+  <link rel="stylesheet" href="/css/watch.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "/vendor/three/three.module.js",
+      "three/addons/": "/vendor/three/addons/"
+    }
+  }
+  </script>
+  <script src="/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/vendor/lenis/lenis.min.js" defer></script>
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#view">К содержимому</a>
+
+  <!-- Постоянный слой: глобус живёт между страницами. -->
+  <div class="globe-layer" id="globe-layer" aria-hidden="true">
+    <canvas id="globe-canvas"></canvas>
+    <div class="globe-markers" id="globe-markers"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="/" data-link aria-label="Horologium, на главную">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span class="nav__word">Horologium</span>
+    </a>
+    <nav class="nav__crumbs" id="crumbs" aria-label="Навигация по разделам"></nav>
+    <div class="nav__actions">
+      <a class="nav__link" href="/glossary" data-link>Усложнения</a>
+      <button class="nav__search" id="search-open" type="button" aria-label="Поиск">
+        <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
+        <span>Поиск</span>
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <!-- Общий WebGL-холст для 3D-карточек каталога (рендер через scissor). -->
+  <canvas id="gallery-canvas" class="gallery-canvas" aria-hidden="true"></canvas>
+
+  <div class="curtain" id="curtain" aria-hidden="true"></div>
+
+  <div class="intro" id="intro" aria-hidden="true">
+    <svg class="intro__dial" viewBox="0 0 120 120">
+      <circle class="intro__ring" cx="60" cy="60" r="54"></circle>
+      <g class="intro__ticks"></g>
+      <line class="intro__hand intro__hand--m" x1="60" y1="60" x2="60" y2="16"></line>
+      <line class="intro__hand intro__hand--h" x1="60" y1="60" x2="60" y2="32"></line>
+    </svg>
+    <div class="intro__word">Horologium</div>
+  </div>
+
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Поиск по атласу" hidden>
+    <div class="search__backdrop" data-close></div>
+    <div class="search__panel">
+      <label class="search__field">
+        <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
+        <span class="visually-hidden">Что найти</span>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Rolex, Speedmaster, турбийон, Япония…">
+        <kbd>Esc</kbd>
+      </label>
+      <div class="search__results" id="search-results" role="listbox"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">Horologium работает на JavaScript и WebGL. Включите JavaScript, чтобы открыть атлас.</div>
+  </noscript>
+</body>
+</html>

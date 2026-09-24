@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "horologium",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "horologium", "serve", "--reload"],
+      "port": 8765
+    }
+  ]
+}

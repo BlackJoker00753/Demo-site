@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Horologium design tokens
+   Тема одна и заблокирована: тёмная («ночное небо» над глобусом).
+   Палитра «холодная роскошь»: графит, сталь, серебро и один акцент цвета
+   люминесцентной массы стрелок (lume). Акцент используется только для
+   активных состояний, ценовых акцентов и подсветки на глобусе.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #07080a;
+  --bg-2: #0b0d10;
+  --surface: #101216;
+  --surface-2: #161a1f;
+  --surface-3: #1d2228;
+  --glass: rgba(14, 16, 20, 0.62);
+  --glass-strong: rgba(12, 14, 17, 0.82);
+
+  /* Lines */
+  --line: rgba(214, 224, 234, 0.08);
+  --line-2: rgba(214, 224, 234, 0.14);
+  --line-3: rgba(214, 224, 234, 0.24);
+
+  /* Text */
+  --text: #e8ebee;
+  --text-2: #a9b0b8;
+  --text-3: #737b84;
+  --text-4: #4c535b;
+
+  /* Metals (декоративные значения: цены, акценты металла) */
+  --steel: #c9ced4;
+  --gold: #d8c08a;
+
+  /* Accent: lume */
+  --lume: #9fe9c4;
+  --lume-2: #c9f6de;
+  --lume-dim: rgba(159, 233, 196, 0.14);
+  --lume-glow: rgba(159, 233, 196, 0.35);
+
+  --danger: #f2a39b;
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-display-s: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --fs-display-m: clamp(2.6rem, 1.6rem + 4vw, 5rem);
+  --fs-display-l: clamp(3.2rem, 1.6rem + 6.4vw, 7.5rem);
+  --fs-display-xl: clamp(3.6rem, 1rem + 10vw, 11rem);
+
+  /* Spacing */
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1400px;
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 144px;
+
+  /* Shape. Правило: поверхности 20px, мелкие поверхности 12px,
+     всё интерактивное (кнопки, чипы, вкладки, поля) в форме пилюли. */
+  --r-surface: 20px;
+  --r-small: 12px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-fast: 180ms;
+  --t-base: 420ms;
+  --t-slow: 900ms;
+
+  /* Z-index scale (единственный источник значений) */
+  --z-globe: 0;
+  --z-view: 1;
+  --z-gallery: 2;
+  --z-markers: 3;
+  --z-nav: 10;
+  --z-overlay: 20;
+  --z-curtain: 30;
+  --z-intro: 40;
+
+  --nav-h: 68px;
+}
