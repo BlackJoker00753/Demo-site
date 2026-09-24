@@ -21,7 +21,7 @@ from ..config import settings
 from ..db.base import session_factory
 from ..services import catalog
 
-SPA_ROUTES = re.compile(r"^/(?:$|country/|brand/|watch/|complication/|movement/|glossary|about|search|lab)")
+SPA_ROUTES = re.compile(r"^/(?:$|country/|brand/|watch/|complication/|movement/|glossary|about|search|lab|credits)")
 
 
 @lru_cache(maxsize=1)

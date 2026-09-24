@@ -283,7 +283,8 @@ def credits(s: Session) -> list[S.Credit]:
         for w in rows for p in (w.photos or [])
     ]
     for row in s.scalars(select(PartPhoto).order_by(PartPhoto.key)):
-        out += [S.Credit(subject=f"Деталь: {row.key}", photo=S.Photo(**p)) for p in row.photos]
+        subject = "Разобранный механизм" if row.key.startswith("exploded") else "Деталь механизма"
+        out += [S.Credit(subject=subject, photo=S.Photo(**p)) for p in row.photos]
     return out
 
 

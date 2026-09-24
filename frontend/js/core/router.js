@@ -24,6 +24,7 @@ const ROUTES = [
   { name: "glossary", re: /^\/glossary\/?$/, load: () => import("../views/glossary.js") },
   { name: "movement", re: /^\/movement\/([a-z0-9-]+)\/?$/, load: () => import("../views/movement.js") },
   { name: "lab", re: /^\/lab\/?$/, load: () => import("../views/lab.js") },
+  { name: "credits", re: /^\/credits\/?$/, load: () => import("../views/credits.js") },
 ];
 
 const NOT_FOUND = { name: "404", load: () => import("../views/not-found.js") };
