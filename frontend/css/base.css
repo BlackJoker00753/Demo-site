@@ -40,7 +40,7 @@ button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; background: none; border: 0; padding: 0; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
-ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+:where(ul[role="list"], ol[role="list"]) { list-style: none; padding: 0; }
 kbd { font-family: var(--font-mono); font-size: 0.72em; }
 
 ::selection { background: var(--lume-dim); color: var(--lume-2); }
@@ -139,6 +139,17 @@ kbd { font-family: var(--font-mono); font-size: 0.72em; }
   transition: opacity 1s var(--ease-out), transform 1.1s var(--ease-out);
   transition-delay: calc(var(--i, 0) * 70ms);
 }
+/* после появления: без задержки и со «своими» длительностями компонента */
+.js [data-reveal].is-in.is-done { transition: none; }
+
+/* снимок, перелетающий из карточки в шапку страницы (router.js) */
+.shared-ghost {
+  position: fixed; z-index: var(--z-overlay, 60); overflow: hidden; pointer-events: none;
+  background: var(--surface);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
+  will-change: left, top, width, height;
+}
+.shared-ghost img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal] { opacity: 1; transform: none; }

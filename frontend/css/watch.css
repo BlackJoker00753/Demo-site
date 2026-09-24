@@ -53,6 +53,62 @@
   .whero__hint { display: none; }
 }
 
+/* hero с настоящей фотографией */
+.whero--photo { height: 175vh; }
+.whero__plate {
+  position: absolute; margin: 0;
+  top: calc(var(--nav-h) + 20px); bottom: 34px; right: var(--gutter);
+  width: min(54vw, 980px);
+  display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 12px;
+  transform-origin: 70% 50%;
+  will-change: transform;
+}
+.whero__frame {
+  position: relative; overflow: hidden; min-height: 0;
+  border-radius: var(--r-surface);
+  background: var(--surface);
+  box-shadow: 0 50px 100px -40px rgba(0, 0, 0, 0.8), inset 0 0 0 1px var(--line);
+}
+.whero__frame::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  background: linear-gradient(90deg, rgba(8, 9, 11, 0.14), transparent 26%);
+}
+.whero__photo { width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 45%; will-change: transform; }
+.whero__plate figcaption .credit { justify-items: end; text-align: right; }
+.whero--photo .whero__text {
+  max-width: min(560px, calc(100vw - min(54vw, 980px) - var(--gutter) * 3));
+}
+.whero--photo .whero__name { font-size: clamp(3rem, 1.4rem + 4.6vw, 7rem); }
+@media (max-width: 900px) {
+  .whero--photo { height: auto; }
+  .whero--photo .whero__sticky { position: relative; height: auto; display: grid; gap: 28px; padding: calc(var(--nav-h) + 12px) var(--gutter) 40px; }
+  .whero__plate { position: relative; inset: auto; width: 100%; height: 62dvh; }
+  .whero--photo .whero__text { position: relative; left: auto; bottom: auto; max-width: none; }
+}
+
+/* ---------------------------------------------------------------- photos strip */
+
+.wphotos { padding-block: var(--s-8) var(--s-9); }
+.wphotos__head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px 32px; margin-bottom: var(--s-6); }
+.wphotos__head p { max-width: 46ch; }
+.wphotos__strip {
+  list-style: none; margin: 0; padding: 0 var(--gutter) 8px;
+  display: flex; gap: 18px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+.wphotos__strip::-webkit-scrollbar { display: none; }
+.wphoto { flex: none; scroll-snap-align: start; display: grid; gap: 10px; height: min(64dvh, 620px); grid-template-rows: minmax(0, 1fr) auto; }
+.wphoto__frame {
+  height: 100%; aspect-ratio: var(--ar, 1.33); max-width: 86vw;
+  border-radius: var(--r-surface); overflow: hidden; background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.wphoto__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1400ms var(--ease-out), opacity 900ms var(--ease-out), filter 900ms var(--ease-out); }
+.wphoto:hover .wphoto__frame img { transform: scale(1.03); }
+.wphoto .credit { max-width: 52ch; }
+
 /* ---------------------------------------------------------------- intro */
 
 .wintro { padding-block: var(--s-9) var(--s-8); }
@@ -195,11 +251,76 @@
   border-block: 1px solid var(--line);
 }
 .wexplode__canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
-.wexplode__head { position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); max-width: 420px; display: grid; gap: 10px; pointer-events: none; }
+.wexplode__side {
+  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
+  display: flex; flex-direction: column; gap: 22px; pointer-events: none; z-index: 1;
+}
+.wexplode__head { display: grid; gap: 10px; }
 .wexplode__head p { font-size: var(--fs-14); }
+.seg.wexplode__modes { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 24px); z-index: 2; }
+
+/* переключатель режимов (сегменты с «пилюлей») */
+.seg {
+  position: relative; display: inline-flex; gap: 0; padding: 4px;
+  border-radius: var(--r-pill); border: 1px solid var(--line);
+  background: rgba(12, 14, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.seg__pill {
+  position: absolute; left: 4px; top: 4px; bottom: 4px; width: 0;
+  border-radius: var(--r-pill); background: var(--text);
+  transition: transform 600ms var(--ease-out), width 600ms var(--ease-out);
+}
+.seg__btn {
+  position: relative; z-index: 1;
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 38px; padding: 0 16px; border-radius: var(--r-pill);
+  font-size: var(--fs-13); color: var(--text-2); white-space: nowrap;
+  transition: color 400ms var(--ease-out);
+}
+.seg__btn:hover { color: var(--text); }
+.seg__btn[aria-selected="true"] { color: var(--bg); }
+
+/* настоящий разобранный механизм с точками-деталями */
+.wreal {
+  position: absolute; margin: 0;
+  left: calc(var(--gutter) + 250px); right: var(--gutter);
+  top: calc(var(--nav-h) + 90px); bottom: 70px;
+  display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; justify-items: center;
+}
+.wreal[hidden] { display: none; }
+.wreal__frame {
+  position: relative; height: 100%; max-width: 100%; aspect-ratio: 1600 / 1105;
+  border-radius: var(--r-surface); overflow: visible;
+}
+.wreal__frame .photo { width: 100%; height: 100%; object-fit: contain; border-radius: var(--r-surface); box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.8); }
+.wreal__cap { justify-self: end; text-align: right; }
+.wreal__dot {
+  position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+  border-radius: 50%; display: grid; place-items: center;
+}
+.wreal__dot span {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--lume); box-shadow: 0 0 0 4px rgba(159, 233, 196, 0.25), 0 0 18px rgba(159, 233, 196, 0.8);
+  transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out);
+}
+.wreal__dot::before {
+  content: ""; position: absolute; inset: 3px; border-radius: 50%;
+  border: 1px solid rgba(159, 233, 196, 0.7);
+  animation: wreal-ping 2.4s var(--ease-out) infinite;
+  animation-delay: calc(var(--i, 0) * 180ms);
+}
+.wreal__dot:hover span, .wreal__dot[aria-pressed="true"] span { transform: scale(1.35); box-shadow: 0 0 0 6px rgba(159, 233, 196, 0.3), 0 0 24px rgba(159, 233, 196, 1); }
+@keyframes wreal-ping { 0% { transform: scale(0.6); opacity: 0.9; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
+@media (max-width: 900px) {
+  .wreal { left: 12px; right: 12px; top: calc(var(--nav-h) + 150px); bottom: 110px; }
+  .seg.wexplode__modes { right: auto; left: 12px; top: auto; bottom: 96px; }
+}
 .wexplode__panel {
-  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 170px); bottom: 110px;
-  width: 230px; overflow-y: auto; scrollbar-width: none;
+  flex: 1; min-height: 0; width: 230px; overflow-y: auto; scrollbar-width: none; pointer-events: auto;
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent);
+  mask-image: linear-gradient(180deg, #000 85%, transparent);
 }
 .wexplode__panel::-webkit-scrollbar { display: none; }
 .wparts { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
@@ -223,9 +344,15 @@
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 .wpart-card[hidden] { display: none; }
+.wpart-card__media { margin: -8px -8px 18px; display: grid; gap: 8px; }
+.wpart-card__media[hidden] { display: none; }
+.wpart-card__frame { aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; background: var(--surface); }
+.wpart-card__frame img { width: 100%; height: 100%; object-fit: cover; }
+.wpart-card__media figcaption { padding-inline: 8px; }
+.wpart-card__media .credit { font-size: 11px; }
 .wpart-card h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 400; line-height: 1.05; margin-right: 44px; }
 .wpart-card p { margin-top: 12px; color: var(--text-2); font-size: var(--fs-15); line-height: 1.6; }
-.wpart-card__close { position: absolute; right: 14px; top: 14px; width: 36px; height: 36px; }
+.wpart-card__close { position: absolute; right: 14px; top: 14px; width: 36px; height: 36px; z-index: 2; background: var(--glass-strong); }
 .wexplode__slider {
   position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%);
   display: flex; align-items: center; gap: 16px;
@@ -244,6 +371,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--text); border: 4px solid var(--bg); }
 @media (max-width: 900px) {
+  .wexplode__side { width: auto; right: 12px; bottom: auto; }
   .wexplode__panel { display: none; }
   .wpart-card { left: 12px; right: 12px; width: auto; top: auto; bottom: 100px; transform: none; }
   .wexplode__slider { width: calc(100% - 24px); justify-content: center; }

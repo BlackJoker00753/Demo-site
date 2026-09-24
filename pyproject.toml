@@ -32,4 +32,8 @@ testpaths = ["backend/tests"]
 addopts = "-q"
 
 [dependency-groups]
-dev = ["pytest>=8.0"]
+dev = [
+    "numpy>=2.4.6",
+    "pytest>=8.0",
+    "scipy>=1.17.1",
+]

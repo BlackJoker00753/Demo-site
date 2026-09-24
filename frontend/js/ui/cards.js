@@ -1,16 +1,23 @@
-// Карточка модели часов: разметка и регистрация 3D-превью в общей галерее.
+// Карточка модели часов: настоящая фотография, а если свободного снимка нет,
+// 3D-превью из общей галереи с честной пометкой «3D».
 
 import { html } from "../core/dom.js";
 import { MOVEMENT, usd } from "../core/format.js";
+import { photoImg, revealPhotos } from "./photo.js";
 
 export function watchCard(w, { showBrand = false, i = 0 } = {}) {
   const comps = w.complications.filter((c) => !["date", "small-seconds", "tachymeter"].includes(c.slug)).slice(0, 2);
   return html`<a class="wcard" href="/watch/${w.slug}" data-slug="${w.slug}" data-type="${w.movement_type}"
       data-comps="${w.complications.map((c) => c.slug).join(" ")}" data-price="${w.price.usd}" data-year="${w.year_introduced ?? 9999}"
       style="--i:${i % 8}" data-reveal>
-    <div class="wcard__stage" data-watch="${w.slug}">
-      <i class="ph-thin ph-watch wcard__fallback" aria-hidden="true"></i>
-    </div>
+    ${w.photo
+      ? html`<div class="wcard__stage wcard__stage--photo" data-shared="w-${w.slug}">
+          ${photoImg(w.photo, { cls: "wcard__photo", sizes: "(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 380px", alt: `${w.brand_name} ${w.name}` })}
+        </div>`
+      : html`<div class="wcard__stage" data-watch="${w.slug}">
+          <i class="ph-thin ph-watch wcard__fallback" aria-hidden="true"></i>
+          <span class="wcard__badge" title="Свободной фотографии этой модели пока нет">3D</span>
+        </div>`}
     <div class="wcard__body">
       <div class="wcard__top">
         <h3 class="wcard__name">${showBrand ? html`<small>${w.brand_name}</small>` : ""}${w.name}</h3>
@@ -40,8 +47,10 @@ export const buildInfo = (w) => ({
   caption: w.collection && w.collection !== w.brand_name ? w.collection : null,
 });
 
-/** Подключить 3D-превью ко всем карточкам внутри root. Возвращает функцию очистки. */
+/** Подключить 3D-превью к карточкам без фото внутри root. Возвращает функцию очистки. */
 export async function attachGallery(root, watches) {
+  revealPhotos(root);
+  if (!root.querySelector("[data-watch]")) return () => {};
   const { getGallery } = await import("../watch3d/gallery.js");
   const gallery = getGallery();
   const bySlug = new Map(watches.map((w) => [w.slug, w]));

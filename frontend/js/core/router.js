@@ -6,6 +6,10 @@
 //   render(data, ctx)    → html-разметка
 //   mount(root, data, ctx) → функция очистки (опционально)
 //   meta(data, ctx)      → { title, crumbs: [{ label, href }] }
+//
+// Общий элемент: если у ссылки внутри есть [data-shared="key"] (фото в карточке), а на новой
+// странице есть элемент с тем же ключом (рамка фото в шапке), снимок «перелетает» из карточки
+// на своё место (FLIP). ctx.shared = key, чтобы страница не запускала свою анимацию появления фото.
 
 import { gsap, reduced } from "./motion.js";
 import { scrollTop, getLenis } from "./scroll.js";
@@ -33,6 +37,7 @@ export class Router {
     this.token = 0;
     this.scrollMemory = new Map();
     this.listeners = new Set();
+    this.pendingShared = null;
   }
 
   start() {
@@ -61,7 +66,65 @@ export class Router {
     if (url.origin !== location.origin || url.pathname.startsWith("/api/")) return;
     e.preventDefault();
     if (url.pathname + url.search === location.pathname + location.search) return;
+    this.pendingShared = this.#captureShared(a);
     this.go(url.pathname + url.search);
+  }
+
+  /** Запомнить фото внутри ссылки, чтобы после перехода перенести его на новое место. */
+  #captureShared(a) {
+    const el = a.querySelector("[data-shared]");
+    const img = el?.matches("img") ? el : el?.querySelector("img");
+    if (!el || !img?.currentSrc || !img.complete || reduced()) return null;
+    const r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight || r.width < 40) return null;
+    const cs = getComputedStyle(img);
+    const ghost = document.createElement("div");
+    ghost.className = "shared-ghost";
+    ghost.innerHTML = `<img alt="" src="${img.currentSrc}" style="object-position:${cs.objectPosition}">`;
+    // У фото в карточке своих скруглений нет (их даёт карточка): берём верхние углы ссылки.
+    const own = getComputedStyle(el).borderRadius;
+    const radius = own && own !== "0px" ? own : `${getComputedStyle(a).borderTopLeftRadius} ${getComputedStyle(a).borderTopRightRadius} 0 0`;
+    Object.assign(ghost.style, {
+      left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px`,
+      borderRadius: radius,
+    });
+    document.body.append(ghost);
+    return { key: el.dataset.shared, ghost };
+  }
+
+  /** Перелёт снимка к новому месту. Цель скрыта, пока снимок летит. */
+  async #flyShared(shared) {
+    const g = gsap();
+    const target = this.root.querySelector(`[data-shared="${CSS.escape(shared.key)}"]`);
+    const { ghost } = shared;
+    if (!g || !target) {
+      g ? await g.to(ghost, { autoAlpha: 0, duration: 0.35, ease: "power2.out" }) : null;
+      ghost.remove();
+      return;
+    }
+    g.set(target, { autoAlpha: 0 });
+    // Цель тоже двигается (страница въезжает снизу), поэтому её прямоугольник читается каждый кадр.
+    const from = ghost.getBoundingClientRect();
+    g.to(ghost, { borderRadius: getComputedStyle(target).borderRadius, duration: 1.1, ease: "expo.inOut" });
+    const targetImg = target.querySelector("img");
+    const endScale = targetImg ? +g.getProperty(targetImg, "scale") || 1 : 1;
+    const ghostImg = ghost.querySelector("img");
+    const startScale = 1;
+    const p = { t: 0 };
+    const lerp = (a, b) => a + (b - a) * p.t;
+    await g.to(p, {
+      t: 1, duration: 1.1, ease: "expo.inOut",
+      onUpdate: () => {
+        const r = target.getBoundingClientRect();
+        ghost.style.left = `${lerp(from.left, r.left)}px`;
+        ghost.style.top = `${lerp(from.top, r.top)}px`;
+        ghost.style.width = `${lerp(from.width, r.width)}px`;
+        ghost.style.height = `${lerp(from.height, r.height)}px`;
+        ghostImg.style.transform = `scale(${lerp(startScale, endScale)})`;
+      },
+    });
+    await g.to(target, { autoAlpha: 1, duration: 0.3, ease: "power1.out" });
+    ghost.remove();
   }
 
   #match(path) {
@@ -84,7 +147,13 @@ export class Router {
       history.pushState({ key }, "", path);
     }
 
-    const ctx = { params, path, from: prev?.name ?? null, globe: this.globe, router: this, search: new URLSearchParams(path.split("?")[1] || "") };
+    const shared = push ? this.pendingShared : null;
+    if (!push) this.pendingShared?.ghost.remove();
+    this.pendingShared = null;
+    const ctx = {
+      params, path, from: prev?.name ?? null, globe: this.globe, router: this,
+      search: new URLSearchParams(path.split("?")[1] || ""), shared: shared?.key ?? null,
+    };
     const mod = await route.load();
     const view = mod.default;
     const dataPromise = Promise.resolve(view.data ? view.data(ctx) : null);
@@ -92,7 +161,10 @@ export class Router {
 
     const sameLayer = prev?.view.layer === view.layer;
     if (prev && !initial) await this.#leave(prev, view);
-    if (token !== this.token) return;
+    if (token !== this.token) {
+      shared?.ghost.remove();
+      return;
+    }
 
     prev?.cleanup?.();
     window.ScrollTrigger?.getAll().forEach((st) => st.kill());
@@ -101,12 +173,16 @@ export class Router {
     try {
       data = await dataPromise;
     } catch (err) {
+      shared?.ghost.remove();
       if (token !== this.token) return;
       this.#renderError(err);
       this.current = { name: "error", view: { layer: "page" }, key };
       return;
     }
-    if (token !== this.token) return;
+    if (token !== this.token) {
+      shared?.ghost.remove();
+      return;
+    }
 
     this.globe?.setMode(view.layer === "globe" ? "visible" : "hidden");
     this.root.dataset.layer = view.layer;
@@ -125,6 +201,7 @@ export class Router {
 
     const cleanup = view.mount ? view.mount(this.root, data, ctx) : null;
     this.current = { name: route.name, view, cleanup, key };
+    if (shared) this.#flyShared(shared);
     await this.#enter(view, { sameLayer, initial });
     window.ScrollTrigger?.refresh();
     this.listeners.forEach((fn) => fn(route.name, params));
@@ -134,12 +211,13 @@ export class Router {
   async #leave(prev, nextView) {
     const g = gsap();
     if (!g || reduced()) return;
-    const toGlobe = nextView.layer === "globe";
+    const globeToGlobe = prev.view.layer === "globe" && nextView.layer === "globe";
+    // Уход короче прихода: страница не должна заставлять ждать.
     await g.to(this.root, {
       autoAlpha: 0,
-      y: prev.view.layer === "globe" && toGlobe ? 0 : -18,
-      duration: prev.view.layer === "globe" && toGlobe ? 0.3 : 0.42,
-      ease: "power2.in",
+      y: globeToGlobe ? 0 : -12,
+      duration: globeToGlobe ? 0.28 : 0.36,
+      ease: "power2.inOut",
     });
   }
 
@@ -153,8 +231,8 @@ export class Router {
     g.set(this.root, { clearProps: "transform" });
     await g.fromTo(
       this.root,
-      { autoAlpha: 0, y: view.layer === "globe" ? 0 : 28 },
-      { autoAlpha: 1, y: 0, duration: initial ? 1.2 : sameLayer ? 0.7 : 0.9, ease: "expo.out", clearProps: "transform" },
+      { autoAlpha: 0, y: view.layer === "globe" ? 0 : 20 },
+      { autoAlpha: 1, y: 0, duration: initial ? 1.1 : sameLayer ? 0.8 : 0.95, ease: "expo.out", clearProps: "transform" },
     );
   }
 

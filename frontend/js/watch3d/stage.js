@@ -1,11 +1,15 @@
 // Большая сцена одной модели: страница часов (герой) и режим разборки.
 
 import * as THREE from "three";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { GTAOPass } from "three/addons/postprocessing/GTAOPass.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { reduced } from "../core/motion.js";
 import { applyEnvironment } from "./materials.js";
 
 export class WatchStage {
-  constructor(canvas, { interactive = true, fov = 20, exposure = 1.0 } = {}) {
+  constructor(canvas, { interactive = true, fov = 20, exposure = 1.0, ao = true } = {}) {
     this.canvas = canvas;
     this.interactive = interactive;
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
@@ -39,6 +43,23 @@ export class WatchStage {
     this.listeners = [];
     this.highlighted = null;
 
+    // Ambient occlusion: тени в стыках (звенья браслета, безель, мосты механизма),
+    // без них металл выглядит «нарисованным». Отключается на слабых устройствах.
+    this.composer = null;
+    if (ao && !lowPower()) {
+      const composer = new EffectComposer(renderer);
+      composer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      composer.addPass(new RenderPass(this.scene, this.camera));
+      const gtao = new GTAOPass(this.scene, this.camera, 1, 1);
+      gtao.output = GTAOPass.OUTPUT.Default;
+      gtao.blendIntensity = 0.9;
+      gtao.updateGtaoMaterial({ radius: 2.2, distanceExponent: 1.6, thickness: 1.2, scale: 1.1, samples: 16 });
+      gtao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 });
+      composer.addPass(gtao);
+      composer.addPass(new OutputPass());
+      this.composer = composer;
+    }
+
     this.ro = new ResizeObserver(() => this.resize());
     this.ro.observe(canvas);
     if (interactive) this.#bind();
@@ -69,6 +90,7 @@ export class WatchStage {
     const w = this.canvas.clientWidth, h = this.canvas.clientHeight;
     if (!w || !h) return;
     this.renderer.setSize(w, h, false);
+    this.composer?.setSize(w, h);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.#fit();
@@ -185,13 +207,20 @@ export class WatchStage {
   }
 
   render() {
-    this.renderer.render(this.scene, this.camera);
+    if (this.composer) this.composer.render();
+    else this.renderer.render(this.scene, this.camera);
   }
 
   dispose() {
     this.stop();
     this.ro.disconnect();
     this.model?.dispose();
+    this.composer?.dispose();
     this.renderer.dispose();
   }
+}
+
+/** Мобильные и слабые GPU: без постобработки, чтобы скролл оставался плавным. */
+function lowPower() {
+  return window.matchMedia("(pointer: coarse)").matches || (navigator.hardwareConcurrency ?? 8) <= 4;
 }

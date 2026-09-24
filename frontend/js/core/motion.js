@@ -10,8 +10,16 @@ export function observeReveals(root = document) {
     (entries) => {
       for (const e of entries) {
         if (e.isIntersecting) {
-          e.target.classList.add("is-in");
-          io.unobserve(e.target);
+          const el = e.target;
+          el.classList.add("is-in");
+          io.unobserve(el);
+          // После появления вернуть элементу его собственные быстрые transition (hover и т. п.).
+          const done = (ev) => {
+            if (ev.target !== el || ev.propertyName !== "transform") return;
+            el.classList.add("is-done");
+            el.removeEventListener("transitionend", done);
+          };
+          el.addEventListener("transitionend", done);
         }
       }
     },

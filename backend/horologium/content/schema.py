@@ -196,6 +196,14 @@ class RenderSpec(Strict):
 # ---------------------------------------------------------------- watches & brands
 
 
+class Hotspot(Strict):
+    """Точка на фото разобранного механизма: ключ детали из parts-info.js и координаты в долях кадра."""
+
+    key: str
+    x: float = Field(ge=0, le=1)
+    y: float = Field(ge=0, le=1)
+
+
 class ContentPhoto(Strict):
     """Настоящая фотография под свободной лицензией (см. scripts/photos.py)."""
 
@@ -209,6 +217,10 @@ class ContentPhoto(Strict):
     license: str
     license_url: str = ""
     source_url: str | None = None
+    # Снимок родственной модели или детали: показывается только в ленте «Вживую»,
+    # но не в карточке и не в шапке, чтобы не выдавать его за саму модель.
+    context: bool = False
+    hotspots: list[Hotspot] = []
 
 
 class ContentPrice(Strict):

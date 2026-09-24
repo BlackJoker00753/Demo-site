@@ -4,6 +4,7 @@
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
 import { brands, models, TIER, usd } from "../core/format.js";
+import { photoImg, revealPhotos } from "../ui/photo.js";
 
 const PANEL_W = () => Math.min(460, window.innerWidth * 0.36);
 
@@ -22,7 +23,10 @@ const SORTS = {
 function brandRow(b, i) {
   const p = b.prices;
   return html`<li style="--i:${i}">
-    <a class="cbrand" href="/brand/${b.slug}" data-slug="${b.slug}">
+    <a class="cbrand ${b.hero_photo ? "cbrand--photo" : ""}" href="/brand/${b.slug}" data-slug="${b.slug}">
+      ${b.hero_photo
+        ? html`<span class="cbrand__thumb" data-shared="w-${b.hero_slug}">${photoImg(b.hero_photo, { sizes: "56px", alt: b.hero_name ?? "" })}</span>`
+        : ""}
       <span class="cbrand__name">${b.name}</span>
       <span class="cbrand__meta">${b.founded}, ${b.city}</span>
       <span class="cbrand__price">
@@ -107,6 +111,7 @@ export default {
   },
 
   mount(root, { country: c }, { globe }) {
+    revealPhotos(root);
     const list = qs(".cbrands", root);
     const pins = c.brands.map((b) => ({ slug: b.slug, name: b.name, lat: b.lat, lon: b.lon, meta: String(b.founded), href: `/brand/${b.slug}` }));
     let alive = true;

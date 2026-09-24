@@ -5,6 +5,7 @@ import { html, qs, qsa } from "../core/dom.js";
 import { MANUFACTURE, models, TIER, usd } from "../core/format.js";
 import { countUp, reduced } from "../core/motion.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
+import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 
 const SORTS = [
   ["default", "Рекомендуем"],
@@ -36,7 +37,7 @@ export default {
 
   render(b) {
     const p = b.prices;
-    const hero = b.watches.find((w) => w.icon) ?? b.watches[0];
+    const hero = b.watches.find((w) => w.slug === b.hero_slug) ?? b.watches.find((w) => w.icon) ?? b.watches[0];
     const firstMovementFacet = b.facets.findIndex((f) => f.kind === "complication");
     return html`
       <article class="brand">
@@ -61,10 +62,20 @@ export default {
               ${hero ? html`<a class="btn btn--ghost" href="/watch/${hero.slug}">${hero.name}</a>` : ""}
             </div>
           </div>
-          <div class="bhero__stage" aria-hidden="true">
-            <canvas class="bhero__canvas"></canvas>
-            ${hero ? html`<a class="bhero__caption" href="/watch/${hero.slug}"><span>${hero.name}</span><span class="num">${usd(hero.price.usd)}</span></a>` : ""}
-          </div>
+          ${b.hero_photo
+            ? html`<figure class="bhero__plate">
+                <a class="bhero__frame" href="/watch/${hero.slug}" aria-label="${hero.name}" data-shared="w-${hero.slug}">
+                  ${photoImg(b.hero_photo, { eager: true, cls: "bhero__photo", sizes: "(max-width: 900px) 92vw, 46vw", alt: `${b.name} ${hero.name}` })}
+                </a>
+                <figcaption class="bhero__figcap">
+                  <a class="bhero__caption" href="/watch/${hero.slug}"><span>${hero.name}</span><span class="num">${usd(hero.price.usd)}</span></a>
+                  ${photoCredit(b.hero_photo)}
+                </figcaption>
+              </figure>`
+            : html`<div class="bhero__stage" aria-hidden="true">
+                <canvas class="bhero__canvas"></canvas>
+                ${hero ? html`<a class="bhero__caption" href="/watch/${hero.slug}"><span>${hero.name}</span><span class="num">${usd(hero.price.usd)}</span></a>` : ""}
+              </div>`}
         </header>
 
         <section class="bfacts container" aria-label="Факты о бренде">
@@ -134,24 +145,34 @@ export default {
       </article>`;
   },
 
-  mount(root, b) {
+  mount(root, b, ctx = {}) {
     const cleanups = [];
     const g = window.gsap;
     const grid = qs("[data-grid]", root);
     const cards = qsa(".wcard", grid);
 
     // Шапка
+    revealPhotos(root);
+    const plate = qs(".bhero__plate", root);
     if (g && !reduced()) {
-      g.from(qsa("[data-hero]", root), { y: 36, autoAlpha: 0, duration: 1.3, stagger: 0.08, ease: "expo.out", delay: 0.1 });
-      g.from(qs(".bhero__stage", root), { autoAlpha: 0, scale: 0.94, duration: 1.8, ease: "expo.out", delay: 0.25 });
+      g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
+      const media = plate ?? qs(".bhero__stage", root);
+      if (!ctx.shared) g.from(media, { autoAlpha: 0, y: 24, scale: 0.97, duration: 1.6, ease: "expo.out", delay: 0.2 });
+      if (plate) {
+        // Фото медленно «наезжает» внутри рамки, пока шапка уходит вверх.
+        g.fromTo(qs(".bhero__photo", plate), { scale: 1.02, yPercent: 0 }, {
+          scale: 1.14, yPercent: 4, ease: "none",
+          scrollTrigger: { trigger: qs(".bhero", root), start: "top top", end: "bottom top", scrub: true },
+        });
+      }
     }
     const avg = qs("[data-count]", root);
     if (avg && b.prices.avg) countUp(avg, b.prices.avg, { duration: 1.8, format: (v) => usd(Math.round(v / 10) * 10) });
 
-    // 3D-витрина культовой модели
-    const hero = b.watches.find((w) => w.icon) ?? b.watches[0];
+    // 3D-витрина, только если у бренда ещё нет ни одной свободной фотографии
+    const hero = b.watches.find((w) => w.slug === b.hero_slug) ?? b.watches.find((w) => w.icon) ?? b.watches[0];
     let stage = null;
-    if (hero) {
+    if (hero && !plate) {
       Promise.all([import("../watch3d/stage.js"), import("../watch3d/factory.js")]).then(([{ WatchStage }, { buildWatch }]) => {
         if (!root.isConnected) return;
         stage = new WatchStage(qs(".bhero__canvas", root));
@@ -172,6 +193,7 @@ export default {
     // Каталог: 3D-превью в общей галерее
     attachGallery(grid, b.watches).then((off) => {
       cleanups.push(off);
+      if (!grid.querySelector("[data-watch]")) return;
       import("../watch3d/gallery.js").then(({ getGallery }) => {
         const bar = qs(".catalog__bar", root);
         getGallery().clipTop = () => Math.max(68, bar.getBoundingClientRect().bottom - 4);

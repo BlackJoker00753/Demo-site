@@ -36,6 +36,12 @@ class PricePoint(Out):
     fetched_at: dt.datetime
 
 
+class Hotspot(Out):
+    key: str
+    x: float
+    y: float
+
+
 class Photo(Out):
     file: str
     width: int
@@ -47,6 +53,8 @@ class Photo(Out):
     license: str
     license_url: str
     source_url: str | None = None
+    context: bool = False
+    hotspots: list[Hotspot] = []
 
 
 class Fact(Out):
@@ -241,8 +249,8 @@ class SearchHit(Out):
 
 
 class Credit(Out):
-    watch: str
-    watch_name: str
+    subject: str  # что на фото: «Rolex Submariner» или «Деталь: баланс»
+    href: str | None = None
     photo: Photo
 
 

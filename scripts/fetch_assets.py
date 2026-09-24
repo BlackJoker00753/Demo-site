@@ -90,6 +90,11 @@ THREE_ADDONS = [
     "shaders/CopyShader.js",
     "shaders/LuminosityHighPassShader.js",
     "shaders/OutputShader.js",
+    # ambient occlusion для «фотографического» 3D (стыки деталей, звенья браслета)
+    "postprocessing/GTAOPass.js",
+    "shaders/GTAOShader.js",
+    "shaders/PoissonDenoiseShader.js",
+    "math/SimplexNoise.js",
 ]
 
 

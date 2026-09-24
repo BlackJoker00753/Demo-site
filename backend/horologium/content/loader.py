@@ -6,6 +6,8 @@
     complications.yaml      словарь усложнений
     movements.yaml          общие калибры (ETA, Sellita, Miyota, Seiko NH...)
     brands/<country>/<brand>.yaml   бренд + его калибры + модели
+    photos.yaml             настоящие фото моделей (генерирует scripts/photos.py)
+    part_photos.yaml        фото деталей для режима разборки
 """
 
 from __future__ import annotations
@@ -32,6 +34,7 @@ class ContentBundle:
     brand_files: list[BrandFile]
     digest: str
     photos: dict[str, list[ContentPhoto]] = field(default_factory=dict)
+    part_photos: dict[str, list[ContentPhoto]] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
     @property
@@ -91,13 +94,18 @@ def load_content(content_dir: Path) -> ContentBundle:
         brand_files.append(bf)
         movements.extend(bf.movements)
 
-    photos_path = content_dir / "photos.yaml"
-    photos = {}
-    if photos_path.exists():
-        photos = _validate(TypeAdapter(dict[str, list[ContentPhoto]]), _load_yaml(photos_path) or {}, photos_path)
+    photo_map = TypeAdapter(dict[str, list[ContentPhoto]])
+
+    def load_photo_map(name: str) -> dict[str, list[ContentPhoto]]:
+        path = content_dir / name
+        return _validate(photo_map, _load_yaml(path) or {}, path) if path.exists() else {}
+
+    photos = load_photo_map("photos.yaml")
+    part_photos = load_photo_map("part_photos.yaml")
 
     bundle = ContentBundle(
         photos=photos,
+        part_photos=part_photos,
         countries=list(countries),
         complications=list(complications),
         movements=movements,

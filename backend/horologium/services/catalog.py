@@ -14,7 +14,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
 from ..api import schemas as S
-from ..db.models import Brand, Complication, Country, Meta, Movement, PriceSnapshot, Watch
+from ..db.models import Brand, Complication, Country, Meta, Movement, PartPhoto, PriceSnapshot, Watch
 
 MOVEMENT_LABELS = {
     "automatic": "Автоподзавод",
@@ -66,13 +66,19 @@ def watch_card(w: Watch) -> S.WatchCard:
         frequency_vph=w.movement.frequency_vph, price=_price(w),
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
-        photo=S.Photo(**w.photos[0]) if w.photos else None,
+        photo=_main_photo(w),
     )
+
+
+def _main_photo(w: Watch) -> S.Photo | None:
+    """Первое фото самой модели (снимки родственных моделей с context=True не годятся)."""
+    main = next((p for p in (w.photos or []) if not p.get("context")), None)
+    return S.Photo(**main) if main else None
 
 
 def _hero_watch(b: Brand) -> Watch | None:
     """Главная модель бренда: культовая с фото, иначе любая с фото, иначе первая."""
-    ranked = sorted(b.watches, key=lambda w: (not w.photos, not w.icon, w.sort))
+    ranked = sorted(b.watches, key=lambda w: (_main_photo(w) is None, not w.icon, w.sort))
     return ranked[0] if ranked else None
 
 
@@ -83,7 +89,7 @@ def brand_card(b: Brand) -> S.BrandCard:
         tier=b.tier, tagline=b.tagline, group=b.group, independent=b.independent, manufacture=b.manufacture,
         watch_count=len(b.watches), prices=price_stats(w.price_usd for w in b.watches),
         hero_render=hero.render if hero else None,
-        hero_photo=S.Photo(**hero.photos[0]) if hero and hero.photos else None,
+        hero_photo=_main_photo(hero) if hero else None,
         hero_slug=hero.slug if hero else None,
         hero_name=hero.name if hero else None,
     )
@@ -258,12 +264,20 @@ def get_movement(s: Session, slug: str) -> tuple[S.MovementOut, list[S.WatchCard
     return S.MovementOut.model_validate(m), [watch_card(w) for w in watches]
 
 
+def part_photos(s: Session) -> dict[str, list[S.Photo]]:
+    return {row.key: [S.Photo(**p) for p in row.photos] for row in s.scalars(select(PartPhoto))}
+
+
 def credits(s: Session) -> list[S.Credit]:
+    """Авторы и лицензии всех фотографий на сайте."""
     rows = s.scalars(select(Watch).options(selectinload(Watch.brand)).order_by(Watch.slug))
-    return [
-        S.Credit(watch=w.slug, watch_name=f"{w.brand.name} {w.name}", photo=S.Photo(**p))
+    out = [
+        S.Credit(subject=f"{w.brand.name} {w.name}", href=f"/watch/{w.slug}", photo=S.Photo(**p))
         for w in rows for p in (w.photos or [])
     ]
+    for row in s.scalars(select(PartPhoto).order_by(PartPhoto.key)):
+        out += [S.Credit(subject=f"Деталь: {row.key}", photo=S.Photo(**p)) for p in row.photos]
+    return out
 
 
 def site_stats(s: Session) -> S.SiteStats:

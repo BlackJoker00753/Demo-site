@@ -152,6 +152,14 @@ class Watch(Base):
     complications: Mapped[list[Complication]] = relationship(secondary=watch_complications, order_by="Complication.difficulty")
 
 
+class PartPhoto(Base):
+    """Фотографии деталей механизма и корпуса для режима разборки (ключи как в parts-info.js)."""
+
+    __tablename__ = "part_photos"
+    key: Mapped[str] = mapped_column(String(64), primary_key=True)
+    photos: Mapped[list[Any]] = mapped_column(JSON, default=list)
+
+
 class PriceSnapshot(Base):
     """История цен. Ключ — slug часов, чтобы переживать пересборку каталога."""
 

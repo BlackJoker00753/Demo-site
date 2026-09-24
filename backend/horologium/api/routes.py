@@ -107,6 +107,11 @@ def movement(slug: str, s: DB):
     return MovementPage(movement=mov, watches=watches)
 
 
+@router.get("/part-photos", response_model=dict[str, list[S.Photo]])
+def part_photos(s: DB):
+    return catalog.part_photos(s)
+
+
 @router.get("/credits", response_model=list[S.Credit])
 def credits(s: DB):
     return catalog.credits(s)

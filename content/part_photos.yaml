@@ -1,0 +1,419 @@
+# Фотографии деталей механизма (режим разборки). Генерируется scripts/photos.py, вручную правятся только focus и caption.
+# Все снимки под свободными лицензиями (CC0, PD, CC BY, CC BY-SA); автор и лицензия обязательны.
+balance:
+- file: parts/balance/1
+  width: 1280
+  height: 1024
+  focus:
+  - 0.5
+  - 0.5
+  caption: Баланс и спираль рядом с человеческим волосом
+  title: Watch balance spring and human hair.jpg
+  author: Sandbachfizzy
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Watch_balance_spring_and_human_hair.jpg
+- file: parts/balance/2
+  width: 1044
+  height: 787
+  focus:
+  - 0.5
+  - 0.5
+  caption: Баланс под мостом в механизме Benrus
+  title: Benrus Watch Balance Wheel.JPG
+  author: Chris Burks Chetvorno
+  license: Public domain
+  license_url: https://creativecommons.org/publicdomain/mark/1.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Benrus_Watch_Balance_Wheel.JPG
+barrel:
+- file: parts/barrel/1
+  width: 906
+  height: 440
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'Барабаны: открытый со свёрнутой пружиной и закрытый'
+  title: Dscf3997 FederhausKleinuhr.jpg
+  author: HNH
+  license: CC BY-SA 3.0
+  license_url: http://creativecommons.org/licenses/by-sa/3.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Dscf3997_FederhausKleinuhr.jpg
+battery:
+- file: parts/battery/1
+  width: 1600
+  height: 1063
+  focus:
+  - 0.5
+  - 0.5
+  caption: Замена батарейки в кварцевых часах
+  title: Beijo watch battery replacement.JPG
+  author: Jezebelithaca
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Beijo_watch_battery_replacement.JPG
+bezel:
+- file: parts/bezel/1
+  width: 1600
+  height: 1063
+  focus:
+  - 0.5
+  - 0.5
+  caption: Вращающийся безель, снятый с корпуса дайверских часов
+  title: Disassembled rotating bezel.jpg
+  author: Raminagrobis
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Disassembled_rotating_bezel.jpg
+bracelet:
+- file: parts/bracelet/1
+  width: 1107
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Стальной браслет Omega Speedmaster Professional
+  title: Folding clasp of an Omega Speedmaster Professional wristwatch.jpg
+  author: Auge=mit
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Folding_clasp_of_an_Omega_Speedmaster_Professional_wristwatch.jpg
+bridges:
+- file: parts/bridges/1
+  width: 767
+  height: 800
+  focus:
+  - 0.5
+  - 0.5
+  caption: Мосты с «женевскими волнами» в карманных часах Tissot
+  title: Wikipedia-Tissot-Pocket-Watch-T86.6.700.33-Back.jpg
+  author: Minzoblate
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Wikipedia-Tissot-Pocket-Watch-T86.6.700.33-Back.jpg
+caseback:
+- file: parts/caseback/1
+  width: 1600
+  height: 1567
+  focus:
+  - 0.5
+  - 0.5
+  caption: Глухая завинчивающаяся крышка Rolex Submariner
+  title: Back of Rolex Submariner Professional.JPG
+  author: Dr.K.
+  license: CC BY-SA 3.0
+  license_url: http://creativecommons.org/licenses/by-sa/3.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Back_of_Rolex_Submariner_Professional.JPG
+caseback_display:
+- file: parts/caseback_display/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: Калибр Omega 321 за сапфировой крышкой
+  title: Omega Cal. 321 Chronograph movement.jpg
+  author: Shane Lin
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Omega_Cal._321_Chronograph_movement.jpg
+circuit:
+- file: parts/circuit/1
+  width: 1600
+  height: 1333
+  focus:
+  - 0.5
+  - 0.5
+  caption: Плата кварцевого механизма ETA
+  title: ETA-ESA 955.412, back 1.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_back_1.png
+coil:
+- file: parts/coil/1
+  width: 1216
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'Внутри кварцевых Swatch: батарейка и медная катушка мотора'
+  title: Dscf3841 Quarzuhr.jpg
+  author: HNH
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Dscf3841_Quarzuhr.jpg
+crown:
+- file: parts/crown/1
+  width: 1052
+  height: 713
+  focus:
+  - 0.5
+  - 0.5
+  caption: Завинчивающаяся заводная головка дайверских часов
+  title: Crown on mechanical watch - detailed view.jpg
+  author: Pittigrilli
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Crown_on_mechanical_watch_-_detailed_view.jpg
+crystal:
+- file: parts/crystal/1
+  width: 1600
+  height: 1306
+  focus:
+  - 0.5
+  - 0.5
+  caption: Заготовки синтетического сапфира и готовые часовые стёкла
+  title: Glace saphir Saint-Claude 17072017.jpg
+  author: Vassil
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Glace_saphir_Saint-Claude_17072017.jpg
+date_disc:
+- file: parts/date_disc/1
+  width: 1600
+  height: 1454
+  focus:
+  - 0.5
+  - 0.5
+  caption: Диск даты кварцевого калибра ETA-ESA 955
+  title: ETA-ESA 955.412, date ring.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_date_ring.png
+dial:
+- file: parts/dial/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: Заготовки циферблатов на мануфактуре Glashütte Original
+  title: Glashütte Original Dial Blanks.jpg
+  author: Jan Irmscher
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Glash%C3%BCtte_Original_Dial_Blanks.jpg
+exploded_mechanical:
+- file: parts/exploded_mechanical/1
+  width: 1600
+  height: 1064
+  focus:
+  - 0.5
+  - 0.5
+  caption: Механизм карманных часов Manistee, разобранный на основные детали
+  title: Manistee watch main parts.JPG
+  author: Doug Coldwell
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Manistee_watch_main_parts.JPG
+  hotspots:
+  - key: escape_wheel
+    x: 0.322
+    y: 0.216
+  - key: train
+    x: 0.485
+    y: 0.19
+  - key: barrel
+    x: 0.63
+    y: 0.16
+  - key: bridges
+    x: 0.556
+    y: 0.33
+  - key: ratchet
+    x: 0.765
+    y: 0.24
+  - key: balance
+    x: 0.675
+    y: 0.512
+  - key: balance_cock
+    x: 0.75
+    y: 0.446
+  - key: pallet
+    x: 0.525
+    y: 0.489
+  - key: mainplate
+    x: 0.23
+    y: 0.52
+  - key: cannon
+    x: 0.35
+    y: 0.606
+  - key: jewels
+    x: 0.519
+    y: 0.672
+exploded_quartz:
+- file: parts/exploded_quartz/1
+  width: 1600
+  height: 1105
+  focus:
+  - 0.5
+  - 0.5
+  caption: Кварцевый калибр ETA-ESA 955.412, разобранный полностью
+  title: ETA-ESA 955.412, contents 2.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_contents_2.png
+  hotspots:
+  - key: date_disc
+    x: 0.16
+    y: 0.23
+  - key: circuit
+    x: 0.42
+    y: 0.19
+  - key: quartz
+    x: 0.36
+    y: 0.235
+  - key: coil
+    x: 0.49
+    y: 0.385
+  - key: mainplate
+    x: 0.81
+    y: 0.3
+  - key: bridges
+    x: 0.47
+    y: 0.52
+  - key: train
+    x: 0.31
+    y: 0.725
+  - key: hour_wheel
+    x: 0.295
+    y: 0.84
+  - key: jewels
+    x: 0.775
+    y: 0.735
+  - key: screws
+    x: 0.1
+    y: 0.79
+  - key: setting
+    x: 0.515
+    y: 0.84
+hand_hour:
+- file: parts/hand_hour/1
+  width: 524
+  height: 530
+  focus:
+  - 0.5
+  - 0.5
+  caption: Стрелки Omega Speedmaster CK2915
+  title: Hands of OMEGA Speedmaster CK2915.jpg
+  author: Pittigrilli
+  license: CC BY 2.5
+  license_url: https://creativecommons.org/licenses/by/2.5
+  source_url: https://commons.wikimedia.org/wiki/File:Hands_of_OMEGA_Speedmaster_CK2915.jpg
+jewels:
+- file: parts/jewels/1
+  width: 1523
+  height: 1511
+  focus:
+  - 0.5
+  - 0.5
+  caption: Мост с тремя рубиновыми камнями, ETA-ESA 955
+  title: ETA-ESA 955.412, train wheel bridge.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_train_wheel_bridge.png
+mainplate:
+- file: parts/mainplate/1
+  width: 744
+  height: 783
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'Перлаж на платине: узор наносят вращающимся штифтом'
+  title: Perlage 03.JPG
+  author: Watchexpert
+  license: Public domain
+  license_url: https://creativecommons.org/publicdomain/mark/1.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Perlage_03.JPG
+- file: parts/mainplate/2
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Платина кварцевого калибра ETA
+  title: ETA-ESA 955.412, main plate 1.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_main_plate_1.png
+pallet:
+- file: parts/pallet/1
+  width: 1371
+  height: 1101
+  focus:
+  - 0.5
+  - 0.5
+  caption: Анкерная вилка крупным планом
+  title: Lever of a Watch Lever Escapement.jpg
+  author: Micky Aldridge from Finland
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Lever_of_a_Watch_Lever_Escapement.jpg
+quartz:
+- file: parts/quartz/1
+  width: 1062
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Кварцевый камертон на 32 768 Гц, шкала 2 мм
+  title: 32768 Hz quartz crystal resonator.jpg
+  author: Mister rf
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:32768_Hz_quartz_crystal_resonator.jpg
+rotor:
+- file: parts/rotor/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Ротор хронографа Breitling на калибре Valjoux 7750
+  title: Breitling rotor Valjoux 7750.jpg
+  author: Zenith El Primero
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Breitling_rotor_Valjoux_7750.jpg
+screws:
+- file: parts/screws/1
+  width: 966
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Винты кварцевого калибра ETA
+  title: ETA-ESA 955.412, screws.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.412,_screws.png
+strap:
+- file: parts/strap/1
+  width: 1457
+  height: 1068
+  focus:
+  - 0.5
+  - 0.5
+  caption: Ремешок NATO из нейлона
+  title: 4-ring NATO style watchstrap.JPG
+  author: Francis Flinch
+  license: CC BY 3.0
+  license_url: https://creativecommons.org/licenses/by/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:4-ring_NATO_style_watchstrap.JPG
+train:
+- file: parts/train/1
+  width: 735
+  height: 660
+  focus:
+  - 0.5
+  - 0.5
+  caption: Колесо передачи кварцевого калибра ETA
+  title: ETA-ESA 955.112, cannon pinion.png
+  author: Kaffe42
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:ETA-ESA_955.112,_cannon_pinion.png

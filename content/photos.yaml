@@ -1,0 +1,1376 @@
+# Фотографии моделей. Генерируется scripts/photos.py, вручную правятся только focus и caption.
+# Все снимки под свободными лицензиями (CC0, PD, CC BY, CC BY-SA); автор и лицензия обязательны.
+a-lange-soehne-lange-1:
+- file: a-lange-soehne-lange-1/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: Lange 1 Moon Phase
+  title: Lange 1 Moon Phase (50386634128).jpg
+  author: Romain Guy from San Francisco, USA
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Lange_1_Moon_Phase_(50386634128).jpg
+audemars-piguet-royal-oak-15510:
+- file: audemars-piguet-royal-oak-15510/1
+  width: 960
+  height: 720
+  focus:
+  - 0.5
+  - 0.5
+  caption: Royal Oak Selfwinding 41 мм предыдущего поколения
+  title: Royal Oak Automatic .png
+  author: Bugattiben48
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Royal_Oak_Automatic_.png
+audemars-piguet-royal-oak-jumbo:
+- file: audemars-piguet-royal-oak-jumbo/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Royal Oak Jumbo ref. 15202, прямой предшественник 16202
+  title: Audemars Piguet Royal Oak ref. 15202.jpg
+  author: OpaleHorse
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Audemars_Piguet_Royal_Oak_ref._15202.jpg
+- file: audemars-piguet-royal-oak-jumbo/2
+  width: 1023
+  height: 672
+  focus:
+  - 0.5
+  - 0.5
+  caption: Royal Oak Jumbo ref. 15202
+  title: Audemars Piguet Royal Oak Jumbo 15202
+  author: section215
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0/
+  source_url: https://www.flickr.com/photos/25646902@N00/16280541392
+audemars-piguet-royal-oak-offshore:
+- file: audemars-piguet-royal-oak-offshore/1
+  width: 1600
+  height: 1061
+  focus:
+  - 0.5
+  - 0.5
+  caption: Royal Oak Offshore Chronograph предыдущего поколения
+  title: Royal Oak Offshore watch by Audemars Piguet.JPG
+  author: Неизвестный автор
+  license: CC BY 3.0
+  license_url: https://creativecommons.org/licenses/by/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG
+blancpain-fifty-fathoms:
+- file: blancpain-fifty-fathoms/1
+  width: 1000
+  height: 937
+  focus:
+  - 0.5
+  - 0.5
+  caption: Исторический Fifty Fathoms MIL-SPEC с индикатором влажности
+  title: Blancpain.jpg
+  author: Johnson Watch
+  license: Public domain
+  license_url: https://creativecommons.org/publicdomain/mark/1.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Blancpain.jpg
+- file: blancpain-fifty-fathoms/2
+  width: 825
+  height: 800
+  focus:
+  - 0.5
+  - 0.5
+  caption: Калибр Adolf Schild 1361 N в винтажном Fifty Fathoms
+  title: Calibro automatico Adolf Schild 1361 N montato su un Blancpain Fifty Fathoms vintage.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Calibro_automatico_Adolf_Schild_1361_N_montato_su_un_Blancpain_Fifty_Fathoms_vintage.jpg
+blancpain-villeret-quantieme-complet:
+- file: blancpain-villeret-quantieme-complet/1
+  width: 895
+  height: 1155
+  focus:
+  - 0.5
+  - 0.5
+  caption: Blancpain ref. 6501 с полным календарём и фазой Луны, конец 1980-х
+  title: Blancpain ref. 6501 a carica manuale con calendario completo, fine anni Ottanta.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Blancpain_ref._6501_a_carica_manuale_con_calendario_completo,_fine_anni_Ottanta.jpg
+breguet-classique-5177:
+- file: breguet-classique-5177/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Breguet Classique с гильошированным циферблатом
+  title: Breguet classique 9067-P4140420-black.jpg
+  author: Rama
+  license: CC BY-SA 3.0 fr
+  license_url: https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Breguet_classique_9067-P4140420-black.jpg
+breguet-type-xx:
+- file: breguet-type-xx/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Оригинальный Type XX морской авиации Франции, музей CNAM, Париж
+  title: Breguet Type XX watch Aéronautique navale-3972-IMG 6188.JPG
+  author: Rama
+  license: CC BY-SA 3.0 fr
+  license_url: https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Breguet_Type_XX_watch_A%C3%A9ronautique_navale-3972-IMG_6188.JPG
+- file: breguet-type-xx/2
+  width: 1596
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Type XX Aéronavale ref. 3820
+  title: Breguet Type XX ref. 3820 risalente al 2016.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Breguet_Type_XX_ref._3820_risalente_al_2016.jpg
+breitling-navitimer-b01-43:
+- file: breitling-navitimer-b01-43/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Navitimer 01 предыдущего поколения
+  title: Breitling Navitimer chronograph watch.jpg
+  author: Torsten Bolten
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Breitling_Navitimer_chronograph_watch.jpg
+- file: breitling-navitimer-b01-43/2
+  width: 1307
+  height: 1262
+  focus:
+  - 0.5
+  - 0.5
+  caption: Navitimer 01 с золотым безелем
+  title: Breitling Navitimer chronograph watch, black dial and golden casing.jpg
+  author: Ralf Roletschek
+  license: CC BY 3.0
+  license_url: https://creativecommons.org/licenses/by/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Breitling_Navitimer_chronograph_watch,_black_dial_and_golden_casing.jpg
+casio-g-shock-dw5600:
+- file: casio-g-shock-dw5600/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'G-Shock GW-M5610U: та же квадратная «5600», с солнечной батареей и радиосинхронизацией'
+  title: CASIO G-Shock GW-M5610U.jpg
+  author: Md. Rifat Hasan Jihan
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:CASIO_G-Shock_GW-M5610U.jpg
+- file: casio-g-shock-dw5600/2
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первый G-Shock DW-5000C 1983 года в музее Casio
+  context: true
+  title: Casio G-Shock first model.jpg
+  author: ブルーノ・プラス
+  license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Casio_G-Shock_first_model.jpg
+chopard-alpine-eagle-41:
+- file: chopard-alpine-eagle-41/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Chopard Alpine Eagle.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Chopard_Alpine_Eagle.jpg
+citizen-promaster-diver:
+- file: citizen-promaster-diver/1
+  width: 1011
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Promaster Diver 200 м Eco-Drive в синем исполнении
+  title: Citizen Diver's 200m Eco Drive - Diving watch.jpg
+  author: Pittigrilli
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Citizen_Diver%27s_200m_Eco_Drive_-_Diving_watch.jpg
+glashutte-original-panomaticlunar:
+- file: glashutte-original-panomaticlunar/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'PanoReverse: та же асимметричная линия Pano, но без фазы Луны'
+  context: true
+  title: 33 PanoReverse 1-65-01-22-12-61 AngelView.jpg
+  author: Jan Irmscher
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:33_PanoReverse_1-65-01-22-12-61_AngelView.jpg
+- file: glashutte-original-panomaticlunar/2
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: Механизм PanoMatic Calendar изнутри
+  context: true
+  title: 36 PanoMatic Calendar in red gold 1-92-09-02-05-62 internal structure 001.jpg
+  author: Jan Irmscher
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:36_PanoMatic_Calendar_in_red_gold_1-92-09-02-05-62_internal_structure_001.jpg
+grand-seiko-quartz-gmt:
+- file: grand-seiko-quartz-gmt/1
+  width: 1024
+  height: 768
+  focus:
+  - 0.5
+  - 0.5
+  caption: Grand Seiko SBGF017 на кварцевом калибре 9F
+  context: true
+  title: grand seiko sbgf-017
+  author: MobyRichard
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/156048305@N04/46813870972
+grand-seiko-sbgw231:
+- file: grand-seiko-sbgw231/1
+  width: 1031
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Grand Seiko Elegance на ручном калибре 9S
+  title: Grand Seiko.JPG
+  author: STSPP
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Grand_Seiko.JPG
+- file: grand-seiko-sbgw231/2
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: SBGW231 в профиль
+  title: Grand Seiko SBGW231 sideview.JPG
+  author: STSPP
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Grand_Seiko_SBGW231_sideview.JPG
+grand-seiko-white-birch:
+- file: grand-seiko-white-birch/1
+  width: 919
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Исторический Grand Seiko Hi-Beat 1960-х, предок калибра 9SA5
+  context: true
+  title: Grand Seiko Automatic Hi-Beat.jpg
+  author: Dnalor 01
+  license: CC BY-SA 3.0 at
+  license_url: https://creativecommons.org/licenses/by-sa/3.0/at/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Grand_Seiko_Automatic_Hi-Beat.jpg
+hublot-big-bang-unico:
+- file: hublot-big-bang-unico/1
+  width: 1024
+  height: 768
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'Big Bang Ferrari: тот же корпус Big Bang, другая версия'
+  context: true
+  title: Hublot Big Bang Ferrari Taiwan Edition
+  author: 司達興
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/64288326@N02/16799232112
+iwc-ingenieur-40:
+- file: iwc-ingenieur-40/1
+  width: 1061
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Ingenieur Automatic ref. IW3239 (2013), предыдущее поколение
+  title: IWC Ingenieur ref. IW323902 risalente al 2013.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:IWC_Ingenieur_ref._IW323902_risalente_al_2013.jpg
+iwc-pilots-watch-mark-xx:
+- file: iwc-pilots-watch-mark-xx/1
+  width: 1024
+  height: 683
+  focus:
+  - 0.5
+  - 0.5
+  caption: Pilot's Watch Mark предыдущего поколения
+  title: IWC Pilot’s Watch
+  author: craiglea123
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/54022106@N00/32016981687
+- file: iwc-pilots-watch-mark-xx/2
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Mark XV на браслете, 1999-2006
+  context: true
+  title: IWC Mark XV.jpg
+  author: サフィル
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:IWC_Mark_XV.jpg
+iwc-portugieser-chronograph:
+- file: iwc-portugieser-chronograph/1
+  width: 1024
+  height: 711
+  focus:
+  - 0.5
+  - 0.5
+  title: IWC Portuguese Chrono - Half Face
+  author: Eric Kilby
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/8749778@N06/6793934996
+- file: iwc-portugieser-chronograph/2
+  width: 1600
+  height: 1064
+  focus:
+  - 0.5
+  - 0.5
+  caption: Portugieser Automatic с запасом хода 7 дней
+  context: true
+  title: IWC Portuguese Automatic.JPG
+  author: Ferengi
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:IWC_Portuguese_Automatic.JPG
+jaeger-lecoultre-master-ultra-thin-moon:
+- file: jaeger-lecoultre-master-ultra-thin-moon/1
+  width: 980
+  height: 1599
+  focus:
+  - 0.5
+  - 0.5
+  caption: Master Ultra Thin Perpetual из той же линии
+  context: true
+  title: Jaeger-LeCoultre Master Ultra Thin Perpetual.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Master_Ultra_Thin_Perpetual.jpg
+jaeger-lecoultre-polaris-date:
+- file: jaeger-lecoultre-polaris-date/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Memovox 1960-х, предок линии Polaris
+  context: true
+  title: Jaeger-LeCoultre Memovox model E855 with calibre K825 (2).JPG
+  author: Ghilt
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Memovox_model_E855_with_calibre_K825_(2).JPG
+jaeger-lecoultre-reverso-tribute:
+- file: jaeger-lecoultre-reverso-tribute/1
+  width: 1280
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Reverso с малой секундой, 2011
+  title: Jaeger-LeCoultre Reverso 2011.jpg
+  author: Provo rossi
+  license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Reverso_2011.jpg
+- file: jaeger-lecoultre-reverso-tribute/2
+  width: 1116
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Reverso 2000-х на руке
+  title: Jaeger-LeCoultre Reverso, anni 2000.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Reverso,_anni_2000.jpg
+junghans-max-bill-automatic:
+- file: junghans-max-bill-automatic/1
+  width: 1600
+  height: 1162
+  focus:
+  - 0.5
+  - 0.5
+  title: Junghans Max Bill Automatik.JPG
+  author: 'Photographer: Wolfgang Glock'
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Junghans_Max_Bill_Automatik.JPG
+- file: junghans-max-bill-automatic/2
+  width: 1600
+  height: 1066
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первые наручные Max Bill 1963 года, музей
+  context: true
+  title: Armbanduhr, Junghans, Max Bill, Schramberg, 1963.
+  author: https://term.museum-digital.de/md-de/persinst/72697, https://term.museum-digital.de/md-de/persinst/14286, http://data.europeana.eu/agent/154
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  source_url: https://bawue.museum-digital.de/object/58001
+- file: junghans-max-bill-automatic/3
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Кухонные часы Max Bill для Junghans, около 1960 года
+  context: true
+  title: Junghans-max-bill.jpg
+  author: Christos Vittoratos
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Junghans-max-bill.jpg
+longines-master-collection-moonphase:
+- file: longines-master-collection-moonphase/1
+  width: 768
+  height: 1024
+  focus:
+  - 0.5
+  - 0.5
+  caption: Master Collection с хронографом
+  context: true
+  title: My brand new Longines Master Collection watch
+  author: NGHỊ TRẦN
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0/
+  source_url: https://www.flickr.com/photos/33203464@N00/1400338145
+longines-spirit-flyback:
+- file: longines-spirit-flyback/1
+  width: 1446
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Spirit Zulu Time из той же линии Spirit
+  context: true
+  title: Longines Spirit Zulu Time.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+longines-spirit-pilot:
+- file: longines-spirit-pilot/1
+  width: 1446
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Spirit Zulu Time из той же линии Spirit
+  context: true
+  title: Longines Spirit Zulu Time.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+longines-spirit-zulu-time:
+- file: longines-spirit-zulu-time/1
+  width: 1446
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Longines Spirit Zulu Time.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+nomos-tangente-38:
+- file: nomos-tangente-38/1
+  width: 1138
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: NOMOS Glashütte Tangente.jpg
+  author: Berlinerblau
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:NOMOS_Glash%C3%BCtte_Tangente.jpg
+nomos-tangente-neomatik-update:
+- file: nomos-tangente-neomatik-update/1
+  width: 1600
+  height: 1155
+  focus:
+  - 0.5
+  - 0.5
+  caption: Tangente neomatik 41 Update
+  title: Nomos Glashütte Tangente neomatik 41 Update.jpg
+  author: Berlinerblau
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Nomos_Glash%C3%BCtte_Tangente_neomatik_41_Update.jpg
+- file: nomos-tangente-neomatik-update/2
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Калибр DUW 6101 за сапфировой крышкой
+  context: true
+  title: Nomos Tangente neomatik 41 Update, Ref. 180, DUW 6101 -- 2024 -- 0149-51X.jpg
+  author: Anil Öztas
+  license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Nomos_Tangente_neomatik_41_Update,_Ref._180,_DUW_6101_--_2024_--_0149-51X.jpg
+omega-aqua-terra-41:
+- file: omega-aqua-terra-41/1
+  width: 1064
+  height: 1599
+  focus:
+  - 0.5
+  - 0.5
+  caption: Aqua Terra 41 мм, выпуск к Олимпиаде в Токио 2020
+  title: Omega Seamaster Aqua Terra realizzato per commemorare le olimpiadi di Tokyo 2020.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Omega_Seamaster_Aqua_Terra_realizzato_per_commemorare_le_olimpiadi_di_Tokyo_2020.jpg
+- file: omega-aqua-terra-41/2
+  width: 1216
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Aqua Terra предыдущего поколения
+  title: Omega Seamaster Aqua Terra.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Omega_Seamaster_Aqua_Terra.jpg
+omega-de-ville-prestige:
+- file: omega-de-ville-prestige/1
+  width: 977
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Omega De Ville 1960-х с ручным заводом
+  context: true
+  title: Omega De Ville Handaufzug.png
+  author: Lindemann97
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Omega_De_Ville_Handaufzug.png
+omega-seamaster-diver-300m:
+- file: omega-seamaster-diver-300m/1
+  width: 1024
+  height: 986
+  focus:
+  - 0.5
+  - 0.5
+  caption: Seamaster Diver 300M предыдущего поколения, с «волнами» на циферблате
+  title: omega seamaster professional 300m
+  author: Mario A. P.
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/99058495@N00/54534836636
+- file: omega-seamaster-diver-300m/2
+  width: 914
+  height: 1024
+  focus:
+  - 0.5
+  - 0.5
+  caption: Seamaster Diver 300M 007 Edition на выставке
+  context: true
+  title: Bond's Omega Seamaster Diver
+  author: foilman
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/24484507@N00/52680900383
+omega-speedmaster-moonwatch:
+- file: omega-speedmaster-moonwatch/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  title: OMEGA-Speedmaster-Professional-Front.jpg
+  author: Torsten Bolten
+  license: Public domain
+  license_url: https://creativecommons.org/publicdomain/mark/1.0/
+  source_url: https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg
+- file: omega-speedmaster-moonwatch/2
+  width: 768
+  height: 1024
+  focus:
+  - 0.5
+  - 0.5
+  caption: Speedmaster Professional на ремешке NATO
+  title: Omega Speedmaster Professional Moonwatch
+  author: Flying Puffin
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/21241590@N06/48297993357
+- file: omega-speedmaster-moonwatch/3
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Циферблат Speedmaster Professional крупным планом
+  title: Moonwatch (24023224706).jpg
+  author: Daniel Zimmermann from Bayern, Deutschland (Germany)
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Moonwatch_(24023224706).jpg
+orient-bambino:
+- file: orient-bambino/1
+  width: 1067
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Orient Watch - Bambino (ER24005W) (29121883374).jpg
+  author: MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Orient_Watch_-_Bambino_(ER24005W)_(29121883374).jpg
+- file: orient-bambino/2
+  width: 1023
+  height: 575
+  focus:
+  - 0.5
+  - 0.5
+  title: The Orient Bambino.
+  author: MIKI Yoshihito. (#mikiyoshihito)
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0/
+  source_url: https://www.flickr.com/photos/7940758@N07/15777362638
+oris-aquis-date-calibre-400:
+- file: oris-aquis-date-calibre-400/1
+  width: 1600
+  height: 1260
+  focus:
+  - 0.5
+  - 0.5
+  caption: Aquis Depth Gauge из той же линии
+  context: true
+  title: Oris Aquis Depth Gauge.jpeg
+  author: 'Rechteinhaber: Oris
+
+
+    Fotograf: Olaf Köster'
+  license: CC BY-SA 3.0 de
+  license_url: https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Oris_Aquis_Depth_Gauge.jpeg
+- file: oris-aquis-date-calibre-400/2
+  width: 1491
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: ORIS5214.jpg
+  author: KRaikkonen01
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:ORIS5214.jpg
+patek-philippe-annual-calendar-5205:
+- file: patek-philippe-annual-calendar-5205/1
+  width: 1017
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первый годовой календарь Patek Philippe, ref. 5035, конец 1990-х
+  title: Patek Philippe calendario annuale ref. 5035, risalente a fine anni Novanta.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_calendario_annuale_ref._5035,_risalente_a_fine_anni_Novanta.jpg
+patek-philippe-calatrava-5227:
+- file: patek-philippe-calatrava-5227/1
+  width: 1145
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Calatrava с датой в розовом золоте
+  title: Patek Philippe Calatrava, dress watch per eccellenza.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_Calatrava,_dress_watch_per_eccellenza.jpg
+patek-philippe-nautilus-5811:
+- file: patek-philippe-nautilus-5811/1
+  width: 1279
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Nautilus 5711/1A, прямой предшественник 5811
+  title: Patek-Philippe-Nautilus-5711-1A-010-1.jpg
+  author: Patek Philippe SA
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-5711-1A-010-1.jpg
+- file: patek-philippe-nautilus-5811/2
+  width: 1280
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первый Nautilus ref. 3700/1A, 1976
+  title: Patek-Philippe-Nautilus-3700-1A.jpg
+  author: Patek Philippe SA
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-3700-1A.jpg
+- file: patek-philippe-nautilus-5811/3
+  width: 1253
+  height: 1500
+  focus:
+  - 0.5
+  - 0.5
+  caption: Официальная схема разборки Nautilus 5711
+  context: true
+  title: Patek-Philippe-Nautilus-5711.jpg
+  author: Patek Philippe SA
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-5711.jpg
+patek-philippe-perpetual-calendar-5327:
+- file: patek-philippe-perpetual-calendar-5327/1
+  width: 1372
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Вечный календарь Patek Philippe в корпусе Nautilus, ref. 5740
+  context: true
+  title: Patek Philippe Nautilus Perpetual Calendar ref. 5740 in oro bianco del 2018.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_Nautilus_Perpetual_Calendar_ref._5740_in_oro_bianco_del_2018.jpg
+rado-captain-cook:
+- file: rado-captain-cook/1
+  width: 800
+  height: 600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Оригинальный Captain Cook 1962 года, прообраз нынешней модели
+  title: Rado Captain Cook MK1.jpg
+  author: Evilsabd
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rado_Captain_Cook_MK1.jpg
+rolex-1908:
+- file: rolex-1908/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Rolex Cellini Moonphase, предшественник линии 1908
+  context: true
+  title: Rolex Cellini 5115.jpg
+  author: Provo rossi
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Cellini_5115.jpg
+rolex-cosmograph-daytona:
+- file: rolex-cosmograph-daytona/1
+  width: 990
+  height: 961
+  focus:
+  - 0.5
+  - 0.5
+  caption: Cosmograph Daytona в жёлтом золоте, ref. 116508
+  title: Rolex Cosmograph Daytona.png
+  author: Matt C
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Cosmograph_Daytona.png
+- file: rolex-cosmograph-daytona/2
+  width: 1600
+  height: 1065
+  focus:
+  - 0.5
+  - 0.5
+  caption: Daytona ref. 16528 на калибре Zenith El Primero, 1990-е
+  context: true
+  title: Daytona 16528.jpg
+  author: Alesili
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Daytona_16528.jpg
+rolex-datejust-41:
+- file: rolex-datejust-41/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Datejust 36 ref. 126234 того же поколения
+  title: Rolex Datejust 126234.jpg
+  author: ajay_suresh
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Datejust_126234.jpg
+rolex-day-date-40:
+- file: rolex-day-date-40/1
+  width: 728
+  height: 1028
+  focus:
+  - 0.5
+  - 0.5
+  caption: Day-Date в жёлтом золоте предыдущего поколения
+  title: Rolex Day Date.jpg
+  author: Benutzer:WALLI1912
+  license: CC BY-SA 3.0
+  license_url: http://creativecommons.org/licenses/by-sa/3.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Day_Date.jpg
+- file: rolex-day-date-40/2
+  width: 1600
+  height: 1088
+  focus:
+  - 0.5
+  - 0.5
+  caption: Day-Date с яркими эмалевыми циферблатами Stella
+  title: Rolex Day-Date Lacquered Stella Dial.jpg
+  author: Kevin Sweeney
+  license: CC0
+  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Day-Date_Lacquered_Stella_Dial.jpg
+rolex-explorer-40:
+- file: rolex-explorer-40/1
+  width: 1205
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Explorer ref. 114270, предыдущее поколение
+  title: Rolex Oyster Perpetual Explorer Ref. 114270 Cal. 3130.png
+  author: Max3351
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png
+- file: rolex-explorer-40/2
+  width: 1024
+  height: 683
+  focus:
+  - 0.5
+  - 0.5
+  caption: 'Explorer 124270: то же поколение, корпус 36 мм'
+  title: The Rolex Explorer 124270
+  author: Mario A. P.
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/99058495@N00/52276085753
+rolex-gmt-master-ii-pepsi:
+- file: rolex-gmt-master-ii-pepsi/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: GMT-Master II «Pepsi» на руке
+  title: Rolex GMT Master II Pepsi.jpg
+  author: OpaleHorse
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_Pepsi.jpg
+rolex-land-dweller-40:
+- file: rolex-land-dweller-40/1
+  width: 1288
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Циферблат Land-Dweller крупным планом
+  title: Cadran d'une Rolex Land Dweller blanche.jpg
+  author: Verygoodlord
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Cadran_d%27une_Rolex_Land_Dweller_blanche.jpg
+rolex-oyster-perpetual-41:
+- file: rolex-oyster-perpetual-41/1
+  width: 1600
+  height: 1066
+  focus:
+  - 0.5
+  - 0.5
+  caption: Oyster Perpetual 36 ref. 126000 того же поколения
+  title: Quadrante Med Blue del Rolex Oyster Perpetual ref. 126000.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Quadrante_Med_Blue_del_Rolex_Oyster_Perpetual_ref._126000.jpg
+rolex-sky-dweller:
+- file: rolex-sky-dweller/1
+  width: 1524
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Sky-Dweller в белом золоте
+  title: Rolex Sky-Dweller in oro bianco.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Sky-Dweller_in_oro_bianco.jpg
+rolex-submariner:
+- file: rolex-submariner/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Submariner без даты ref. 14060M, середина 2000-х
+  title: Rolex Submariner ref. 14060M, metà anni 2000.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_ref._14060M,_met%C3%A0_anni_2000.jpg
+- file: rolex-submariner/2
+  width: 803
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первый Submariner 1953 года
+  title: Il primo Rolex Submariner del 1953.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Il_primo_Rolex_Submariner_del_1953.jpg
+rolex-submariner-date:
+- file: rolex-submariner-date/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: Submariner Date предыдущего поколения
+  title: Rolex Submariner Professional.JPG
+  author: Dr.K.
+  license: CC BY-SA 3.0
+  license_url: http://creativecommons.org/licenses/by-sa/3.0/
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_Professional.JPG
+- file: rolex-submariner-date/2
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Submariner Date с зелёным безелем рядом с GMT-Master II
+  title: Rolex Submariner and GMT Master II.jpg
+  author: OpaleHorse
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_and_GMT_Master_II.jpg
+seiko-5-sports-srpd55:
+- file: seiko-5-sports-srpd55/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.5
+  - 0.5
+  caption: Seiko 5 Sports SNZH53, предыдущее поколение
+  title: Seiko 5 Sports SNZH53K1.jpg
+  author: Daniel Zimmermann
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Seiko_5_Sports_SNZH53K1.jpg
+seiko-prospex-spb143:
+- file: seiko-prospex-spb143/1
+  width: 1600
+  height: 1067
+  focus:
+  - 0.56
+  - 0.42
+  title: Seiko Prospex SPB143J1.png
+  author: Deerpeter
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Seiko_Prospex_SPB143J1.png
+sinn-u1:
+- file: sinn-u1/1
+  width: 960
+  height: 934
+  focus:
+  - 0.5
+  - 0.5
+  title: Sinn U1
+  author: intellax
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0/
+  source_url: https://www.flickr.com/photos/11045073@N05/7838970316
+swatch-moonswatch:
+- file: swatch-moonswatch/1
+  width: 1431
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: MoonSwatch Mission to Jupiter
+  title: Omega x Swatch "MoonSwatch" Mission to Jupiter.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Omega_x_Swatch_%22MoonSwatch%22_Mission_to_Jupiter.jpg
+- file: swatch-moonswatch/2
+  width: 1600
+  height: 1205
+  focus:
+  - 0.5
+  - 0.5
+  caption: Вся коллекция MoonSwatch в витрине
+  title: MoonSwatchParisLouvre.jpg
+  author: 350z33
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:MoonSwatchParisLouvre.jpg
+swatch-sistem51:
+- file: swatch-sistem51/1
+  width: 1024
+  height: 683
+  focus:
+  - 0.5
+  - 0.5
+  caption: Механизм Sistem51 за прозрачным циферблатом
+  title: Swatch Sistem 51
+  author: cedricbonhomme
+  license: CC BY-SA 2.0
+  license_url: https://creativecommons.org/licenses/by-sa/2.0/
+  source_url: https://www.flickr.com/photos/142131195@N03/49770059233
+tag-heuer-aquaracer-300:
+- file: tag-heuer-aquaracer-300/1
+  width: 1117
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Aquaracer Professional 300, выпуск в честь ref. 844
+  title: TAG Heuer Aquaracer tribute to ref. 844.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Aquaracer_tribute_to_ref._844.jpg
+tag-heuer-carrera-chronograph:
+- file: tag-heuer-carrera-chronograph/1
+  width: 800
+  height: 884
+  focus:
+  - 0.5
+  - 0.5
+  caption: Carrera Chronograph предыдущего поколения
+  title: TAG Heuer Carrera blue.jpg
+  author: Неизвестный автор
+  license: CC BY-SA 3.0
+  license_url: http://creativecommons.org/licenses/by-sa/3.0/
+  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Carrera_blue.jpg
+tag-heuer-formula-1:
+- file: tag-heuer-formula-1/1
+  width: 1512
+  height: 1512
+  focus:
+  - 0.5
+  - 0.5
+  caption: Formula 1 Calibre 5 из той же линии
+  title: Tag Heuer Formula 1 Calibre 5 Automatic (WAZ2011.BA0842).jpg
+  author: 사나운
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tag_Heuer_Formula_1_Calibre_5_Automatic_(WAZ2011.BA0842).jpg
+- file: tag-heuer-formula-1/2
+  width: 1095
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Первая серия Formula 1, 1986 год
+  title: TAG Heuer Formula 1 prima serie, con cassa in fibra di vetro, cinturino in silicone e movimento al quarzo. Metà anni Ottanta.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Formula_1_prima_serie,_con_cassa_in_fibra_di_vetro,_cinturino_in_silicone_e_movimento_al_quarzo._Met%C3%A0_anni_Ottanta.jpg
+tag-heuer-monaco:
+- file: tag-heuer-monaco/1
+  width: 1293
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Monaco 2020 года
+  title: Steve McQueen Monaco White face CW2118.jpg
+  author: DavidBSV12
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Steve_McQueen_Monaco_White_face_CW2118.jpg
+- file: tag-heuer-monaco/2
+  width: 1285
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Monaco с белым циферблатом, ref. CW2118
+  title: TAG Heuer Monaco, 2020.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Monaco,_2020.jpg
+- file: tag-heuer-monaco/3
+  width: 1064
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Monaco на калибре 12
+  title: TAG Heuer Monaco 40th Anniversary re-edition.JPG
+  author: Ferengi
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Monaco_40th_Anniversary_re-edition.JPG
+tissot-prx-powermatic-80:
+- file: tissot-prx-powermatic-80/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: PRX Powermatic 80 в корпусе 35 мм
+  title: Tissot PRX 35mm.jpg
+  author: Soulreaper
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX_35mm.jpg
+tissot-prx-quartz:
+- file: tissot-prx-quartz/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Tissot PRX.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX.jpg
+- file: tissot-prx-quartz/2
+  width: 1105
+  height: 1397
+  focus:
+  - 0.5
+  - 0.5
+  caption: PRX начала 1990-х
+  context: true
+  title: Tissot PRX dei primi anni '90.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX_dei_primi_anni_%2790.jpg
+tudor-black-bay-54:
+- file: tudor-black-bay-54/1
+  width: 823
+  height: 932
+  focus:
+  - 0.5
+  - 0.5
+  title: Tudor Black Bay 54 ref. m79000n-0001.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Black_Bay_54_ref._m79000n-0001.jpg
+tudor-black-bay-58:
+- file: tudor-black-bay-58/1
+  width: 932
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Black Bay 58 в жёлтом золоте, ref. M79018V
+  title: Tudor Black Bay 58 ref. M79018V, primo modello di casa Tudor interamente in oro.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Black_Bay_58_ref._M79018V,_primo_modello_di_casa_Tudor_interamente_in_oro.jpg
+tudor-black-bay-chrono:
+- file: tudor-black-bay-chrono/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Tudor Black Bay Chrono ref. 79350.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Black_Bay_Chrono_ref._79350.jpg
+- file: tudor-black-bay-chrono/2
+  width: 811
+  height: 837
+  focus:
+  - 0.5
+  - 0.5
+  caption: Heritage Chrono, предшественник Black Bay Chrono
+  context: true
+  title: Tudor Heritage Chronograph (9614173638).jpg
+  author: S STEEL from Finland
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Heritage_Chronograph_(9614173638).jpg
+tudor-pelagos-39:
+- file: tudor-pelagos-39/1
+  width: 1280
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Pelagos 42 мм, старший брат Pelagos 39
+  title: Tudor Pelagos for Carolina Watch Club Limited Edition.jpg
+  author: OpaleHorse
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Pelagos_for_Carolina_Watch_Club_Limited_Edition.jpg
+- file: tudor-pelagos-39/2
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Pelagos 42 мм на руке
+  title: Tudor Pelagos for Carolina Watch Club on Wrist.jpg
+  author: OpaleHorse
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Tudor_Pelagos_for_Carolina_Watch_Club_on_Wrist.jpg
+vacheron-constantin-222:
+- file: vacheron-constantin-222/1
+  width: 1297
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Historiques 222 в жёлтом золоте
+  title: Vacheron Constantin Historique 222.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Vacheron_Constantin_Historique_222.jpg
+vacheron-constantin-overseas:
+- file: vacheron-constantin-overseas/1
+  width: 810
+  height: 824
+  focus:
+  - 0.5
+  - 0.5
+  caption: Медальон с кораблём на крышке первого Overseas
+  context: true
+  title: Decorazione del fondello del Vacheron Constantin Overseas prima generazione, fine anni Novanta.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Decorazione_del_fondello_del_Vacheron_Constantin_Overseas_prima_generazione,_fine_anni_Novanta.jpg
+vacheron-constantin-patrimony:
+- file: vacheron-constantin-patrimony/1
+  width: 1367
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  title: Vacheron Constantin Patrimony gold watch.jpg
+  author: Charles J. Sharp
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Vacheron_Constantin_Patrimony_gold_watch.jpg
+zenith-chronomaster-original:
+- file: zenith-chronomaster-original/1
+  width: 945
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Chronomaster Open из той же линии
+  title: Zenith El Primero Chronomaster Open.jpg
+  author: Clyde94
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_Chronomaster_Open.jpg
+- file: zenith-chronomaster-original/2
+  width: 1184
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: El Primero A384 1969 года, прообраз линии
+  context: true
+  title: Zenith El Primero A 384.jpg
+  author: EMore98
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_A_384.jpg
+zenith-chronomaster-sport:
+- file: zenith-chronomaster-sport/1
+  width: 1600
+  height: 1200
+  focus:
+  - 0.5
+  - 0.5
+  caption: El Primero 36 000 пк/ч, тот же калибр
+  context: true
+  title: Zenith El Primero 36000 VpH Tribute to Charles Vermot 01.jpg
+  author: Zenith El Primero
+  license: CC BY-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-sa/3.0
+  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_36000_VpH_Tribute_to_Charles_Vermot_01.jpg
+zenith-defy-skyline:
+- file: zenith-defy-skyline/1
+  width: 1247
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Zenith Defy 1970-х с цифровым LED-индикатором
+  context: true
+  title: Zenith Watches - Zenith Defy Analog Quartz Men's Watch With Red LED Display, Swiss Made, Circa 1970s (26120604080).jpg
+  author: Joe Haupt from USA
+  license: CC BY 2.0
+  license_url: https://creativecommons.org/licenses/by/2.0
+  source_url: https://commons.wikimedia.org/wiki/File:Zenith_Watches_-_Zenith_Defy_Analog_Quartz_Men%27s_Watch_With_Red_LED_Display,_Swiss_Made,_Circa_1970s_(26120604080).jpg

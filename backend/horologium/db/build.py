@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from ..content.loader import ContentBundle, content_digest, load_content
 from ..config import settings
 from .base import get_engine
-from .models import Base, Brand, Complication, Country, Meta, Movement, PriceSnapshot, Watch
+from .models import Base, Brand, Complication, Country, Meta, Movement, PartPhoto, PriceSnapshot, Watch
 
 log = logging.getLogger(__name__)
 
@@ -92,10 +92,12 @@ def build_database(bundle: ContentBundle, engine: Engine | None = None) -> None:
                         price_url=w.price.url, price_checked=w.price.checked, price_note=w.price.note,
                         summary=w.summary, story=list(w.story), history=[h.model_dump() for h in w.history],
                         highlights=list(w.highlights), icon=w.icon, render=w.render.model_dump(), sort=w.sort,
-                        photos=[ph.model_dump() for ph in bundle.photos.get(w.slug, [])],
+                        photos=[ph.model_dump() for ph in sorted(bundle.photos.get(w.slug, []), key=lambda ph: ph.context)],
                         complications=[complications[c] for c in w.complications],
                     )
                 )
+        for key, photos in bundle.part_photos.items():
+            s.add(PartPhoto(key=key, photos=[ph.model_dump() for ph in photos]))
         s.flush()
         _sync_snapshots(s, bundle)
         s.merge(Meta(key="content_digest", value=bundle.digest))

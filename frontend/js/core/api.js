@@ -41,6 +41,8 @@ export const api = {
   complication: (slug) => get(`/complications/${slug}`),
   movement: (slug) => get(`/movements/${slug}`),
   search: (q) => get(`/search?q=${encodeURIComponent(q)}`),
+  partPhotos: () => get("/part-photos"),
+  credits: () => get("/credits"),
 };
 
 const json = new Map();
