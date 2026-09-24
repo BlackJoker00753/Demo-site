@@ -1,0 +1,492 @@
+brand:
+  slug: rolex
+  name: Rolex
+  aliases: [ролекс, ролекс ойстер]
+  country: switzerland
+  founded: 1905
+  founder: Ханс Вильсдорф и Альфред Дэвис
+  city: Женева
+  lat: 46.1893
+  lon: 6.1296
+  group: Фонд Ханса Вильсдорфа
+  independent: true
+  tier: luxury
+  manufacture: full
+  manufacture_note: Все механизмы, корпуса, браслеты и даже золото Rolex делает сама на четырёх площадках в Женеве и Биле.
+  website: https://www.rolex.com
+  sort: 1
+  tagline: Самая узнаваемая часовая марка мира и эталон надёжных инструментальных часов.
+  story:
+    - Ханс Вильсдорф основал компанию в Лондоне в 1905 году, а в 1908 зарегистрировал короткое название Rolex, одинаково читаемое на любом языке. В 1919 году из-за военных пошлин фирма переехала в Женеву.
+    - Вильсдорф верил, что наручные часы могут быть точнее карманных. В 1910 году Rolex получила первый в истории сертификат хронометра для наручных часов, а в 1926 году создала Oyster, первый по-настоящему водонепроницаемый корпус.
+    - В 1931 году появился ротор Perpetual, прародитель всех современных автоматов. С середины века марка создаёт инструменты для дайверов, пилотов и альпинистов, которые потом стали иконами стиля.
+    - С 1960 года Rolex принадлежит благотворительному фонду Ханса Вильсдорфа и не торгуется на бирже. Производство оценивается примерно в 1,2 миллиона часов в год.
+  facts:
+    - {label: Сертификация, value: "Superlative Chronometer, ±2 с в сутки"}
+    - {label: Производство, value: "около 1,2 млн часов в год (оценка)"}
+    - {label: Сталь, value: "Oystersteel 904L"}
+    - {label: Владелец, value: "фонд, без акционеров"}
+  milestones:
+    - {year: 1905, text: "Основание Wilsdorf & Davis в Лондоне"}
+    - {year: 1910, text: "Первый сертификат хронометра для наручных часов"}
+    - {year: 1926, text: "Водонепроницаемый корпус Oyster"}
+    - {year: 1931, text: "Ротор Perpetual, автоподзавод"}
+    - {year: 1945, text: "Datejust, дата в окошке"}
+    - {year: 1953, text: "Submariner и Explorer"}
+    - {year: 1963, text: "Cosmograph Daytona"}
+    - {year: 2025, text: "Land-Dweller и спуск Dynapulse на 5 Гц"}
+
+movements:
+  - slug: rolex-3230
+    caliber: Rolex 3230
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 31
+    year: 2020
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Спуск Chronergy, Спираль Parachrom, Амортизаторы Paraflex]
+    description: Базовый калибр нового поколения без даты. Спуск Chronergy на 15% эффективнее классического анкера, а парамагнитная спираль Parachrom устойчива к магнитам и ударам.
+  - slug: rolex-3235
+    caliber: Rolex 3235
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 31
+    year: 2015
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Мгновенная смена даты, Спуск Chronergy, Спираль Parachrom]
+    description: Калибр с датой, который Rolex представила в Datejust Pearlmaster в 2015 году. Затем он пришёл в Submariner Date, Datejust и Sea-Dweller.
+  - slug: rolex-3285
+    caliber: Rolex 3285
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 30
+    year: 2018
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [GMT с независимой часовой стрелкой, Спуск Chronergy]
+    description: Калибр GMT-Master II. Часовая стрелка переставляется скачками по часу, не останавливая часы, поэтому смена пояса в полёте занимает секунды.
+  - slug: rolex-4131
+    caliber: Rolex 4131
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    year: 2023
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Хронограф с колонным колесом, Вертикальное сцепление, Мосты с отделкой Côtes de Genève Rolex]
+    description: Хронограф Daytona нового поколения, представленный к 60-летию модели. Вертикальное сцепление запускает стрелку без рывка.
+  - slug: rolex-3255
+    caliber: Rolex 3255
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 70
+    frequency_vph: 28800
+    jewels: 31
+    year: 2015
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Мгновенная смена дня и даты, Спуск Chronergy]
+    description: "Калибр Day-Date: день недели и дата перескакивают ровно в полночь."
+  - slug: rolex-9002
+    caliber: Rolex 9002
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    year: 2023
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Годовой календарь Saros, Второй часовой пояс, Управление через безель Ring Command]
+    description: Один из самых сложных механизмов Rolex. Годовой календарь Saros требует всего четыре дополнительных колеса, а все функции выбираются поворотом безеля.
+  - slug: rolex-7140
+    caliber: Rolex 7140
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 66
+    frequency_vph: 28800
+    year: 2023
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Тонкая конструкция, Спираль Syloxi из кремния, Прозрачная задняя крышка]
+    description: Тонкий калибр для классической коллекции 1908. Впервые у Rolex механизм выставлен напоказ через сапфировую крышку.
+  - slug: rolex-7135
+    caliber: Rolex 7135
+    maker: Rolex
+    type: automatic
+    in_house: true
+    power_reserve_h: 66
+    frequency_vph: 36000
+    year: 2025
+    certification: Superlative Chronometer
+    accuracy: −2/+2 с в сутки
+    features: [Спуск Dynapulse, Частота 5 Гц, Спираль Syloxi, Амортизаторы Paraflex]
+    description: Первый высокочастотный калибр Rolex. Спуск Dynapulse передаёт импульс через два кремниевых колеса, что даёт высокую точность при 5 Гц.
+
+watches:
+  - slug: rolex-oyster-perpetual-41
+    name: Oyster Perpetual 41
+    collection: Oyster Perpetual
+    reference: "134300"
+    year_introduced: 1926
+    year_current: 2025
+    status: current
+    movement: rolex-3230
+    complications: []
+    case: {diameter_mm: 41, thickness_mm: 11.7, material: Oystersteel, water_resistance_m: 100}
+    bracelet: Oyster, три звена
+    dial: Зелёный солнечный
+    price: {usd: 7050, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: Самый простой и чистый Rolex. Только время, корпус Oyster и калибр нового поколения.
+    story:
+      - Корпус Oyster появился в 1926 году. Через год пловчиха Мерседес Глейтце переплыла Ла-Манш с такими часами на шее, и Вильсдорф выкупил первую полосу Daily Mail, чтобы рассказать об этом.
+      - Oyster Perpetual сегодня является входной дверью в мир Rolex. Та же сталь, тот же хронометрический калибр, никаких усложнений и яркие цветные циферблаты.
+    highlights: [Без даты и усложнений, Хронометр ±2 с в сутки, Яркие цветные циферблаты]
+    render:
+      case: {shape: round, material: steel, lugs: standard}
+      bezel: {type: smooth}
+      dial: {color: "#2d6a45", finish: sunburst, indices: baton, index_color: "#eef1f3", text_color: "#eef1f3"}
+      hands: {style: baton, color: "#eef1f3"}
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 90
+
+  - slug: rolex-explorer-40
+    name: Explorer 40
+    collection: Explorer
+    reference: "224270"
+    year_introduced: 1953
+    year_current: 2023
+    movement: rolex-3230
+    complications: []
+    case: {diameter_mm: 40, thickness_mm: 11.6, material: Oystersteel, water_resistance_m: 100}
+    bracelet: Oyster
+    dial: Чёрный, цифры 3-6-9
+    price: {usd: 8350, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: Часы экспедиции на Эверест 1953 года. Чёрный циферблат с цифрами 3, 6 и 9 читается при любом свете.
+    story:
+      - 29 мая 1953 года Эдмунд Хиллари и Тенцинг Норгей поднялись на Эверест. Экспедиция была оснащена часами Rolex Oyster Perpetual, и в том же году марка выпустила модель Explorer.
+      - Дизайн почти не менялся семьдесят лет. Цифры 3, 6 и 9, треугольник на 12 и стрелки «Мерседес» созданы для мгновенного чтения в перчатках, на холоде и в темноте.
+    history:
+      - {year: 1953, ref: "6350", title: Первый Explorer, text: "Появился после покорения Эвереста. Чёрный циферблат с крупными цифрами."}
+      - {year: 1963, ref: "1016", title: Классика на 26 лет, text: "Самая долгоживущая версия, выпускалась до 1989 года."}
+      - {year: 2010, ref: "214270", title: 39 мм, text: "Корпус вырос до 39 мм, появился калибр 3132 со спиралью Parachrom."}
+      - {year: 2021, ref: "124270", title: Возвращение к 36 мм, text: "Rolex вернула исторический размер и калибр 3230."}
+      - {year: 2023, ref: "224270", title: Explorer 40, text: "Для тех, кому 36 мм мало, выпустили 40-миллиметровую версию."}
+    highlights: [Наследие Эвереста, Циферблат 3-6-9, Никаких лишних деталей]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: smooth}
+      dial: {color: "#0b0c0e", finish: lacquer, indices: explorer}
+      hands: {style: mercedes, color: "#e8ebee"}
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 80
+
+  - slug: rolex-submariner
+    name: Submariner
+    collection: Submariner
+    reference: "124060"
+    year_introduced: 1953
+    year_current: 2020
+    movement: rolex-3230
+    complications: [dive-bezel]
+    case: {diameter_mm: 41, thickness_mm: 12.5, material: Oystersteel, water_resistance_m: 300}
+    bracelet: Oyster с застёжкой Glidelock
+    dial: Чёрный лаковый
+    price: {usd: 10050, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: Submariner без даты. Самая чистая и симметричная версия эталонных часов дайвера.
+    highlights: [Симметричный циферблат без даты, 300 м, Безель Cerachrom]
+    render:
+      case: {shape: round, material: steel, crown_guard: true}
+      bezel: {type: dive, color: "#0c0d10", material: ceramic}
+      dial: {color: "#0a0b0d", finish: lacquer, indices: dots}
+      hands: {style: mercedes, color: "#e3e6e9"}
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 20
+
+  - slug: rolex-submariner-date
+    name: Submariner Date
+    collection: Submariner
+    reference: 126610LN
+    year_introduced: 1953
+    year_current: 2020
+    designer: Рене-Поль Жаннере (идея модели)
+    movement: rolex-3235
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 41, thickness_mm: 12.5, material: Oystersteel, water_resistance_m: 300, lug_width_mm: 21}
+    bracelet: Oyster с застёжкой Glidelock
+    dial: Чёрный лаковый, люминофор Chromalight
+    price: {usd: 11350, kind: msrp, source: rolex.com (US), url: "https://www.rolex.com/en-us/watches/submariner/m126610ln-0001", checked: 2026-09-24}
+    summary: Эталон часов для дайвинга. С 1953 года образец, на который равняется вся индустрия.
+    icon: true
+    story:
+      - В начале 1950-х директор Rolex и увлечённый дайвер Рене-Поль Жаннере предложил сделать часы для погружений, которые можно носить и в городе. Так появился Submariner, первые часы с водонепроницаемостью 100 метров.
+      - Вращающийся безель позволял дайверу засечь начало погружения и контролировать запас воздуха. Крупные светящиеся метки читались в темноте на глубине.
+      - Модель снимали в кино о Джеймсе Бонде, носили военные водолазы и исследователи. Постепенно Submariner стал самыми копируемыми часами в мире.
+      - Нынешнее поколение 2020 года получило корпус 41 мм, керамический безель Cerachrom, который не выцветает, и калибр 3235 с запасом хода 70 часов.
+    history:
+      - {year: 1953, ref: "6204", title: Рождение легенды, text: "Первый Submariner, 100 метров и вращающийся безель. Показан публике в 1954 году."}
+      - {year: 1959, ref: "5512", title: Защита заводной головки, text: "Появились «плечи», которые защищают головку от ударов. Глубина выросла до 200 метров."}
+      - {year: 1969, ref: "1680", title: Первая дата, text: "Submariner получил дату и увеличительную линзу Cyclops."}
+      - {year: 1979, ref: "16800", title: Сапфир и 300 метров, text: "Сапфировое стекло вместо пластика, быстрая перестановка даты и 300 метров."}
+      - {year: 1989, ref: "16610", title: Классика двух десятилетий, text: "Калибр 3135 и тот самый облик, который выпускали до 2010 года."}
+      - {year: 2010, ref: 116610LN, title: Керамика, text: "Безель Cerachrom, массивный корпус и светящаяся масса Chromalight."}
+      - {year: 2020, ref: 126610LN, title: Современный Submariner, text: "Корпус 41 мм, калибр 3235 и 70 часов запаса хода."}
+    highlights: [300 метров, Керамический безель Cerachrom, Калибр 3235 на 70 часов, Застёжка Glidelock с регулировкой на 20 мм]
+    render:
+      case: {shape: round, material: steel, crown_guard: true, lugs: standard}
+      bezel: {type: dive, color: "#0c0d10", material: ceramic}
+      dial: {color: "#0a0b0d", finish: lacquer, indices: dots}
+      hands: {style: mercedes, color: "#e3e6e9"}
+      date: "3"
+      cyclops: true
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 10
+
+  - slug: rolex-gmt-master-ii-pepsi
+    name: GMT-Master II «Pepsi»
+    collection: GMT-Master II
+    reference: 126710BLRO
+    year_introduced: 1954
+    year_current: 2018
+    movement: rolex-3285
+    complications: [date, gmt]
+    case: {diameter_mm: 40, thickness_mm: 12.0, material: Oystersteel, water_resistance_m: 100, lug_width_mm: 20}
+    bracelet: Jubilee, пять звеньев
+    dial: Чёрный лаковый
+    price: {usd: 12000, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: версия на браслете Jubilee}
+    summary: Часы пилотов Pan Am. Красно-синий безель делит сутки на день и ночь.
+    icon: true
+    story:
+      - В 1954 году авиакомпания Pan American попросила Rolex сделать часы, по которым экипаж трансатлантических рейсов видел бы время двух поясов сразу. Так появился GMT-Master с четвёртой 24-часовой стрелкой.
+      - Двухцветный безель показывает день синим и ночь красным. Прозвище «Pepsi» появилось из-за сходства с логотипом напитка.
+      - В 1983 году часовую стрелку GMT-Master II сделали независимой. Пилот может сменить местное время прыжками по часу, не останавливая часы.
+    history:
+      - {year: 1954, ref: "6542", title: Для Pan Am, text: "Безель из бакелита с люминесцентными цифрами, стрелка GMT."}
+      - {year: 1959, ref: "1675", title: Плечи для головки, text: "Алюминиевый безель и защита заводной головки."}
+      - {year: 1983, ref: "16760", title: GMT-Master II, text: "Независимая часовая стрелка. Прозвище «Fat Lady» за толстый корпус."}
+      - {year: 2005, ref: 116710LN, title: Керамика, text: "Первый безель Cerachrom в чёрном цвете."}
+      - {year: 2014, ref: 116719BLRO, title: Двухцветная керамика, text: "Rolex научилась делать красно-синюю керамику, сначала в белом золоте."}
+      - {year: 2018, ref: 126710BLRO, title: Pepsi в стали, text: "Стальная версия на браслете Jubilee и калибр 3285."}
+    highlights: [Два часовых пояса, Двухцветная керамика Cerachrom, Независимая часовая стрелка]
+    render:
+      case: {shape: round, material: steel, crown_guard: true}
+      bezel: {type: gmt, color: "#1f3f8c", color2: "#9e1c28", material: ceramic}
+      dial: {color: "#0a0b0d", finish: lacquer, indices: dots}
+      hands: {style: mercedes, color: "#e3e6e9", gmt_color: "#b3202c"}
+      date: "3"
+      cyclops: true
+      strap: {type: jubilee}
+      logo: ROLEX
+    sort: 30
+
+  - slug: rolex-cosmograph-daytona
+    name: Cosmograph Daytona
+    collection: Cosmograph Daytona
+    reference: 126500LN
+    year_introduced: 1963
+    year_current: 2023
+    movement: rolex-4131
+    complications: [chronograph, tachymeter]
+    case: {diameter_mm: 40, thickness_mm: 11.9, material: Oystersteel, water_resistance_m: 100, lug_width_mm: 20}
+    bracelet: Oyster
+    dial: Белый «панда» с чёрными счётчиками
+    price: {usd: 16900, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: Хронограф гонщиков Дайтоны и самые желанные стальные часы в мире.
+    icon: true
+    story:
+      - В 1963 году Rolex выпустила хронограф Cosmograph для автогонщиков, а название Daytona добавила в честь трассы во Флориде, где проходили скоростные заезды.
+      - Поначалу модель продавалась плохо. Всё изменилось, когда актёр и гонщик Пол Ньюман стал носить Daytona с необычным циферблатом. Его собственный экземпляр в 2017 году продали на аукционе за 17,8 миллиона долларов.
+      - В 1988 году Daytona получила автоподзавод на основе механизма Zenith El Primero, а в 2000 году Rolex поставила полностью собственный калибр 4130. Нынешняя версия 2023 года работает на калибре 4131.
+    history:
+      - {year: 1963, ref: "6239", title: Первый Cosmograph, text: "Ручной завод, механизм Valjoux 72, шкала тахиметра на безеле."}
+      - {year: 1965, ref: "6240", title: Завинчивающиеся кнопки, text: "Кнопки хронографа стали завинчиваться для защиты от воды."}
+      - {year: 1988, ref: "16520", title: Автоподзавод, text: "Калибр 4030 на базе Zenith El Primero, корпус 40 мм и сапфир."}
+      - {year: 2000, ref: "116520", title: Собственный калибр, text: "Калибр 4130, один из лучших серийных хронографов."}
+      - {year: 2016, ref: 116500LN, title: Керамический безель, text: "Чёрный безель Cerachrom в стальной модели."}
+      - {year: 2023, ref: 126500LN, title: 60 лет, text: "Калибр 4131 и тонкая металлическая рамка вокруг керамики."}
+    highlights: [Хронограф с колонным колесом, Тахиметр на безеле, 72 часа запаса хода]
+    render:
+      case: {shape: round, material: steel, crown_guard: true, pushers: 2}
+      bezel: {type: tachymeter, color: "#0c0d10", material: ceramic}
+      dial: {color: "#eef0ee", finish: lacquer, indices: baton, index_color: "#2a2d31", text_color: "#16181b", track: railway}
+      hands: {style: baton, color: "#dfe3e6"}
+      subdials:
+        - {pos: 3, kind: chrono_min, color: "#111316"}
+        - {pos: 6, kind: chrono_hr, color: "#111316"}
+        - {pos: 9, kind: small_seconds, color: "#111316"}
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 40
+
+  - slug: rolex-datejust-41
+    name: Datejust 41
+    collection: Datejust
+    reference: "126334"
+    year_introduced: 1945
+    year_current: 2016
+    movement: rolex-3235
+    complications: [date]
+    case: {diameter_mm: 41, thickness_mm: 11.7, material: Белый Rolesor (сталь и белое золото), water_resistance_m: 100}
+    bracelet: Jubilee
+    dial: Синий солнечный
+    price: {usd: 11850, kind: msrp, source: rolex.com (US), url: "https://www.rolex.com/en-us/watches/datejust/m126334-0002", checked: 2026-09-24}
+    summary: Первые автоматические часы-хронометр с датой в окошке. Классика на все случаи жизни.
+    icon: true
+    story:
+      - В 1945 году, к 40-летию марки, Rolex выпустила Datejust. Это были первые наручные часы с автоподзаводом, сертификатом хронометра и датой в окошке, которая менялась сама.
+      - Одновременно появился пятизвенный браслет Jubilee, созданный специально для этой модели. В 1953 году над датой установили линзу Cyclops, увеличивающую цифры в два с половиной раза.
+      - Рифлёный безель из белого золота когда-то служил для завинчивания корпуса, а теперь стал подписью марки.
+    history:
+      - {year: 1945, ref: "4467", title: Первый Datejust, text: "Дата в окошке и браслет Jubilee."}
+      - {year: 1953, title: Линза Cyclops, text: "Увеличительное стекло над датой стало фирменной деталью."}
+      - {year: 1977, ref: "16030", title: Быстрая перестановка, text: "Калибр 3035 и быстрая смена даты."}
+      - {year: 2009, ref: "116300", title: Datejust II, text: "Первая крупная версия, 41 мм."}
+      - {year: 2016, ref: "126334", title: Datejust 41, text: "Новый калибр 3235 и 70 часов запаса хода."}
+    highlights: [Изобретатель даты в окошке, Линза Cyclops, Браслет Jubilee]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: fluted}
+      dial: {color: "#1f3f7a", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      date: "3"
+      cyclops: true
+      strap: {type: jubilee}
+      logo: ROLEX
+    sort: 50
+
+  - slug: rolex-day-date-40
+    name: Day-Date 40
+    collection: Day-Date
+    reference: "228238"
+    year_introduced: 1956
+    year_current: 2015
+    movement: rolex-3255
+    complications: [date, day-date]
+    case: {diameter_mm: 40, thickness_mm: 12.0, material: 18-каратное жёлтое золото, water_resistance_m: 100}
+    bracelet: President, полукруглые звенья
+    dial: Шампань, римские цифры
+    price: {usd: 48000, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: «Президентские» часы. Только драгоценные металлы и полное название дня недели.
+    icon: true
+    story:
+      - Day-Date 1956 года стали первыми наручными часами, которые показывали день недели полностью, а не сокращённо.
+      - Модель выпускают только из золота или платины, а браслет President создали специально для неё. Прозвище «президентских» часы получили потому, что их носили несколько американских президентов.
+    history:
+      - {year: 1956, ref: "6511", title: Первый Day-Date, text: "День недели полностью и браслет President."}
+      - {year: 1977, ref: "18038", title: Сапфир, text: "Сапфировое стекло и быстрая смена даты."}
+      - {year: 2008, ref: "218238", title: Day-Date II, text: "Корпус 41 мм."}
+      - {year: 2015, ref: "228238", title: Day-Date 40, text: "Калибр 3255 со спуском Chronergy."}
+    highlights: [Только драгоценные металлы, День недели полностью, Браслет President]
+    render:
+      case: {shape: round, material: yellow_gold}
+      bezel: {type: fluted}
+      dial: {color: "#c9b27a", finish: sunburst, indices: roman, index_color: "#6b5327", text_color: "#4d3b1b"}
+      hands: {style: baton, color: "#e8d49a"}
+      date: day_date
+      cyclops: true
+      strap: {type: president}
+      logo: ROLEX
+    sort: 60
+
+  - slug: rolex-sky-dweller
+    name: Sky-Dweller
+    collection: Sky-Dweller
+    reference: "336934"
+    year_introduced: 2012
+    year_current: 2023
+    movement: rolex-9002
+    complications: [date, annual-calendar, gmt]
+    case: {diameter_mm: 42, thickness_mm: 14.1, material: Белый Rolesor, water_resistance_m: 100}
+    bracelet: Oyster
+    dial: Синий солнечный
+    price: {usd: 17750, kind: msrp, source: rolex.com (US), checked: 2026-09-24, note: прайс-лист Rolex 2026 для США}
+    summary: Самые сложные серийные часы Rolex. Годовой календарь и второй часовой пояс управляются безелем.
+    story:
+      - Sky-Dweller 2012 года создан для путешественников. Внецентровый диск показывает домашнее время, а текущий месяц отмечен окошками у часовых меток.
+      - Годовой календарь Saros назван в честь астрономического цикла затмений. Он сам различает месяцы в 30 и 31 день, и подводить дату нужно только раз в год.
+    highlights: [Годовой календарь, Второй часовой пояс, Безель Ring Command]
+    render:
+      case: {shape: round, material: steel}
+      bezel: {type: fluted}
+      dial: {color: "#1d3a6e", finish: sunburst, indices: baton}
+      hands: {style: baton, color: "#eef1f3"}
+      subdials: [{pos: 12, kind: gmt_24, color: "#16294d"}]
+      date: "3"
+      cyclops: true
+      strap: {type: oyster}
+      logo: ROLEX
+    sort: 70
+
+  - slug: rolex-1908
+    name: "1908"
+    collection: Perpetual 1908
+    reference: "52508"
+    year_introduced: 2023
+    year_current: 2023
+    movement: rolex-7140
+    complications: [small-seconds]
+    case: {diameter_mm: 39, thickness_mm: 9.5, material: 18-каратное жёлтое золото, water_resistance_m: 50}
+    bracelet: Ремешок из кожи аллигатора
+    dial: Белый, малая секунда на 6
+    price: {usd: 28850, kind: msrp, source: rolex.com (US), url: "https://www.rolex.com/en-us/watches/1908/m52508-0006", checked: 2026-09-24}
+    summary: Классические тонкие часы, названные в честь года, когда появилось имя Rolex.
+    story:
+      - Коллекция 1908 заменила Cellini. Тонкий золотой корпус, малая секунда и прозрачная задняя крышка, что для Rolex большая редкость.
+    highlights: [Тонкий корпус 9,5 мм, Прозрачная задняя крышка, Малая секундная стрелка]
+    render:
+      case: {shape: round, material: yellow_gold, display_back: true}
+      bezel: {type: fluted}
+      dial: {color: "#f2f0ea", finish: grained, indices: mixed, index_color: "#b8913f", text_color: "#2b2b2b", lume: false}
+      hands: {style: alpha, color: "#b8913f", seconds: small, lume: false}
+      subdials: [{pos: 6, kind: small_seconds}]
+      strap: {type: alligator, color: "#3b2418"}
+      crystal: domed
+      logo: ROLEX
+    sort: 85
+
+  - slug: rolex-land-dweller-40
+    name: Land-Dweller 40
+    collection: Land-Dweller
+    reference: "127334"
+    year_introduced: 2025
+    year_current: 2025
+    movement: rolex-7135
+    complications: [date]
+    case: {diameter_mm: 40, material: Белый Rolesor, water_resistance_m: 100}
+    bracelet: Flat Jubilee, интегрированный
+    dial: Белый с сотовым узором
+    price: {usd: 16450, kind: msrp, source: rolex.com (US), url: "https://www.rolex.com/en-us/watches/land-dweller/m127334-0001", checked: 2026-09-24}
+    summary: Новая коллекция 2025 года с интегрированным браслетом и первым высокочастотным калибром Rolex.
+    story:
+      - Land-Dweller стал самой громкой новинкой Rolex за десятилетия. Интегрированный браслет Flat Jubilee, сотовый узор циферблата, вырезанный фемтосекундным лазером, и прозрачная крышка.
+      - Главное внутри. Калибр 7135 работает на частоте 5 Гц со спуском Dynapulse собственной разработки.
+    highlights: [Спуск Dynapulse, 5 Гц, Интегрированный браслет, Прозрачная задняя крышка]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, display_back: true}
+      bezel: {type: fluted}
+      dial: {color: "#f1f1ee", finish: waffle, indices: mixed, index_color: "#7a7f86", text_color: "#2a2c2f"}
+      hands: {style: sword, color: "#8a8f96"}
+      date: "3"
+      cyclops: true
+      strap: {type: integrated}
+      logo: ROLEX
+    sort: 75

@@ -1,0 +1,177 @@
+# Общие калибры, которые ставят разные бренды (ETA, Sellita, Miyota, Seiko/TMI...).
+# Собственные калибры брендов лежат в файлах брендов (секция movements).
+# in_house: false, потому что для марки-покупателя это покупной механизм.
+
+- slug: eta-2824-2
+  caliber: ETA 2824-2
+  maker: ETA (Swatch Group)
+  type: automatic
+  in_house: false
+  power_reserve_h: 38
+  frequency_vph: 28800
+  jewels: 25
+  year: 1971
+  diameter_mm: 25.6
+  thickness_mm: 4.6
+  features: [Автоподзавод в обе стороны, Остановка секундной стрелки, Быстрая перестановка даты]
+  description: Рабочая лошадка швейцарской индустрии. Надёжный, легко обслуживаемый калибр, который десятилетиями стоял в часах десятков марок.
+
+- slug: eta-2892-a2
+  caliber: ETA 2892-A2
+  maker: ETA (Swatch Group)
+  type: automatic
+  in_house: false
+  power_reserve_h: 42
+  frequency_vph: 28800
+  jewels: 21
+  year: 1975
+  diameter_mm: 25.6
+  thickness_mm: 3.6
+  features: [Тонкая конструкция, Основа для модулей хронографа и GMT]
+  description: Более тонкий и благородный собрат 2824. Популярная основа для модулей хронографа, GMT и календарей.
+
+- slug: eta-valjoux-7750
+  caliber: Valjoux 7750
+  maker: ETA (Swatch Group)
+  type: automatic
+  in_house: false
+  power_reserve_h: 48
+  frequency_vph: 28800
+  jewels: 25
+  year: 1974
+  diameter_mm: 30.0
+  thickness_mm: 7.9
+  features: [Хронограф с кулачковым управлением, Счётчики 30 минут и 12 часов, День и дата]
+  description: Хронограф, разработанный Эдмоном Капом в 1970-х. Пережил кварцевый кризис и стал самым распространённым механическим хронографом в мире.
+
+- slug: sellita-sw200-1
+  caliber: Sellita SW200-1
+  maker: Sellita
+  type: automatic
+  in_house: false
+  power_reserve_h: 41
+  frequency_vph: 28800
+  jewels: 26
+  year: 2004
+  diameter_mm: 25.6
+  thickness_mm: 4.6
+  features: [Совместим с ETA 2824-2, Остановка секундной стрелки]
+  description: Sellita годами собирала механизмы для ETA и выпустила собственную версию 2824, когда Swatch Group ограничила поставки. Сегодня это стандарт для независимых марок.
+
+- slug: sellita-sw300-1
+  caliber: Sellita SW300-1
+  maker: Sellita
+  type: automatic
+  in_house: false
+  power_reserve_h: 42
+  frequency_vph: 28800
+  jewels: 25
+  year: 2012
+  diameter_mm: 25.6
+  thickness_mm: 3.6
+  features: [Тонкий автомат, Остановка секундной стрелки]
+  description: Аналог ETA 2892-A2. Тонкий и точный калибр для более дорогих часов.
+
+- slug: sellita-sw500
+  caliber: Sellita SW500
+  maker: Sellita
+  type: automatic
+  in_house: false
+  power_reserve_h: 62
+  frequency_vph: 28800
+  jewels: 27
+  year: 2011
+  diameter_mm: 30.0
+  thickness_mm: 7.9
+  features: [Хронограф, Совместим с Valjoux 7750]
+  description: Хронограф Sellita по конструкции Valjoux 7750. Версия MPC получила увеличенный запас хода.
+
+- slug: powermatic-80
+  caliber: Powermatic 80
+  maker: ETA (Swatch Group)
+  type: automatic
+  in_house: false
+  power_reserve_h: 80
+  frequency_vph: 21600
+  jewels: 23
+  year: 2013
+  diameter_mm: 25.6
+  thickness_mm: 4.9
+  features: [80 часов запаса хода, Спираль из никель-фосфорного сплава или кремния]
+  description: Глубокая переработка ETA 2824 с замедленным балансом и более длинной пружиной. Дал недорогим часам Swatch Group запас хода больше трёх суток.
+
+- slug: eta-f06-115
+  caliber: ETA F06.115
+  maker: ETA (Swatch Group)
+  type: quartz
+  in_house: false
+  jewels: 4
+  accuracy: ±15 с в месяц
+  features: [Индикатор окончания батареи, Дата]
+  description: Недорогой швейцарский кварц со сроком службы батареи несколько лет.
+
+- slug: eta-251-262
+  caliber: ETA 251.262
+  maker: ETA (Swatch Group)
+  type: quartz
+  in_house: false
+  jewels: 27
+  accuracy: ±10 с в месяц
+  features: [Кварцевый хронограф с механическим модулем, Мгновенный сброс]
+  description: "Премиальный кварцевый хронограф: стрелки хронографа управляются механическим модулем, поэтому кнопки нажимаются чётко, как у механики."
+
+- slug: miyota-9015
+  caliber: Miyota 9015
+  maker: Miyota (Citizen)
+  type: automatic
+  in_house: false
+  power_reserve_h: 42
+  frequency_vph: 28800
+  jewels: 24
+  year: 2009
+  diameter_mm: 26.0
+  thickness_mm: 3.9
+  features: [Тонкий автомат, Остановка секундной стрелки]
+  description: Японский ответ ETA 2824. Надёжный, тонкий и недорогой механизм, который любят микробренды по всему миру.
+
+- slug: miyota-8215
+  caliber: Miyota 8215
+  maker: Miyota (Citizen)
+  type: automatic
+  in_house: false
+  power_reserve_h: 42
+  frequency_vph: 21600
+  jewels: 21
+  year: 1977
+  diameter_mm: 26.0
+  thickness_mm: 5.7
+  features: [Простой и неубиваемый, Без остановки секундной стрелки]
+  description: Недорогой и очень выносливый автомат для часов начального уровня.
+
+- slug: seiko-nh35
+  caliber: Seiko NH35A
+  maker: Seiko Instruments (TMI)
+  type: automatic
+  in_house: false
+  power_reserve_h: 41
+  frequency_vph: 21600
+  jewels: 24
+  year: 2011
+  diameter_mm: 27.4
+  thickness_mm: 5.3
+  features: [Ручной подзавод, Остановка секундной стрелки]
+  description: Поставляемая версия калибра 4R35. Самый популярный недорогой автомат среди микробрендов.
+
+- slug: la-joux-perret-g100
+  caliber: La Joux-Perret G100
+  maker: La Joux-Perret (Citizen)
+  type: automatic
+  in_house: false
+  power_reserve_h: 68
+  frequency_vph: 28800
+  jewels: 24
+  year: 2020
+  diameter_mm: 25.6
+  thickness_mm: 4.6
+  features: [68 часов запаса хода, Совместим с ETA 2824]
+  description: Современная альтернатива ETA 2824 от швейцарской мануфактуры, принадлежащей Citizen.
