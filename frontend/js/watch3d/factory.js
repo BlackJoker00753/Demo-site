@@ -18,6 +18,9 @@ import { buildStrap } from "./strap.js";
 
 const TAU = Math.PI * 2;
 
+/** Неиндексированная копия геометрии (для объединения геометрий разных типов). */
+const ni = (g) => (g.index ? g.toNonIndexed() : g);
+
 // ------------------------------------------------------------------ helpers
 
 /** Тело вращения вокруг оси Z по профилю [[r, z], ...]. */
@@ -232,7 +235,7 @@ export class WatchModel {
 // ------------------------------------------------------------------ case
 
 function buildCase(model, spec, L, detail) {
-  const seg = detail === "hero" ? 160 : 96;
+  const seg = detail !== "card" ? 160 : 96;
   const mat = spec.case.material;
   const polished = M.metal(mat, "polished");
   const brushed = M.metal(mat, spec.case.finish === "polished" ? "polished" : "brushed");
@@ -375,7 +378,7 @@ function buildCase(model, spec, L, detail) {
     }
   } else {
     const rb = R * 0.86;
-    const display = spec.case.display_back && detail === "hero";
+    const display = spec.case.display_back && detail !== "card";
     const prof = display
       ? [[rb * 0.72, L.zB0 + 0.4], [rb * 0.8, L.zB0 + 0.1], [rb * 0.95, L.zB0 + 0.4], [rb, L.zB1 - 0.4], [rb * 0.98, L.zB1], [rb * 0.72, L.zB1]]
       : [[0.01, L.zB0], [rb * 0.6, L.zB0 + 0.08], [rb * 0.9, L.zB0 + 0.3], [rb, L.zB0 + 0.9], [rb, L.zB1 - 0.3], [rb * 0.97, L.zB1], [0.01, L.zB1]];
@@ -400,7 +403,7 @@ function buildBezel(model, spec, L, detail) {
   const mat = spec.case.material;
   const metalName = M.accentMetalName(mat);
   const polished = M.metal(metalName === "steel" && ["fluted", "coin"].includes(type) ? "white_gold" : metalName, "polished");
-  const seg = detail === "hero" ? 540 : 240;
+  const seg = detail !== "card" ? 540 : 240;
   const z0 = L.zM1, z1 = L.zTop;
   const rin = L.crystalR + 0.15;
   const group = new THREE.Group();
@@ -479,7 +482,7 @@ function buildBezel(model, spec, L, detail) {
     group.add(mesh(lathe([[rin - 0.05, z1 - 0.9], [rin, z1 - 0.1], [rin + 0.3, z1]], 128), polished));
     const insertCol = spec.bezel.color ?? "#0c0d10";
     const tex = paintBezelInsert(type, {
-      color: insertCol, color2: spec.bezel.color2, inner: (rin + 0.1) / (R - 0.85), size: detail === "hero" ? 2048 : 1024,
+      color: insertCol, color2: spec.bezel.color2, inner: (rin + 0.1) / (R - 0.85), size: detail !== "card" ? 2048 : 1024,
     });
     const insMat = new THREE.MeshPhysicalMaterial({
       map: tex, metalness: spec.bezel.material === "aluminium" ? 0.55 : 0.05,
@@ -519,7 +522,7 @@ function occupiedHours(spec) {
 
 function buildDial(model, spec, L, { detail, logo, caption }) {
   const scale = L.D / 40;
-  const size = detail === "hero" ? 2048 : 1024;
+  const size = detail !== "card" ? 2048 : 1024;
   const aspect = L.rectLike ? L.dialH / L.dialW : 1;
   const tex = paintDial({ ...spec, logo, caption }, { size, aspect });
   const f = spec.dial.finish;
@@ -560,7 +563,7 @@ function buildDial(model, spec, L, { detail, logo, caption }) {
   }
 
   // Диск даты (виден только в разборе)
-  if (spec.date !== "none" && !screen && detail === "hero") {
+  if (spec.date !== "none" && !screen && detail !== "card") {
     const disc = mesh(new THREE.RingGeometry(L.dialR * 0.55, L.dialR * 0.92, 96), M.painted("#f1f0ec", { roughness: 0.6 }));
     disc.position.z = L.zDial - 0.6;
     model.addPart("date_disc", disc, { explode: explodeFor("date_disc", L.D / 40), order: 3 });
@@ -624,8 +627,8 @@ function buildDial(model, spec, L, { detail, logo, caption }) {
     }
     const idx = new THREE.Group();
     const indexMat = M.metal(luminance(spec.dial.index_color) > 0.7 ? "white_gold" : M.accentMetalName(spec.case.material) === "steel" ? "white_gold" : M.accentMetalName(spec.case.material), "polished");
-    if (metalGeos.length) idx.add(mesh(mergeGeometries(metalGeos.map((g) => g.toNonIndexed())), indexMat));
-    if (lumeGeos.length) idx.add(mesh(mergeGeometries(lumeGeos.map((g) => g.toNonIndexed())), M.lume(spec.dial.lume_color)));
+    if (metalGeos.length) idx.add(mesh(mergeGeometries(metalGeos.map(ni)), indexMat));
+    if (lumeGeos.length) idx.add(mesh(mergeGeometries(lumeGeos.map(ni)), M.lume(spec.dial.lume_color)));
     model.addPart("indices", idx, { explode: explodeFor("indices", L.D / 40), order: 3 });
   }
 }
@@ -643,7 +646,7 @@ export function handMaterial(color) {
 function makeHand(shapeInfo, material, lumeMat, depth, z) {
   const g = new THREE.Group();
   const geos = [shapeInfo.shape, ...(shapeInfo.extra ?? [])].map((s) => extrude(s, depth, 0.05, 1, 24));
-  const merged = mergeGeometries(geos.map((x) => x.toNonIndexed()));
+  const merged = mergeGeometries(geos.map(ni));
   g.add(mesh(merged, material));
   if (shapeInfo.lume && lumeMat) {
     const lg = extrude(shapeInfo.lume, 0.06, 0, 1, 8);
@@ -718,7 +721,7 @@ function buildHands(model, spec, L) {
 }
 
 function buildCrystal(model, spec, L, detail) {
-  const hero = detail === "hero";
+  const hero = detail !== "card";
   const mat = M.crystalMaterial(spec.crystal === "hesalite" ? "hesalite" : "sapphire", hero);
   const g = new THREE.Group();
   if (L.rectLike) {
@@ -775,7 +778,7 @@ export function buildWatch(render, opts = {}) {
   buildHands(model, spec, L);
   buildCrystal(model, spec, L, detail);
   buildStrap(model, spec, L, detail);
-  if (detail === "hero") buildMovement(model, spec, L, { movementType, logo, calibre, plate: spec.movement_plate, blueSpring: spec.blue_spring });
+  if (detail === "hero" && opts.movement !== false) buildMovement(model, spec, L, { movementType, logo, calibre, plate: spec.movement_plate, blueSpring: spec.blue_spring });
 
   model.update();
   return model;

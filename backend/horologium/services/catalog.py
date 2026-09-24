@@ -62,7 +62,8 @@ def watch_card(w: Watch) -> S.WatchCard:
         slug=w.slug, name=w.name, brand=w.brand.slug, brand_name=w.brand.name, collection=w.collection,
         reference=w.reference, year_introduced=w.year_introduced, status=w.status,
         movement_type=w.movement.type, in_house=w.movement.in_house, caliber=w.movement.caliber,
-        diameter_mm=w.case["diameter_mm"], price=_price(w),
+        diameter_mm=w.case["diameter_mm"], thickness_mm=w.case.get("thickness_mm"),
+        frequency_vph=w.movement.frequency_vph, price=_price(w),
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
     )

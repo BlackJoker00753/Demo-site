@@ -59,7 +59,7 @@ function buildBracelet(model, spec, L, detail, s) {
   const baseMat = M.metal(type === "titanium" ? "titanium" : mat.startsWith("two_tone") ? "steel" : mat, type === "president" || type === "jubilee" ? "polished" : "brushed");
   const accentMat = M.metal(M.accentMetalName(mat), "polished");
   const arc = arcFor(L, s);
-  const span = detail === "hero" ? 1.35 : 1.05;
+  const span = detail !== "card" ? 1.35 : 1.05;
   const scale = L.D / 40;
   const linkLen = (type === "integrated" ? 5.2 : type === "president" ? 5.5 : 6.4) * scale;
   const step = linkLen / arc.Rw;
@@ -150,7 +150,7 @@ function bandGeometry(L, arc, s, { width, thickness, span, segments = 72, taper 
 function buildBand(model, spec, L, detail, s) {
   const type = spec.strap.type;
   const arc = arcFor(L, s);
-  const span = detail === "hero" ? 1.35 : 1.05;
+  const span = detail !== "card" ? 1.35 : 1.05;
   const thickness = type === "rubber" || type === "resin" ? 4.2 : type === "nato" || type === "fabric" ? 1.6 : 3.4;
   const width = L.strapW;
   const mat = type === "mesh" ? M.metal(spec.case.material, "brushed") : M.strapMaterial(type, spec.strap.color);
@@ -158,7 +158,7 @@ function buildBand(model, spec, L, detail, s) {
   group.add(new THREE.Mesh(bandGeometry(L, arc, s, { width, thickness, span, taper: type === "rubber" || type === "resin" ? 0.08 : 0.22 }), mat));
 
   // прострочка по краям кожаного ремешка
-  if ((type === "leather" || type === "alligator") && detail === "hero") {
+  if ((type === "leather" || type === "alligator") && detail !== "card") {
     const stitch = new THREE.BoxGeometry(0.28, 1.1, 0.25);
     const count = Math.floor((span * arc.Rw) / 2.2);
     const inst = new THREE.InstancedMesh(stitch, M.painted(spec.strap.stitch ?? "#d9cbb4", { roughness: 0.8 }), count * 2);

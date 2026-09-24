@@ -11,6 +11,8 @@ export class Gallery {
     this.canvas = canvas;
     this.items = new Map();
     this.running = false;
+    // Верхняя граница видимой области (px): всё, что выше (навигация, липкие панели), не рисуется.
+    this.clipTop = () => 68;
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -67,6 +69,7 @@ export class Gallery {
     }
     this.items.clear();
     this.queue = [];
+    this.clipTop = () => 68;
     this.renderer.setScissorTest(false);
     this.renderer.clear();
     this.#toggleLoop();
@@ -112,6 +115,8 @@ export class Gallery {
       if (!item.visible || !item.model) continue;
       const rect = item.el.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > H || rect.width < 2 || rect.height < 2) continue;
+      const top = Math.max(rect.top, this.clipTop());
+      if (top >= rect.bottom) continue;
       item.hover += (item.targetHover - item.hover) * 0.08;
       item.appear += (1 - item.appear) * 0.06;
       const m = item.model;
@@ -119,16 +124,19 @@ export class Gallery {
       m.root.rotation.set(-0.22 - item.hover * 0.1, 0.34 + sway + item.hover * 0.55, 0);
       m.root.scale.setScalar(0.9 + item.appear * 0.1);
       m.update(new Date(), t);
-      this.scene.add(m.root);
       const x = rect.left, y = H - rect.bottom;
       r.setViewport(x, y, rect.width, rect.height);
-      r.setScissor(x, y, rect.width, rect.height);
+      r.setScissor(x, y, rect.width, rect.bottom - top);
       this.camera.aspect = rect.width / rect.height;
       this.camera.position.set(0, 0, item.dist * (1 - item.hover * 0.06));
       this.camera.lookAt(0, 0, 0);
       this.camera.updateProjectionMatrix();
-      r.render(this.scene, this.camera);
-      this.scene.remove(m.root);
+      this.scene.add(m.root);
+      try {
+        r.render(this.scene, this.camera);
+      } finally {
+        this.scene.remove(m.root);
+      }
     }
   }
 }

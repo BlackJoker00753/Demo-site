@@ -144,6 +144,8 @@ class WatchCard(Out):
     in_house: bool
     caliber: str
     diameter_mm: float
+    thickness_mm: float | None = None
+    frequency_vph: int | None = None
     price: Price
     complications: list[ComplicationRef]
     icon: bool

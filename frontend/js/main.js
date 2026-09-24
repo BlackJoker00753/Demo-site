@@ -52,6 +52,8 @@ async function boot() {
   // Отладочный доступ из консоли: __horologium.globe.scene, __horologium.router
   window.__horologium = { globe, router };
   router.onChange(() => observeReveals(document.getElementById("view")));
+  // Шрифты меняют высоту блоков: пересчитать позиции ScrollTrigger после загрузки.
+  document.fonts?.ready.then(() => window.ScrollTrigger?.refresh());
 
   // Глобус грузится параллельно с первой страницей.
   const globeBoot = (async () => {
