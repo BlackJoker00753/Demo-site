@@ -36,6 +36,7 @@ export const api = {
   country: (slug) => get(`/countries/${slug}`),
   brand: (slug) => get(`/brands/${slug}`),
   watch: (slug) => get(`/watches/${slug}`),
+  watches: (query = "") => get(`/watches${query ? `?${query}` : ""}`),
   complications: () => get("/complications"),
   complication: (slug) => get(`/complications/${slug}`),
   movement: (slug) => get(`/movements/${slug}`),

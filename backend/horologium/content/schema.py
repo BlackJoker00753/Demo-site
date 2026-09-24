@@ -188,6 +188,8 @@ class RenderSpec(Strict):
     strap: RenderStrap = RenderStrap()
     crystal: Literal["sapphire", "hesalite", "box", "domed"] = "sapphire"
     logo: str | None = None  # текстовая подпись на циферблате (без логотипов-изображений)
+    movement_plate: Literal["rhodium", "german_silver", "gilt", "black"] = "rhodium"  # отделка механизма в 3D
+    blue_spring: bool = False  # синяя спираль баланса (Rolex Parachrom Blue и т.п.)
 
 
 # ---------------------------------------------------------------- watches & brands

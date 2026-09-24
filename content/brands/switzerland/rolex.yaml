@@ -164,6 +164,7 @@ watches:
       hands: {style: baton, color: "#eef1f3"}
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 90
 
   - slug: rolex-explorer-40
@@ -196,6 +197,7 @@ watches:
       hands: {style: mercedes, color: "#e8ebee"}
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 80
 
   - slug: rolex-submariner
@@ -219,6 +221,7 @@ watches:
       hands: {style: mercedes, color: "#e3e6e9"}
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 20
 
   - slug: rolex-submariner-date
@@ -259,6 +262,7 @@ watches:
       cyclops: true
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 10
 
   - slug: rolex-gmt-master-ii-pepsi
@@ -289,13 +293,14 @@ watches:
     highlights: [Два часовых пояса, Двухцветная керамика Cerachrom, Независимая часовая стрелка]
     render:
       case: {shape: round, material: steel, crown_guard: true}
-      bezel: {type: gmt, color: "#1f3f8c", color2: "#9e1c28", material: ceramic}
+      bezel: {type: gmt, color: "#9e1c28", color2: "#1f3f8c", material: ceramic}
       dial: {color: "#0a0b0d", finish: lacquer, indices: dots}
       hands: {style: mercedes, color: "#e3e6e9", gmt_color: "#b3202c"}
       date: "3"
       cyclops: true
       strap: {type: jubilee}
       logo: ROLEX
+      blue_spring: true
     sort: 30
 
   - slug: rolex-cosmograph-daytona
@@ -335,6 +340,7 @@ watches:
         - {pos: 9, kind: small_seconds, color: "#111316"}
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 40
 
   - slug: rolex-datejust-41
@@ -371,6 +377,7 @@ watches:
       cyclops: true
       strap: {type: jubilee}
       logo: ROLEX
+      blue_spring: true
     sort: 50
 
   - slug: rolex-day-date-40
@@ -405,6 +412,7 @@ watches:
       cyclops: true
       strap: {type: president}
       logo: ROLEX
+      blue_spring: true
     sort: 60
 
   - slug: rolex-sky-dweller
@@ -434,6 +442,7 @@ watches:
       cyclops: true
       strap: {type: oyster}
       logo: ROLEX
+      blue_spring: true
     sort: 70
 
   - slug: rolex-1908
@@ -461,6 +470,7 @@ watches:
       strap: {type: alligator, color: "#3b2418"}
       crystal: domed
       logo: ROLEX
+      blue_spring: true
     sort: 85
 
   - slug: rolex-land-dweller-40
@@ -489,4 +499,5 @@ watches:
       cyclops: true
       strap: {type: integrated}
       logo: ROLEX
+      blue_spring: true
     sort: 75

@@ -1,0 +1,43 @@
+// Смещения деталей в разобранном виде (мм при диаметре 40 мм, масштабируются по размеру).
+// Ось Z: минус = в сторону задней крышки, плюс = в сторону стекла.
+
+export const EXPLODE = {
+  caseback: [0, 0, -64],
+  caseback_display: [0, 0, -64],
+  rotor: [0, 0, -54],
+  balance_cock: [6, 4, -46],
+  bridges: [0, 0, -40],
+  balance: [8, 3, -35],
+  glide_wheel: [8, 3, -35],
+  pallet: [9, -5, -31],
+  escape_wheel: [7, -8, -28],
+  train: [2, -3, -24],
+  barrel: [-6, 5, -21],
+  mainplate: [0, 0, -15],
+  battery: [-6, 8, -40],
+  coil: [8, 6, -32],
+  quartz: [-8, -6, -28],
+  circuit: [0, 0, -22],
+  chip: [0, 0, -18],
+  smart_battery: [0, 0, -32],
+  sensors: [0, 0, -52],
+  date_disc: [0, 0, 7],
+  dial: [0, 0, 11],
+  indices: [0, 0, 14.5],
+  subdial_hands: [0, 0, 17],
+  hand_hour: [0, 0, 18.5],
+  hand_gmt: [0, 0, 20],
+  hand_minute: [0, 0, 21.5],
+  hand_second: [0, 0, 24],
+  flange: [0, 0, 27],
+  bezel: [0, 0, 32],
+  bezel_screws: [0, 0, 36],
+  bezel_insert: [0, 0, 36],
+  crystal: [0, 0, 42],
+  crystal_hesalite: [0, 0, 42],
+  crown: [16, 0, 0],
+  crown_guard: [5, 0, 0],
+  pushers: [12, 0, 0],
+};
+
+export const explodeFor = (key, scale = 1) => (EXPLODE[key] ?? [0, 0, 0]).map((v) => v * scale);
