@@ -1,0 +1,69 @@
+brand:
+  slug: baltic
+  name: Baltic
+  aliases: [балтик, baltic]
+  country: france
+  founded: 2016
+  founder: Этьен Малек
+  city: Безансон
+  lat: 47.2378
+  lon: 6.0241
+  independent: true
+  tier: accessible
+  manufacture: none
+  manufacture_note: Независимая французская марка с финальной сборкой в исторической часовой столице Франции Безансоне.
+  website: https://baltic-watches.com
+  sort: 2
+  tagline: Французский нео-винтаж. Чистая эстетика середины XX века и выверенные пропорции.
+  story:
+    - Французский энтузиаст Этьен Малек создал марку Baltic в память об отце-коллекционере, начав с краудфандинга на Kickstarter в 2017 году.
+    - Дизайн Baltic вдохновлен культовыми винтажными часами 1940-х и 1960-х годов с идеальными размерами корпуса до 39 мм.
+    - Все часы проектируются в Париже и вручную собираются опытными мастерами в Безансоне.
+  facts:
+    - {label: "Основан", value: "2016 год в Париже"}
+    - {label: "Сборка", value: "Безансон, Франция"}
+    - {label: "Стиль", value: "Нео-винтаж"}
+  milestones:
+    - {year: 2016, text: "Основание марки Baltic"}
+    - {year: 2017, text: "Успешный дебют на Kickstarter"}
+    - {year: 2019, text: "Релиз дайверской модели Aquascaphe"}
+    - {year: 2021, text: "Релиз костюмной модели MR01 с микроротором"}
+
+movements:
+  - slug: miyota-9039
+    caliber: Miyota 9039
+    maker: Miyota (Citizen Group)
+    type: automatic
+    in_house: false
+    power_reserve_h: 42
+    frequency_vph: 28800
+    jewels: 24
+    features: [Тонкая конструкция, Без ложного положения даты, Остановка секундной стрелки]
+    description: Тонкий японский премиальный калибр высокой частоты без лишнего клика даты.
+
+watches:
+  - slug: baltic-aquascaphe
+    name: Aquascaphe Classic
+    collection: Aquascaphe
+    reference: "AQ-BL-01"
+    year_introduced: 2019
+    year_current: 2022
+    status: current
+    movement: miyota-9039
+    complications: [dive-bezel]
+    case: {diameter_mm: 39.0, thickness_mm: 12.0, material: steel, water_resistance_m: 200}
+    bracelet: Стальной браслет «рисовые зерна» (Beads of Rice)
+    dial: Синий зернистый циферблат сэндвич с люминофором цвета старого радия
+    price: {usd: 730, kind: msrp, source: baltic-watches.com, url: "https://baltic-watches.com", checked: 2026-09-24}
+    summary: Образцовые дайверские часы в духе золотого века подводных погружений с сапфировым безелем и браслетом рисовые зерна.
+    icon: true
+    highlights: [Сапфировый безель, Двухслойный циферблат сэндвич, Браслет Beads of Rice, Водозащита 200 метров]
+    render:
+      case: {shape: round, material: steel, finish: brushed}
+      bezel: {type: dive, color: "#16233b", material: sapphire}
+      dial: {color: "#182a47", finish: grained, indices: dots, index_color: "#dfba89", text_color: "#e2e6eb"}
+      hands: {style: pencil, color: "#e2e6eb"}
+      strap: {type: mesh}
+      crystal: box
+      logo: BALTIC
+    sort: 10

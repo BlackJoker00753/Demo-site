@@ -1,0 +1,128 @@
+brand:
+  slug: cartier
+  name: Cartier
+  aliases: [картье, cartier]
+  country: france
+  founded: 1847
+  founder: Луи-Франсуа Картье
+  city: Париж
+  lat: 48.8698
+  lon: 2.3308
+  independent: false
+  tier: haute
+  manufacture: full
+  manufacture_note: Исторический парижский дом роскоши. Собственная часовая мануфактура расположена в Ла-Шо-де-Фон в Швейцарии.
+  website: https://www.cartier.com
+  sort: 1
+  tagline: Король ювелиров и ювелир королей. Создатель первых мужских наручных часов.
+  story:
+    - В 1847 году Луи-Франсуа Картье открыл ювелирную мастерскую в Париже. Принц Уэльский назвал Cartier «ювелиром королей и королём ювелиров».
+    - В 1904 году Луи Картье создал для авиатора Альберто Сантос-Дюмона первые в мире мужские наручные часы Santos, чтобы пилот мог сверять время в полёте.
+    - В 1917 году Картье нарисовал часы Tank, вдохновившись силуэтом танков союзников. Чистые линии ар-деко сделали модель нестареющей иконой.
+  facts:
+    - {label: "Основан", value: "1847 год в Париже"}
+    - {label: "Первые наручные", value: "Santos, 1904 год"}
+    - {label: "Статус", value: "Один из трёх крупнейших часовых брендов мира"}
+  milestones:
+    - {year: 1847, text: "Основание мастерской Cartier в Париже"}
+    - {year: 1904, text: "Создание наручных часов Santos"}
+    - {year: 1917, text: "Премьера модели Tank"}
+    - {year: 2007, text: "Премьера Ballon Bleu"}
+
+movements:
+  - slug: cartier-1847-mc
+    caliber: Cartier 1847 MC
+    maker: Cartier
+    type: automatic
+    in_house: true
+    power_reserve_h: 42
+    frequency_vph: 28800
+    jewels: 23
+    year: 2015
+    features: [Антимагнитный экран до 1200 гаусс, Быстрая перестановка даты, Двунаправленный подзавод]
+    description: Базовый мануфактурный автоматический калибр Cartier для коллекций Santos и Ballon Bleu.
+  - slug: cartier-solarbeat
+    caliber: Cartier SolarBeat
+    maker: Cartier
+    type: solar
+    in_house: true
+    power_reserve_h: 140000
+    features: [Солнечная панель под римскими цифрами, Автономность до 16 лет]
+    description: Фотоэлектрический калибр, подзаряжающийся от любого источника света через невидимые прорези в римских цифрах.
+
+watches:
+  - slug: cartier-santos
+    name: Santos de Cartier
+    collection: Santos
+    reference: WSSA0018
+    year_introduced: 1904
+    year_current: 2018
+    status: current
+    movement: cartier-1847-mc
+    complications: [date]
+    case: {diameter_mm: 39.8, thickness_mm: 9.4, material: steel, water_resistance_m: 100}
+    bracelet: Стальной браслет с системой быстрой регулировки звеньев SmartLink
+    dial: Посеребрённый опаловый, римские цифры, синие вороненые стрелки
+    price: {usd: 7750, kind: msrp, source: cartier.com (US), url: "https://www.cartier.com", checked: 2026-09-24}
+    summary: Первые в мире мужские наручные часы. Созданы в 1904 году для пионера авиации Альберто Сантос-Дюмона.
+    icon: true
+    highlights: [Безель на 8 винтах, Вороненые стрелки-мечи, Система смены браслета QuickSwitch]
+    render:
+      case: {shape: square, material: steel, finish: mixed}
+      bezel: {type: screws, material: metal}
+      dial: {color: "#f6f7f9", finish: matte, indices: roman, index_color: "#111418", text_color: "#111418", track: railway}
+      hands: {style: sword, color: "#183b82"}
+      date: "6"
+      strap: {type: integrated}
+      logo: CARTIER
+    sort: 10
+
+  - slug: cartier-tank-must
+    name: Tank Must
+    collection: Tank
+    reference: WSTA0041
+    year_introduced: 1917
+    year_current: 2021
+    status: current
+    movement: cartier-solarbeat
+    complications: []
+    case: {diameter_mm: 33.7, thickness_mm: 6.6, material: steel, water_resistance_m: 30}
+    bracelet: Ремешок из эко-кожи с классической пряжкой
+    dial: Посеребрённый циферблат, римские цифры, синий сапфировый кабошон
+    price: {usd: 3450, kind: msrp, source: cartier.com (US), url: "https://www.cartier.com", checked: 2026-09-24}
+    summary: Символ эпохи ар-деко. Параллельные боковые планки корпуса напоминают траки гусениц танков Первой мировой.
+    icon: true
+    highlights: [Синий кабошон в заводной головке, Тонкий профиль 6,6 мм, Механизм SolarBeat на 16 лет работы]
+    render:
+      case: {shape: rect, material: steel, finish: polished, aspect: 1.3}
+      bezel: {type: none}
+      dial: {color: "#f4f5f7", finish: matte, indices: roman, index_color: "#111418", text_color: "#111418", track: railway}
+      hands: {style: sword, color: "#183b82"}
+      strap: {type: leather, color: "#111418"}
+      logo: CARTIER
+    sort: 20
+
+  - slug: cartier-ballon-bleu
+    name: Ballon Bleu de Cartier
+    collection: Ballon Bleu
+    reference: WSBB0044
+    year_introduced: 2007
+    year_current: 2021
+    status: current
+    movement: cartier-1847-mc
+    complications: [date]
+    case: {diameter_mm: 40.0, thickness_mm: 12.4, material: steel, water_resistance_m: 30}
+    bracelet: Стальной полированный браслет со скрытой застежкой
+    dial: Посеребрённый гильошированный циферблат
+    price: {usd: 6800, kind: msrp, source: cartier.com (US), url: "https://www.cartier.com", checked: 2026-09-24}
+    summary: Идеальная галька с интегрированной защитной аркой заводной головки. Самый популярный круглый силуэт XXI века.
+    highlights: [Защитная арка над заводной головкой, Гильошированный циферблат, Вороненые стрелки]
+    render:
+      case: {shape: round, material: steel, finish: polished, crown_guard: true}
+      bezel: {type: smooth}
+      dial: {color: "#f2f4f7", finish: guilloche, indices: roman, index_color: "#111418", text_color: "#111418", track: railway}
+      hands: {style: sword, color: "#183b82"}
+      date: "3"
+      strap: {type: three_link}
+      logo: CARTIER
+    sort: 30

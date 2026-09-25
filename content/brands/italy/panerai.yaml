@@ -1,0 +1,106 @@
+brand:
+  slug: panerai
+  name: Panerai
+  aliases: [панерай, panerai]
+  country: italy
+  founded: 1860
+  founder: Джованни Панерай
+  city: Флоренция
+  lat: 43.7696
+  lon: 11.2558
+  independent: false
+  tier: luxury
+  manufacture: full
+  manufacture_note: Историческая колыбель марки находится во Флоренции, а мануфактура механизмов расположена в Невшателе в Швейцарии.
+  website: https://www.panerai.com
+  sort: 1
+  tagline: Флорентийские приборы для боевых пловцов итальянского королевского флота.
+  story:
+    - Джованни Панерай открыл мастерскую на мосту Понте-алле-Грацие во Флоренции в 1860 году. Долгое время марка поставляла измерительные приборы для военно-морского флота Италии.
+    - В 1936 году по секретному заказу флота были созданы часы Radiomir для боевых пловцов-диверсантов. Патент на светящийся состав обеспечил видимость в мутной воде.
+    - В 1950 году была запатентована знаменитая полукруглая скоба с прижимным рычагом. Так родился облик модели Luminor, узнаваемый с первого взгляда.
+  facts:
+    - {label: "Основан", value: "1860 год во Флоренции"}
+    - {label: "Защитная скоба", value: "Патент 1950 года"}
+    - {label: "История", value: "Часы боевых пловцов Италии"}
+  milestones:
+    - {year: 1860, text: "Открытие мастерской во Флоренции"}
+    - {year: 1936, text: "Создание прототипа Radiomir для военных водолазов"}
+    - {year: 1950, text: "Патент на защитную скобу заводной головки Luminor"}
+    - {year: 1997, text: "Выход марки на гражданский международный рынок"}
+
+movements:
+  - slug: panerai-p9010
+    caliber: Panerai P.9010
+    maker: Panerai
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 28800
+    jewels: 31
+    year: 2016
+    features: [Два заводных барабана, 3 дня запаса хода, Независимый перевод часовой стрелки]
+    description: Мануфактурный автоматический калибр с трёхдневным запасом хода и функцией быстрой смены часового пояса.
+  - slug: panerai-p6000
+    caliber: Panerai P.6000
+    maker: Panerai
+    type: manual
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 21600
+    jewels: 19
+    year: 2018
+    features: [Ручной завод, 3 дня запаса хода, Двойной мост баланса]
+    description: Калибр с ручным заводом и высокой ударостойкостью для базовых моделей марки.
+
+watches:
+  - slug: panerai-luminor-marina
+    name: Luminor Marina
+    collection: Luminor
+    reference: PAM01312
+    year_introduced: 1950
+    year_current: 2020
+    status: current
+    movement: panerai-p9010
+    complications: [date]
+    case: {diameter_mm: 44.0, thickness_mm: 15.6, material: steel, water_resistance_m: 300}
+    bracelet: Ремешок из кожи аллигатора с трапециевидной стальной пряжкой
+    dial: Чёрный сэндвич-циферблат с зелёным люминофором, малая секунда на 9 часах
+    price: {usd: 8800, kind: msrp, source: panerai.com (US), url: "https://www.panerai.com", checked: 2026-09-24}
+    summary: Культовый инструмент флота с фирменным рычажным мостом защиты головки и двухслойным сэндвич-циферблатом.
+    icon: true
+    highlights: [Защитная скоба Safety Lock, 300 метров водозащиты, Малая секундная стрелка на 9 часах, 72 часа запаса хода]
+    render:
+      case: {shape: cushion, material: steel, finish: mixed, crown_guard: true}
+      bezel: {type: smooth}
+      dial: {color: "#0c0d10", finish: matte, indices: arabic, index_color: "#9fe9c4", text_color: "#e2e6eb"}
+      hands: {style: sword, color: "#111418"}
+      subdials: [{pos: 9, kind: small_seconds}]
+      date: "3"
+      strap: {type: alligator, color: "#111418"}
+      logo: PANERAI
+    sort: 10
+
+  - slug: panerai-radiomir
+    name: Radiomir Tre Giorni
+    collection: Radiomir
+    reference: PAM01334
+    year_introduced: 1936
+    year_current: 2022
+    status: current
+    movement: panerai-p6000
+    complications: []
+    case: {diameter_mm: 45.0, thickness_mm: 13.5, material: steel, water_resistance_m: 100}
+    bracelet: Винтажный кожаный ремешок Ponte Vecchio
+    dial: Зернистый циферблат сэндвич с тёплым винтажным свечением
+    price: {usd: 7200, kind: msrp, source: panerai.com (US), url: "https://www.panerai.com", checked: 2026-09-24}
+    summary: Наследие первых часов для подводников 1936 года с подушкообразным корпусом, проволочными ушками и конической головкой.
+    highlights: [Проволочные ушки, Сэндвич-циферблат, 72 часа запаса хода]
+    render:
+      case: {shape: cushion, material: steel, finish: polished, lugs: wire}
+      bezel: {type: smooth}
+      dial: {color: "#1a1c22", finish: fume, indices: arabic, index_color: "#d9ab77", text_color: "#e2e6eb"}
+      hands: {style: sword, color: "#111418"}
+      strap: {type: leather, color: "#4a3221"}
+      logo: RADIOMIR
+    sort: 20

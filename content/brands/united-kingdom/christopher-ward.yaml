@@ -1,0 +1,68 @@
+brand:
+  slug: christopher-ward
+  name: Christopher Ward
+  aliases: [кристофер вард, cw, christopher ward]
+  country: united-kingdom
+  founded: 2004
+  founder: Кристофер Уорд, Майк Франс, Питер Эллис
+  city: Мейденхед
+  lat: 51.5227
+  lon: -0.7199
+  independent: true
+  tier: mid
+  manufacture: partial
+  manufacture_note: Штаб-квартира в Англии, часовое ателье в Биле в Швейцарии.
+  website: https://www.christopherward.com
+  sort: 1
+  tagline: Доступное высокое часовое искусство. Автор уникального боя passing hour.
+  story:
+    - Основанная тремя предпринимателями в 2004 году, марка стала пионером прямых продаж качественной механики без посреднических наценок.
+    - В 2022 году марка произвела сенсацию, представив C1 Bel Canto, часы с боем курантов каждый час (sonnerie au passage), победившие в престижном конкурсе GPHG.
+  facts:
+    - {label: "Основан", value: "2004 год в Беркшире"}
+    - {label: "Победа GPHG", value: "Приз Petite Aiguille 2023"}
+    - {label: "Инновация", value: "Доступный курантный бой Bel Canto"}
+  milestones:
+    - {year: 2004, text: "Основание в Мейденхеде"}
+    - {year: 2014, text: "Слияние со швейцарским ателье Synergies Horlogères"}
+    - {year: 2022, text: "Громкий релиз модели Bel Canto"}
+    - {year: 2023, text: "Релиз спортивной модели The Twelve"}
+
+movements:
+  - slug: christopher-ward-fs01
+    caliber: Christopher Ward FS01
+    maker: Christopher Ward
+    type: automatic
+    in_house: false
+    base: Sellita SW200-1
+    power_reserve_h: 38
+    frequency_vph: 28800
+    jewels: 29
+    features: [Модуль боя sonnerie au passage, Открытый молоточек и гонг, 60 дополнительных деталей]
+    description: Инновационный звуковой модуль, звонящий в мелодичный гонг в тональности ре ровно в начале каждого часа.
+
+watches:
+  - slug: christopher-ward-c1-bel-canto
+    name: C1 Bel Canto
+    collection: Bel Canto
+    reference: C01-41APT1-T00B0
+    year_introduced: 2022
+    year_current: 2023
+    status: current
+    movement: christopher-ward-fs01
+    complications: []
+    case: {diameter_mm: 41.0, thickness_mm: 13.0, material: titanium, water_resistance_m: 30}
+    bracelet: Титановый браслет со скрытым механизмом микрорегулировки
+    dial: Скелетонизированный циферблат с открытым гонгом и полированным молоточком боя
+    price: {usd: 4350, kind: msrp, source: christopherward.com, url: "https://www.christopherward.com", checked: 2026-09-24}
+    summary: Настоящие куранты на запястье. Каждый час часы издают мелодичный звон по открытому титановому гонгу.
+    icon: true
+    highlights: [Открытый молоточек и гонг боя, Корпус из титана Grade 5, Победитель Женевского Гран-при GPHG 2023]
+    render:
+      case: {shape: round, material: titanium, finish: brushed}
+      bezel: {type: smooth}
+      dial: {color: "#184562", finish: skeleton, indices: baton, index_color: "#e2e6eb", text_color: "#e2e6eb"}
+      hands: {style: baton, color: "#e2e6eb"}
+      strap: {type: titanium}
+      logo: CW
+    sort: 10

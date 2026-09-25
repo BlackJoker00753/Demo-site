@@ -1,0 +1,68 @@
+brand:
+  slug: richard-mille
+  name: Richard Mille
+  aliases: [ришар милль, richard mille, rm]
+  country: switzerland
+  founded: 2001
+  founder: Ришар Милль, Доминик Гена
+  city: Ле-Брёлё
+  lat: 47.2432
+  lon: 7.0089
+  independent: true
+  tier: haute
+  manufacture: full
+  manufacture_note: Мануфактура высоких технологий в кантоне Юра. Сверхлегкие космические сплавы и углеродные композиты.
+  website: https://www.richardmille.com
+  sort: 22
+  tagline: Гоночная машина на запястье. Авангардные композитные материалы и экстремальные перегрузки.
+  story:
+    - Французский предприниматель Ришар Милль и часовой промышленник Доминик Гена основали марку в 2001 году в Ле-Брёлё.
+    - "Философия марки строится на заимствовании технологий из Формулы-1 и аэрокосмической отрасли: титан Grade 5, карбон TPT, графен и скелетонизированные механизмы, способные выдерживать колоссальные ускорения до 5000 G."
+    - Часы Richard Mille стали непременным атрибутом мировых звезд спорта и автогонок от Рафаэля Надаля до Фелипе Массы.
+  facts:
+    - {label: "Основан", value: "2001 год в Ле-Брёлё"}
+    - {label: "Материалы", value: "Карбон TPT, титан Grade 5, графен"}
+    - {label: "Стойкость к ударам", value: "Перегрузки свыше 5000 G"}
+  milestones:
+    - {year: 2001, text: "Премьера первой модели RM 001 с турбийоном"}
+    - {year: 2007, text: "Релиз легендарного хронографа RM 011 Felipe Massa"}
+    - {year: 2010, text: "Сверхлегкие часы RM 027 для Рафаэля Надаля (менее 20 грамм)"}
+
+movements:
+  - slug: rm-rmal1
+    caliber: Richard Mille RMAL1
+    maker: Richard Mille
+    type: automatic
+    in_house: true
+    power_reserve_h: 55
+    frequency_vph: 28800
+    jewels: 32
+    year: 2017
+    features: [Ротор с изменяемой геометрией, Платина из титана Grade 5, Скелетонизированная конструкция]
+    description: Высокотехнологичный скелетонизированный автомат с платиной и мостами из титана с пескоструйной обработкой.
+
+watches:
+  - slug: richard-mille-rm-67-02
+    name: RM 67-02 Extra Flat
+    collection: RM 67
+    reference: RM67-02
+    year_introduced: 2017
+    year_current: 2022
+    status: current
+    movement: rm-rmal1
+    complications: []
+    case: {diameter_mm: 38.7, thickness_mm: 7.8, material: carbon, water_resistance_m: 50}
+    bracelet: Бесшовный эластичный ремешок Comfort
+    dial: Скелетонизированный титановый циферблат с мостами, окрашенными вручную
+    price: {usd: 195000, kind: msrp, source: richardmille.com, url: "https://www.richardmille.com", checked: 2026-09-24}
+    summary: Сверхлегкие спортивные часы весом всего 32 грамма вместе с ремешком. Корпус из композита Carbon TPT и Quartz TPT.
+    icon: true
+    highlights: [Вес всего 32 грамма, Корпус из ультралегкого карбона TPT, Толщина всего 7,8 мм]
+    render:
+      case: {shape: tonneau, material: carbon, finish: brushed}
+      bezel: {type: screws, material: ceramic}
+      dial: {color: "#111418", finish: skeleton, indices: none, text_color: "#e2e6eb"}
+      hands: {style: skeleton, color: "#e2e6eb"}
+      strap: {type: fabric, color: "#1a1e24"}
+      logo: RICHARD MILLE
+    sort: 10

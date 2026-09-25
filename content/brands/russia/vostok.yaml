@@ -1,0 +1,69 @@
+brand:
+  slug: vostok
+  name: Восток
+  aliases: [восток, vostok]
+  country: russia
+  founded: 1942
+  founder: Чистопольский часовой завод
+  city: Чистополь
+  lat: 55.3650
+  lon: 50.6390
+  independent: true
+  tier: accessible
+  manufacture: full
+  manufacture_note: Завод в Чистополе полного цикла. Мануфактурные надёжные механизмы для экспедиций и дайвинга.
+  website: https://vostokinc.com
+  sort: 2
+  tagline: Легендарная водолазная «Амфибия» и часы командного состава.
+  story:
+    - Осенью 1941 года Второй Московский часовой завод был эвакуирован в Чистополь на Каме для выпуска танковых и авиационных приборов.
+    - В 1967 году конструкторы Михаил Новиков и Вера Белова разработали «Амфибию» по заказу ВМФ СССР.
+    - "Часы выдерживали глубину 200 метров благодаря гениальной геометрии: давление воды прижимает купольное стекло и заднюю крышку к широкой резиновой прокладке, увеличивая герметичность."
+  facts:
+    - {label: "Основан", value: "1942 год в Чистополе"}
+    - {label: "Амфибия", value: "Создана в 1967 году для флота"}
+    - {label: "Глубина", value: "200 метров водозащиты"}
+  milestones:
+    - {year: 1942, text: "Начало работы Чистопольского часового завода"}
+    - {year: 1965, text: "Создание часов Командирские"}
+    - {year: 1967, text: "Разработка первой водолазной Амфибии"}
+
+movements:
+  - slug: vostok-2416b
+    caliber: Восток 2416Б
+    maker: Чистопольский часовой завод
+    type: automatic
+    in_house: true
+    power_reserve_h: 31
+    frequency_vph: 19800
+    jewels: 31
+    features: [Противоударное устройство узла баланса, Двунаправленный автоподзавод, Календарь мгновенного действия]
+    description: Проверенный временем калибр с автоподзаводом, выпускаемый в Чистополе на собственных линиях.
+
+watches:
+  - slug: vostok-amphibia
+    name: Amphibia «Scuba Dude»
+    collection: Amphibia
+    reference: "420059"
+    year_introduced: 1967
+    year_current: 2021
+    status: current
+    movement: vostok-2416b
+    complications: [date, dive-bezel]
+    case: {diameter_mm: 39.6, thickness_mm: 15.0, material: steel, water_resistance_m: 200}
+    bracelet: Стальной звеньевой браслет
+    dial: Бирюзово-синий циферблат с силуэтом аквалангиста «Scuba Dude»
+    price: {usd: 110, kind: msrp, source: vostokinc.com, url: "https://vostokinc.com", checked: 2026-09-24}
+    summary: Культовые водолазные часы с оригинальной инженерной схемой самоуплотнения на глубине.
+    icon: true
+    highlights: [Уникальная схема герметизации 200 м, Силуэт ныряльщика на циферблате, Двунаправленный безель]
+    render:
+      case: {shape: round, material: steel, finish: polished}
+      bezel: {type: dive, color: "#1c2430", material: metal}
+      dial: {color: "#185a7d", finish: sunburst, indices: dots, index_color: "#e2e6eb", text_color: "#e2e6eb"}
+      hands: {style: arrow, color: "#e2e6eb"}
+      date: "3"
+      strap: {type: three_link}
+      crystal: domed
+      logo: АМФИБИЯ
+    sort: 10

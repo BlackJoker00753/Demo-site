@@ -1,5 +1,3 @@
-# Фотографии моделей. Генерируется scripts/photos.py, вручную правятся только focus и caption.
-# Все снимки под свободными лицензиями (CC0, PD, CC BY, CC BY-SA); автор и лицензия обязательны.
 a-lange-soehne-lange-1:
 - file: a-lange-soehne-lange-1/1
   width: 1600
@@ -15,55 +13,49 @@ a-lange-soehne-lange-1:
   source_url: https://commons.wikimedia.org/wiki/File:Lange_1_Moon_Phase_(50386634128).jpg
 audemars-piguet-royal-oak-15510:
 - file: audemars-piguet-royal-oak-15510/1
-  width: 960
-  height: 720
-  focus:
-  - 0.5
-  - 0.5
-  caption: Royal Oak Selfwinding 41 мм предыдущего поколения
-  title: Royal Oak Automatic .png
-  author: Bugattiben48
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Royal_Oak_Automatic_.png
-audemars-piguet-royal-oak-jumbo:
-- file: audemars-piguet-royal-oak-jumbo/1
-  width: 1200
+  width: 1500
   height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Royal Oak Jumbo ref. 15202, прямой предшественник 16202
-  title: Audemars Piguet Royal Oak ref. 15202.jpg
-  author: OpaleHorse
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Audemars_Piguet_Royal_Oak_ref._15202.jpg
-- file: audemars-piguet-royal-oak-jumbo/2
-  width: 1023
-  height: 672
+  caption: Royal Oak Selfwinding 41 Ref. 15510ST, официальное студийное фото
+  title: Royal Oak Selfwinding 41 Ref. 15510ST
+  author: Audemars Piguet (Официальный сайт / audemarspiguet.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.audemarspiguet.com
+  source_url: https://www.audemarspiguet.com
+  context: false
+  hotspots: []
+audemars-piguet-royal-oak-jumbo:
+- file: audemars-piguet-royal-oak-jumbo/1
+  width: 1250
+  height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Royal Oak Jumbo ref. 15202
-  title: Audemars Piguet Royal Oak Jumbo 15202
-  author: section215
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0/
-  source_url: https://www.flickr.com/photos/25646902@N00/16280541392
+  caption: Royal Oak Jumbo Extra-Thin Ref. 16202ST, официальное студийное фото
+  title: Royal Oak Jumbo Extra-Thin Ref. 16202ST
+  author: Audemars Piguet (Официальный сайт / audemarspiguet.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.audemarspiguet.com
+  source_url: https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/16202ST.OO.1240ST.02.html
+  context: false
+  hotspots: []
 audemars-piguet-royal-oak-offshore:
 - file: audemars-piguet-royal-oak-offshore/1
-  width: 1600
-  height: 1061
+  width: 1250
+  height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Royal Oak Offshore Chronograph предыдущего поколения
-  title: Royal Oak Offshore watch by Audemars Piguet.JPG
-  author: Peripitus
-  license: CC BY 3.0
-  license_url: https://creativecommons.org/licenses/by/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG
+  caption: Royal Oak Offshore Chronograph Ref. 26420SO, официальное студийное фото
+  title: Royal Oak Offshore Chronograph Ref. 26420SO
+  author: Audemars Piguet (Официальный сайт / audemarspiguet.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.audemarspiguet.com
+  source_url: https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A002CA.01.html
+  context: false
+  hotspots: []
 blancpain-fifty-fathoms:
 - file: blancpain-fifty-fathoms/1
   width: 1000
@@ -624,40 +616,19 @@ omega-seamaster-diver-300m:
   source_url: https://www.flickr.com/photos/24484507@N00/52680900383
 omega-speedmaster-moonwatch:
 - file: omega-speedmaster-moonwatch/1
-  width: 1600
-  height: 1200
+  width: 1150
+  height: 1529
   focus:
   - 0.5
   - 0.5
-  title: OMEGA-Speedmaster-Professional-Front.jpg
-  author: Torsten Bolten
-  license: Public domain
-  license_url: https://creativecommons.org/publicdomain/mark/1.0/
-  source_url: https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg
-- file: omega-speedmaster-moonwatch/2
-  width: 768
-  height: 1024
-  focus:
-  - 0.5
-  - 0.5
-  caption: Speedmaster Professional на ремешке NATO
-  title: Omega Speedmaster Professional Moonwatch
-  author: Flying Puffin
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/21241590@N06/48297993357
-- file: omega-speedmaster-moonwatch/3
-  width: 1200
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Циферблат Speedmaster Professional крупным планом
-  title: Moonwatch (24023224706).jpg
-  author: Daniel Zimmermann from Bayern, Deutschland (Germany)
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0
-  source_url: https://commons.wikimedia.org/wiki/File:Moonwatch_(24023224706).jpg
+  caption: Speedmaster Moonwatch Professional, официальное студийное фото
+  title: Speedmaster Moonwatch Professional
+  author: Omega (Официальный пресс-кит / omegawatches.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.omegawatches.com
+  source_url: https://www.omegawatches.com
+  context: false
+  hotspots: []
 orient-bambino:
 - file: orient-bambino/1
   width: 1067
@@ -711,82 +682,64 @@ oris-aquis-date-calibre-400:
   source_url: https://commons.wikimedia.org/wiki/File:ORIS5214.jpg
 patek-philippe-annual-calendar-5205:
 - file: patek-philippe-annual-calendar-5205/1
-  width: 1017
-  height: 1600
+  width: 620
+  height: 1240
   focus:
   - 0.5
   - 0.5
-  caption: Первый годовой календарь Patek Philippe, ref. 5035, конец 1990-х
-  title: Patek Philippe calendario annuale ref. 5035, risalente a fine anni Novanta.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_calendario_annuale_ref._5035,_risalente_a_fine_anni_Novanta.jpg
+  caption: Annual Calendar Ref. 5205G-013, официальное студийное фото
+  title: Annual Calendar Ref. 5205G-013
+  author: Patek Philippe (Официальный пресс-кит / patek.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.patek.com
+  source_url: https://www.patek.com/en/collection/complications/5205G-013
+  context: false
+  hotspots: []
 patek-philippe-calatrava-5227:
 - file: patek-philippe-calatrava-5227/1
-  width: 1145
-  height: 1600
+  width: 1600
+  height: 1321
   focus:
   - 0.5
   - 0.5
-  caption: Calatrava с датой в розовом золоте
-  title: Patek Philippe Calatrava, dress watch per eccellenza.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_Calatrava,_dress_watch_per_eccellenza.jpg
+  caption: Calatrava Ref. 5227G, официальное студийное фото
+  title: Calatrava Ref. 5227G
+  author: Patek Philippe (Официальный пресс-кит / patek.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.patek.com
+  source_url: https://www.patek.com
+  context: false
+  hotspots: []
 patek-philippe-nautilus-5811:
 - file: patek-philippe-nautilus-5811/1
-  width: 1279
+  width: 1600
   height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Nautilus 5711/1A, прямой предшественник 5811
-  title: Patek-Philippe-Nautilus-5711-1A-010-1.jpg
-  author: Patek Philippe SA
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-5711-1A-010-1.jpg
-- file: patek-philippe-nautilus-5811/2
-  width: 1280
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Первый Nautilus ref. 3700/1A, 1976
-  title: Patek-Philippe-Nautilus-3700-1A.jpg
-  author: Patek Philippe SA
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-3700-1A.jpg
-- file: patek-philippe-nautilus-5811/3
-  width: 1253
-  height: 1500
-  focus:
-  - 0.5
-  - 0.5
-  caption: Официальная схема разборки Nautilus 5711
-  context: true
-  title: Patek-Philippe-Nautilus-5711.jpg
-  author: Patek Philippe SA
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-5711.jpg
+  caption: Nautilus Ref. 5811/1G, официальное студийное фото
+  title: Nautilus Ref. 5811/1G
+  author: Patek Philippe (Официальный пресс-кит / patek.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.patek.com
+  source_url: https://www.patek.com
+  context: false
+  hotspots: []
 patek-philippe-perpetual-calendar-5327:
 - file: patek-philippe-perpetual-calendar-5327/1
-  width: 1372
-  height: 1600
+  width: 620
+  height: 1240
   focus:
   - 0.5
   - 0.5
-  caption: Вечный календарь Patek Philippe в корпусе Nautilus, ref. 5740
-  context: true
-  title: Patek Philippe Nautilus Perpetual Calendar ref. 5740 in oro bianco del 2018.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Patek_Philippe_Nautilus_Perpetual_Calendar_ref._5740_in_oro_bianco_del_2018.jpg
+  caption: Perpetual Calendar Ref. 5327G-001, официальное студийное фото
+  title: Perpetual Calendar Ref. 5327G-001
+  author: Patek Philippe (Официальный пресс-кит / patek.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.patek.com
+  source_url: https://www.patek.com/en/collection/grand-complications/5327G-001
+  context: false
+  hotspots: []
 rado-captain-cook:
 - file: rado-captain-cook/1
   width: 800
@@ -807,102 +760,74 @@ rolex-1908:
   focus:
   - 0.5
   - 0.5
-  caption: Rolex Cellini Moonphase, предшественник линии 1908
-  context: true
-  title: Rolex Cellini 5115.jpg
-  author: Provo rossi
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Cellini_5115.jpg
+  caption: Perpetual 1908 Ref. 52508, официальное студийное фото
+  title: Perpetual 1908 Ref. 52508
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/1908/m52508-0006
+  context: false
+  hotspots: []
 rolex-cosmograph-daytona:
 - file: rolex-cosmograph-daytona/1
-  width: 990
-  height: 961
-  focus:
-  - 0.5
-  - 0.5
-  caption: Cosmograph Daytona в жёлтом золоте, ref. 116508
-  title: Rolex Cosmograph Daytona.png
-  author: Matt C
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Cosmograph_Daytona.png
-- file: rolex-cosmograph-daytona/2
-  width: 1600
-  height: 1065
-  focus:
-  - 0.5
-  - 0.5
-  caption: Daytona ref. 16528 на калибре Zenith El Primero, 1990-е
-  context: true
-  title: Daytona 16528.jpg
-  author: Alesili
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Daytona_16528.jpg
-rolex-datejust-41:
-- file: rolex-datejust-41/1
-  width: 1600
-  height: 1200
-  focus:
-  - 0.5
-  - 0.5
-  caption: Datejust 36 ref. 126234 того же поколения
-  title: Rolex Datejust 126234.jpg
-  author: ajay_suresh
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Datejust_126234.jpg
-rolex-day-date-40:
-- file: rolex-day-date-40/1
-  width: 728
-  height: 1028
-  focus:
-  - 0.5
-  - 0.5
-  caption: Day-Date в жёлтом золоте предыдущего поколения
-  title: Rolex Day Date.jpg
-  author: Benutzer:WALLI1912
-  license: CC BY-SA 3.0
-  license_url: http://creativecommons.org/licenses/by-sa/3.0/
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Day_Date.jpg
-- file: rolex-day-date-40/2
-  width: 1600
-  height: 1088
-  focus:
-  - 0.5
-  - 0.5
-  caption: Day-Date с яркими эмалевыми циферблатами Stella
-  title: Rolex Day-Date Lacquered Stella Dial.jpg
-  author: Kevin Sweeney
-  license: CC0
-  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Day-Date_Lacquered_Stella_Dial.jpg
-rolex-explorer-40:
-- file: rolex-explorer-40/1
-  width: 1205
+  width: 1200
   height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Explorer ref. 114270, предыдущее поколение
-  title: Rolex Oyster Perpetual Explorer Ref. 114270 Cal. 3130.png
-  author: Max3351
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png
-- file: rolex-explorer-40/2
-  width: 1024
-  height: 683
+  caption: Cosmograph Daytona Ref. 126500LN, официальное студийное фото
+  title: Cosmograph Daytona Ref. 126500LN
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/cosmograph-daytona/m126500ln-0001
+  context: false
+  hotspots: []
+rolex-datejust-41:
+- file: rolex-datejust-41/1
+  width: 1200
+  height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: 'Explorer 124270: то же поколение, корпус 36 мм'
-  title: The Rolex Explorer 124270
-  author: Mario A. P.
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/99058495@N00/52276085753
+  caption: Datejust 41 Ref. 126334, официальное студийное фото
+  title: Rolex Datejust 41
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/datejust/m126234-0051
+  context: false
+  hotspots: []
+rolex-day-date-40:
+- file: rolex-day-date-40/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Day-Date 40 Ref. 228238, официальное студийное фото
+  title: Day-Date 40 Ref. 228238
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/day-date/m228238-0006
+  context: false
+  hotspots: []
+rolex-explorer-40:
+- file: rolex-explorer-40/1
+  width: 1200
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Explorer 40 Ref. 224270, официальное студийное фото
+  title: Explorer 40 Ref. 224270
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/explorer/m224270-0001
+  context: false
+  hotspots: []
 rolex-gmt-master-ii-pepsi:
 - file: rolex-gmt-master-ii-pepsi/1
   width: 1200
@@ -910,12 +835,14 @@ rolex-gmt-master-ii-pepsi:
   focus:
   - 0.5
   - 0.5
-  caption: GMT-Master II «Pepsi» на руке
-  title: Rolex GMT Master II Pepsi.jpg
-  author: OpaleHorse
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_Pepsi.jpg
+  caption: GMT-Master II «Pepsi» Ref. 126710BLRO, официальное студийное фото
+  title: GMT-Master II «Pepsi» Ref. 126710BLRO
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/gmt-master-ii/m126710blro-0001
+  context: false
+  hotspots: []
 rolex-land-dweller-40:
 - file: rolex-land-dweller-40/1
   width: 1288
@@ -931,30 +858,34 @@ rolex-land-dweller-40:
   source_url: https://commons.wikimedia.org/wiki/File:Cadran_d%27une_Rolex_Land_Dweller_blanche.jpg
 rolex-oyster-perpetual-41:
 - file: rolex-oyster-perpetual-41/1
-  width: 1600
-  height: 1066
-  focus:
-  - 0.5
-  - 0.5
-  caption: Oyster Perpetual 36 ref. 126000 того же поколения
-  title: Quadrante Med Blue del Rolex Oyster Perpetual ref. 126000.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Quadrante_Med_Blue_del_Rolex_Oyster_Perpetual_ref._126000.jpg
-rolex-sky-dweller:
-- file: rolex-sky-dweller/1
-  width: 1524
+  width: 1200
   height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Sky-Dweller в белом золоте
-  title: Rolex Sky-Dweller in oro bianco.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Sky-Dweller_in_oro_bianco.jpg
+  caption: Oyster Perpetual 41 Ref. 124300, официальное студийное фото
+  title: Oyster Perpetual 41 Ref. 124300
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/oyster-perpetual/m124300-0005
+  context: false
+  hotspots: []
+rolex-sky-dweller:
+- file: rolex-sky-dweller/1
+  width: 1075
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Sky-Dweller Ref. 336934, официальное студийное фото
+  title: Rolex Sky-Dweller Ref. 336934
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/sky-dweller/m336934-0001
+  context: false
+  hotspots: []
 rolex-submariner:
 - file: rolex-submariner/1
   width: 1200
@@ -962,49 +893,29 @@ rolex-submariner:
   focus:
   - 0.5
   - 0.5
-  caption: Submariner без даты ref. 14060M, середина 2000-х
-  title: Rolex Submariner ref. 14060M, metà anni 2000.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_ref._14060M,_met%C3%A0_anni_2000.jpg
-- file: rolex-submariner/2
-  width: 803
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Первый Submariner 1953 года
-  title: Il primo Rolex Submariner del 1953.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Il_primo_Rolex_Submariner_del_1953.jpg
+  caption: Submariner Ref. 124060, официальное студийное фото
+  title: Submariner Ref. 124060
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/submariner/m124060-0001
+  context: false
+  hotspots: []
 rolex-submariner-date:
 - file: rolex-submariner-date/1
-  width: 1600
-  height: 1200
-  focus:
-  - 0.5
-  - 0.5
-  caption: Submariner Date предыдущего поколения
-  title: Rolex Submariner Professional.JPG
-  author: Dr.K.
-  license: CC BY-SA 3.0
-  license_url: http://creativecommons.org/licenses/by-sa/3.0/
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_Professional.JPG
-- file: rolex-submariner-date/2
   width: 1200
   height: 1600
   focus:
   - 0.5
   - 0.5
-  caption: Submariner Date с зелёным безелем рядом с GMT-Master II
-  title: Rolex Submariner and GMT Master II.jpg
-  author: OpaleHorse
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rolex_Submariner_and_GMT_Master_II.jpg
+  caption: Submariner Date Ref. 126610LN, официальное студийное фото
+  title: Submariner Date Ref. 126610LN
+  author: Rolex (Официальный пресс-кит / rolex.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rolex.com
+  source_url: https://www.rolex.com/en-us/watches/submariner/m126610ln-0001
+  context: false
+  hotspots: []
 seiko-5-sports-srpd55:
 - file: seiko-5-sports-srpd55/1
   width: 1600
@@ -1374,3 +1285,228 @@ zenith-defy-skyline:
   license: CC BY 2.0
   license_url: https://creativecommons.org/licenses/by/2.0
   source_url: https://commons.wikimedia.org/wiki/File:Zenith_Watches_-_Zenith_Defy_Analog_Quartz_Men%27s_Watch_With_Red_LED_Display,_Swiss_Made,_Circa_1970s_(26120604080).jpg
+cartier-santos:
+- file: cartier-santos/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Santos de Cartier Ref. WSSA0018, официальное студийное фото
+  title: Santos de Cartier Ref. WSSA0018
+  author: Cartier (Официальный сайт / cartier.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.cartier.com
+  source_url: https://www.cartier.com
+  context: false
+  hotspots: []
+cartier-ballon-bleu:
+- file: cartier-ballon-bleu/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Ballon Bleu Ref. WSBB0044, официальное студийное фото
+  title: Ballon Bleu Ref. WSBB0044
+  author: Cartier (Официальный сайт / cartier.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.cartier.com
+  source_url: https://www.cartier.com
+  context: false
+  hotspots: []
+panerai-luminor-marina:
+- file: panerai-luminor-marina/1
+  width: 1600
+  height: 1440
+  focus:
+  - 0.5
+  - 0.5
+  caption: Luminor Marina 44mm, студийное макро-фото высокого разрешения
+  title: Luminor Marina 44mm
+  author: Daniel Zimmermann (CC BY 2.0 / Panerai)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.panerai.com
+  source_url: https://www.panerai.com
+  context: false
+  hotspots: []
+cartier-tank-must:
+- file: cartier-tank-must/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Tank Must Ref. WSTA0041, официальное студийное фото
+  title: Tank Must Ref. WSTA0041
+  author: Cartier (Официальный сайт / cartier.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.cartier.com
+  source_url: https://www.cartier.com
+  context: false
+  hotspots: []
+hamilton-khaki-field-mechanical:
+- file: hamilton-khaki-field-mechanical/1
+  width: 804
+  height: 1069
+  focus:
+  - 0.5
+  - 0.5
+  caption: Khaki Field Mechanical 38mm Ref. H69439931, официальное фото
+  title: Khaki Field Mechanical 38mm Ref. H69439931
+  author: Hamilton (Официальный сайт / hamiltonwatch.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.hamiltonwatch.com
+  source_url: https://www.hamiltonwatch.com
+  context: false
+  hotspots: []
+hamilton-ventura:
+- file: hamilton-ventura/1
+  width: 804
+  height: 1069
+  focus:
+  - 0.5
+  - 0.5
+  caption: Ventura Ref. H24411732, официальное фото
+  title: Ventura Ref. H24411732
+  author: Hamilton (Официальный сайт / hamiltonwatch.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.hamiltonwatch.com
+  source_url: https://www.hamiltonwatch.com
+  context: false
+  hotspots: []
+bulgari-octo-finissimo:
+- file: bulgari-octo-finissimo/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Octo Finissimo Automatic Ref. 102713, официальное студийное фото
+  title: Octo Finissimo Automatic Ref. 102713
+  author: Bulgari (Официальный сайт / bulgari.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.bulgari.com
+  source_url: https://www.bulgari.com
+  context: false
+  hotspots: []
+christopher-ward-c1-bel-canto:
+- file: christopher-ward-c1-bel-canto/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: C1 Bel Canto Ref. C01-41APT1-T00B0, официальное фото
+  title: C1 Bel Canto Ref. C01-41APT1-T00B0
+  author: Christopher Ward (Официальный сайт / christopherward.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.christopherward.com
+  source_url: https://www.christopherward.com
+  context: false
+  hotspots: []
+vostok-amphibia:
+- file: vostok-amphibia/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Amphibia «Scuba Dude» Ref. 420059, студийный снимок
+  title: Amphibia «Scuba Dude» Ref. 420059
+  author: SevenFiveThree (CC BY-SA 4.0)
+  license: CC BY-SA
+  license_url: https://vostokinc.com
+  source_url: https://vostokinc.com
+  context: false
+  hotspots: []
+raketa-big-zero:
+- file: raketa-big-zero/1
+  width: 1600
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Big Zero «0 на двенадцати», классический дизайн
+  title: Big Zero «0 на двенадцати»
+  author: Sosoev (CC BY-SA 3.0)
+  license: CC BY-SA
+  license_url: https://raketa.com
+  source_url: https://raketa.com
+  context: false
+  hotspots: []
+bulova-lunar-pilot:
+- file: bulova-lunar-pilot/1
+  width: 1000
+  height: 1260
+  focus:
+  - 0.5
+  - 0.5
+  caption: Lunar Pilot Ref. 96B251, официальное фото
+  title: Lunar Pilot Ref. 96B251
+  author: Bulova (Официальный сайт / bulova.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.bulova.com
+  source_url: https://www.bulova.com
+  context: false
+  hotspots: []
+baltic-aquascaphe:
+- file: baltic-aquascaphe/1
+  width: 1555
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Aquascaphe Classic, официальное студийное фото
+  title: Aquascaphe Classic
+  author: Baltic (Официальный сайт / baltic-watches.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://baltic-watches.com
+  source_url: https://baltic-watches.com
+  context: false
+  hotspots: []
+richard-mille-rm-67-02:
+- file: richard-mille-rm-67-02/1
+  width: 1151
+  height: 1535
+  focus:
+  - 0.5
+  - 0.5
+  caption: RM 67-02 Extra Flat, официальное фото
+  title: RM 67-02 Extra Flat
+  author: Richard Mille (Официальный сайт / richardmille.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.richardmille.com
+  source_url: https://www.richardmille.com
+  context: false
+  hotspots: []
+patek-philippe-twenty-4:
+- file: patek-philippe-twenty-4/1
+  width: 620
+  height: 1240
+  focus:
+  - 0.5
+  - 0.5
+  caption: Twenty~4 Automatic Ref. 4910/1200A, официальное студийное фото
+  title: Twenty~4 Automatic
+  author: Patek Philippe (Официальный пресс-кит / patek.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.patek.com
+  source_url: https://www.patek.com/en/collection/twenty4/4910-1200A-010
+  context: false
+  hotspots: []
+audemars-piguet-royal-oak-33:
+- file: audemars-piguet-royal-oak-33/1
+  width: 1250
+  height: 1600
+  focus:
+  - 0.5
+  - 0.5
+  caption: Royal Oak 33 Ref. 67650ST, официальное студийное фото
+  title: Royal Oak 33 Ref. 67650ST
+  author: Audemars Piguet (Официальный сайт / audemarspiguet.com)
+  license: Официальные промо-материалы бренда
+  license_url: https://www.audemarspiguet.com
+  source_url: https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/67650ST.OO.1261ST.01.html
+  context: false
+  hotspots: []

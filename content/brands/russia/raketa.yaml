@@ -1,0 +1,68 @@
+brand:
+  slug: raketa
+  name: Ракета
+  aliases: [ракета, raketa]
+  country: russia
+  founded: 1721
+  founder: Пётр I Великий
+  city: Петергоф
+  lat: 59.8830
+  lon: 29.9090
+  independent: true
+  tier: mid
+  manufacture: full
+  manufacture_note: Старейшее действующее предприятие России. Мануфактура полностью сама производит спираль и баланс.
+  website: https://raketa.com
+  sort: 1
+  tagline: Старейший завод России. Часы с фирменным нулём на циферблате и мануфактурной спиралью.
+  story:
+    - Основанный Петром I в 1721 году как Петергофская гранильная фабрика, завод изготавливал каменные шедевры для Эрмитажа и Зимнего дворца.
+    - В 1961 году завод запустил марку «Ракета» в честь первого полета человека в космос Юрия Гагарина.
+    - «Ракета» остается одной из редких мануфактур в мире, производящих механизм полностью своими силами, включая тончайшую спираль баланса.
+  facts:
+    - {label: "Основан", value: "1721 год по указу Петра I"}
+    - {label: "Мануфактура", value: "Собственное производство спирали баланса"}
+    - {label: "Символ", value: "Большой ноль вместо двенадцати"}
+  milestones:
+    - {year: 1721, text: "Указ Петра I об основании гранильной фабрики"}
+    - {year: 1949, text: "Начало выпуска наручных часов"}
+    - {year: 1961, text: "Создание бренда Ракета в честь полета Гагарина"}
+    - {year: 1970, text: "Появление классического дизайна Big Zero"}
+
+movements:
+  - slug: raketa-2615
+    caliber: Ракета 2615
+    maker: Петродворцовый часовой завод
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 18000
+    jewels: 24
+    features: [Собственная спираль баланса, Рубиновые камни, Двунаправленный ротор]
+    description: Полностью мануфактурный автоматический калибр, производимый на заводе в Петергофе на исторических станках.
+
+watches:
+  - slug: raketa-big-zero
+    name: Big Zero
+    collection: Big Zero
+    reference: W-20-16-10-0260
+    year_introduced: 1970
+    year_current: 2022
+    status: current
+    movement: raketa-2615
+    complications: []
+    case: {diameter_mm: 39.0, thickness_mm: 12.1, material: steel, water_resistance_m: 100}
+    bracelet: Черный кожаный ремешок с красной прострочкой
+    dial: Белый циферблат с крупным черным нулем на 12 часах и графичными треугольными метками
+    price: {usd: 1650, kind: msrp, source: raketa.com, url: "https://raketa.com", checked: 2026-09-24}
+    summary: Культовый российский дизайн. Большой ноль вместо привычной двенадцати символизирует, что всё в мире начинается с нуля.
+    icon: true
+    highlights: [Символический ноль на 12 часах, Мануфактурный калибр со своей спиралью, Рубиновый кабошон на роторе]
+    render:
+      case: {shape: cushion, material: steel, finish: mixed}
+      bezel: {type: smooth}
+      dial: {color: "#ffffff", finish: lacquer, indices: arabic, index_color: "#111418", text_color: "#111418"}
+      hands: {style: baton, color: "#111418"}
+      strap: {type: leather, color: "#111418"}
+      logo: РАКЕТА
+    sort: 10

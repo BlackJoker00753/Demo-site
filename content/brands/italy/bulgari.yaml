@@ -1,0 +1,71 @@
+brand:
+  slug: bulgari
+  name: Bulgari
+  aliases: [булгари, bvlgari, bulgari]
+  country: italy
+  founded: 1884
+  founder: Сотириос Булгарис
+  city: Рим
+  lat: 41.9028
+  lon: 12.4964
+  independent: false
+  tier: haute
+  manufacture: full
+  manufacture_note: Римский дизайн в сочетании со швейцарской мануфактурой сложных механизмов в Ле-Сантье.
+  website: https://www.bulgari.com
+  sort: 2
+  tagline: Римская монументальность и череда мировых рекордов ультратонкой механики.
+  story:
+    - Римский ювелирный дом Bulgari основан греческим серебряным мастером Сотириосом Булгарисом в 1884 году.
+    - В 2014 году Bulgari начала рекордную серию с коллекцией Octo Finissimo, создав сложнейшие ультратонкие часы века.
+    - Сложная геометрия корпуса Octo со 110 гранями вдохновлена кессонами сводов римской базилики Максенция.
+  facts:
+    - {label: "Основан", value: "1884 год в Риме"}
+    - {label: "Мировые рекорды", value: "9 рекордов ультратонкости"}
+    - {label: "Толщина корпуса", value: "5,15 мм у Octo Finissimo Automatic"}
+  milestones:
+    - {year: 1884, text: "Основание дома в Риме"}
+    - {year: 1977, text: "Выпуск часов Bulgari Bulgari"}
+    - {year: 2014, text: "Старт саги Octo Finissimo"}
+    - {year: 2017, text: "Мировой рекорд толщины автоматических часов"}
+
+movements:
+  - slug: bulgari-bvl-138
+    caliber: Bulgari BVL 138
+    maker: Bulgari
+    type: automatic
+    in_house: true
+    power_reserve_h: 60
+    frequency_vph: 21600
+    jewels: 36
+    year: 2017
+    thickness_mm: 2.23
+    features: [Микроротор из платины 950, Толщина 2,23 мм, Ручная отделка Côtes de Genève]
+    description: Рекордный ультратонкий автоматический калибр толщиной 2,23 мм с платиновым микроротором.
+
+watches:
+  - slug: bulgari-octo-finissimo
+    name: Octo Finissimo Automatic
+    collection: Octo
+    reference: "102711"
+    year_introduced: 2017
+    year_current: 2021
+    status: current
+    movement: bulgari-bvl-138
+    complications: []
+    case: {diameter_mm: 40.0, thickness_mm: 5.15, material: titanium, water_resistance_m: 30}
+    bracelet: Ультратонкий интегрированный браслет из титана
+    dial: Пескоструйный титановый циферблат с тонкими часовыми индексами
+    price: {usd: 15400, kind: msrp, source: bulgari.com (US), url: "https://www.bulgari.com", checked: 2026-09-24}
+    summary: Шедевр ультратонкого часового искусства. Корпус из матового титана толщиной всего 5,15 мм со 110 гранями.
+    icon: true
+    highlights: [Толщина корпуса 5,15 мм, Корпус и браслет из матового титана, Платиновый микроротор, 110 граней корпуса]
+    render:
+      case: {shape: octagon, material: titanium, finish: brushed}
+      bezel: {type: octagon, material: metal}
+      dial: {color: "#282a30", finish: matte, indices: baton, index_color: "#7e838d", text_color: "#7e838d"}
+      hands: {style: skeleton, color: "#111418"}
+      subdials: [{pos: 6, kind: small_seconds}]
+      strap: {type: integrated}
+      logo: BVLGARI
+    sort: 10

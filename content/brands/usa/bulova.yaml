@@ -1,0 +1,68 @@
+brand:
+  slug: bulova
+  name: Bulova
+  aliases: [булова, bulova]
+  country: usa
+  founded: 1875
+  founder: Джозеф Булова
+  city: Нью-Йорк
+  lat: 40.7128
+  lon: -74.0060
+  independent: false
+  tier: accessible
+  manufacture: partial
+  manufacture_note: Легендарная американская марка из Нью-Йорка, сегодня входит в Citizen Group.
+  website: https://www.bulova.com
+  sort: 2
+  tagline: Первые в мире электронные часы с камертоном и лунный хронограф.
+  story:
+    - Эмигрант из Богемии Джозеф Булова открыл ювелирный магазин на Мейден-Лейн в Нью-Йорке в 1875 году.
+    - В 1960 году Bulova потрясла часовой мир моделью Accutron. Вместо баланса регулятором служил вибрирующий камертон с частотой 360 Гц, обеспечивавший беспрецедентную для того времени точность.
+    - В августе 1971 года астронавт Дэвид Скотт ступил на поверхность Луны в ходе миссии Аполлон-15 с личным хронографом Bulova на запястье.
+  facts:
+    - {label: "Основан", value: "1875 год в Нью-Йорке"}
+    - {label: "Accutron", value: "Камертонные часы 1960 года"}
+    - {label: "Луна", value: "Миссия Аполлон-15, 1971 год"}
+  milestones:
+    - {year: 1875, text: "Основание компании в Нью-Йорке"}
+    - {year: 1960, text: "Выпуск камертонных часов Accutron"}
+    - {year: 1971, text: "Хронограф Bulova на Луне в миссии Аполлон-15"}
+
+movements:
+  - slug: bulova-np20
+    caliber: Bulova NP20 High Precision Quartz
+    maker: Bulova (Citizen Group)
+    type: quartz
+    in_house: true
+    power_reserve_h: 17500
+    frequency_vph: 1886400
+    features: [Высокочастотный кварц 262 кГц, Плавный ход секундной стрелки, Точность ±10 секунд в год]
+    description: Высокоточный кварцевый механизм с частотой 262 кГц, что в восемь раз выше стандартного кварца.
+
+watches:
+  - slug: bulova-lunar-pilot
+    name: Lunar Pilot Chronograph
+    collection: Archive Series
+    reference: "96B251"
+    year_introduced: 1971
+    year_current: 2021
+    status: current
+    movement: bulova-np20
+    complications: [date]
+    case: {diameter_mm: 43.5, thickness_mm: 13.5, material: steel, water_resistance_m: 50}
+    bracelet: Черный кожаный ремешок с текстурой и дополнительный ремешок на липучке
+    dial: Матовый черный циферблат с тахиметрической шкалой и тремя счетчиками
+    price: {usd: 775, kind: msrp, source: bulova.com, url: "https://www.bulova.com", checked: 2026-09-24}
+    summary: Второй сертифицированный лунный хронограф в истории человечества. Побывал на Луне 2 августа 1971 года на руке командира Аполлона-15.
+    icon: true
+    highlights: [Побывал на поверхности Луны, Кварц высокой точности 262 кГц, Плавный ход стрелки хронографа]
+    render:
+      case: {shape: round, material: steel, finish: brushed, pushers: 2}
+      bezel: {type: tachymeter, color: "#111418", material: metal}
+      dial: {color: "#111418", finish: matte, indices: baton, index_color: "#e2e6eb", text_color: "#e2e6eb"}
+      hands: {style: baton, color: "#e2e6eb"}
+      subdials: [{pos: 3, kind: chrono_min}, {pos: 6, kind: small_seconds}, {pos: 9, kind: chrono_hr}]
+      date: "4_30"
+      strap: {type: leather, color: "#111418"}
+      logo: BULOVA
+    sort: 10

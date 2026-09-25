@@ -272,16 +272,16 @@ export default {
             </figure>
             <div class="seg wexplode__modes" role="tablist" aria-label="Режим разборки">
               <span class="seg__pill" aria-hidden="true"></span>
-              <button class="seg__btn" type="button" role="tab" data-mode="3d" aria-selected="true"><i class="ph-light ph-cube-transparent" aria-hidden="true"></i>3D-разборка</button>
-              <button class="seg__btn" type="button" role="tab" data-mode="photo" aria-selected="false"><i class="ph-light ph-camera" aria-hidden="true"></i>Настоящий механизм</button>
+              <button class="seg__btn" type="button" role="tab" data-mode="3d" aria-selected="true"><i class="ph-light ph-cube-transparent" aria-hidden="true"></i>Разборка ${w.name}</button>
+              <button class="seg__btn" type="button" role="tab" data-mode="photo" aria-selected="false"><i class="ph-light ph-camera" aria-hidden="true"></i>Анатомия механизма</button>
             </div>
             <div class="wexplode__side">
               <div class="wexplode__head">
-                <h2 class="display display--m">Из чего они сделаны</h2>
-                <p class="muted wexplode__hint" data-mode-hint="3d">Прокрутите или потяните ползунок: часы разберутся на детали. Нажмите на деталь, чтобы увидеть её настоящую фотографию и узнать, зачем она нужна.</p>
+                <h2 class="display display--m">Из чего собраны ${w.name}</h2>
+                <p class="muted wexplode__hint" data-mode-hint="3d">Интерактивная разборка модели 1 в 1: корпус, безель, сапфировое стекло, стрелки, циферблат, детали калибра и браслет именно этих часов. Потяните ползунок или прокрутите страницу. Нажмите на деталь, чтобы узнать её назначение и увидеть макроснимок.</p>
                 <p class="muted wexplode__hint" data-mode-hint="photo" hidden>${mech
-                ? "Настоящие механические часы Prim: прокрутите, и они разберутся на детали, снятые на фото. Нажимайте на светящиеся точки."
-                : "Настоящий кварцевый калибр ETA: прокрутите, и он разберётся на детали, снятые на фото. Нажимайте на светящиеся точки."}</p>
+                ? "Анатомический фото-разбор классического механического калибра: анкерный спуск, баланс, мосты и заводной барабан. Нажимайте на светящиеся точки."
+                : "Анатомический фото-разбор кварцевого калибра: кристалл кварца, интегральная схема и шаговый двигатель. Нажимайте на светящиеся точки."}</p>
               </div>
               <div class="wexplode__panel" data-lenis-prevent>
                 <ol class="wparts" role="list"></ol>
@@ -564,8 +564,7 @@ export default {
     qsa(".seg__btn", seg).forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
     requestAnimationFrame(() => moveSegPill(qs('[aria-selected="true"]', seg)));
     window.addEventListener("resize", () => moveSegPill(qs('[aria-selected="true"]', seg)));
-    // По умолчанию настоящий механизм: он разбирается из фотографий настоящих деталей.
-    if (CUTOUTS[realKey]) partPhotosReady.then(() => root.isConnected && setMode("photo"));
+    // По умолчанию 3D-разборка именно этой модели (1 в 1)
 
     if (!still) {
       ST.create({

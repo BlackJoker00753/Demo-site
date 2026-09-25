@@ -1,0 +1,105 @@
+brand:
+  slug: hamilton
+  name: Hamilton
+  aliases: [хамильтон, хэмилтон, hamilton]
+  country: usa
+  founded: 1892
+  founder: Основан в Ланкастере
+  city: Ланкастер
+  lat: 40.0379
+  lon: -76.3055
+  independent: false
+  tier: mid
+  manufacture: partial
+  manufacture_note: Историческая американская марка, сегодня входит в Swatch Group и собирается в Швейцарии.
+  website: https://www.hamiltonwatch.com
+  sort: 1
+  tagline: Часы американских железных дорог, армии США и голливудского кино.
+  story:
+    - Основанная в Ланкастере, штат Пенсильвания, в 1892 году, Hamilton прославилась точнейшими карманными часами для железных дорог «Watch of Railroad Accuracy».
+    - Во время Второй мировой войны Hamilton полностью перевела производство на нужды армии США, выпустив более миллиона военных приборов и часов.
+    - В 1957 году марка потрясла мир первой в истории электрической моделью Ventura в асимметричном футуристическом корпусе, которую носил Элвис Пресли.
+  facts:
+    - {label: "Основан", value: "1892 год в Пенсильвании"}
+    - {label: "Военное наследие", value: "Официальный поставщик армии США"}
+    - {label: "Кинематограф", value: "Часы в более чем 500 фильмах"}
+  milestones:
+    - {year: 1892, text: "Основание Hamilton в Ланкастере"}
+    - {year: 1914, text: "Официальный хронометрист армии США"}
+    - {year: 1957, text: "Электрические часы Ventura"}
+    - {year: 2014, text: "Создание часов «Murph» для фильма Интерстеллар"}
+
+movements:
+  - slug: hamilton-h50
+    caliber: Hamilton H-50
+    maker: ETA для Hamilton
+    type: manual
+    in_house: false
+    base: ETA 2801-2
+    power_reserve_h: 80
+    frequency_vph: 21600
+    jewels: 17
+    features: [Ручной завод, 80 часов запаса хода, Остановка секундной стрелки]
+    description: Специально модифицированный калибр с ручным заводом и увеличенным до 80 часов запасом хода для полевых часов.
+  - slug: hamilton-h10
+    caliber: Hamilton H-10
+    maker: ETA для Hamilton
+    type: automatic
+    in_house: false
+    base: ETA C07.611
+    power_reserve_h: 80
+    frequency_vph: 21600
+    jewels: 25
+    features: [Автоподзавод, Спираль баланса Nivachron, 80 часов хода]
+    description: Автоматический калибр нового поколения с антимагнитной пружиной Nivachron и трехдневным ходом.
+
+watches:
+  - slug: hamilton-khaki-field-mechanical
+    name: Khaki Field Mechanical
+    collection: Khaki Field
+    reference: H69439931
+    year_introduced: 1942
+    year_current: 2018
+    status: current
+    movement: hamilton-h50
+    complications: []
+    case: {diameter_mm: 38.0, thickness_mm: 9.5, material: steel, water_resistance_m: 50}
+    bracelet: Текстильный ремешок NATO зелёного цвета хаки
+    dial: Матовый чёрный циферблат с 24-часовой военной разметкой и треугольными метками цвета старого радия
+    price: {usd: 595, kind: msrp, source: hamiltonwatch.com (US), url: "https://www.hamiltonwatch.com", checked: 2026-09-24}
+    summary: Настоящие армейские полевые часы. Прямой наследник легендарной спецификации GG-W-113 времен войны во Вьетнаме.
+    icon: true
+    highlights: [Матовый антибликовый корпус, 80 часов запаса хода, Военная 24-часовая шкала, Прочный ремешок NATO]
+    render:
+      case: {shape: round, material: steel, finish: brushed}
+      bezel: {type: smooth}
+      dial: {color: "#121418", finish: matte, indices: arabic, index_color: "#e2e6eb", text_color: "#e2e6eb"}
+      hands: {style: syringe, color: "#e2e6eb"}
+      strap: {type: nato}
+      logo: HAMILTON
+    sort: 10
+
+  - slug: hamilton-ventura
+    name: Ventura
+    collection: Ventura
+    reference: H24411732
+    year_introduced: 1957
+    year_current: 2017
+    status: current
+    movement: eta-f06-115
+    complications: []
+    case: {diameter_mm: 32.3, thickness_mm: 9.3, material: steel, water_resistance_m: 50}
+    bracelet: Черный ремешок из натуральной кожи теленка
+    dial: Черный асимметричный циферблат с волнообразной синусоидой электрического импульса
+    price: {usd: 995, kind: msrp, source: hamiltonwatch.com (US), url: "https://www.hamiltonwatch.com", checked: 2026-09-24}
+    summary: Первые в мире электрические наручные часы. Футуристический щитовидный дизайн Ричарда Арбиба и любимые часы Элвиса Пресли.
+    icon: true
+    highlights: [Щитовидный асимметричный корпус, Любимые часы Элвиса Пресли, Электрическая синусоида на циферблате]
+    render:
+      case: {shape: tv, material: steel, finish: polished}
+      bezel: {type: none}
+      dial: {color: "#0e1013", finish: lacquer, indices: dots, index_color: "#d8dde3", text_color: "#d8dde3"}
+      hands: {style: dauphine, color: "#d8dde3"}
+      strap: {type: leather, color: "#111418"}
+      logo: HAMILTON
+    sort: 20
