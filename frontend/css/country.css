@@ -19,6 +19,7 @@
   -webkit-backdrop-filter: blur(22px) saturate(130%);
   backdrop-filter: blur(22px) saturate(130%);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateZ(0);
 }
 .cpanel__back {
   display: inline-flex; align-items: center; gap: 8px;
@@ -65,6 +66,8 @@
   column-gap: 16px;
   padding: 14px 12px;
   border-radius: var(--r-small);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 72px;
   transition: background var(--t-base) var(--ease-out);
 }
 .cbrand--photo {

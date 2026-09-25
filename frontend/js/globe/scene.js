@@ -61,7 +61,7 @@ export class GlobeScene {
 
   async init(ourCountries) {
     const renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
@@ -336,10 +336,18 @@ export class GlobeScene {
   setMode(mode) {
     this.mode = mode;
     this.layer.classList.toggle("is-hidden", mode === "hidden");
-    if (mode === "visible") this.#start();
-    else {
+    if (mode === "visible") {
       clearTimeout(this.stopTimer);
-      this.stopTimer = setTimeout(() => this.mode === "hidden" && this.#stop(), 900);
+      this.canvas.style.display = "";
+      this.#start();
+    } else {
+      clearTimeout(this.stopTimer);
+      this.stopTimer = setTimeout(() => {
+        if (this.mode === "hidden") {
+          this.#stop();
+          this.canvas.style.display = "none";
+        }
+      }, 600);
       this.tooltip?.classList.remove("is-on");
     }
   }
@@ -678,8 +686,18 @@ export class GlobeScene {
   #updatePins() {
     for (const c of this.pinClusters) {
       const s = this.#project(c.pos);
-      c.el.style.transform = `translate3d(${s.x}px, ${s.y}px, 0)`;
-      c.el.classList.toggle("is-behind", !this.#visible(c.pos));
+      const behind = !this.#visible(c.pos);
+      if (
+        Math.abs(s.x - (c._lx ?? 9999)) > 0.2 ||
+        Math.abs(s.y - (c._ly ?? 9999)) > 0.2 ||
+        behind !== c._lb
+      ) {
+        c._lx = s.x;
+        c._ly = s.y;
+        c._lb = behind;
+        c.el.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
+        c.el.classList.toggle("is-behind", behind);
+      }
     }
   }
 

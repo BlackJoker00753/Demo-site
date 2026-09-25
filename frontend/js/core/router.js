@@ -213,11 +213,10 @@ export class Router {
     const g = gsap();
     if (!g || reduced()) return;
     const globeToGlobe = prev.view.layer === "globe" && nextView.layer === "globe";
-    // Уход короче прихода: страница не должна заставлять ждать.
     await g.to(this.root, {
       autoAlpha: 0,
-      y: globeToGlobe ? 0 : -12,
-      duration: globeToGlobe ? 0.28 : 0.36,
+      y: globeToGlobe ? 0 : -8,
+      duration: globeToGlobe ? 0.2 : 0.24,
       ease: "power2.inOut",
     });
   }
@@ -232,8 +231,8 @@ export class Router {
     g.set(this.root, { clearProps: "transform" });
     await g.fromTo(
       this.root,
-      { autoAlpha: 0, y: view.layer === "globe" ? 0 : 20 },
-      { autoAlpha: 1, y: 0, duration: initial ? 1.1 : sameLayer ? 0.8 : 0.95, ease: "expo.out", clearProps: "transform" },
+      { autoAlpha: 0, y: view.layer === "globe" ? 0 : 12 },
+      { autoAlpha: 1, y: 0, duration: initial ? 0.8 : sameLayer ? 0.45 : 0.55, ease: "power2.out", clearProps: "transform" },
     );
   }
 

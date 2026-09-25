@@ -337,7 +337,7 @@ export default {
         scrollTrigger: {
           trigger: qs(".whero", root), start: "top top",
           end: () => `+=${Math.max(1, qs(".whero", root).offsetHeight - window.innerHeight)}`,
-          scrub: 0.8, invalidateOnRefresh: true,
+          scrub: 0.3, invalidateOnRefresh: true,
         },
       });
       tl.fromTo(qs(".whero__photo", plate), { scale: 1.12 }, { scale: 1, ease: "none", duration: 1 }, 0)
@@ -389,7 +389,7 @@ export default {
       g.to(track, {
         x: () => -distance(),
         ease: "none",
-        scrollTrigger: { trigger: pin, start: "top top", end: () => `+=${distance()}`, pin: true, scrub: 1, invalidateOnRefresh: true },
+        scrollTrigger: { trigger: pin, start: "top top", end: () => `+=${distance()}`, pin: true, scrub: 0.3, invalidateOnRefresh: true },
       });
     }
 
@@ -411,9 +411,13 @@ export default {
       explodeStage.pose.rx = -0.18 - t * 0.12;
       explodeStage.pose.dist = 1 + t * 1.25;
       slider.value = Math.round(t * 1000);
+      if (!explodeStage.running) explodeStage.frame();
     };
     const showPart = (key) => {
-      if (mode === "3d") explodeStage?.highlight(key);
+      if (mode === "3d") {
+        explodeStage?.highlight(key);
+        if (explodeStage && !explodeStage.running) explodeStage.frame();
+      }
       qsa("[data-part]", root).forEach((b) => b.setAttribute("aria-pressed", b.dataset.part === key));
       if (!key) {
         card.hidden = true;
@@ -466,8 +470,15 @@ export default {
       setT(state.t);
     };
     const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) initExplode();
-    }, { rootMargin: "600px 0px" });
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          if (!explodeStage) initExplode();
+          else explodeStage.start();
+        } else {
+          explodeStage?.stop();
+        }
+      }
+    }, { rootMargin: "200px 0px" });
     io.observe(qs(".wexplode", root));
     cleanups.push(() => io.disconnect());
 
@@ -572,7 +583,7 @@ export default {
         start: "top top",
         end: "+=220%",
         pin: qs(".wexplode__pin", root),
-        scrub: 1,
+        scrub: 0.3,
         onUpdate: (self) => {
           state.t = Math.min(1, self.progress * 1.15);
           setT(state.t);

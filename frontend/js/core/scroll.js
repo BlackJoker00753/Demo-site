@@ -8,10 +8,10 @@ export function initScroll() {
   const { gsap, ScrollTrigger, Lenis } = window;
   gsap.registerPlugin(ScrollTrigger);
   if (reduced() || !Lenis) return null;
-  lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
-  lenis.on("scroll", ScrollTrigger.update);
+  lenis = new Lenis({ lerp: 0.12, duration: 1.1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
+  lenis.on("scroll", () => ScrollTrigger.update());
   gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
+  gsap.ticker.lagSmoothing(500, 33);
   return lenis;
 }
 

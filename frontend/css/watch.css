@@ -247,6 +247,8 @@
   padding: 26px; border-radius: var(--r-surface);
   border: 1px solid var(--line);
   background: var(--surface);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 180px;
   transition: border-color var(--t-base), transform var(--t-base) var(--ease-out);
 }
 .wcomp:hover { border-color: var(--line-3); transform: translateY(-3px); }
@@ -315,7 +317,7 @@
 .pxp__part {
   position: absolute; left: 0; top: 0; max-width: none; height: auto;
   transform-origin: 50% 50%; will-change: transform;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.55)) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
   user-select: none; pointer-events: none;
 }
 .wreal__frame.is-cutout .wreal__dot { opacity: var(--pxp-done, 0); pointer-events: none; transition: opacity 300ms; z-index: 200; }

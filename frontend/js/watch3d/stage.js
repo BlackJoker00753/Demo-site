@@ -13,7 +13,7 @@ export class WatchStage {
     this.canvas = canvas;
     this.interactive = interactive;
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NeutralToneMapping;
     renderer.toneMappingExposure = exposure;
@@ -48,13 +48,13 @@ export class WatchStage {
     this.composer = null;
     if (ao && !lowPower()) {
       const composer = new EffectComposer(renderer);
-      composer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      composer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
       composer.addPass(new RenderPass(this.scene, this.camera));
       const gtao = new GTAOPass(this.scene, this.camera, 1, 1);
       gtao.output = GTAOPass.OUTPUT.Default;
-      gtao.blendIntensity = 0.9;
-      gtao.updateGtaoMaterial({ radius: 2.2, distanceExponent: 1.6, thickness: 1.2, scale: 1.1, samples: 16 });
-      gtao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 });
+      gtao.blendIntensity = 0.85;
+      gtao.updateGtaoMaterial({ radius: 2.0, distanceExponent: 1.5, thickness: 1.0, scale: 1.0, samples: 8 });
+      gtao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 4, rings: 1, samples: 8 });
       composer.addPass(gtao);
       composer.addPass(new OutputPass());
       this.composer = composer;
@@ -192,8 +192,8 @@ export class WatchStage {
 
   frame() {
     const u = this.user;
-    u.rx += (u.trx - u.rx) * 0.08;
-    u.ry += (u.try - u.ry) * 0.08;
+    u.rx += (u.trx - u.rx) * 0.12;
+    u.ry += (u.try - u.ry) * 0.12;
     const t = performance.now() / 1000;
     const sway = this.idle && !reduced() ? Math.sin(t * 0.4) * 0.12 : 0;
     const p = this.pose;
@@ -222,5 +222,10 @@ export class WatchStage {
 
 /** Мобильные и слабые GPU: без постобработки, чтобы скролл оставался плавным. */
 function lowPower() {
-  return window.matchMedia("(pointer: coarse)").matches || (navigator.hardwareConcurrency ?? 8) <= 4;
+  return (
+    window.matchMedia("(pointer: coarse)").matches ||
+    (navigator.hardwareConcurrency ?? 8) <= 4 ||
+    window.innerWidth < 800 ||
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  );
 }
