@@ -21,7 +21,7 @@ from ..config import settings
 from ..db.base import session_factory
 from ..services import catalog
 
-SPA_ROUTES = re.compile(r"^/(?:$|country/|brand/|watch/|complication/|movement/|glossary|about|search|lab|credits)")
+SPA_ROUTES = re.compile(r"^/(?:$|country/|brand/|watch/|complication/|movement/|glossary|watches|compare|about|search|lab|credits)")
 
 
 @lru_cache(maxsize=1)
@@ -41,6 +41,10 @@ def _meta_for(path: str, s: Session) -> tuple[str, str]:
         "Интерактивный атлас часов: страны, мануфактуры, модели, механизмы и цены. "
         "Разберите часы до последнего винта.",
     )
+    if path == "/watches" or path.startswith("/watches/"):
+        return f"Каталог часов: все модели | {settings.site_name}", "Полный каталог культовых моделей часов мира с фильтрацией по странам, механизмам и ценам."
+    if path == "/compare" or path.startswith("/compare"):
+        return f"Сравнение моделей часов | {settings.site_name}", "Интерактивное сопоставление характеристик, калибров, габаритов и цен часовых моделей."
     parts = [p for p in path.split("/") if p]
     if len(parts) != 2:
         return default
@@ -85,6 +89,13 @@ def mount_frontend(app: FastAPI) -> None:
     @app.get("/favicon.svg", include_in_schema=False)
     def favicon():
         return Response((front / "favicon.svg").read_bytes(), media_type="image/svg+xml")
+
+    @app.get("/manifest.webmanifest", include_in_schema=False)
+    def webmanifest():
+        manifest_file = front / "manifest.webmanifest"
+        if manifest_file.exists():
+            return Response(manifest_file.read_bytes(), media_type="application/manifest+json")
+        return Response(status_code=404)
 
     @app.get("/{full_path:path}", include_in_schema=False, response_class=HTMLResponse)
     def spa(full_path: str, request: Request):

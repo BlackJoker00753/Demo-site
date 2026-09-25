@@ -12,6 +12,7 @@ import { scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { PhotoExplode } from "../ui/photo-explode.js";
+import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
 const CUTOUTS = { exploded_quartz: "eta-955", exploded_mechanical: "prim" };
@@ -122,6 +123,9 @@ export default {
               </div>
               <div class="whero__cta" data-h>
                 <a class="btn" href="#explode" data-jump="explode"><i class="ph-light ph-cube-transparent" aria-hidden="true"></i>Разобрать часы</a>
+                <button type="button" class="btn btn--ghost" id="whero-compare-btn" data-compare="${w.slug}">
+                  <i class="ph-light ph-scales" aria-hidden="true"></i><span id="whero-compare-text">${hasCompare(w.slug) ? "В сравнении" : "Сравнить"}</span>
+                </button>
                 <a class="btn btn--ghost" href="#story" data-jump="story">История</a>
               </div>
             </div>
@@ -328,6 +332,22 @@ export default {
     revealPhotos(root);
     if (!still) g.from(qsa("[data-h]", root), { y: 32, autoAlpha: 0, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.12 });
     const plate = qs(".whero__plate", root);
+    const compareBtn = qs("#whero-compare-btn", root);
+    const compareText = qs("#whero-compare-text", root);
+    if (compareBtn) {
+      if (hasCompare(w.slug)) compareBtn.classList.add("btn--primary");
+      compareBtn.addEventListener("click", () => {
+        const inComp = toggleCompare(w.slug);
+        if (compareText) compareText.textContent = inComp ? "В сравнении" : "Сравнить";
+        compareBtn.classList.toggle("btn--primary", inComp);
+      });
+      const unComp = onCompareChange(() => {
+        const inComp = hasCompare(w.slug);
+        if (compareText) compareText.textContent = inComp ? "В сравнении" : "Сравнить";
+        compareBtn.classList.toggle("btn--primary", inComp);
+      });
+      cleanups.push(unComp);
+    }
     if (plate && !still) {
       // Если фото прилетело из карточки (ctx.shared), рамка уже на месте: только подпись.
       if (ctx.shared) g.from(qs("figcaption", plate), { autoAlpha: 0, duration: 0.8, delay: 1, ease: "power1.out" });

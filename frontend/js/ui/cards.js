@@ -4,12 +4,17 @@
 import { html } from "../core/dom.js";
 import { MOVEMENT, usd } from "../core/format.js";
 import { photoImg, revealPhotos } from "./photo.js";
+import { hasCompare } from "../core/compare.js";
 
 export function watchCard(w, { showBrand = false, i = 0 } = {}) {
   const comps = w.complications.filter((c) => !["date", "small-seconds", "tachymeter"].includes(c.slug)).slice(0, 2);
+  const inComp = hasCompare(w.slug);
   return html`<a class="wcard" href="/watch/${w.slug}" data-slug="${w.slug}" data-type="${w.movement_type}"
       data-comps="${w.complications.map((c) => c.slug).join(" ")}" data-price="${w.price.usd}" data-year="${w.year_introduced ?? 9999}"
       style="--i:${i % 8}" data-reveal>
+    <button type="button" class="wcard__compare" data-compare="${w.slug}" title="Сравнить модель" aria-label="Сравнить ${w.name}" aria-pressed="${String(inComp)}">
+      <i class="ph-light ph-scales" aria-hidden="true"></i>
+    </button>
     ${w.photo
       ? html`<div class="wcard__stage wcard__stage--photo" data-shared="w-${w.slug}">
           ${photoImg(w.photo, { cls: "wcard__photo", sizes: "(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 380px", alt: `${w.brand_name} ${w.name}` })}

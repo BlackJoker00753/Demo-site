@@ -1,0 +1,19 @@
+{
+  "name": "Horologium — Атлас часового искусства",
+  "short_name": "Horologium",
+  "description": "Интерактивная 3D-энциклопедия и атлас часового искусства: страны, мануфактуры, модели, механизмы, усложнения и разборка 1 в 1",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07080a",
+  "theme_color": "#07080a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

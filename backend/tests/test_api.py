@@ -61,3 +61,18 @@ def test_spa_shell_has_server_side_meta(client):
     html = client.get("/watch/rolex-submariner-date").text
     assert "<title>Rolex Submariner Date" in html
     assert "<!--SSR" not in html
+
+
+def test_spa_routes_and_manifest(client):
+    res_watches = client.get("/watches")
+    assert res_watches.status_code == 200
+    assert "Каталог часов" in res_watches.text
+
+    res_compare = client.get("/compare")
+    assert res_compare.status_code == 200
+    assert "Сравнение моделей" in res_compare.text
+
+    res_manifest = client.get("/manifest.webmanifest")
+    assert res_manifest.status_code == 200
+    assert "Horologium" in res_manifest.text
+

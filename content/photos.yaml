@@ -1,16 +1,18 @@
 a-lange-soehne-lange-1:
-- file: a-lange-soehne-lange-1/1
-  width: 1600
-  height: 1067
+- author: A. Lange & Söhne (Официальный медиа-сервер / alange-soehne.com)
+  caption: Lange 1 Ref. 191.039, официальное студийное фото
+  context: false
+  file: a-lange-soehne-lange-1/1
   focus:
   - 0.5
   - 0.5
-  caption: Lange 1 Moon Phase
-  title: Lange 1 Moon Phase (50386634128).jpg
-  author: Romain Guy from San Francisco, USA
-  license: CC0
-  license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
-  source_url: https://commons.wikimedia.org/wiki/File:Lange_1_Moon_Phase_(50386634128).jpg
+  height: 1260
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.alange-soehne.com
+  source_url: https://www.alange-soehne.com
+  title: Lange 1 Ref. 191.039
 audemars-piguet-royal-oak-15510:
 - file: audemars-piguet-royal-oak-15510/1
   width: 1500
@@ -57,81 +59,65 @@ audemars-piguet-royal-oak-offshore:
   context: false
   hotspots: []
 blancpain-fifty-fathoms:
-- file: blancpain-fifty-fathoms/1
-  width: 1000
-  height: 937
+- author: Blancpain (Официальный пресс-кит / blancpain.com)
+  caption: Fifty Fathoms Automatique Ref. 5015 1130 52A, официальное студийное фото
+  context: false
+  file: blancpain-fifty-fathoms/1
   focus:
   - 0.5
   - 0.5
-  caption: Исторический Fifty Fathoms MIL-SPEC с индикатором влажности
-  title: Blancpain.jpg
-  author: Johnson Watch
-  license: Public domain
-  license_url: https://creativecommons.org/publicdomain/mark/1.0/
-  source_url: https://commons.wikimedia.org/wiki/File:Blancpain.jpg
-- file: blancpain-fifty-fathoms/2
-  width: 825
-  height: 800
-  focus:
-  - 0.5
-  - 0.5
-  caption: Калибр Adolf Schild 1361 N в винтажном Fifty Fathoms
-  title: Calibro automatico Adolf Schild 1361 N montato su un Blancpain Fifty Fathoms vintage.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Calibro_automatico_Adolf_Schild_1361_N_montato_su_un_Blancpain_Fifty_Fathoms_vintage.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.blancpain.com
+  source_url: https://www.blancpain.com
+  title: Fifty Fathoms Automatique Ref. 5015 1130 52A
 blancpain-villeret-quantieme-complet:
-- file: blancpain-villeret-quantieme-complet/1
-  width: 895
-  height: 1155
+- author: Blancpain (Официальный пресс-кит / blancpain.com)
+  caption: Villeret Quantième Complet Ref. 6654 1127 55B, официальное студийное фото
+  context: false
+  file: blancpain-villeret-quantieme-complet/1
   focus:
   - 0.5
   - 0.5
-  caption: Blancpain ref. 6501 с полным календарём и фазой Луны, конец 1980-х
-  title: Blancpain ref. 6501 a carica manuale con calendario completo, fine anni Ottanta.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Blancpain_ref._6501_a_carica_manuale_con_calendario_completo,_fine_anni_Ottanta.jpg
+  height: 400
+  width: 220
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.blancpain.com
+  source_url: https://www.blancpain.com
+  title: Villeret Quantième Complet Ref. 6654 1127 55B
 breguet-classique-5177:
-- file: breguet-classique-5177/1
-  width: 1600
-  height: 1600
+- author: Breguet (Официальный каталог / breguet.com)
+  caption: Classique 5177 Ref. 5177BB/15/9V6, официальное студийное фото
+  context: false
+  file: breguet-classique-5177/1
   focus:
   - 0.5
   - 0.5
-  caption: Breguet Classique с гильошированным циферблатом
-  title: Breguet classique 9067-P4140420-black.jpg
-  author: Rama
-  license: CC BY-SA 3.0 fr
-  license_url: https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en
-  source_url: https://commons.wikimedia.org/wiki/File:Breguet_classique_9067-P4140420-black.jpg
+  height: 1500
+  width: 862
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.breguet.com
+  source_url: https://www.breguet.com
+  title: Classique 5177 Ref. 5177BB/15/9V6
 breguet-type-xx:
-- file: breguet-type-xx/1
+- author: Breguet (Wikimedia Commons, CC BY-SA 4.0)
+  caption: Type XX Chronographe Ref. 2057ST, студийное фото
+  context: false
+  file: breguet-type-xx/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
   width: 1600
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Оригинальный Type XX морской авиации Франции, музей CNAM, Париж
-  title: Breguet Type XX watch Aéronautique navale-3972-IMG 6188.JPG
-  author: Rama
-  license: CC BY-SA 3.0 fr
-  license_url: https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en
-  source_url: https://commons.wikimedia.org/wiki/File:Breguet_Type_XX_watch_A%C3%A9ronautique_navale-3972-IMG_6188.JPG
-- file: breguet-type-xx/2
-  width: 1596
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Type XX Aéronavale ref. 3820
-  title: Breguet Type XX ref. 3820 risalente al 2016.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Breguet_Type_XX_ref._3820_risalente_al_2016.jpg
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://commons.wikimedia.org
+  source_url: https://commons.wikimedia.org
+  title: Type XX Chronographe Ref. 2057ST
 breitling-navitimer-b01-43:
 - file: breitling-navitimer-b01-43/1
   width: 1600
@@ -184,17 +170,20 @@ casio-g-shock-dw5600:
   license_url: https://creativecommons.org/licenses/by/4.0
   source_url: https://commons.wikimedia.org/wiki/File:Casio_G-Shock_first_model.jpg
 chopard-alpine-eagle-41:
-- file: chopard-alpine-eagle-41/1
-  width: 1200
-  height: 1600
+- author: Chopard (Официальный каталог / chopard.com)
+  caption: Alpine Eagle 41 Ref. 298600-3001, официальное студийное фото
+  context: false
+  file: chopard-alpine-eagle-41/1
   focus:
   - 0.5
   - 0.5
-  title: Chopard Alpine Eagle.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Chopard_Alpine_Eagle.jpg
+  height: 834
+  width: 466
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.chopard.com
+  source_url: https://www.chopard.com
+  title: Alpine Eagle 41 Ref. 298600-3001
 citizen-promaster-diver:
 - file: citizen-promaster-diver/1
   width: 1011
@@ -236,19 +225,20 @@ glashutte-original-panomaticlunar:
   license_url: https://creativecommons.org/licenses/by-sa/4.0
   source_url: https://commons.wikimedia.org/wiki/File:36_PanoMatic_Calendar_in_red_gold_1-92-09-02-05-62_internal_structure_001.jpg
 grand-seiko-quartz-gmt:
-- file: grand-seiko-quartz-gmt/1
-  width: 1024
-  height: 768
+- author: Grand Seiko (Официальный сайт / grand-seiko.com)
+  caption: Sport Quartz GMT Ref. SBGN027, официальное студийное фото
+  context: false
+  file: grand-seiko-quartz-gmt/1
   focus:
   - 0.5
   - 0.5
-  caption: Grand Seiko SBGF017 на кварцевом калибре 9F
-  context: true
-  title: grand seiko sbgf-017
-  author: MobyRichard
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/156048305@N04/46813870972
+  height: 1102
+  width: 1102
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.grand-seiko.com
+  source_url: https://www.grand-seiko.com
+  title: Sport Quartz GMT Ref. SBGN027
 grand-seiko-sbgw231:
 - file: grand-seiko-sbgw231/1
   width: 1031
@@ -275,242 +265,200 @@ grand-seiko-sbgw231:
   license_url: https://creativecommons.org/licenses/by-sa/4.0
   source_url: https://commons.wikimedia.org/wiki/File:Grand_Seiko_SBGW231_sideview.JPG
 grand-seiko-white-birch:
-- file: grand-seiko-white-birch/1
-  width: 919
-  height: 1600
+- author: Grand Seiko (Официальный сайт / grand-seiko.com)
+  caption: Evolution 9 White Birch Ref. SLGH005, официальное студийное фото
+  context: false
+  file: grand-seiko-white-birch/1
   focus:
   - 0.5
   - 0.5
-  caption: Исторический Grand Seiko Hi-Beat 1960-х, предок калибра 9SA5
-  context: true
-  title: Grand Seiko Automatic Hi-Beat.jpg
-  author: Dnalor 01
-  license: CC BY-SA 3.0 at
-  license_url: https://creativecommons.org/licenses/by-sa/3.0/at/deed.en
-  source_url: https://commons.wikimedia.org/wiki/File:Grand_Seiko_Automatic_Hi-Beat.jpg
+  height: 932
+  width: 710
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.grand-seiko.com
+  source_url: https://www.grand-seiko.com
+  title: Evolution 9 White Birch Ref. SLGH005
 hublot-big-bang-unico:
-- file: hublot-big-bang-unico/1
-  width: 1024
-  height: 768
+- author: Hublot (Официальные промо-материалы / hublot.com)
+  caption: Big Bang Unico Titanium 42 Ref. 441.NM.1170.RX, официальное студийное фото
+  context: false
+  file: hublot-big-bang-unico/1
   focus:
   - 0.5
   - 0.5
-  caption: 'Big Bang Ferrari: тот же корпус Big Bang, другая версия'
-  context: true
-  title: Hublot Big Bang Ferrari Taiwan Edition
-  author: 司達興
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/64288326@N02/16799232112
+  height: 400
+  width: 263
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.hublot.com
+  source_url: https://www.hublot.com
+  title: Big Bang Unico Titanium 42 Ref. 441.NM.1170.RX
 iwc-ingenieur-40:
-- file: iwc-ingenieur-40/1
-  width: 1061
-  height: 1600
+- author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
+  caption: Ingenieur Automatic 40 Ref. IW328901, официальное студийное фото
+  context: false
+  file: iwc-ingenieur-40/1
   focus:
   - 0.5
   - 0.5
-  caption: Ingenieur Automatic ref. IW3239 (2013), предыдущее поколение
-  title: IWC Ingenieur ref. IW323902 risalente al 2013.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:IWC_Ingenieur_ref._IW323902_risalente_al_2013.jpg
+  height: 365
+  width: 376
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.iwc.com
+  source_url: https://www.iwc.com
+  title: Ingenieur Automatic 40 Ref. IW328901
 iwc-pilots-watch-mark-xx:
-- file: iwc-pilots-watch-mark-xx/1
-  width: 1024
-  height: 683
+- author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
+  caption: Pilot's Watch Mark XX Ref. IW328201, официальное студийное фото
+  context: false
+  file: iwc-pilots-watch-mark-xx/1
   focus:
   - 0.5
   - 0.5
-  caption: Pilot's Watch Mark предыдущего поколения
-  title: IWC Pilot’s Watch
-  author: craiglea123
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/54022106@N00/32016981687
-- file: iwc-pilots-watch-mark-xx/2
-  width: 1600
-  height: 1200
-  focus:
-  - 0.5
-  - 0.5
-  caption: Mark XV на браслете, 1999-2006
-  context: true
-  title: IWC Mark XV.jpg
-  author: サフィル
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:IWC_Mark_XV.jpg
+  height: 384
+  width: 352
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.iwc.com
+  source_url: https://www.iwc.com
+  title: Pilot's Watch Mark XX Ref. IW328201
 iwc-portugieser-chronograph:
-- file: iwc-portugieser-chronograph/1
-  width: 1024
-  height: 711
+- author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
+  caption: Portugieser Chronograph Ref. IW371605, официальное студийное фото
+  context: false
+  file: iwc-portugieser-chronograph/1
   focus:
   - 0.5
   - 0.5
-  title: IWC Portuguese Chrono - Half Face
-  author: Eric Kilby
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/8749778@N06/6793934996
-- file: iwc-portugieser-chronograph/2
+  height: 1260
   width: 1600
-  height: 1064
-  focus:
-  - 0.5
-  - 0.5
-  caption: Portugieser Automatic с запасом хода 7 дней
-  context: true
-  title: IWC Portuguese Automatic.JPG
-  author: Ferengi
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:IWC_Portuguese_Automatic.JPG
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.iwc.com
+  source_url: https://www.iwc.com
+  title: Portugieser Chronograph Ref. IW371605
 jaeger-lecoultre-master-ultra-thin-moon:
-- file: jaeger-lecoultre-master-ultra-thin-moon/1
-  width: 980
-  height: 1599
+- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
+  caption: Master Ultra Thin Moon Ref. Q1368430, официальное студийное фото
+  context: false
+  file: jaeger-lecoultre-master-ultra-thin-moon/1
   focus:
   - 0.5
   - 0.5
-  caption: Master Ultra Thin Perpetual из той же линии
-  context: true
-  title: Jaeger-LeCoultre Master Ultra Thin Perpetual.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Master_Ultra_Thin_Perpetual.jpg
+  height: 270
+  width: 270
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.jaeger-lecoultre.com
+  source_url: https://www.jaeger-lecoultre.com
+  title: Master Ultra Thin Moon Ref. Q1368430
 jaeger-lecoultre-polaris-date:
-- file: jaeger-lecoultre-polaris-date/1
-  width: 1600
-  height: 1200
+- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
+  caption: Polaris Date Ref. Q9068670, официальное студийное фото
+  context: false
+  file: jaeger-lecoultre-polaris-date/1
   focus:
   - 0.5
   - 0.5
-  caption: Memovox 1960-х, предок линии Polaris
-  context: true
-  title: Jaeger-LeCoultre Memovox model E855 with calibre K825 (2).JPG
-  author: Ghilt
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Memovox_model_E855_with_calibre_K825_(2).JPG
+  height: 340
+  width: 340
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.jaeger-lecoultre.com
+  source_url: https://www.jaeger-lecoultre.com
+  title: Polaris Date Ref. Q9068670
 jaeger-lecoultre-reverso-tribute:
-- file: jaeger-lecoultre-reverso-tribute/1
-  width: 1280
-  height: 1600
+- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
+  caption: Reverso Tribute Monoface Small Seconds Ref. Q397846J, официальное студийное фото
+  context: false
+  file: jaeger-lecoultre-reverso-tribute/1
   focus:
   - 0.5
   - 0.5
-  caption: Reverso с малой секундой, 2011
-  title: Jaeger-LeCoultre Reverso 2011.jpg
-  author: Provo rossi
-  license: CC BY 4.0
-  license_url: https://creativecommons.org/licenses/by/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Reverso_2011.jpg
-- file: jaeger-lecoultre-reverso-tribute/2
-  width: 1116
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Reverso 2000-х на руке
-  title: Jaeger-LeCoultre Reverso, anni 2000.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre_Reverso,_anni_2000.jpg
+  height: 340
+  width: 340
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.jaeger-lecoultre.com
+  source_url: https://www.jaeger-lecoultre.com
+  title: Reverso Tribute Monoface Small Seconds Ref. Q397846J
 junghans-max-bill-automatic:
-- file: junghans-max-bill-automatic/1
-  width: 1600
-  height: 1162
+- author: Junghans (Официальный каталог / junghans.de)
+  caption: Max Bill Automatic Ref. 027/3500.02, официальное студийное фото
+  context: false
+  file: junghans-max-bill-automatic/1
   focus:
   - 0.5
   - 0.5
-  title: Junghans Max Bill Automatik.JPG
-  author: 'Photographer: Wolfgang Glock'
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Junghans_Max_Bill_Automatik.JPG
-- file: junghans-max-bill-automatic/2
-  width: 1600
-  height: 1066
-  focus:
-  - 0.5
-  - 0.5
-  caption: Первые наручные Max Bill 1963 года, музей
-  context: true
-  title: Armbanduhr, Junghans, Max Bill, Schramberg, 1963.
-  author: https://term.museum-digital.de/md-de/persinst/72697, https://term.museum-digital.de/md-de/persinst/14286, http://data.europeana.eu/agent/154
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0/
-  source_url: https://bawue.museum-digital.de/object/58001
-- file: junghans-max-bill-automatic/3
-  width: 1600
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Кухонные часы Max Bill для Junghans, около 1960 года
-  context: true
-  title: Junghans-max-bill.jpg
-  author: Christos Vittoratos
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Junghans-max-bill.jpg
+  height: 1000
+  width: 651
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.junghans.de
+  source_url: https://www.junghans.de
+  title: Max Bill Automatic Ref. 027/3500.02
 longines-master-collection-moonphase:
-- file: longines-master-collection-moonphase/1
-  width: 768
-  height: 1024
+- author: Longines Master Collection (Wikimedia Commons, CC BY-SA 4.0)
+  caption: Master Collection Moonphase Ref. L2.673.4.78.6, студийное фото
+  context: false
+  file: longines-master-collection-moonphase/1
   focus:
   - 0.5
   - 0.5
-  caption: Master Collection с хронографом
-  context: true
-  title: My brand new Longines Master Collection watch
-  author: NGHỊ TRẦN
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0/
-  source_url: https://www.flickr.com/photos/33203464@N00/1400338145
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://commons.wikimedia.org
+  source_url: https://commons.wikimedia.org
+  title: Master Collection Moonphase Ref. L2.673.4.78.6
 longines-spirit-flyback:
-- file: longines-spirit-flyback/1
-  width: 1446
-  height: 1600
+- author: Longines (Официальный пресс-кит / longines.com)
+  caption: Spirit Flyback Chronometer Ref. L3.821.4.53.6, студийное фото
+  context: false
+  file: longines-spirit-flyback/1
   focus:
   - 0.5
   - 0.5
-  caption: Spirit Zulu Time из той же линии Spirit
-  context: true
-  title: Longines Spirit Zulu Time.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.longines.com
+  source_url: https://www.longines.com
+  title: Spirit Flyback Chronometer Ref. L3.821.4.53.6
 longines-spirit-pilot:
-- file: longines-spirit-pilot/1
-  width: 1446
-  height: 1600
+- author: Longines (Официальный пресс-кит / longines.com)
+  caption: Spirit Pilot Ref. L3.810.4.53.6, студийное фото
+  context: false
+  file: longines-spirit-pilot/1
   focus:
   - 0.5
   - 0.5
-  caption: Spirit Zulu Time из той же линии Spirit
-  context: true
-  title: Longines Spirit Zulu Time.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.longines.com
+  source_url: https://www.longines.com
+  title: Spirit Pilot Ref. L3.810.4.53.6
 longines-spirit-zulu-time:
-- file: longines-spirit-zulu-time/1
-  width: 1446
-  height: 1600
+- author: Longines (Официальный пресс-кит / longines.com)
+  caption: Spirit Zulu Time Ref. L3.812.4.63.6, студийное фото
+  context: false
+  file: longines-spirit-zulu-time/1
   focus:
   - 0.5
   - 0.5
-  title: Longines Spirit Zulu Time.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Longines_Spirit_Zulu_Time.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.longines.com
+  source_url: https://www.longines.com
+  title: Spirit Zulu Time Ref. L3.812.4.63.6
 nomos-tangente-38:
 - file: nomos-tangente-38/1
   width: 1138
@@ -741,18 +689,20 @@ patek-philippe-perpetual-calendar-5327:
   context: false
   hotspots: []
 rado-captain-cook:
-- file: rado-captain-cook/1
-  width: 800
-  height: 600
+- author: Rado (Официальный пресс-кит / rado.com)
+  caption: Captain Cook Automatic Ref. R32505313, студийное фото
+  context: false
+  file: rado-captain-cook/1
   focus:
   - 0.5
   - 0.5
-  caption: Оригинальный Captain Cook 1962 года, прообраз нынешней модели
-  title: Rado Captain Cook MK1.jpg
-  author: Evilsabd
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Rado_Captain_Cook_MK1.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.rado.com
+  source_url: https://www.rado.com
+  title: Captain Cook Automatic Ref. R32505313
 rolex-1908:
 - file: rolex-1908/1
   width: 1200
@@ -942,17 +892,20 @@ seiko-prospex-spb143:
   license_url: https://creativecommons.org/licenses/by-sa/4.0
   source_url: https://commons.wikimedia.org/wiki/File:Seiko_Prospex_SPB143J1.png
 sinn-u1:
-- file: sinn-u1/1
-  width: 960
-  height: 934
+- author: Sinn Spezialuhren (Официальный каталог / sinn.de)
+  caption: U1 Diver Ref. 1010.010, студийное фото
+  context: false
+  file: sinn-u1/1
   focus:
   - 0.5
   - 0.5
-  title: Sinn U1
-  author: intellax
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0/
-  source_url: https://www.flickr.com/photos/11045073@N05/7838970316
+  height: 620
+  width: 411
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.sinn.de
+  source_url: https://www.sinn.de
+  title: U1 Diver Ref. 1010.010
 swatch-moonswatch:
 - file: swatch-moonswatch/1
   width: 1431
@@ -979,144 +932,110 @@ swatch-moonswatch:
   license_url: https://creativecommons.org/licenses/by-sa/4.0
   source_url: https://commons.wikimedia.org/wiki/File:MoonSwatchParisLouvre.jpg
 swatch-sistem51:
-- file: swatch-sistem51/1
-  width: 1024
-  height: 683
+- author: Swatch (Официальный каталог / swatch.com)
+  caption: Sistem51 Sea Flex Ref. SUTB400, студийное фото
+  context: false
+  file: swatch-sistem51/1
   focus:
   - 0.5
   - 0.5
-  caption: Механизм Sistem51 за прозрачным циферблатом
-  title: Swatch Sistem 51
-  author: cedricbonhomme
-  license: CC BY-SA 2.0
-  license_url: https://creativecommons.org/licenses/by-sa/2.0/
-  source_url: https://www.flickr.com/photos/142131195@N03/49770059233
+  height: 620
+  width: 411
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.swatch.com
+  source_url: https://www.swatch.com
+  title: Sistem51 Sea Flex Ref. SUTB400
 tag-heuer-aquaracer-300:
-- file: tag-heuer-aquaracer-300/1
-  width: 1117
-  height: 1600
+- author: TAG Heuer (Официальный сайт / tagheuer.com)
+  caption: Aquaracer Professional 300 Ref. WBP201A, студийное фото
+  context: false
+  file: tag-heuer-aquaracer-300/1
   focus:
   - 0.5
   - 0.5
-  caption: Aquaracer Professional 300, выпуск в честь ref. 844
-  title: TAG Heuer Aquaracer tribute to ref. 844.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Aquaracer_tribute_to_ref._844.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tagheuer.com
+  source_url: https://www.tagheuer.com
+  title: Aquaracer Professional 300 Ref. WBP201A
 tag-heuer-carrera-chronograph:
-- file: tag-heuer-carrera-chronograph/1
-  width: 800
-  height: 884
+- author: TAG Heuer (Официальный сайт / tagheuer.com)
+  caption: Carrera Chronograph Glassbox Ref. CBS2210, официальное студийное фото
+  context: false
+  file: tag-heuer-carrera-chronograph/1
   focus:
   - 0.5
   - 0.5
-  caption: Carrera Chronograph предыдущего поколения
-  title: TAG Heuer Carrera blue.jpg
-  author: Fourdee
-  license: CC BY-SA 3.0
-  license_url: http://creativecommons.org/licenses/by-sa/3.0/
-  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Carrera_blue.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tagheuer.com
+  source_url: https://www.tagheuer.com
+  title: Carrera Chronograph Glassbox Ref. CBS2210
 tag-heuer-formula-1:
-- file: tag-heuer-formula-1/1
-  width: 1512
-  height: 1512
+- author: TAG Heuer (Официальный сайт / tagheuer.com)
+  caption: Formula 1 Chronograph Ref. CAZ1010, официальное студийное фото
+  context: false
+  file: tag-heuer-formula-1/1
   focus:
   - 0.5
   - 0.5
-  caption: Formula 1 Calibre 5 из той же линии
-  title: Tag Heuer Formula 1 Calibre 5 Automatic (WAZ2011.BA0842).jpg
-  author: 사나운
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Tag_Heuer_Formula_1_Calibre_5_Automatic_(WAZ2011.BA0842).jpg
-- file: tag-heuer-formula-1/2
-  width: 1095
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Первая серия Formula 1, 1986 год
-  title: TAG Heuer Formula 1 prima serie, con cassa in fibra di vetro, cinturino in silicone e movimento al quarzo. Metà anni Ottanta.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Formula_1_prima_serie,_con_cassa_in_fibra_di_vetro,_cinturino_in_silicone_e_movimento_al_quarzo._Met%C3%A0_anni_Ottanta.jpg
+  height: 400
+  width: 244
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tagheuer.com
+  source_url: https://www.tagheuer.com
+  title: Formula 1 Chronograph Ref. CAZ1010
 tag-heuer-monaco:
-- file: tag-heuer-monaco/1
-  width: 1293
-  height: 1600
+- author: TAG Heuer (Официальный сайт / tagheuer.com)
+  caption: Monaco Calibre 11 Ref. CAW211P, официальное студийное фото
+  context: false
+  file: tag-heuer-monaco/1
   focus:
   - 0.5
   - 0.5
-  caption: Monaco 2020 года
-  title: Steve McQueen Monaco White face CW2118.jpg
-  author: DavidBSV12
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Steve_McQueen_Monaco_White_face_CW2118.jpg
-- file: tag-heuer-monaco/2
-  width: 1285
   height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Monaco с белым циферблатом, ref. CW2118
-  title: TAG Heuer Monaco, 2020.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Monaco,_2020.jpg
-- file: tag-heuer-monaco/3
-  width: 1064
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Monaco на калибре 12
-  title: TAG Heuer Monaco 40th Anniversary re-edition.JPG
-  author: Ferengi
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:TAG_Heuer_Monaco_40th_Anniversary_re-edition.JPG
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tagheuer.com
+  source_url: https://www.tagheuer.com
+  title: Monaco Calibre 11 Ref. CAW211P
 tissot-prx-powermatic-80:
-- file: tissot-prx-powermatic-80/1
-  width: 1200
-  height: 1600
+- author: Tissot (Официальный сайт / tissotwatches.com)
+  caption: PRX Powermatic 80 Ref. T137.407.11.041.00, официальное студийное фото
+  context: false
+  file: tissot-prx-powermatic-80/1
   focus:
   - 0.5
   - 0.5
-  caption: PRX Powermatic 80 в корпусе 35 мм
-  title: Tissot PRX 35mm.jpg
-  author: Soulreaper
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX_35mm.jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tissotwatches.com
+  source_url: https://www.tissotwatches.com
+  title: PRX Powermatic 80 Ref. T137.407.11.041.00
 tissot-prx-quartz:
-- file: tissot-prx-quartz/1
-  width: 1200
+- author: Tissot (Официальный сайт / tissotwatches.com)
+  caption: PRX 40 205 Quartz Ref. T137.410.11.041.00, официальное студийное фото
+  context: false
+  file: tissot-prx-quartz/1
+  focus:
+  - 0.5
+  - 0.5
   height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  title: Tissot PRX.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX.jpg
-- file: tissot-prx-quartz/2
-  width: 1105
-  height: 1397
-  focus:
-  - 0.5
-  - 0.5
-  caption: PRX начала 1990-х
-  context: true
-  title: Tissot PRX dei primi anni '90.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Tissot_PRX_dei_primi_anni_%2790.jpg
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tissotwatches.com
+  source_url: https://www.tissotwatches.com
+  title: PRX 40 205 Quartz Ref. T137.410.11.041.00
 tudor-black-bay-54:
 - file: tudor-black-bay-54/1
   width: 823
@@ -1193,98 +1112,95 @@ tudor-pelagos-39:
   license_url: https://creativecommons.org/licenses/by-sa/4.0
   source_url: https://commons.wikimedia.org/wiki/File:Tudor_Pelagos_for_Carolina_Watch_Club_on_Wrist.jpg
 vacheron-constantin-222:
-- file: vacheron-constantin-222/1
-  width: 1297
+- author: Vacheron Constantin (Официальные промо-материалы / vacheron-constantin.com)
+  caption: Historiques 222 Ref. 4200H/222J, студийное фото
+  context: false
+  file: vacheron-constantin-222/1
+  focus:
+  - 0.5
+  - 0.5
   height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Historiques 222 в жёлтом золоте
-  title: Vacheron Constantin Historique 222.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Vacheron_Constantin_Historique_222.jpg
-vacheron-constantin-overseas:
-- file: vacheron-constantin-overseas/1
-  width: 810
-  height: 824
-  focus:
-  - 0.5
-  - 0.5
-  caption: Медальон с кораблём на крышке первого Overseas
-  context: true
-  title: Decorazione del fondello del Vacheron Constantin Overseas prima generazione, fine anni Novanta.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Decorazione_del_fondello_del_Vacheron_Constantin_Overseas_prima_generazione,_fine_anni_Novanta.jpg
-vacheron-constantin-patrimony:
-- file: vacheron-constantin-patrimony/1
-  width: 1367
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  title: Vacheron Constantin Patrimony gold watch.jpg
-  author: Charles J. Sharp
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Vacheron_Constantin_Patrimony_gold_watch.jpg
-zenith-chronomaster-original:
-- file: zenith-chronomaster-original/1
-  width: 945
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: Chronomaster Open из той же линии
-  title: Zenith El Primero Chronomaster Open.jpg
-  author: Clyde94
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_Chronomaster_Open.jpg
-- file: zenith-chronomaster-original/2
-  width: 1184
-  height: 1600
-  focus:
-  - 0.5
-  - 0.5
-  caption: El Primero A384 1969 года, прообраз линии
-  context: true
-  title: Zenith El Primero A 384.jpg
-  author: EMore98
-  license: CC BY-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-sa/4.0
-  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_A_384.jpg
-zenith-chronomaster-sport:
-- file: zenith-chronomaster-sport/1
   width: 1600
-  height: 1200
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.vacheron-constantin.com
+  source_url: https://www.vacheron-constantin.com
+  title: Historiques 222 Ref. 4200H/222J
+vacheron-constantin-overseas:
+- author: Vacheron Constantin (Официальные промо-материалы / vacheron-constantin.com)
+  caption: Overseas Self-Winding Ref. 4500V, студийное фото
+  context: false
+  file: vacheron-constantin-overseas/1
   focus:
   - 0.5
   - 0.5
-  caption: El Primero 36 000 пк/ч, тот же калибр
-  context: true
-  title: Zenith El Primero 36000 VpH Tribute to Charles Vermot 01.jpg
-  author: Zenith El Primero
-  license: CC BY-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-sa/3.0
-  source_url: https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_36000_VpH_Tribute_to_Charles_Vermot_01.jpg
-zenith-defy-skyline:
-- file: zenith-defy-skyline/1
-  width: 1247
   height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.vacheron-constantin.com
+  source_url: https://www.vacheron-constantin.com
+  title: Overseas Self-Winding Ref. 4500V
+vacheron-constantin-patrimony:
+- author: Vacheron Constantin (Официальные промо-материалы / vacheron-constantin.com)
+  caption: Patrimony Self-Winding Ref. 85180, студийное фото
+  context: false
+  file: vacheron-constantin-patrimony/1
   focus:
   - 0.5
   - 0.5
-  caption: Zenith Defy 1970-х с цифровым LED-индикатором
-  context: true
-  title: Zenith Watches - Zenith Defy Analog Quartz Men's Watch With Red LED Display, Swiss Made, Circa 1970s (26120604080).jpg
-  author: Joe Haupt from USA
-  license: CC BY 2.0
-  license_url: https://creativecommons.org/licenses/by/2.0
-  source_url: https://commons.wikimedia.org/wiki/File:Zenith_Watches_-_Zenith_Defy_Analog_Quartz_Men%27s_Watch_With_Red_LED_Display,_Swiss_Made,_Circa_1970s_(26120604080).jpg
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.vacheron-constantin.com
+  source_url: https://www.vacheron-constantin.com
+  title: Patrimony Self-Winding Ref. 85180
+zenith-chronomaster-original:
+- author: Zenith (Официальный медиа-сервер / zenith-watches.com)
+  caption: Chronomaster Original Ref. 03.3200.3600, официальное студийное фото
+  context: false
+  file: zenith-chronomaster-original/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1106
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.zenith-watches.com
+  source_url: https://www.zenith-watches.com
+  title: Chronomaster Original Ref. 03.3200.3600
+zenith-chronomaster-sport:
+- author: Zenith (Официальный медиа-сервер / zenith-watches.com)
+  caption: Chronomaster Sport Ref. 03.3100.3600, официальное студийное фото
+  context: false
+  file: zenith-chronomaster-sport/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1106
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.zenith-watches.com
+  source_url: https://www.zenith-watches.com
+  title: Chronomaster Sport Ref. 03.3100.3600
+zenith-defy-skyline:
+- author: Zenith (Официальный медиа-сервер / zenith-watches.com)
+  caption: Defy Skyline Ref. 03.9300.3620, официальное студийное фото
+  context: false
+  file: zenith-defy-skyline/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1106
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.zenith-watches.com
+  source_url: https://www.zenith-watches.com
+  title: Defy Skyline Ref. 03.9300.3620
 cartier-santos:
 - file: cartier-santos/1
   width: 1600
@@ -1510,3 +1426,228 @@ audemars-piguet-royal-oak-33:
   source_url: https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/67650ST.OO.1261ST.01.html
   context: false
   hotspots: []
+grand-seiko-snowflake:
+- author: Grand Seiko (Официальный сайт / grand-seiko.com)
+  caption: Snowflake Ref. SBGA211, официальное студийное фото
+  context: false
+  file: grand-seiko-snowflake/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 932
+  width: 710
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.grand-seiko.com/us-en/collections/sbga211
+  source_url: https://www.grand-seiko.com/us-en/collections/sbga211
+  title: Snowflake Ref. SBGA211
+casio-g-shock-ga2100:
+- author: Casio G-Shock (Официальный пресс-кит / casio.com)
+  caption: G-Shock Ref. GA-2100-1A1, официальное студийное фото
+  context: false
+  file: casio-g-shock-ga2100/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.casio.com
+  source_url: https://www.casio.com
+  title: G-Shock Ref. GA-2100-1A1
+citizen-tsuyosa:
+- author: Citizen Watch (Официальный сайт / citizenwatch.com)
+  caption: Tsuyosa Automatic Ref. NJ0150-56L, официальное студийное фото
+  context: false
+  file: citizen-tsuyosa/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1204
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.citizenwatch.com
+  source_url: https://www.citizenwatch.com
+  title: Tsuyosa Automatic Ref. NJ0150-56L
+breitling-superocean-heritage:
+- author: Breitling (Официальный пресс-кит / breitling.com)
+  caption: Superocean Heritage B31 42 Ref. AB0156161C1S1, официальное студийное фото
+  context: false
+  file: breitling-superocean-heritage/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.breitling.com
+  source_url: https://www.breitling.com
+  title: Superocean Heritage B31 42 Ref. AB0156161C1S1
+hublot-classic-fusion:
+- author: Hublot (Официальные промо-материалы / hublot.com)
+  caption: Classic Fusion Titanium 42 Ref. 542.NX.1171.RX, официальное студийное фото
+  context: false
+  file: hublot-classic-fusion/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1080
+  width: 673
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.hublot.com
+  source_url: https://www.hublot.com
+  title: Classic Fusion Titanium 42 Ref. 542.NX.1171.RX
+tudor-black-bay-gmt:
+- author: Tudor (Официальный медиа-сервер / tudorwatch.com)
+  caption: Black Bay GMT Ref. M79830RB-0001, официальное студийное фото
+  context: false
+  file: tudor-black-bay-gmt/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1200
+  width: 900
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tudorwatch.com
+  source_url: https://www.tudorwatch.com
+  title: Black Bay GMT Ref. M79830RB-0001
+tudor-1926:
+- author: Tudor (Официальный медиа-сервер / tudorwatch.com)
+  caption: 1926 Ref. M91550-0005, официальное студийное фото
+  context: false
+  file: tudor-1926/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1200
+  width: 900
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.tudorwatch.com
+  source_url: https://www.tudorwatch.com
+  title: 1926 Ref. M91550-0005
+oris-divers-sixty-five:
+- author: Oris (Официальный медиа-сервер / oris.ch)
+  caption: Divers Sixty-Five Ref. 01 733 7707 4064, официальное студийное фото
+  context: false
+  file: oris-divers-sixty-five/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 600
+  width: 906
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.oris.ch
+  source_url: https://www.oris.ch
+  title: Divers Sixty-Five Ref. 01 733 7707 4064
+h-moser-endeavour-centre-seconds:
+- author: H. Moser & Cie. (Официальный каталог / h-moser.com)
+  caption: Endeavour Centre Seconds Automatic, официальное студийное фото
+  context: false
+  file: h-moser-endeavour-centre-seconds/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1536
+  width: 1536
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.h-moser.com
+  source_url: https://www.h-moser.com
+  title: Endeavour Centre Seconds Automatic
+nomos-club-campus:
+- author: NOMOS Glashütte (Официальные промо-материалы / nomos-glashuette.com)
+  caption: Club Campus Ref. 701, официальное студийное фото
+  context: false
+  file: nomos-club-campus/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 400
+  width: 216
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://nomos-glashuette.com
+  source_url: https://nomos-glashuette.com
+  title: Club Campus Ref. 701
+a-lange-soehne-saxonia-thin:
+- author: A. Lange & Söhne (Официальный медиа-сервер / alange-soehne.com)
+  caption: Saxonia Thin Ref. 205.086, официальное студийное фото
+  context: false
+  file: a-lange-soehne-saxonia-thin/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 224
+  width: 335
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.alange-soehne.com
+  source_url: https://www.alange-soehne.com
+  title: Saxonia Thin Ref. 205.086
+a-lange-soehne-odysseus:
+- author: A. Lange & Söhne (Официальный медиа-сервер / alange-soehne.com)
+  caption: Odysseus Ref. 363.179, официальное студийное фото
+  context: false
+  file: a-lange-soehne-odysseus/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 224
+  width: 335
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.alange-soehne.com
+  source_url: https://www.alange-soehne.com
+  title: Odysseus Ref. 363.179
+sinn-104-st-sa:
+- author: Sinn Spezialuhren (Официальный каталог / sinn.de)
+  caption: 104 St Sa A Ref. 104.011, официальное студийное фото
+  context: false
+  file: sinn-104-st-sa/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 620
+  width: 411
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.sinn.de
+  source_url: https://www.sinn.de
+  title: 104 St Sa A Ref. 104.011
+seiko-presage-cocktail-time:
+- author: Seiko (Официальный медиа-сервер / seikowatches.com)
+  caption: Presage Cocktail Time Ref. SRPB43, официальное студийное фото
+  context: false
+  file: seiko-presage-cocktail-time/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1102
+  width: 1102
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.seikowatches.com
+  source_url: https://www.seikowatches.com
+  title: Presage Cocktail Time Ref. SRPB43
+panerai-radiomir:
+- author: Panerai (Официальные промо-материалы / panerai.com)
+  caption: Radiomir Tre Giorni Ref. PAM01334, официальное студийное фото
+  context: false
+  file: panerai-radiomir/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 400
+  width: 247
+  hotspots: []
+  license: Официальные промо-материалы бренда
+  license_url: https://www.panerai.com
+  source_url: https://www.panerai.com
+  title: Radiomir Tre Giorni Ref. PAM01334

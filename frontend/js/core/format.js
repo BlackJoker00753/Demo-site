@@ -3,14 +3,63 @@
 const nf = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
 const dateFmt = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric" });
 
-export const num = (n) => (n == null ? "" : nf.format(n));
-export const usd = (n) => (n == null ? "" : `$${nf.format(n)}`);
+export const CURRENCIES = {
+  USD: { code: "USD", symbol: "$", pos: "before", rate: 1.0, label: "USD ($)" },
+  EUR: { code: "EUR", symbol: "€", pos: "before", rate: 0.92, label: "EUR (€)" },
+  RUB: { code: "RUB", symbol: "₽", pos: "after", rate: 92.5, label: "RUB (₽)" },
+  KZT: { code: "KZT", symbol: "₸", pos: "after", rate: 480.0, label: "KZT (₸)" },
+};
 
-/** $1,2 млн / $48 тыс. для компактных подписей. */
+let currentCurrency = "USD";
+try {
+  const saved = localStorage.getItem("horologium_currency");
+  if (saved && CURRENCIES[saved]) currentCurrency = saved;
+} catch (_) {}
+
+const currencyListeners = new Set();
+
+export function getActiveCurrency() {
+  return CURRENCIES[currentCurrency];
+}
+
+export function setActiveCurrency(code) {
+  if (CURRENCIES[code] && currentCurrency !== code) {
+    currentCurrency = code;
+    try { localStorage.setItem("horologium_currency", code); } catch (_) {}
+    for (const fn of currencyListeners) {
+      try { fn(CURRENCIES[code]); } catch (_) {}
+    }
+    window.dispatchEvent(new CustomEvent("currencychange", { detail: CURRENCIES[code] }));
+  }
+}
+
+export function onCurrencyChange(fn) {
+  currencyListeners.add(fn);
+  return () => currencyListeners.delete(fn);
+}
+
+export const num = (n) => (n == null ? "" : nf.format(n));
+
+export const usd = (n) => {
+  if (n == null) return "";
+  const cur = getActiveCurrency();
+  const val = Math.round(n * cur.rate);
+  return cur.pos === "before" ? `${cur.symbol}${nf.format(val)}` : `${nf.format(val)} ${cur.symbol}`;
+};
+
+/** Компактная подпись цены с учетом активной валюты */
 export function usdShort(n) {
   if (n == null) return "";
-  if (n >= 1_000_000) return `$${(n / 1_000_000).toLocaleString("ru-RU", { maximumFractionDigits: 1 })} млн`;
-  if (n >= 10_000) return `$${Math.round(n / 1000)} тыс.`;
+  const cur = getActiveCurrency();
+  const val = n * cur.rate;
+  if (val >= 1_000_000) {
+    const formatted = (val / 1_000_000).toLocaleString("ru-RU", { maximumFractionDigits: 1 });
+    return cur.pos === "before" ? `${cur.symbol}${formatted} млн` : `${formatted} млн ${cur.symbol}`;
+  }
+  if (val >= 10_000) {
+    const formatted = Math.round(val / 1000);
+    return cur.pos === "before" ? `${cur.symbol}${formatted} тыс.` : `${formatted} тыс. ${cur.symbol}`;
+  }
   return usd(n);
 }
 

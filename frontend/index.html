@@ -9,8 +9,11 @@
   <meta property="og:description" content="<!--SSR:DESCRIPTION-->">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#07080a">
-  <meta name="color-scheme" content="dark">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Horologium">
 
   <link rel="preload" href="/assets/earth/day-2k.jpg" as="image" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/fonts/fonts.css">
@@ -54,7 +57,23 @@
     </a>
     <nav class="nav__crumbs" id="crumbs" aria-label="Навигация по разделам"></nav>
     <div class="nav__actions">
+      <a class="nav__link" href="/watches" data-link>Каталог</a>
+      <a class="nav__link" href="/compare" data-link id="nav-compare-link" hidden>Сравнение <span class="nav__badge" id="compare-count">0</span></a>
       <a class="nav__link" href="/glossary" data-link>Усложнения</a>
+      
+      <div class="nav__cur" id="nav-currency">
+        <button type="button" class="nav__cur-btn" id="cur-btn" aria-haspopup="listbox" aria-expanded="false" title="Выбор валюты">
+          <span id="cur-label">USD $</span>
+          <i class="ph-light ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <div class="nav__cur-dropdown" id="cur-dropdown" role="listbox" hidden>
+          <button type="button" role="option" data-cur="USD" class="is-selected">USD ($)</button>
+          <button type="button" role="option" data-cur="EUR">EUR (€)</button>
+          <button type="button" role="option" data-cur="RUB">RUB (₽)</button>
+          <button type="button" role="option" data-cur="KZT">KZT (₸)</button>
+        </div>
+      </div>
+
       <button class="nav__search" id="search-open" type="button" aria-label="Поиск">
         <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
         <span>Поиск</span>

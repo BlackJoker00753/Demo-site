@@ -24,6 +24,8 @@ const ROUTES = [
   { name: "glossary", re: /^\/glossary\/?$/, load: () => import("../views/glossary.js") },
   { name: "movement", re: /^\/movement\/([a-z0-9-]+)\/?$/, load: () => import("../views/movement.js") },
   { name: "lab", re: /^\/lab\/?$/, load: () => import("../views/lab.js") },
+  { name: "watches", re: /^\/watches\/?$/, load: () => import("../views/watches.js") },
+  { name: "compare", re: /^\/compare\/?$/, load: () => import("../views/compare.js") },
   { name: "credits", re: /^\/credits\/?$/, load: () => import("../views/credits.js") },
 ];
 
