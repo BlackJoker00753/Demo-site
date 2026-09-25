@@ -29,3 +29,10 @@ Gemini не должен писать на картинке никаких по�
 Слой детали в собранных часах (от задней крышки к стеклу) задаётся по ключу в `scripts/teardown.py`
 (`LAYERS`), при необходимости переопределяется пятым элементом `{z: 7.5}`. По слоям часы
 раскладываются вдоль оси в 3D.
+
+## Ручная генерация в Nano Banana Pro
+
+1. `uv run python scripts/teardown.py page [slug ...]` (без аргументов: GMT-Master II и Spirit Zulu Time).
+2. Открыть http://localhost:8765/assets/teardown-tasks/index.html: для каждого листа промпт, референс, имя файла.
+3. Картинки сохранять в `~/Desktop/Horologium-детали/` под показанными именами.
+4. `uv run python scripts/teardown.py import`, затем `review <slug>` (проверка подписей) и `build <slug>`.

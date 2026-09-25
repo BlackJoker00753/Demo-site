@@ -41,6 +41,9 @@ SRC = ROOT / "teardown_src"  # исходные 4K-листы (в .gitignore: т
 OUT = ROOT / "frontend" / "assets" / "teardown"
 CACHE = Path(__file__).resolve().parent / ".cache" / "teardown"
 TASK_MD = ROOT / "docs" / "TEARDOWN_GEMINI_TASK.md"
+INBOX = Path.home() / "Desktop" / "Horologium-детали"  # сюда сохраняются картинки из Nano Banana Pro
+TASK_PAGE = ROOT / "frontend" / "assets" / "teardown-tasks" / "index.html"
+FIRST_BATCH = ["rolex-gmt-master-ii-pepsi", "longines-spirit-zulu-time"]
 
 MODEL = os.environ.get("TEARDOWN_MODEL", "gemini-3-pro-image")
 BACKGROUND = "#d6d6d6"
@@ -109,8 +112,24 @@ class Job:
         return SRC / f"{self.id}.png"
 
     @property
+    def file_name(self) -> str:
+        """Имя файла для ручной генерации: без папок, латиницей, чтобы не ошибиться при сохранении."""
+        return self.id.split("/", 1)[1].replace("/", "--") + ".png"
+
+    @property
+    def unique(self) -> list[tuple[Item, int]]:
+        """Одинаковые детали (винты, звенья) рисуются один раз, копии делает скрипт."""
+        out: list[tuple[Item, int]] = []
+        for it in self.items:
+            if out and out[-1][0].prompt == it.prompt and out[-1][0].name == it.name:
+                out[-1] = (out[-1][0], out[-1][1] + 1)
+            else:
+                out.append((it, 1))
+        return out
+
+    @property
     def grid(self) -> tuple[int, int]:
-        n = max(1, len(self.items))
+        n = max(1, len(self.unique))
         cols = max(1, math.ceil(math.sqrt(n * ASPECT)))
         rows = math.ceil(n / cols)
         return cols, rows
@@ -160,27 +179,16 @@ def prompt_for(job: Job) -> str:
             f"Seamless uniform light-grey background ({BACKGROUND}), shadowless light, the watch fills about 70% of the frame height."
         )
     cols, rows = job.grid
-    # одинаковые детали подряд описываются одной строкой: «5–18. (14 identical items) …»
-    lines, i = [], 0
-    while i < len(job.items):
-        j = i
-        while j + 1 < len(job.items) and job.items[j + 1].prompt == job.items[i].prompt:
-            j += 1
-        span = f"{i + 1}" if i == j else f"{i + 1}-{j + 1}. ({j - i + 1} identical items)"
-        lines.append(f"{span}{'.' if i == j else ''} {job.items[i].prompt}")
-        i = j + 1
-    ref = " Match the reference photos of the finished watch for every visible exterior detail." if job.refs else ""
+    lines = [f"{i + 1}. {it.prompt}" for i, (it, _) in enumerate(job.unique)]
+    ref = (" The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, "
+           "crown, bracelet) must match it exactly in shape, colour, finish and printing.") if job.refs else ""
+    n = len(job.unique)
     return (
         f"{STYLE}\n\nSubject: the disassembled components of this watch: {job.look}.{ref}\n"
-        f"Arrange EXACTLY {len(job.items)} items in a grid of {cols} columns and {rows} rows, "
-        f"in reading order (left to right, then next row), one item per cell, centred in its cell, in this order:\n"
-        + "\n".join(lines)
-        + "\nIdentical items listed several times appear several times, each in its own cell. "
-        "If a cell is left over at the end, leave it empty."
+        f"Show EXACTLY {n} separate items, one of each, arranged in a grid of {cols} columns and {rows} rows, "
+        f"in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, "
+        f"in this order:\n" + "\n".join(lines) + "\nNothing else in the image."
     )
-
-
-# ----------------------------------------------------------------------------- tasks / plan
 
 
 def cmd_tasks() -> None:
@@ -371,7 +379,8 @@ def _assign(job: Job, img: Image.Image, groups, objs) -> tuple[list[list[int]], 
             comps.append((gid, sl))
     boxes = [(sl[1].start, sl[0].start, sl[1].stop, sl[0].stop) for _, sl in comps]
     warnings = []
-    if len(comps) == len(job.items):
+    items = [it for it, _ in job.unique]
+    if len(comps) == len(items):
         order = _reading_order(boxes)
         return [[comps[i][0]] for i in order], [boxes[i] for i in order], warnings
     cols, rows = job.grid
@@ -382,14 +391,14 @@ def _assign(job: Job, img: Image.Image, groups, objs) -> tuple[list[list[int]], 
         r = min(rows - 1, int((y0 + y1) / 2 / H * rows))
         cells.setdefault(r * cols + c, []).append(k)
     out, out_boxes = [], []
-    for n in range(len(job.items)):
+    for n in range(len(items)):
         ks = cells.get(n, [])
         if not ks:
-            warnings.append(f"{job.id}: пустая клетка {n + 1} ({job.items[n].name})")
+            warnings.append(f"{job.id}: пустая клетка {n + 1} ({items[n].name})")
         out.append([comps[k][0] for k in ks])
         out_boxes.append((min(boxes[k][0] for k in ks), min(boxes[k][1] for k in ks), max(boxes[k][2] for k in ks), max(boxes[k][3] for k in ks)) if ks else None)
-    extra = sorted(set(cells) - set(range(len(job.items))))
-    warnings.insert(0, f"{job.id}: компонент {len(comps)} при {len(job.items)} деталях, склеено по клеткам {cols}×{rows}" + (f", лишние клетки {extra}" if extra else ""))
+    extra = sorted(set(cells) - set(range(len(items))))
+    warnings.insert(0, f"{job.id}: компонент {len(comps)} при {len(items)} деталях, склеено по клеткам {cols}×{rows}" + (f", лишние клетки {extra}" if extra else ""))
     return out, out_boxes, warnings
 
 
@@ -403,7 +412,7 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
     rgb = np.asarray(img.convert("RGB"))
     cuts = []
     pad = 6
-    for item, ids, box in zip(job.items, gids, boxes):
+    for (item, count), ids, box in zip(job.unique, gids, boxes):
         if not ids:
             continue
         x0, y0, x1, y1 = box
@@ -417,7 +426,8 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
         alpha = Image.fromarray((m * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(1.0))
         sprite = Image.fromarray(rgb[y0:y1, x0:x1]).convert("RGBA")
         sprite.putalpha(alpha)
-        cuts.append(Cut(item, sprite, job))
+        # копии одинаковых деталей делят одну картинку в атласе
+        cuts += [Cut(item, sprite, job) for _ in range(count)]
     return cuts, warnings
 
 
@@ -567,12 +577,19 @@ def cmd_build(slug: str) -> None:
         sys.exit("нечего собирать")
 
     # Масштаб: каждая деталь приводится к своему реальному размеру (наибольшая сторона = mm).
-    sprites = []
+    # копии одной детали (винты, звенья) упаковываются в атлас один раз
+    uniq: dict[int, int] = {}
+    packed = []
     for c in cuts:
+        if id(c.sprite) in uniq:
+            continue
         s = c.sprite
         scale = c.item.mm * PPMM / max(s.size)
-        sprites.append(s.resize((max(2, round(s.width * scale)), max(2, round(s.height * scale))), Image.LANCZOS))
-    pages, rects = _pack(sprites)
+        uniq[id(c.sprite)] = len(packed)
+        packed.append(s.resize((max(2, round(s.width * scale)), max(2, round(s.height * scale))), Image.LANCZOS))
+    pages, packed_rects = _pack(packed)
+    sprites = [packed[uniq[id(c.sprite)]] for c in cuts]
+    rects = [packed_rects[uniq[id(c.sprite)]] for c in cuts]
     layout = _layout(cuts, case_mm)
 
     out = OUT / slug
@@ -612,8 +629,11 @@ def cmd_build(slug: str) -> None:
             "page": page, "uv": [x / ATLAS, y / ATLAS, pw / ATLAS, ph / ATLAS],
             "at": [round(v, 2) for v in lay["at"]], "ex": [round(v, 2) for v in lay["ex"]], "y": round(lay["y"], 2),
         })
+    import hashlib
+
+    version = hashlib.sha1(b"".join(f.read_bytes() for f in sorted(out.glob("*.webp")))).hexdigest()[:10]
     manifest = {
-        "slug": slug, "case_mm": case_mm, "pages": [f"atlas-{n}.webp" for n in range(len(pages))],
+        "slug": slug, "case_mm": case_mm, "version": version, "pages": [f"atlas-{n}.webp" for n in range(len(pages))],
         "assembled": extra, "generated": "Gemini 3 Pro Image по официальным фото модели", "parts": parts,
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -621,6 +641,122 @@ def cmd_build(slug: str) -> None:
     print(f"{slug}: {len(parts)} деталей, {len(pages)} стр. атласа, {size / 1e6:.1f} МБ")
     for wr in warnings:
         print("  внимание:", wr)
+
+
+def cmd_import(folder: Path) -> None:
+    """Забрать картинки из папки на рабочем столе по именам файлов из страницы заданий."""
+    if not folder.exists():
+        sys.exit(f"Нет папки {folder}")
+    files = {f.stem.lower(): f for f in folder.iterdir() if f.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp")}
+    done, seen = 0, set()
+    for slug in all_slugs():
+        for job in jobs_for(slug):
+            if job.id in seen:
+                continue
+            seen.add(job.id)
+            src = files.get(Path(job.file_name).stem.lower())
+            if not src:
+                continue
+            if job.path.exists() and job.path.stat().st_mtime >= src.stat().st_mtime:
+                continue
+            job.path.parent.mkdir(parents=True, exist_ok=True)
+            Image.open(src).convert("RGB").save(job.path)
+            done += 1
+            print(f"  + {src.name} -> {job.path.relative_to(ROOT)}")
+    unknown = sorted(set(files) - {Path(j.file_name).stem.lower() for s in all_slugs() for j in jobs_for(s)})
+    print(f"импортировано: {done}")
+    if unknown:
+        print("файлы с незнакомыми именами (переименуйте по странице заданий):\n  " + "\n  ".join(unknown))
+
+
+def cmd_page(slugs: list[str]) -> None:
+    """Страница-помощник: промпты с кнопками копирования, референсы и имена файлов."""
+    import html
+
+    seen, cards, n = set(), [], 0
+    for slug in slugs:
+        for job in jobs_for(slug):
+            if job.id in seen:
+                continue
+            seen.add(job.id)
+            n += 1
+            aspect = "1:1" if job.kind == "assembled" else "16:9"
+            refs = "".join(
+                f'<a class="ref" href="/{html.escape(str(r.relative_to(ROOT / "frontend")))}" download><img src="/{html.escape(str(r.relative_to(ROOT / "frontend")))}" alt=""><span>Скачать референс</span></a>'
+                for r in job.refs if r.exists()
+            ) or '<p class="muted">Референс не нужен</p>'
+            parts = "".join(f"<li>{html.escape(it.name)}{f' <b>×{c}</b>' if c > 1 else ''}</li>" for it, c in job.unique) or "<li>Часы целиком</li>"
+            cards.append(f"""
+<article class="job" id="job-{n}" data-file="{html.escape(job.file_name)}">
+  <header><span class="num">{n:02d}</span><h2>{html.escape(slug if job.kind != 'movement' else job.id.split('/')[1])} · {html.escape(job.title)}</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>{aspect}</b></p>
+      <p class="step">2. Приложите референс</p>{refs}
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="{html.escape(job.file_name)}">{html.escape(job.file_name)}</button>
+      <p class="step">Детали на картинке ({len(job.unique)})</p><ol>{parts}</ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-{n}">Копировать промпт</button></p>
+      <pre id="p-{n}">{html.escape(prompt_for(job))}</pre>
+    </div>
+  </div>
+</article>""")
+    page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Задания для Nano Banana Pro | Horologium</title>
+<style>
+:root {{ --bg:#0b0c0e; --s:#14171b; --l:#262b31; --t:#e9ecef; --t2:#a9b0b8; --lume:#9fe9c4; }}
+* {{ box-sizing:border-box }} body {{ margin:0; background:var(--bg); color:var(--t); font:15px/1.5 -apple-system,system-ui,sans-serif; }}
+main {{ max-width:1180px; margin:0 auto; padding:32px 16px 80px; }}
+h1 {{ font-size:32px; margin:0 0 8px }} .intro {{ background:var(--s); border:1px solid var(--l); border-radius:16px; padding:18px 22px; margin:18px 0 28px }}
+.intro ol {{ margin:8px 0 0; padding-left:20px }} .intro code {{ color:var(--lume) }}
+.job {{ border:1px solid var(--l); border-radius:16px; padding:18px; margin-bottom:18px; background:#0f1114 }}
+.job.is-done {{ opacity:.45 }} .job header {{ display:flex; align-items:center; gap:12px }}
+.num {{ font:600 13px/1 ui-monospace,monospace; color:var(--bg); background:var(--lume); border-radius:99px; padding:6px 9px }}
+h2 {{ font-size:17px; margin:0; flex:1 }} .done {{ color:var(--t2); font-size:13px }}
+.grid {{ display:grid; grid-template-columns:300px 1fr; gap:22px; margin-top:14px }}
+@media (max-width:860px) {{ .grid {{ grid-template-columns:1fr }} }}
+.label {{ color:var(--t2); font-size:13px; margin:12px 0 6px; display:flex; justify-content:space-between; align-items:center; gap:8px }}
+.step {{ color:var(--t2); font-size:13px; margin:12px 0 6px }} .step b {{ color:var(--t) }}
+.ref {{ display:flex; gap:10px; align-items:center; color:var(--lume); text-decoration:none; font-size:13px }}
+.ref img {{ width:64px; height:80px; object-fit:cover; border-radius:8px; background:#000 }}
+pre {{ white-space:pre-wrap; background:var(--s); border:1px solid var(--l); border-radius:12px; padding:14px; font:12.5px/1.55 ui-monospace,monospace; color:#cfd5db; max-height:420px; overflow:auto; margin:0 }}
+.copy {{ background:var(--s); color:var(--t); border:1px solid var(--l); border-radius:99px; padding:6px 12px; font:13px/1 inherit; cursor:pointer }}
+.copy:hover {{ border-color:var(--lume) }} .copy.ok {{ background:var(--lume); color:var(--bg) }}
+.copy.file {{ font-family:ui-monospace,monospace; width:100%; text-align:left; border-radius:10px; overflow-wrap:anywhere }}
+ol {{ margin:0; padding-left:20px; color:var(--t2); font-size:13px }} .muted {{ color:var(--t2); font-size:13px }}
+</style></head><body><main>
+<h1>Задания для Nano Banana Pro</h1>
+<p class="muted">Модели: {html.escape(', '.join(slugs))}. Листов: {n}. Сгенерировано <code>scripts/teardown.py page</code>.</p>
+<div class="intro"><b>Как делать</b><ol>
+<li>Откройте <a href="https://aistudio.google.com/" target="_blank" rel="noopener" style="color:var(--lume)">Google AI Studio</a>, модель <b>Nano Banana Pro</b> (Gemini 3 Pro Image). В настройках: разрешение <b>4K</b>, соотношение сторон как указано у листа.</li>
+<li>Для каждого листа: скачайте референс (если есть) и прикрепите его, нажмите «Копировать промпт» и вставьте.</li>
+<li>Если на картинке детали налезают друг на друга, появились подписи, тени или обрезанные края, сгенерируйте ещё раз.</li>
+<li>Скачайте картинку и сохраните в папку <code>Рабочий стол / Horologium-детали</code> под именем с кнопки «Сохраните как» (нажмите, имя скопируется).</li>
+<li>Когда сделаете, напишите мне: я заберу картинки, вырежу детали, проверю подписи и соберу разборку.</li>
+</ol></div>
+{''.join(cards)}
+</main>
+<script>
+document.addEventListener("click", async (e) => {{
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.copy ?? document.getElementById(b.dataset.copyFrom).textContent;
+  await navigator.clipboard.writeText(text);
+  const old = b.textContent; b.classList.add("ok"); b.textContent = "Скопировано";
+  setTimeout(() => {{ b.classList.remove("ok"); b.textContent = old; }}, 1200);
+}});
+document.querySelectorAll(".job").forEach((job) => {{
+  const box = job.querySelector(".done input"), key = "td:" + job.dataset.file;
+  try {{ box.checked = localStorage.getItem(key) === "1"; }} catch {{}}
+  job.classList.toggle("is-done", box.checked);
+  box.addEventListener("change", () => {{ job.classList.toggle("is-done", box.checked); try {{ localStorage.setItem(key, box.checked ? "1" : "0"); }} catch {{}} }});
+}});
+</script></body></html>"""
+    TASK_PAGE.parent.mkdir(parents=True, exist_ok=True)
+    TASK_PAGE.write_text(page, encoding="utf-8")
+    print(f"{TASK_PAGE.relative_to(ROOT)}: {n} листов → http://localhost:8765/assets/teardown-tasks/index.html")
 
 
 def cmd_review(slug: str) -> None:
@@ -644,7 +780,8 @@ def cmd_review(slug: str) -> None:
                 continue
             x0, y0, x1, y1 = box
             draw.rectangle([x0, y0, x1, y1], outline=(230, 40, 60), width=4)
-            draw.text((x0 + 4, y1 + 6), f"{n + 1}. {job.items[n].name}", fill=(15, 15, 15), font=font)
+            it, cnt = job.unique[n]
+            draw.text((x0 + 4, y1 + 6), f"{n + 1}. {it.name}" + (f" ×{cnt}" if cnt > 1 else ""), fill=(15, 15, 15), font=font)
         img.thumbnail((2400, 2400))
         path = CACHE / f"{slug}-{job.plate}.png"
         img.save(path)
@@ -657,6 +794,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("tasks")
+    im = sub.add_parser("import", help="забрать картинки из папки на рабочем столе")
+    im.add_argument("--from", dest="folder", default=str(INBOX))
+    pg = sub.add_parser("page", help="страница с промптами для ручной генерации")
+    pg.add_argument("slugs", nargs="*")
     for name in ("plan", "build", "review"):
         sp = sub.add_parser(name)
         sp.add_argument("slug")
@@ -669,6 +810,10 @@ def main() -> int:
     args = ap.parse_args()
     if args.cmd == "tasks":
         cmd_tasks()
+    elif args.cmd == "import":
+        cmd_import(Path(args.folder).expanduser())
+    elif args.cmd == "page":
+        cmd_page(args.slugs or FIRST_BATCH)
     elif args.cmd == "plan":
         cmd_plan(args.slug)
     elif args.cmd == "generate":

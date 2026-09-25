@@ -66,10 +66,12 @@ export class Teardown {
   }
 
   async load() {
-    const m = await fetch(`${this.base}/manifest.json`).then((r) => r.json());
+    const m = await fetch(`${this.base}/manifest.json`, { cache: "no-cache" }).then((r) => r.json());
     this.manifest = m;
     const loader = new THREE.TextureLoader();
-    const pages = await Promise.all(m.pages.map((f) => loader.loadAsync(`${this.base}/${f}`)));
+    // ?v=… из манифеста: после пересборки браузер не возьмёт старый атлас из кеша
+    const v = m.version ? `?v=${m.version}` : "";
+    const pages = await Promise.all(m.pages.map((f) => loader.loadAsync(`${this.base}/${f}${v}`)));
     const maxAniso = this.renderer.capabilities.getMaxAnisotropy();
     for (const tex of pages) {
       tex.colorSpace = THREE.SRGBColorSpace;
@@ -115,7 +117,7 @@ export class Teardown {
 
     // собранные часы целиком (лист assembled_front): видны в начале и растворяются
     if (m.assembled?.front) {
-      const tex = await loader.loadAsync(`${this.base}/${m.assembled.front}`);
+      const tex = await loader.loadAsync(`${this.base}/${m.assembled.front}${v}`);
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.anisotropy = maxAniso;
       const size = m.assembled.front_mm ?? m.case_mm * 1.16;
@@ -316,7 +318,7 @@ export class Teardown {
 /** Есть ли для модели готовая разборка до детали. */
 export async function hasTeardown(slug) {
   try {
-    const r = await fetch(`/assets/teardown/${slug}/manifest.json`, { method: "HEAD" });
+    const r = await fetch(`/assets/teardown/${slug}/manifest.json`, { method: "HEAD", cache: "no-store" });
     return r.ok;
   } catch {
     return false;

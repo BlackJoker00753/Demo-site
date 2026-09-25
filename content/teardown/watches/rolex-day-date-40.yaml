@@ -33,5 +33,4 @@ plates:
   - [clasp, Застёжка Crownclasp, 'concealed Crownclasp, opened, 18 ct yellow gold', 36, 1]
   - [bracelet_pins, Винт-штифт звена, link screw pin, 5, 8]
   - [spring_bar, Пружинный штифт, spring bar, 20, 2]
-assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
-    exactly from the back with the caseback removed, showing the assembled movement with rotor'}
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background'}

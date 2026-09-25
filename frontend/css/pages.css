@@ -33,6 +33,7 @@
   border: 1px solid var(--line-2); border-radius: 12px; padding: 6px;
   box-shadow: 0 16px 32px rgba(0,0,0,0.6); z-index: 100; display: grid; gap: 2px;
 }
+.nav__cur-dropdown[hidden] { display: none; }
 .nav__cur-dropdown button {
   width: 100%; text-align: left; padding: 7px 10px; border-radius: 8px;
   font-size: var(--fs-13); font-family: var(--font-mono); color: var(--text-2);

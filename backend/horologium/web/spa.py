@@ -79,8 +79,8 @@ def mount_frontend(app: FastAPI) -> None:
     async def static_cache_headers(request: Request, call_next):
         response = await call_next(request)
         path = request.url.path
-        if path.startswith(("/css/", "/js/")):
-            # Код фронтенда всегда перепроверяется (ETag), чтобы правки были видны сразу.
+        if path.startswith(("/css/", "/js/", "/assets/teardown/")):
+            # Код фронтенда и разборки всегда перепроверяются (ETag), чтобы правки были видны сразу.
             response.headers["Cache-Control"] = "no-cache"
         elif path.startswith(("/assets/", "/vendor/")):
             response.headers["Cache-Control"] = "public, max-age=86400"

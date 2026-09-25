@@ -1,0 +1,471 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Задания для Nano Banana Pro | Horologium</title>
+<style>
+:root { --bg:#0b0c0e; --s:#14171b; --l:#262b31; --t:#e9ecef; --t2:#a9b0b8; --lume:#9fe9c4; }
+* { box-sizing:border-box } body { margin:0; background:var(--bg); color:var(--t); font:15px/1.5 -apple-system,system-ui,sans-serif; }
+main { max-width:1180px; margin:0 auto; padding:32px 16px 80px; }
+h1 { font-size:32px; margin:0 0 8px } .intro { background:var(--s); border:1px solid var(--l); border-radius:16px; padding:18px 22px; margin:18px 0 28px }
+.intro ol { margin:8px 0 0; padding-left:20px } .intro code { color:var(--lume) }
+.job { border:1px solid var(--l); border-radius:16px; padding:18px; margin-bottom:18px; background:#0f1114 }
+.job.is-done { opacity:.45 } .job header { display:flex; align-items:center; gap:12px }
+.num { font:600 13px/1 ui-monospace,monospace; color:var(--bg); background:var(--lume); border-radius:99px; padding:6px 9px }
+h2 { font-size:17px; margin:0; flex:1 } .done { color:var(--t2); font-size:13px }
+.grid { display:grid; grid-template-columns:300px 1fr; gap:22px; margin-top:14px }
+@media (max-width:860px) { .grid { grid-template-columns:1fr } }
+.label { color:var(--t2); font-size:13px; margin:12px 0 6px; display:flex; justify-content:space-between; align-items:center; gap:8px }
+.step { color:var(--t2); font-size:13px; margin:12px 0 6px } .step b { color:var(--t) }
+.ref { display:flex; gap:10px; align-items:center; color:var(--lume); text-decoration:none; font-size:13px }
+.ref img { width:64px; height:80px; object-fit:cover; border-radius:8px; background:#000 }
+pre { white-space:pre-wrap; background:var(--s); border:1px solid var(--l); border-radius:12px; padding:14px; font:12.5px/1.55 ui-monospace,monospace; color:#cfd5db; max-height:420px; overflow:auto; margin:0 }
+.copy { background:var(--s); color:var(--t); border:1px solid var(--l); border-radius:99px; padding:6px 12px; font:13px/1 inherit; cursor:pointer }
+.copy:hover { border-color:var(--lume) } .copy.ok { background:var(--lume); color:var(--bg) }
+.copy.file { font-family:ui-monospace,monospace; width:100%; text-align:left; border-radius:10px; overflow-wrap:anywhere }
+ol { margin:0; padding-left:20px; color:var(--t2); font-size:13px } .muted { color:var(--t2); font-size:13px }
+</style></head><body><main>
+<h1>Задания для Nano Banana Pro</h1>
+<p class="muted">Модели: rolex-gmt-master-ii-pepsi, longines-spirit-zulu-time. Листов: 15. Сгенерировано <code>scripts/teardown.py page</code>.</p>
+<div class="intro"><b>Как делать</b><ol>
+<li>Откройте <a href="https://aistudio.google.com/" target="_blank" rel="noopener" style="color:var(--lume)">Google AI Studio</a>, модель <b>Nano Banana Pro</b> (Gemini 3 Pro Image). В настройках: разрешение <b>4K</b>, соотношение сторон как указано у листа.</li>
+<li>Для каждого листа: скачайте референс (если есть) и прикрепите его, нажмите «Копировать промпт» и вставьте.</li>
+<li>Если на картинке детали налезают друг на друга, появились подписи, тени или обрезанные края, сгенерируйте ещё раз.</li>
+<li>Скачайте картинку и сохраните в папку <code>Рабочий стол / Horologium-детали</code> под именем с кнопки «Сохраните как» (нажмите, имя скопируется).</li>
+<li>Когда сделаете, напишите мне: я заберу картинки, вырежу детали, проверю подписи и соберу разборку.</li>
+</ol></div>
+
+<article class="job" id="job-1" data-file="rolex-gmt-master-ii-pepsi--exterior.png">
+  <header><span class="num">01</span><h2>rolex-gmt-master-ii-pepsi · Корпус, безель, стекло, крышка</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" download><img src="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-gmt-master-ii-pepsi--exterior.png">rolex-gmt-master-ii-pepsi--exterior.png</button>
+      <p class="step">Детали на картинке (12)</p><ol><li>Корпус Oyster (средняя часть)</li><li>Вращающийся безель</li><li>Вставка Cerachrom</li><li>Пружина-фиксатор безеля</li><li>Сапфировое стекло</li><li>Заводная головка Triplock</li><li>Трубка головки</li><li>Уплотнения головки <b>×3</b></li><li>Задняя крышка Oyster</li><li>Уплотнение крышки</li><li>Уплотнение стекла</li><li>Флажок с гравировкой</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-1">Копировать промпт</button></p>
+      <pre id="p-1">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex GMT-Master II ref. 126710BLRO: 40 mm Oystersteel case with crown guards, bidirectional rotatable 24-hour bezel with two-colour Cerachrom ceramic insert (upper half blue from 18 through 24 to 6, lower half red from 6 to 18) and platinum-coated numerals, black lacquer dial with round Chromalight hour markers, date window at 3 with Cyclops lens, red GMT hand with triangle tip, Jubilee five-piece bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. 40 mm Oyster case middle with lugs, integrated crown guards, Oystersteel, polished and satin-brushed surfaces, no crown
+2. rotating bezel ring with knurled (serrated) edge, Oystersteel
+3. 24-hour Cerachrom bezel insert, top half blue and bottom half red, engraved platinum-coated numerals 2 to 22 and triangle at 24
+4. bezel click spring (thin wavy steel wire ring)
+5. flat sapphire crystal with Cyclops magnifying lens over the date at 3 o&#x27;clock, transparent with antireflective tint, seen from above
+6. screw-down winding crown with fluted edge and embossed coronet on top, Oystersteel
+7. crown tube (small threaded steel tube)
+8. set of tiny black O-ring gaskets of the crown
+9. screw-down Oyster caseback with fine fluted edge, Oystersteel, plain polished centre
+10. black caseback O-ring gasket, thin ring
+11. crystal gasket, thin ring
+12. inner bezel ring (rehaut) with engraved text-like pattern around (no readable text), Oystersteel
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-2" data-file="rolex-gmt-master-ii-pepsi--dial.png">
+  <header><span class="num">02</span><h2>rolex-gmt-master-ii-pepsi · Циферблат и стрелки</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" download><img src="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-gmt-master-ii-pepsi--dial.png">rolex-gmt-master-ii-pepsi--dial.png</button>
+      <p class="step">Детали на картинке (5)</p><ol><li>Циферблат</li><li>Часовая стрелка Mercedes</li><li>Минутная стрелка</li><li>Секундная стрелка</li><li>Стрелка GMT</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-2">Копировать промпт</button></p>
+      <pre id="p-2">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex GMT-Master II ref. 126710BLRO: 40 mm Oystersteel case with crown guards, bidirectional rotatable 24-hour bezel with two-colour Cerachrom ceramic insert (upper half blue from 18 through 24 to 6, lower half red from 6 to 18) and platinum-coated numerals, black lacquer dial with round Chromalight hour markers, date window at 3 with Cyclops lens, red GMT hand with triangle tip, Jubilee five-piece bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. black lacquer dial with round white luminescent hour markers in white gold surrounds, triangle at 12, rectangles at 6 and 9, date aperture at 3, printed text lines, seen perfectly from above
+2. Mercedes-style hour hand, white gold with Chromalight luminescent fill
+3. sword minute hand, white gold with luminescent fill
+4. thin seconds hand with round lume dot and counterweight
+5. red 24-hour GMT hand with large triangular luminescent tip
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-3" data-file="rolex-gmt-master-ii-pepsi--bracelet.png">
+  <header><span class="num">03</span><h2>rolex-gmt-master-ii-pepsi · Браслет Jubilee</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" download><img src="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-gmt-master-ii-pepsi--bracelet.png">rolex-gmt-master-ii-pepsi--bracelet.png</button>
+      <p class="step">Детали на картинке (6)</p><ol><li>Концевое звено <b>×2</b></li><li>Внешнее звено Jubilee <b>×14</b></li><li>Центральное звено Jubilee <b>×21</b></li><li>Застёжка Oysterclasp</li><li>Винт-штифт звена <b>×6</b></li><li>Пружинный штифт <b>×2</b></li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-3">Копировать промпт</button></p>
+      <pre id="p-3">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex GMT-Master II ref. 126710BLRO: 40 mm Oystersteel case with crown guards, bidirectional rotatable 24-hour bezel with two-colour Cerachrom ceramic insert (upper half blue from 18 through 24 to 6, lower half red from 6 to 18) and platinum-coated numerals, black lacquer dial with round Chromalight hour markers, date window at 3 with Cyclops lens, red GMT hand with triangle tip, Jubilee five-piece bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. Jubilee bracelet end link, Oystersteel
+2. Jubilee outer link piece (brushed), Oystersteel
+3. small polished Jubilee centre link piece, Oystersteel
+4. concealed folding Crownclasp / Oysterclasp, opened, Oystersteel
+5. tiny threaded link screw pin
+6. spring bar
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-4" data-file="rolex-32xx-3285--movement_top.png">
+  <header><span class="num">04</span><h2>rolex-32xx-3285 · Автоподзавод и мосты</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-32xx-3285--movement_top.png">rolex-32xx-3285--movement_top.png</button>
+      <p class="step">Детали на картинке (10)</p><ol><li>Ротор автоподзавода</li><li>Мост автоподзавода</li><li>Колесо-реверсор <b>×2</b></li><li>Передаточное колесо автоподзавода <b>×2</b></li><li>Мост баланса</li><li>Мост барабана</li><li>Мост колёсной передачи</li><li>Храповое колесо</li><li>Коронное колесо</li><li>Мост анкерной вилки</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-4">Копировать промпт</button></p>
+      <pre id="p-4">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
+Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. oscillating weight (rotor), half-moon shape, satin finish with Côtes de Genève, central ball bearing
+2. automatic winding bridge (reverser bridge), polished bevels
+3. reversing wheel of the automatic winding (small gold wheel with pinion)
+4. automatic winding intermediate wheel
+5. traversing balance bridge fixed at two points, with regulating stud carrier, Côtes de Genève
+6. barrel bridge with jewel settings, Côtes de Genève stripes, polished bevels
+7. train wheel bridge with red ruby jewels, Côtes de Genève stripes
+8. ratchet wheel with sunburst (soleil) finish, large flat steel wheel
+9. crown wheel, small steel wheel with sunburst finish
+10. pallet bridge, small polished bridge with one ruby jewel
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-5" data-file="rolex-32xx-3285--movement_train.png">
+  <header><span class="num">05</span><h2>rolex-32xx-3285 · Энергия, передача и спуск</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-32xx-3285--movement_train.png">rolex-32xx-3285--movement_train.png</button>
+      <p class="step">Детали на картинке (13)</p><ol><li>Барабан (закрытый)</li><li>Заводная пружина</li><li>Вал барабана</li><li>Центральное колесо</li><li>Промежуточное колесо</li><li>Секундное колесо</li><li>Анкерное колесо Chronergy</li><li>Анкерная вилка Chronergy</li><li>Баланс со спиралью Parachrom</li><li>Амортизатор Paraflex <b>×2</b></li><li>Заводной триб</li><li>Кулачковая муфта</li><li>Заводной вал</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-5">Копировать промпт</button></p>
+      <pre id="p-5">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
+Show EXACTLY 13 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. closed mainspring barrel with toothed rim, gold-coloured
+2. mainspring removed from barrel, relaxed spiral of thin polished steel ribbon
+3. barrel arbor (small steel shaft with hook)
+4. centre wheel with long pinion arbor, gold-coloured
+5. third wheel, gold-coloured with steel pinion
+6. fourth wheel (seconds wheel) with long arbor
+7. Chronergy escape wheel, skeletonised, nickel-phosphorus, grey metallic
+8. Chronergy pallet fork with two red ruby pallet stones
+9. balance wheel with blue Parachrom hairspring with Breguet overcoil and gold Microstella nuts
+10. Paraflex shock absorber assembly (tiny spring and jewel setting)
+11. winding pinion (small steel gear)
+12. sliding pinion / clutch wheel (steel, teeth on both ends)
+13. winding stem (long thin steel rod with square section)
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-6" data-file="rolex-32xx-3285--movement_dial.png">
+  <header><span class="num">06</span><h2>rolex-32xx-3285 · Сторона циферблата</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-32xx-3285--movement_dial.png">rolex-32xx-3285--movement_dial.png</button>
+      <p class="step">Детали на картинке (12)</p><ol><li>Платина</li><li>Минутный триб</li><li>Вексельное колесо</li><li>Часовое колесо</li><li>Рычаг перевода стрелок</li><li>Кулиса</li><li>Пружина кулисы <b>×2</b></li><li>Диск даты</li><li>Колесо мгновенной даты</li><li>Фиксатор даты</li><li>24-часовое колесо GMT</li><li>Звёздочка прыгающего часа <b>×2</b></li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-6">Копировать промпт</button></p>
+      <pre id="p-6">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. mainplate (pillar plate) seen from the dial side, perlage finish, jewel holes, 28.5 mm round
+2. cannon pinion (tube with small gear)
+3. minute wheel with pinion
+4. hour wheel with tube
+5. setting lever, flat polished steel
+6. yoke (clutch lever), flat polished steel
+7. yoke spring and setting lever jumper, thin steel springs
+8. date disc, thin ring printed with numbers 1 to 31, internal teeth
+9. instantaneous date driving wheel with finger
+10. date jumper spring (flat steel spring)
+11. 24-hour GMT wheel with tube for the GMT hand
+12. jumping hour star wheel and jumper of the independent hour hand
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-7" data-file="rolex-32xx-3285--movement_screws.png">
+  <header><span class="num">07</span><h2>rolex-32xx-3285 · Винты и мелочь</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-32xx-3285--movement_screws.png">rolex-32xx-3285--movement_screws.png</button>
+      <p class="step">Детали на картинке (6)</p><ol><li>Винт моста <b>×8</b></li><li>Винт ротора</li><li>Винт храпового колеса</li><li>Рубиновый камень <b>×6</b></li><li>Кольцо механизма</li><li>Винт-лапка механизма <b>×2</b></li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-7">Копировать промпт</button></p>
+      <pre id="p-7">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
+Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. polished steel bridge screw with slotted head
+2. rotor screw with slotted head
+3. ratchet wheel screw, large flat head
+4. single synthetic ruby jewel bearing (tiny red disc with hole)
+5. movement holder ring (spacer ring), thin steel ring
+6. casing clamp screw with flat clamp
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-8" data-file="rolex-gmt-master-ii-pepsi--assembled_front.png">
+  <header><span class="num">08</span><h2>rolex-gmt-master-ii-pepsi · Собранные часы</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>1:1</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" download><img src="/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="rolex-gmt-master-ii-pepsi--assembled_front.png">rolex-gmt-master-ii-pepsi--assembled_front.png</button>
+      <p class="step">Детали на картинке (0)</p><ol><li>Часы целиком</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-8">Копировать промпт</button></p>
+      <pre id="p-8">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Subject: the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background. The watch: Rolex GMT-Master II ref. 126710BLRO: 40 mm Oystersteel case with crown guards, bidirectional rotatable 24-hour bezel with two-colour Cerachrom ceramic insert (upper half blue from 18 through 24 to 6, lower half red from 6 to 18) and platinum-coated numerals, black lacquer dial with round Chromalight hour markers, date window at 3 with Cyclops lens, red GMT hand with triangle tip, Jubilee five-piece bracelet. Match the reference photos exactly (proportions, colours, dial layout, bezel). Seamless uniform light-grey background (#d6d6d6), shadowless light, the watch fills about 70% of the frame height.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-9" data-file="longines-spirit-zulu-time--exterior.png">
+  <header><span class="num">09</span><h2>longines-spirit-zulu-time · Корпус, безель, стекло, крышка</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" download><img src="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-spirit-zulu-time--exterior.png">longines-spirit-zulu-time--exterior.png</button>
+      <p class="step">Детали на картинке (10)</p><ol><li>Корпус</li><li>Вращающийся безель</li><li>Керамическая вставка 24 часа</li><li>Пружина-фиксатор безеля</li><li>Сапфировое стекло</li><li>Заводная головка</li><li>Трубка головки</li><li>Уплотнения <b>×3</b></li><li>Задняя крышка</li><li>Уплотнение крышки</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-9">Копировать промпт</button></p>
+      <pre id="p-9">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured GMT hand, date at 3, three-link steel bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. 42 mm stainless steel case middle with lugs, polished and brushed, no crown
+2. bidirectional rotating bezel ring with grooved edge, stainless steel
+3. black ceramic 24-hour bezel insert with engraved white numerals
+4. bezel click spring
+5. domed sapphire crystal with antireflective coating
+6. screw-down fluted winding crown with engraved emblem area
+7. crown tube
+8. black O-ring gaskets
+9. screw-down stainless steel caseback with engraved decoration
+10. caseback gasket ring
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-10" data-file="longines-spirit-zulu-time--dial.png">
+  <header><span class="num">10</span><h2>longines-spirit-zulu-time · Циферблат и стрелки</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" download><img src="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-spirit-zulu-time--dial.png">longines-spirit-zulu-time--dial.png</button>
+      <p class="step">Детали на картинке (5)</p><ol><li>Циферблат</li><li>Часовая стрелка</li><li>Минутная стрелка</li><li>Секундная стрелка</li><li>Стрелка GMT</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-10">Копировать промпт</button></p>
+      <pre id="p-10">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured GMT hand, date at 3, three-link steel bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. black sunray dial with applied polished Arabic numerals 12, 3, 6, 9 and luminescent indices, date window at 3, printed text lines
+2. polished sword hour hand with lume
+3. polished sword minute hand with lume
+4. thin seconds hand with lume tip
+5. gold-coloured GMT hand with arrow tip
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-11" data-file="longines-spirit-zulu-time--bracelet.png">
+  <header><span class="num">11</span><h2>longines-spirit-zulu-time · Браслет</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" download><img src="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-spirit-zulu-time--bracelet.png">longines-spirit-zulu-time--bracelet.png</button>
+      <p class="step">Детали на картинке (5)</p><ol><li>Концевое звено <b>×2</b></li><li>Звено браслета <b>×14</b></li><li>Застёжка</li><li>Штифт звена <b>×8</b></li><li>Пружинный штифт <b>×2</b></li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-11">Копировать промпт</button></p>
+      <pre id="p-11">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured GMT hand, date at 3, three-link steel bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
+Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. bracelet end link, stainless steel
+2. single three-piece bracelet link, brushed with polished centre, stainless steel
+3. folding clasp with push buttons, opened, stainless steel
+4. link pin
+5. spring bar
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-12" data-file="longines-a31-l844--movement_top.png">
+  <header><span class="num">12</span><h2>longines-a31-l844 · Автоподзавод и мосты</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-a31-l844--movement_top.png">longines-a31-l844--movement_top.png</button>
+      <p class="step">Детали на картинке (8)</p><ol><li>Ротор с гравировкой Longines</li><li>Мост автоподзавода</li><li>Колесо-реверсор <b>×2</b></li><li>Мост баланса</li><li>Мост барабана</li><li>Мост колёсной передачи</li><li>Храповое колесо</li><li>Коронное колесо</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-12">Копировать промпт</button></p>
+      <pre id="p-12">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
+Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. oscillating weight with Côtes de Genève and engraved winged-hourglass style emblem area (no readable text)
+2. automatic winding bridge
+3. reversing wheel
+4. balance cock with shock protection
+5. barrel bridge with perlage and Côtes de Genève
+6. train wheel bridge with ruby jewels
+7. ratchet wheel, sunburst finish
+8. crown wheel
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-13" data-file="longines-a31-l844--movement_train.png">
+  <header><span class="num">13</span><h2>longines-a31-l844 · Энергия, передача и спуск</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-a31-l844--movement_train.png">longines-a31-l844--movement_train.png</button>
+      <p class="step">Детали на картинке (11)</p><ol><li>Барабан</li><li>Заводная пружина</li><li>Центральное колесо</li><li>Промежуточное колесо</li><li>Секундное колесо</li><li>Анкерное колесо</li><li>Анкерная вилка</li><li>Баланс с кремниевой спиралью</li><li>Противоударное устройство <b>×2</b></li><li>Заводной триб и муфта <b>×2</b></li><li>Заводной вал</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-13">Копировать промпт</button></p>
+      <pre id="p-13">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
+Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. closed mainspring barrel
+2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
+3. centre wheel
+4. third wheel
+5. fourth wheel
+6. escape wheel
+7. pallet fork with ruby pallet stones
+8. balance wheel with dark silicon hairspring
+9. shock protection setting with lyre spring
+10. winding pinion and sliding pinion
+11. winding stem
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-14" data-file="longines-a31-l844--movement_dial.png">
+  <header><span class="num">14</span><h2>longines-a31-l844 · Сторона циферблата</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>16:9</b></p>
+      <p class="step">2. Приложите референс</p><p class="muted">Референс не нужен</p>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-a31-l844--movement_dial.png">longines-a31-l844--movement_dial.png</button>
+      <p class="step">Детали на картинке (11)</p><ol><li>Платина</li><li>Минутный триб и вексельное колесо <b>×2</b></li><li>Часовое колесо</li><li>Рычаги перевода <b>×3</b></li><li>Диск даты</li><li>Колесо даты и фиксатор <b>×2</b></li><li>24-часовое колесо GMT</li><li>Звёздочка прыгающего часа <b>×2</b></li><li>Винт моста <b>×10</b></li><li>Рубиновый камень <b>×6</b></li><li>Кольцо механизма</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-14">Копировать промпт</button></p>
+      <pre id="p-14">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
+
+Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
+Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+1. mainplate seen from the dial side, perlage
+2. cannon pinion and minute wheel
+3. hour wheel
+4. setting lever, yoke and springs
+5. date disc printed 1 to 31
+6. date driving wheel and date jumper
+7. 24-hour GMT wheel with tube
+8. jumping hour star wheel and jumper
+9. steel screw (blued on rotor)
+10. synthetic ruby jewel
+11. movement holder ring
+Nothing else in the image.</pre>
+    </div>
+  </div>
+</article>
+<article class="job" id="job-15" data-file="longines-spirit-zulu-time--assembled_front.png">
+  <header><span class="num">15</span><h2>longines-spirit-zulu-time · Собранные часы</h2>
+    <label class="done"><input type="checkbox"> готово</label></header>
+  <div class="grid">
+    <div>
+      <p class="step">1. Настройки: Nano Banana Pro, <b>4K</b>, <b>1:1</b></p>
+      <p class="step">2. Приложите референс</p><a class="ref" href="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" download><img src="/assets/photos/longines-spirit-zulu-time/1-1600.jpg" alt=""><span>Скачать референс</span></a>
+      <p class="step">3. Сохраните как</p>
+      <button class="copy file" data-copy="longines-spirit-zulu-time--assembled_front.png">longines-spirit-zulu-time--assembled_front.png</button>
+      <p class="step">Детали на картинке (0)</p><ol><li>Часы целиком</li></ol>
+    </div>
+    <div>
+      <p class="label">Промпт <button class="copy" data-copy-from="p-15">Копировать промпт</button></p>
+      <pre id="p-15">Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Subject: the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background. The watch: Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured GMT hand, date at 3, three-link steel bracelet. Match the reference photos exactly (proportions, colours, dial layout, bezel). Seamless uniform light-grey background (#d6d6d6), shadowless light, the watch fills about 70% of the frame height.</pre>
+    </div>
+  </div>
+</article>
+</main>
+<script>
+document.addEventListener("click", async (e) => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.copy ?? document.getElementById(b.dataset.copyFrom).textContent;
+  await navigator.clipboard.writeText(text);
+  const old = b.textContent; b.classList.add("ok"); b.textContent = "Скопировано";
+  setTimeout(() => { b.classList.remove("ok"); b.textContent = old; }, 1200);
+});
+document.querySelectorAll(".job").forEach((job) => {
+  const box = job.querySelector(".done input"), key = "td:" + job.dataset.file;
+  try { box.checked = localStorage.getItem(key) === "1"; } catch {}
+  job.classList.toggle("is-done", box.checked);
+  box.addEventListener("change", () => { job.classList.toggle("is-done", box.checked); try { localStorage.setItem(key, box.checked ? "1" : "0"); } catch {} });
+});
+</script></body></html>

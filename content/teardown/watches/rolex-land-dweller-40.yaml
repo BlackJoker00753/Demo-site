@@ -32,5 +32,4 @@ plates:
   - [bracelet_link, Звено Flat Jubilee, 'flat Jubilee five-piece link, satin and polished, Oystersteel', 22, 14]
   - [clasp, Застёжка, 'concealed folding clasp, opened, Oystersteel', 36, 1]
   - [bracelet_pins, Винт-штифт звена, link screw pin, 5, 8]
-assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
-    exactly from the back with the caseback removed, showing the assembled movement with rotor'}
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background'}
