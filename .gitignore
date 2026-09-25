@@ -221,3 +221,6 @@ __marimo__/
 data/*.sqlite3*
 .DS_Store
 scripts/.cache/
+
+# Исходные 4K-листы Gemini для разборки (тяжёлые, в репозиторий попадают только нарезанные атласы)
+teardown_src/

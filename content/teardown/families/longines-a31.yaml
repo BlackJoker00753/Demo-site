@@ -1,0 +1,50 @@
+# Longines L844, L888, L899: эксклюзивные калибры ETA для Longines семейства A31 (72 часа, 25 200 пк/ч,
+# кремниевая спираль). L844: GMT с независимой часовой стрелкой. L888: три стрелки и дата. L899: дата и фаза Луны.
+family: longines-a31
+variants: [L844, L888, L899]
+movement_mm: 25.6
+look: >-
+  Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage,
+  gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor.
+plates:
+  - id: movement_top
+    title: Автоподзавод и мосты
+    parts:
+      - [rotor, "Ротор с гравировкой Longines", "oscillating weight with Côtes de Genève and engraved winged-hourglass style emblem area (no readable text)", 25, 1]
+      - [auto_bridge, "Мост автоподзавода", "automatic winding bridge", 17, 1]
+      - [reverser, "Колесо-реверсор", "reversing wheel", 4.5, 2]
+      - [balance_cock, "Мост баланса", "balance cock with shock protection", 12, 1]
+      - [bridges, "Мост барабана", "barrel bridge with perlage and Côtes de Genève", 18, 1]
+      - [bridges, "Мост колёсной передачи", "train wheel bridge with ruby jewels", 15, 1]
+      - [ratchet, "Храповое колесо", "ratchet wheel, sunburst finish", 7.5, 1]
+      - [crown_wheel, "Коронное колесо", "crown wheel", 4.5, 1]
+  - id: movement_train
+    title: Энергия, передача и спуск
+    parts:
+      - [barrel, "Барабан", "closed mainspring barrel", 10, 1]
+      - [mainspring, "Заводная пружина", "long mainspring for 72 hours out of the barrel, relaxed steel spiral", 12, 1]
+      - [train, "Центральное колесо", "centre wheel", 9, 1]
+      - [train, "Промежуточное колесо", "third wheel", 7, 1]
+      - [train, "Секундное колесо", "fourth wheel", 6.5, 1]
+      - [escape_wheel, "Анкерное колесо", "escape wheel", 4.5, 1]
+      - [pallet, "Анкерная вилка", "pallet fork with ruby pallet stones", 5, 1]
+      - [balance, "Баланс с кремниевой спиралью", "balance wheel with dark silicon hairspring", 9, 1]
+      - [shock, "Противоударное устройство", "shock protection setting with lyre spring", 2.5, 2]
+      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [stem, "Заводной вал", "winding stem", 13, 1]
+  - id: movement_dial
+    title: Сторона циферблата
+    parts:
+      - [mainplate, "Платина", "mainplate seen from the dial side, perlage", 25.6, 1]
+      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 2]
+      - [hour_wheel, "Часовое колесо", "hour wheel", 5.5, 1]
+      - [setting, "Рычаги перевода", "setting lever, yoke and springs", 7, 3]
+      - [date_disc, "Диск даты", "date disc printed 1 to 31", 23, 1]
+      - [calendar, "Колесо даты и фиксатор", "date driving wheel and date jumper", 6, 2]
+      - [gmt_wheel, "24-часовое колесо GMT", "24-hour GMT wheel with tube", 8, 1, {only: [L844]}]
+      - [gmt_wheel, "Звёздочка прыгающего часа", "jumping hour star wheel and jumper", 6, 2, {only: [L844]}]
+      - [moon_disc, "Диск фазы Луны", "moon phase disc with two gold moons on dark blue, 59 teeth", 14, 1, {only: [L899]}]
+      - [calendar, "Колесо фазы Луны", "moon phase driving wheel and jumper", 5, 2, {only: [L899]}]
+      - [screws, "Винт моста", "steel screw (blued on rotor)", 2, 10]
+      - [jewels, "Рубиновый камень", "synthetic ruby jewel", 1.5, 6]
+      - [movement_ring, "Кольцо механизма", "movement holder ring", 29, 1]

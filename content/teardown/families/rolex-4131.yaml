@@ -1,0 +1,59 @@
+# Rolex 4131: хронограф Cosmograph Daytona (2023). Колонное колесо, вертикальное сцепление,
+# мосты с Côtes de Genève Rolex, ротор со скелетонизацией, спуск Chronergy, спираль Parachrom.
+family: rolex-4131
+variants: [4131]
+movement_mm: 30.5
+look: >-
+  Rolex manufacture automatic chronograph calibre, bridges with Rolex Côtes de Genève stripes and polished bevels,
+  skeletonised 18 ct yellow gold rotor, red ruby jewels, blue Parachrom hairspring, polished steel chronograph levers.
+plates:
+  - id: movement_top
+    title: Автоподзавод и мосты
+    parts:
+      - [rotor, "Ротор автоподзавода (золото, скелетон)", "skeletonised 18 ct yellow gold oscillating weight with central bearing", 29, 1]
+      - [auto_bridge, "Мост автоподзавода", "automatic winding bridge with reversing wheels", 20, 1]
+      - [reverser, "Колесо-реверсор", "reversing wheel (small gold wheel with pinion)", 5, 2]
+      - [balance_cock, "Мост баланса", "traversing balance bridge fixed at two points", 17, 1]
+      - [bridges, "Мост барабана", "barrel bridge, Côtes de Genève", 21, 1]
+      - [bridges, "Мост хронографа", "chronograph bridge with jewels, Côtes de Genève", 19, 1]
+      - [bridges, "Мост колёсной передачи", "train wheel bridge with ruby jewels", 16, 1]
+      - [ratchet, "Храповое колесо", "ratchet wheel, sunburst finish", 8.5, 1]
+      - [crown_wheel, "Коронное колесо", "crown wheel", 5, 1]
+  - id: movement_chrono
+    title: Хронограф
+    parts:
+      - [column_wheel, "Колонное колесо", "column wheel of the chronograph (castle-like wheel with 6 columns and ratchet teeth)", 4.5, 1]
+      - [clutch, "Вертикальная муфта", "vertical clutch (friction disc clutch assembly)", 6, 1]
+      - [chrono_wheel, "Колесо центральной секунды хронографа", "chronograph centre seconds wheel", 9, 1]
+      - [chrono_wheel, "Счётчик минут хронографа", "30-minute counter wheel", 6, 1]
+      - [chrono_wheel, "Счётчик часов хронографа", "12-hour counter wheel", 6, 1]
+      - [chrono_lever, "Рычаг старт-стоп", "start/stop operating lever, polished steel", 12, 1]
+      - [chrono_lever, "Рычаг сброса", "reset hammer, polished steel with multiple heart-cam faces", 12, 1]
+      - [chrono_lever, "Сердечко сброса", "heart-shaped reset cams", 3, 3]
+      - [chrono_lever, "Тормоз хронографа", "chronograph brake lever", 8, 1]
+      - [chrono_lever, "Пружина рычага", "thin steel lever spring", 7, 3]
+  - id: movement_train
+    title: Энергия, передача и спуск
+    parts:
+      - [barrel, "Барабан", "closed mainspring barrel, gold-coloured", 11, 1]
+      - [mainspring, "Заводная пружина", "mainspring out of the barrel, relaxed steel spiral", 13, 1]
+      - [train, "Центральное колесо", "centre wheel", 10, 1]
+      - [train, "Промежуточное колесо", "third wheel", 8, 1]
+      - [train, "Секундное колесо", "fourth wheel", 7, 1]
+      - [escape_wheel, "Анкерное колесо Chronergy", "Chronergy escape wheel, skeletonised nickel-phosphorus", 5, 1]
+      - [pallet, "Анкерная вилка Chronergy", "Chronergy pallet fork with ruby pallet stones", 6, 1]
+      - [balance, "Баланс со спиралью Parachrom", "balance wheel with blue Parachrom hairspring and gold Microstella nuts", 10, 1]
+      - [shock, "Амортизатор Paraflex", "Paraflex shock absorber", 2.5, 2]
+      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [stem, "Заводной вал", "winding stem", 14, 1]
+  - id: movement_dial
+    title: Сторона циферблата
+    parts:
+      - [mainplate, "Платина", "mainplate seen from the dial side, perlage", 30.5, 1]
+      - [cannon, "Минутный триб", "cannon pinion", 4, 1]
+      - [cannon, "Вексельное колесо", "minute wheel", 4, 1]
+      - [hour_wheel, "Часовое колесо", "hour wheel", 6, 1]
+      - [setting, "Рычаг перевода стрелок и кулиса", "setting lever and yoke, polished steel", 9, 2]
+      - [screws, "Винт моста", "polished steel screw", 2, 10]
+      - [jewels, "Рубиновый камень", "synthetic ruby jewel", 1.5, 6]
+      - [movement_ring, "Кольцо механизма", "movement holder ring", 33, 1]

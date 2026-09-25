@@ -12,6 +12,7 @@ import { scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { PhotoExplode } from "../ui/photo-explode.js";
+import { Teardown, hasTeardown } from "../ui/teardown.js";
 import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
@@ -270,6 +271,8 @@ export default {
         <section class="wexplode" id="explode" aria-label="Разборка часов">
           <div class="wexplode__pin">
             <canvas class="wexplode__canvas" aria-label="Интерактивная разборка часов"></canvas>
+            <canvas class="wexplode__td" aria-label="Разборка ${w.name} до детали" hidden></canvas>
+            <div class="wtd-tip" hidden></div>
             <figure class="wreal" hidden>
               <div class="wreal__frame"></div>
               <figcaption class="wreal__cap"></figcaption>
@@ -283,6 +286,7 @@ export default {
               <div class="wexplode__head">
                 <h2 class="display display--m">Из чего собраны ${w.name}</h2>
                 <p class="muted wexplode__hint" data-mode-hint="3d">Интерактивная разборка модели 1 в 1: корпус, безель, сапфировое стекло, стрелки, циферблат, детали калибра и браслет именно этих часов. Потяните ползунок или прокрутите страницу. Нажмите на деталь, чтобы узнать её назначение и увидеть макроснимок.</p>
+                <p class="muted wexplode__hint" data-mode-hint="td" hidden>Все детали этих часов по отдельности: прокрутите, и они разойдутся вдоль оси, как на схеме часовщика. Наведите на деталь, чтобы увидеть название, нажмите, чтобы узнать, зачем она нужна. <span class="wtd-note">Изображения деталей созданы ИИ (Gemini) по официальным фото модели.</span></p>
                 <p class="muted wexplode__hint" data-mode-hint="photo" hidden>${mech
                 ? "Анатомический фото-разбор классического механического калибра: анкерный спуск, баланс, мосты и заводной барабан. Нажимайте на светящиеся точки."
                 : "Анатомический фото-разбор кварцевого калибра: кристалл кварца, интегральная схема и шаговый двигатель. Нажимайте на светящиеся точки."}</p>
@@ -422,6 +426,7 @@ export default {
     const slider = qs(".wexplode__slider input", root);
     const setT = (t) => {
       photoExplode?.setT(t);
+      teardown?.setT(t);
       if (!model || !explodeStage) {
         slider.value = Math.round(t * 1000);
         return;
@@ -433,18 +438,19 @@ export default {
       slider.value = Math.round(t * 1000);
       if (!explodeStage.running) explodeStage.frame();
     };
-    const showPart = (key) => {
+    const showPart = (key, name = null) => {
       if (mode === "3d") {
         explodeStage?.highlight(key);
         if (explodeStage && !explodeStage.running) explodeStage.frame();
       }
-      qsa("[data-part]", root).forEach((b) => b.setAttribute("aria-pressed", b.dataset.part === key));
+      if (mode === "td") teardown?.highlight(key);
+      qsa("[data-part]", root).forEach((b) => b.setAttribute("aria-pressed", b.dataset.part === key && (!name || !b.dataset.name || b.dataset.name === name)));
       if (!key) {
         card.hidden = true;
         return;
       }
       const inf = partInfo(key);
-      qs("h3", card).textContent = inf.name;
+      qs("h3", card).textContent = name ?? inf.name;
       qs("p", card).textContent = inf.text;
       const media = qs(".wpart-card__media", card);
       const ph = partPhotos?.[photoKey(key)]?.[0];
@@ -502,6 +508,45 @@ export default {
     io.observe(qs(".wexplode", root));
     cleanups.push(() => io.disconnect());
 
+    // ---------------------------------------------------------- разборка до детали (teardown)
+    // Детали модели из листов Gemini (scripts/teardown.py). Если они есть, это режим по умолчанию.
+    let teardown = null;
+    const tdCanvas = qs(".wexplode__td", root);
+    const tdTip = qs(".wtd-tip", root);
+    const initTeardown = async () => {
+      if (teardown) return teardown;
+      teardown = new Teardown(tdCanvas, w.slug);
+      await teardown.load();
+      if (!root.isConnected) return null;
+      teardown.bind();
+      teardown.on((ev) => {
+        if (ev.type === "hover") {
+          tdTip.hidden = !ev.part;
+          if (ev.part) {
+            const r = tdCanvas.getBoundingClientRect();
+            tdTip.textContent = ev.part.name;
+            tdTip.style.transform = `translate(${ev.x - r.left + 16}px, ${ev.y - r.top + 12}px)`;
+          }
+        } else if (ev.type === "pick") {
+          showPart(ev.part?.key ?? null, ev.part?.name ?? null);
+        }
+      });
+      // список деталей по названиям (одинаковые детали одной строкой со счётчиком)
+      partsList.insertAdjacentHTML("afterbegin", teardown.catalogue()
+        .map((c) => `<li data-td hidden><button type="button" data-part="${c.key}" data-name="${c.name.replace(/"/g, "&quot;")}" aria-pressed="false">${c.name}${c.count > 1 ? ` <small>×${c.count}</small>` : ""}</button></li>`).join(""));
+      qs(".wtd-count", root) && (qs(".wtd-count", root).textContent = String(teardown.parts.length));
+      teardown.setT(state.t, true);
+      filterParts();
+      return teardown;
+    };
+    partsList.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-name]");
+      if (!b || mode !== "td") return;
+      e.stopImmediatePropagation();
+      showPart(b.getAttribute("aria-pressed") === "true" ? null : b.dataset.part, b.dataset.name);
+    }, true);
+    cleanups.push(() => teardown?.dispose());
+
     // Режим «Настоящий механизм»: фото разобранного калибра того же типа с точками-деталями.
     const real = qs(".wreal", root);
     const seg = qs(".seg", root);
@@ -554,48 +599,59 @@ export default {
         .map((k) => `<li hidden><button type="button" data-part="${k}" aria-pressed="false">${partInfo(k).name}</button></li>`).join(""));
     };
     const filterParts = () => {
+      if (mode === "td") {
+        qsa("[data-part]", partsList).forEach((b) => (b.parentElement.hidden = !b.parentElement.hasAttribute("data-td")));
+        return;
+      }
       const keys = mode === "photo" ? new Set(realKeys ?? partPhotos?.[realKey]?.[0]?.hotspots.map((h) => h.key)) : modelKeys;
-      qsa("[data-part]", partsList).forEach((b) => (b.parentElement.hidden = !keys.has(b.dataset.part)));
+      qsa("[data-part]", partsList).forEach((b) => (b.parentElement.hidden = b.parentElement.hasAttribute("data-td") || !keys.has(b.dataset.part)));
     };
-    const setMode = (next) => {
+    const setMode = async (next) => {
       if (next === mode) return;
       if (next === "photo" && !realBuilt) realBuilt = buildReal();
       if (next === "photo" && !realBuilt) return;
+      if (next === "td" && !(await initTeardown())) return;
       mode = next;
       qsa(".seg__btn", seg).forEach((b) => b.setAttribute("aria-selected", b.dataset.mode === mode));
       moveSegPill(qs(`[data-mode="${mode}"]`, seg));
       qsa("[data-mode-hint]", root).forEach((el) => (el.hidden = el.dataset.modeHint !== mode));
       showPart(null);
-      const photo = mode === "photo";
-      // список деталей: в фото-режиме только отмеченные на снимке
       filterParts();
-      // ползунок остаётся, если настоящий механизм тоже разбирается по шкале
-      const hideSlider = photo && !photoExplode;
-      if (photo) {
-        real.hidden = false;
-        if (!still) {
-          g.to(hideSlider ? [canvasEl, sliderWrap] : [canvasEl], { autoAlpha: 0, duration: 0.5, ease: "power2.out" });
-          g.fromTo(real, { autoAlpha: 0, scale: 0.97 }, { autoAlpha: 1, scale: 1, duration: 0.9, ease: "expo.out" });
-          if (!photoExplode) g.fromTo(qsa(".wreal__dot", real), { scale: 0, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "back.out(2)", delay: 0.25 });
-        } else {
-          canvasEl.style.visibility = "hidden";
-          if (hideSlider) sliderWrap.style.visibility = "hidden";
-        }
-      } else {
-        const done = () => (real.hidden = true);
-        if (!still) {
-          g.to(real, { autoAlpha: 0, scale: 0.98, duration: 0.45, ease: "power2.in", onComplete: done });
-          g.to([canvasEl, sliderWrap], { autoAlpha: 1, duration: 0.7, ease: "power2.out", delay: 0.2 });
-        } else {
-          done();
-          canvasEl.style.visibility = sliderWrap.style.visibility = "visible";
-        }
+      // видимые слои режима; ползунок нужен везде, кроме статичного фото-режима
+      const layers = { "3d": [canvasEl], photo: [real], td: [tdCanvas] };
+      const slide = !(mode === "photo" && !photoExplode);
+      if (mode === "3d") explodeStage?.start();
+      else explodeStage?.stop();
+      tdCanvas.hidden = false;
+      if (mode === "photo") real.hidden = false;
+      for (const [m, els] of Object.entries(layers)) {
+        const on = m === mode;
+        if (still) els.forEach((el) => (el.style.visibility = on ? "visible" : "hidden"));
+        else g.to(els, { autoAlpha: on ? 1 : 0, duration: on ? 0.8 : 0.45, ease: on ? "power2.out" : "power2.in", delay: on ? 0.15 : 0 });
+      }
+      if (still) sliderWrap.style.visibility = slide ? "visible" : "hidden";
+      else g.to(sliderWrap, { autoAlpha: slide ? 1 : 0, duration: 0.5 });
+      if (mode === "photo" && !photoExplode && !still) {
+        g.fromTo(qsa(".wreal__dot", real), { scale: 0, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "back.out(2)", delay: 0.25 });
       }
     };
     qsa(".seg__btn", seg).forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
     requestAnimationFrame(() => moveSegPill(qs('[aria-selected="true"]', seg)));
     window.addEventListener("resize", () => moveSegPill(qs('[aria-selected="true"]', seg)));
-    // По умолчанию 3D-разборка именно этой модели (1 в 1)
+    // По умолчанию разборка до детали, если для модели она собрана; иначе 3D-схема.
+    hasTeardown(w.slug).then((ok) => {
+      if (!ok || !root.isConnected) return;
+      const btn = document.createElement("button");
+      btn.className = "seg__btn";
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.dataset.mode = "td";
+      btn.setAttribute("aria-selected", "false");
+      btn.innerHTML = '<i class="ph-light ph-stack" aria-hidden="true"></i>До детали';
+      qs(".seg__pill", seg).after(btn);
+      btn.addEventListener("click", () => setMode("td"));
+      setMode("td");
+    });
 
     if (!still) {
       ST.create({

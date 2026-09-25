@@ -1,0 +1,44 @@
+# Rolex 7140 (Perpetual 1908) и 7135 (Land-Dweller, спуск Dynapulse, 5 Гц).
+# Тонкая архитектура, открытые через сапфировую крышку мосты с Côtes de Genève Rolex,
+# ротор из золота со скелетонизацией, спираль Syloxi из кремния.
+family: rolex-71xx
+variants: [7140, 7135]
+movement_mm: 30.5
+look: >-
+  thin Rolex manufacture automatic calibre, bridges with Rolex Côtes de Genève (wide stripes), polished bevels,
+  skeletonised 18 ct gold rotor, silicon Syloxi hairspring (dark grey-blue), red ruby jewels.
+plates:
+  - id: movement_top
+    title: Автоподзавод и мосты
+    parts:
+      - [rotor, "Ротор автоподзавода (золото, скелетон)", "openworked 18 ct gold oscillating weight with central bearing", 29, 1]
+      - [auto_bridge, "Мост автоподзавода", "automatic winding bridge", 20, 1]
+      - [reverser, "Колесо-реверсор", "reversing wheel", 5, 2]
+      - [balance_cock, "Мост баланса", "traversing balance bridge", 16, 1]
+      - [bridges, "Мост барабана", "barrel bridge, Rolex Côtes de Genève", 21, 1]
+      - [bridges, "Мост колёсной передачи", "train wheel bridge with ruby jewels", 18, 1]
+      - [ratchet, "Храповое колесо", "ratchet wheel, sunburst finish", 8, 1]
+      - [crown_wheel, "Коронное колесо", "crown wheel", 5, 1]
+  - id: movement_train
+    title: Энергия, передача и спуск
+    parts:
+      - [barrel, "Барабан", "thin closed mainspring barrel", 10, 1]
+      - [mainspring, "Заводная пружина", "mainspring out of the barrel", 12, 1]
+      - [train, "Колёса передачи", "centre, third and fourth wheels", 9, 3]
+      - [escape_wheel, "Анкерное колесо", "escape wheel (Chronergy on 7140, silicon Dynapulse wheels on 7135)", 5, 1, {only: [7140]}]
+      - [pallet, "Анкерная вилка", "pallet fork with ruby pallet stones", 6, 1, {only: [7140]}]
+      - [dynapulse, "Спуск Dynapulse", "Dynapulse escapement: two silicon escape wheels with a small silicon impulse lever", 5, 3, {only: [7135]}]
+      - [balance, "Баланс со спиралью Syloxi", "balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts", 10, 1]
+      - [shock, "Амортизатор Paraflex", "Paraflex shock absorber", 2.5, 2]
+      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [stem, "Заводной вал", "winding stem", 14, 1]
+  - id: movement_dial
+    title: Сторона циферблата
+    parts:
+      - [mainplate, "Платина", "thin mainplate seen from the dial side, perlage", 30.5, 1]
+      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 2]
+      - [hour_wheel, "Часовое колесо", "hour wheel", 6, 1]
+      - [setting, "Рычаги перевода", "setting lever, yoke and yoke spring", 8, 3]
+      - [screws, "Винт моста", "polished steel screw", 2, 10]
+      - [jewels, "Рубиновый камень", "synthetic ruby jewel", 1.5, 6]
+      - [movement_ring, "Кольцо механизма", "movement holder ring", 33, 1]

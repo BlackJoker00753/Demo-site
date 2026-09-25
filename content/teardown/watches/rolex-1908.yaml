@@ -1,0 +1,37 @@
+# Разборка rolex-1908. Детали механизма: families/rolex-71xx.yaml (вариант 7140).
+watch: rolex-1908
+family: rolex-71xx
+variant: 7140
+references: [frontend/assets/photos/rolex-1908/1-1600.jpg]
+look: 'Rolex Perpetual 1908 ref. 52508: 39 mm 18 ct yellow gold thin case with domed and fluted bezel, white dial with Arabic 3, 9, 12 and small seconds at 6, sapphire display caseback, brown alligator
+  strap'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус Oyster (средняя часть), '39 mm Oyster case middle with lugs, 18 ct yellow gold, polished and satin-brushed surfaces, no crown', 46, 1]
+  - [bezel, Безель, 'domed and finely fluted bezel, 18 ct yellow gold', 40, 1]
+  - [crystal, Сапфировое стекло, 'flat sapphire crystal, transparent with antireflective tint, seen from above', 31, 1]
+  - [crown, Заводная головка Twinlock, 'screw-down winding crown with fluted edge and embossed coronet on top, 18 ct yellow gold', 7, 1]
+  - [crown, Трубка головки, crown tube (small threaded steel tube), 4, 1]
+  - [gasket, Уплотнения головки, set of tiny black O-ring gaskets of the crown, 3, 3]
+  - [caseback, Задняя крышка Oyster, 'screw-down caseback with sapphire display window, 18 ct yellow gold', 33, 1]
+  - [gasket, Уплотнение крышки, 'black caseback O-ring gasket, thin ring', 31, 1]
+  - [gasket, Уплотнение стекла, 'crystal gasket, thin ring', 30, 1]
+  - [flange, Флажок с гравировкой, 'inner bezel ring (rehaut) with engraved text-like pattern around (no readable text), 18 ct yellow gold', 30, 1]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'white intense dial with gold Arabic numerals 3, 9, 12, faceted indices, railway minute track, small seconds subdial at 6', 31, 1]
+  - [hand_hour, Часовая стрелка, 'baton hour hand, 18 ct yellow gold', 9, 1]
+  - [hand_minute, Минутная стрелка, 'baton minute hand, 18 ct yellow gold', 14, 1]
+  - [subdial_hands, Стрелка малой секунды, tiny small-seconds hand, 4, 1]
+- id: strap
+  title: Ремешок
+  parts:
+  - [strap, 'Ремешок, длинная часть', 'brown alligator leather strap, long piece with holes, seen from above', 120, 1]
+  - [strap, 'Ремешок, короткая часть', 'brown alligator leather strap, short piece with keeper', 80, 1]
+  - [clasp, Пряжка, 'folding or pin buckle, 18 ct yellow gold', 20, 1]
+  - [spring_bar, Пружинный штифт, spring bar, 20, 2]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}

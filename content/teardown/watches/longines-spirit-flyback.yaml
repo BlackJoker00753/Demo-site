@@ -1,0 +1,37 @@
+# Разборка longines-spirit-flyback. Детали механизма: families/longines-l791.yaml (вариант L791).
+watch: longines-spirit-flyback
+family: longines-l791
+variant: L791
+references: [frontend/assets/photos/longines-spirit-flyback/1-1600.jpg]
+look: 'Longines Spirit Flyback 42 mm: stainless steel case with two chronograph pushers, ceramic 60-minute bezel, black dial with three counters, date, leather strap'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус, '39.5 mm stainless steel case middle with lugs, polished and brushed, no crown', 46.5, 1]
+  - [bezel, Вращающийся безель, 'rotating bezel ring, stainless steel', 41, 1]
+  - [bezel_insert, Керамическая вставка, black ceramic 60-minute bezel insert, 38, 1]
+  - [crystal, Сапфировое стекло, domed sapphire crystal with antireflective coating, 31.5, 1]
+  - [crown, Заводная головка, screw-down fluted winding crown with engraved emblem area, 7, 1]
+  - [crown, Трубка головки, crown tube, 4, 1]
+  - [gasket, Уплотнения, black O-ring gaskets, 3, 3]
+  - [caseback, Задняя крышка, screw-down stainless steel caseback with engraved decoration, 33.5, 1]
+  - [gasket, Уплотнение крышки, caseback gasket ring, 31.5, 1]
+  - [pushers, Кнопка хронографа, chronograph pusher, 5, 2]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'black matt chronograph dial with three counters, applied Arabic numerals, luminescent indices, date window', 31, 1]
+  - [hand_hour, Часовая стрелка, sword hour hand with lume, 9, 1]
+  - [hand_minute, Минутная стрелка, sword minute hand with lume, 14, 1]
+  - [hand_second, Секундная стрелка хронографа, central chronograph seconds hand, 16, 1]
+  - [subdial_hands, Стрелки счётчиков, small counter hands, 4, 3]
+- id: strap
+  title: Ремешок
+  parts:
+  - [strap, 'Ремешок, длинная часть', 'brown calf leather strap, long piece with holes, seen from above', 120, 1]
+  - [strap, 'Ремешок, короткая часть', 'brown calf leather strap, short piece with keeper', 80, 1]
+  - [clasp, Пряжка, 'folding or pin buckle, stainless steel', 20, 1]
+  - [spring_bar, Пружинный штифт, spring bar, 20, 2]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}

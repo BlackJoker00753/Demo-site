@@ -1,0 +1,36 @@
+# Разборка rolex-land-dweller-40. Детали механизма: families/rolex-71xx.yaml (вариант 7135).
+watch: rolex-land-dweller-40
+family: rolex-71xx
+variant: 7135
+references: [frontend/assets/photos/rolex-land-dweller-40/1-1600.jpg]
+look: 'Rolex Land-Dweller 40 ref. 127334: 40 mm Oystersteel case with fluted white gold bezel, white dial with honeycomb motif, integrated Flat Jubilee bracelet, sapphire display caseback'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус Oyster (средняя часть), '40 mm Oyster case middle with lugs, Oystersteel, polished and satin-brushed surfaces, no crown', 47, 1]
+  - [bezel, Безель, fluted bezel in 18 ct white gold, 41, 1]
+  - [crystal, Сапфировое стекло, 'flat sapphire crystal, transparent with antireflective tint, seen from above', 32, 1]
+  - [crown, Заводная головка Triplock, 'screw-down winding crown with fluted edge and embossed coronet on top, Oystersteel', 7, 1]
+  - [crown, Трубка головки, crown tube (small threaded steel tube), 4, 1]
+  - [gasket, Уплотнения головки, set of tiny black O-ring gaskets of the crown, 3, 3]
+  - [caseback, Задняя крышка Oyster, 'screw-down caseback with sapphire display window, Oystersteel', 34, 1]
+  - [gasket, Уплотнение крышки, 'black caseback O-ring gasket, thin ring', 32, 1]
+  - [gasket, Уплотнение стекла, 'crystal gasket, thin ring', 31, 1]
+  - [flange, Флажок с гравировкой, 'inner bezel ring (rehaut) with engraved text-like pattern around (no readable text), Oystersteel', 31, 1]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'white dial with laser-engraved honeycomb pattern, applied white gold indices', 31, 1]
+  - [hand_hour, Часовая стрелка, 'baton hour hand, white gold', 9, 1]
+  - [hand_minute, Минутная стрелка, 'baton minute hand, white gold', 14, 1]
+  - [hand_second, Секундная стрелка, thin seconds hand, 16, 1]
+- id: bracelet
+  title: Браслет Flat Jubilee
+  parts:
+  - [bracelet_end, Интегрированное концевое звено, 'integrated bracelet end piece, Oystersteel', 24, 2]
+  - [bracelet_link, Звено Flat Jubilee, 'flat Jubilee five-piece link, satin and polished, Oystersteel', 22, 14]
+  - [clasp, Застёжка, 'concealed folding clasp, opened, Oystersteel', 36, 1]
+  - [bracelet_pins, Винт-штифт звена, link screw pin, 5, 8]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}

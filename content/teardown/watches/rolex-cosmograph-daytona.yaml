@@ -1,0 +1,42 @@
+# Разборка rolex-cosmograph-daytona. Детали механизма: families/rolex-4131.yaml (вариант 4131).
+watch: rolex-cosmograph-daytona
+family: rolex-4131
+variant: 4131
+references: [frontend/assets/photos/rolex-cosmograph-daytona/1-1600.jpg, frontend/assets/photos/rolex-cosmograph-daytona/2-1600.jpg]
+look: 'Rolex Cosmograph Daytona ref. 126500LN: 40 mm Oystersteel case with screw-down chronograph pushers, black Cerachrom tachymeter bezel, white dial with three black counters (panda), Oyster bracelet'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус Oyster (средняя часть), '40 mm Oyster case middle with lugs, integrated crown guards, Oystersteel, polished and satin-brushed surfaces, no crown', 47, 1]
+  - [bezel, Безель, 'fixed bezel ring, Oystersteel', 41, 1]
+  - [bezel_insert, Вставка-тахиметр Cerachrom, black Cerachrom tachymeter scale insert with engraved numerals up to 400, 39, 1]
+  - [pushers, Кнопка хронографа, screw-down chronograph pusher with threaded collar, 5, 2]
+  - [crystal, Сапфировое стекло, 'flat sapphire crystal, transparent with antireflective tint, seen from above', 32, 1]
+  - [crown, Заводная головка Triplock, 'screw-down winding crown with fluted edge and embossed coronet on top, Oystersteel', 7, 1]
+  - [crown, Трубка головки, crown tube (small threaded steel tube), 4, 1]
+  - [gasket, Уплотнения головки, set of tiny black O-ring gaskets of the crown, 3, 3]
+  - [caseback, Задняя крышка Oyster, 'screw-down Oyster caseback with fine fluted edge, Oystersteel, plain polished centre', 34, 1]
+  - [gasket, Уплотнение крышки, 'black caseback O-ring gasket, thin ring', 32, 1]
+  - [gasket, Уплотнение стекла, 'crystal gasket, thin ring', 31, 1]
+  - [flange, Флажок с гравировкой, 'inner bezel ring (rehaut) with engraved text-like pattern around (no readable text), Oystersteel', 31, 1]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'white dial with three black recessed chronograph counters (30 minutes, 12 hours, small seconds), applied white gold indices, printed tachymeter-free outer scale', 31, 1]
+  - [hand_hour, Часовая стрелка, 'baton hour hand, white gold with lume', 9, 1]
+  - [hand_minute, Минутная стрелка, 'baton minute hand, white gold with lume', 14, 1]
+  - [hand_second, Секундная стрелка, thin seconds hand, 16, 1]
+  - [subdial_hands, Стрелки счётчиков, three small white counter hands, 5, 3]
+  - [hand_second, Центральная секунда хронографа, long thin central chronograph seconds hand, 17, 1]
+- id: bracelet
+  title: Браслет Oyster
+  parts:
+  - [bracelet_end, Концевое звено, 'Oyster bracelet end link (solid, curved to fit the case), Oystersteel', 20, 2]
+  - [bracelet_link, Звено Oyster, 'single three-piece Oyster bracelet link (flat, brushed outer, polished edges), Oystersteel', 20, 14]
+  - [clasp, Застёжка Oysterlock with Easylink, 'Oysterlock with Easylink folding clasp with cover, opened and seen from above, Oystersteel', 38, 1]
+  - [clasp, Удлинитель Easylink, Easylink 5 mm comfort extension link, 12, 1]
+  - [bracelet_pins, Винт-штифт звена, tiny threaded link screw pin, 5, 8]
+  - [spring_bar, Пружинный штифт, spring bar (thin steel tube with pins), 20, 2]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}

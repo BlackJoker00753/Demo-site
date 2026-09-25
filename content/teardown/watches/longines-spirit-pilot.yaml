@@ -1,0 +1,34 @@
+# Разборка longines-spirit-pilot. Детали механизма: families/longines-a31.yaml (вариант L888).
+watch: longines-spirit-pilot
+family: longines-a31
+variant: L888
+references: [frontend/assets/photos/longines-spirit-pilot/1-1600.jpg]
+look: 'Longines Spirit 40 mm (ref. L3.809.4.93.9 style): stainless steel case, smooth bezel, black matt dial with applied Arabic numerals and luminescent indices, date, brown leather strap'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус, '39 mm stainless steel case middle with lugs, polished and brushed, no crown', 46, 1]
+  - [bezel, Безель, 'smooth polished bezel, stainless steel', 40, 1]
+  - [crystal, Сапфировое стекло, domed sapphire crystal with antireflective coating, 31, 1]
+  - [crown, Заводная головка, screw-down fluted winding crown with engraved emblem area, 7, 1]
+  - [crown, Трубка головки, crown tube, 4, 1]
+  - [gasket, Уплотнения, black O-ring gaskets, 3, 3]
+  - [caseback, Задняя крышка, screw-down stainless steel caseback with engraved decoration, 33, 1]
+  - [gasket, Уплотнение крышки, caseback gasket ring, 31, 1]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'black matt dial with applied Arabic numerals and luminescent indices, date window', 31, 1]
+  - [hand_hour, Часовая стрелка, sword hour hand with lume, 9, 1]
+  - [hand_minute, Минутная стрелка, sword minute hand with lume, 14, 1]
+  - [hand_second, Секундная стрелка, thin seconds hand, 15, 1]
+- id: strap
+  title: Ремешок
+  parts:
+  - [strap, 'Ремешок, длинная часть', 'brown calf leather strap, long piece with holes, seen from above', 120, 1]
+  - [strap, 'Ремешок, короткая часть', 'brown calf leather strap, short piece with keeper', 80, 1]
+  - [clasp, Пряжка, 'folding or pin buckle, stainless steel', 20, 1]
+  - [spring_bar, Пружинный штифт, spring bar, 20, 2]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}

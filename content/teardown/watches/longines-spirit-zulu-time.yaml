@@ -1,0 +1,39 @@
+# Разборка longines-spirit-zulu-time. Детали механизма: families/longines-a31.yaml (вариант L844).
+watch: longines-spirit-zulu-time
+family: longines-a31
+variant: L844
+references: [frontend/assets/photos/longines-spirit-zulu-time/1-1600.jpg]
+look: 'Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured
+  GMT hand, date at 3, three-link steel bracelet'
+plates:
+- id: exterior
+  title: Корпус, безель, стекло, крышка
+  parts:
+  - [case, Корпус, '42 mm stainless steel case middle with lugs, polished and brushed, no crown', 49, 1]
+  - [bezel, Вращающийся безель, 'bidirectional rotating bezel ring with grooved edge, stainless steel', 43, 1]
+  - [bezel_insert, Керамическая вставка 24 часа, black ceramic 24-hour bezel insert with engraved white numerals, 40, 1]
+  - [bezel_spring, Пружина-фиксатор безеля, bezel click spring, 39, 1]
+  - [crystal, Сапфировое стекло, domed sapphire crystal with antireflective coating, 34, 1]
+  - [crown, Заводная головка, screw-down fluted winding crown with engraved emblem area, 7, 1]
+  - [crown, Трубка головки, crown tube, 4, 1]
+  - [gasket, Уплотнения, black O-ring gaskets, 3, 3]
+  - [caseback, Задняя крышка, screw-down stainless steel caseback with engraved decoration, 36, 1]
+  - [gasket, Уплотнение крышки, caseback gasket ring, 34, 1]
+- id: dial
+  title: Циферблат и стрелки
+  parts:
+  - [dial, Циферблат, 'black sunray dial with applied polished Arabic numerals 12, 3, 6, 9 and luminescent indices, date window at 3, printed text lines', 31, 1]
+  - [hand_hour, Часовая стрелка, polished sword hour hand with lume, 10, 1]
+  - [hand_minute, Минутная стрелка, polished sword minute hand with lume, 15, 1]
+  - [hand_second, Секундная стрелка, thin seconds hand with lume tip, 16, 1]
+  - [hand_gmt, Стрелка GMT, gold-coloured GMT hand with arrow tip, 15, 1]
+- id: bracelet
+  title: Браслет
+  parts:
+  - [bracelet_end, Концевое звено, 'bracelet end link, stainless steel', 22, 2]
+  - [bracelet_link, Звено браслета, 'single three-piece bracelet link, brushed with polished centre, stainless steel', 22, 14]
+  - [clasp, Застёжка, 'folding clasp with push buttons, opened, stainless steel', 36, 1]
+  - [bracelet_pins, Штифт звена, link pin, 5, 8]
+  - [spring_bar, Пружинный штифт, spring bar, 22, 2]
+assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background', back: 'the same watch head seen
+    exactly from the back with the caseback removed, showing the assembled movement with rotor'}
