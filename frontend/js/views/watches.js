@@ -4,8 +4,17 @@ import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
 import { watchCard } from "../ui/cards.js";
 import { revealPhotos } from "../ui/photo.js";
-import { models, MOVEMENT, usd } from "../core/format.js";
+import { models, MOVEMENT, priceCompact, usd } from "../core/format.js";
 import { toggleCompare, hasCompare, onCompareChange } from "../core/compare.js";
+
+// Диапазоны бюджета в долларах; подписи в активной валюте.
+const BUDGETS = [["under1k", 0, 1000], ["1k-5k", 1000, 5000], ["5k-15k", 5000, 15000], ["over15k", 15000, Infinity]];
+function budgetLabel(key) {
+  const [, lo, hi] = BUDGETS.find(([k]) => k === key);
+  if (!lo) return `До ${priceCompact(hi)}`;
+  if (hi === Infinity) return `Дороже ${priceCompact(lo)}`;
+  return `${priceCompact(lo)} – ${priceCompact(hi)}`;
+}
 
 export default {
   layer: "page",
@@ -26,7 +35,7 @@ export default {
       <header class="catalog-page__head">
         <p class="label" data-reveal>Коллекция</p>
         <h1 class="display display--l" data-reveal>Все часы атласа</h1>
-        <p class="lead" data-reveal>Полный справочник ${models(watches.length)} от ведущих мануфактур 8 стран мира. Студийные фотографии 4K, характеристики калибров и актуальные цены.</p>
+        <p class="lead" data-reveal>Полный справочник ${models(watches.length)} от ведущих мануфактур 8 стран мира. Настоящие фотографии, характеристики калибров и цены с источниками.</p>
         
         <div class="catalog-filters" data-reveal>
           <div class="catalog-filters__search">
@@ -58,10 +67,7 @@ export default {
               <span class="catalog-filters__title">Бюджет:</span>
               <div class="catalog-chips" id="filter-price">
                 <button type="button" class="catalog-chip is-active" data-price="all">Любой</button>
-                <button type="button" class="catalog-chip" data-price="under1k">До $1 000</button>
-                <button type="button" class="catalog-chip" data-price="1k-5k">$1k - $5k</button>
-                <button type="button" class="catalog-chip" data-price="5k-15k">$5k - $15k</button>
-                <button type="button" class="catalog-chip" data-price="over15k">Люкс &gt; $15k</button>
+                ${BUDGETS.map(([key]) => html`<button type="button" class="catalog-chip" data-price="${key}">${budgetLabel(key)}</button>`)}
               </div>
             </div>
 
@@ -190,7 +196,10 @@ export default {
       });
     });
 
-    const onCur = () => filterWatches();
+    const onCur = () => {
+      qsa("#filter-price [data-price]", root).forEach((b) => b.dataset.price !== "all" && (b.textContent = budgetLabel(b.dataset.price)));
+      filterWatches();
+    };
     window.addEventListener("currencychange", onCur);
 
     return () => {

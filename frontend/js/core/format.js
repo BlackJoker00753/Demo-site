@@ -91,6 +91,13 @@ export function usdShort(n) {
   return usd(n);
 }
 
+/** Короткая сумма для подписей фильтров в активной валюте: «$5 тыс.», «2,2 млн ₸». */
+const compact = new Intl.NumberFormat("ru-RU", { notation: "compact", maximumFractionDigits: 1 });
+export function priceCompact(n) {
+  const cur = getActiveCurrency();
+  const v = compact.format(n * cur.rate).replace(/\s/g, "\u00a0");
+  return cur.pos === "before" ? `${cur.symbol}${v}` : `${v}\u00a0${cur.symbol}`;
+}
 export const date = (iso) => (iso ? dateFmt.format(new Date(iso)) : "");
 
 export function plural(n, one, few, many) {
