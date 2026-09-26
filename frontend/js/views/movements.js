@@ -4,6 +4,7 @@ import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
 import { hours, models, MOVEMENT, num, vph } from "../core/format.js";
 import { revealPhotos } from "../ui/photo.js";
+import { renderEscapementComparator, mountEscapementComparator } from "../ui/escapement-player.js";
 
 const STANDARDS = [
   {
@@ -126,6 +127,11 @@ export default {
             </div>`,
           )}
         </div>
+      </section>
+
+      <!-- Акустический компаратор частот -->
+      <section style="margin-bottom: var(--s-7);" data-reveal>
+        ${renderEscapementComparator()}
       </section>
 
       <!-- Фильтры калибров -->
@@ -267,6 +273,9 @@ export default {
       });
       updateFilter();
     });
+
+    const offComp = mountEscapementComparator(root);
+    return () => offComp?.();
   },
 };
 

@@ -8,6 +8,7 @@ import { attachGallery, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { diffMeter } from "./glossary.js";
 import { renderCompTechCard } from "../ui/comp-tech.js";
+import { renderRepeaterSimulator, mountRepeaterSimulator } from "../ui/repeater-sim.js";
 
 export default {
   layer: "page",
@@ -89,6 +90,12 @@ export default {
         ${renderCompTechCard(c.slug)}
       </section>
 
+      ${c.slug === "minute-repeater"
+        ? html`<section class="topic__repeater container" aria-label="Симулятор боя минутного репетира">
+            ${renderRepeaterSimulator()}
+          </section>`
+        : ""}
+
       ${watches.length
         ? html`<section class="catalog topic__models" id="models">
             <div class="container">
@@ -108,9 +115,13 @@ export default {
     </article>`;
   },
 
-  mount(root, { watches }, ctx = {}) {
+  mount(root, { complication: c, watches }, ctx = {}) {
     const g = window.gsap;
     revealPhotos(root);
+    let offRepeater = null;
+    if (c?.slug === "minute-repeater") {
+      offRepeater = mountRepeaterSimulator(root);
+    }
     if (g && !reduced()) {
       g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
       const plate = qs(".bhero__plate", root) ?? qs(".bhero__stage", root);
@@ -119,6 +130,9 @@ export default {
     const grid = qs("[data-grid]", root);
     let off = null;
     if (grid) attachGallery(grid, watches).then((fn) => (off = fn));
-    return () => off?.();
+    return () => {
+      offRepeater?.();
+      off?.();
+    };
   },
 };

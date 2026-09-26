@@ -7,6 +7,7 @@ import { countUp, reduced } from "../core/motion.js";
 import { attachGallery, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
+import { renderCaliberEscapementPlayer, mountCaliberEscapementPlayer } from "../ui/escapement-player.js";
 
 const MECH = new Set(["automatic", "manual", "spring_drive"]);
 
@@ -96,6 +97,7 @@ export default {
                 </div>`
               : ""}
             ${m.features.length ? html`<ul class="wmove__features" role="list" data-reveal>${m.features.map((f) => html`<li>${f}</li>`)}</ul>` : ""}
+            ${renderCaliberEscapementPlayer(m)}
           </div>
         </div>
       <section class="container" aria-label="Кинематическая схема">
@@ -127,6 +129,7 @@ export default {
     const still = !g || reduced();
     revealPhotos(root);
     mountKinematicFlow(root);
+    const offEsc = mountCaliberEscapementPlayer(root);
     if (!still) {
       g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
       const plate = qs(".bhero__plate", root) ?? qs(".bhero__stage", root);
@@ -147,6 +150,9 @@ export default {
     const grid = qs("[data-grid]", root);
     let off = null;
     if (grid) attachGallery(grid, watches).then((fn) => (off = fn));
-    return () => off?.();
+    return () => {
+      offEsc?.();
+      off?.();
+    };
   },
 };
