@@ -31,6 +31,8 @@ STATIC = {
                    "Каталог часовых калибров: характеристики, сертификаты хронометрии, запас хода, частота и часы атласа."),
     "/history": (f"История часового дела: 500 лет эволюции от пружины до кремния | {SITE}",
                  "Хроника великих изобретений и эпох часового искусства: от Петера Хенляйна и Гюйгенса до Бреге, Oyster и кремниевой революции."),
+    "/timegrapher": (f"Виртуальный виброграф: симулятор проверки точности хода | {SITE}",
+                    "Интерактивная лаборатория метрологии хода: измерение суточного отклонения, амплитуды баланса, ошибки выкачки в 6 позициях и проверка стандартов COSC, METAS, Rolex."),
     "/compare": (f"Сравнение моделей часов | {SITE}",
                  "Сравните характеристики, калибры, размеры и цены выбранных часов."),
     "/glossary": (f"Усложнения часов: от даты до минутного репетира | {SITE}",
@@ -212,7 +214,7 @@ def sitemap(s: Session, base: str) -> str:
     """Все индексируемые страницы атласа."""
     stats = catalog.site_stats(s)
     lastmod = stats.built_at[:10] if stats.built_at else None
-    urls = ["/", "/watches", "/movements", "/history", "/glossary", "/credits"]
+    urls = ["/", "/watches", "/movements", "/history", "/timegrapher", "/glossary", "/credits"]
     urls += [f"/country/{c.slug}" for c in catalog.list_countries(s)]
     urls += [f"/brand/{b.slug}" for b in catalog.list_brands(s)]
     watches = catalog.list_watches(s, sort="name")

@@ -115,4 +115,11 @@ def test_history_route(client):
     assert "История часового дела" in res.text
 
 
+def test_timegrapher_route(client):
+    res = client.get("/timegrapher")
+    assert res.status_code == 200
+    assert "Виртуальный виброграф" in res.text
+
+
+
 

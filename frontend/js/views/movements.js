@@ -102,9 +102,16 @@ export default {
       <!-- Интерактивная матрица стандартов точности -->
       <section class="standards-block" data-reveal aria-label="Стандарты хронометрии">
         <div class="standards-head">
-          <span class="label">Метрология и сертификация</span>
-          <h2 class="display display--s">Стандарты хронометрической точности</h2>
-          <p class="muted">Ключевые сертификационные институты и мануфактурные стандарты часового мира:</p>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <span class="label">Метрология и сертификация</span>
+              <h2 class="display display--s">Стандарты хронометрической точности</h2>
+              <p class="muted">Ключевые сертификационные институты и мануфактурные стандарты часового мира:</p>
+            </div>
+            <a href="/timegrapher" data-link class="btn btn--subtle btn--sm">
+              <i class="ph-light ph-wave-sine" aria-hidden="true"></i> Виртуальный виброграф
+            </a>
+          </div>
         </div>
 
         <div class="standards-grid">

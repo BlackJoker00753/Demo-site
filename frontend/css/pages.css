@@ -1476,5 +1476,635 @@
   padding-top: 6px;
 }
 
+/* ==========================================================================
+   Watch Timing Machine & Chronometric Metrology Laboratory (/timegrapher)
+   ========================================================================== */
+
+.timegrapher-page {
+  padding-top: calc(var(--nav-h, 64px) + 36px);
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tg-page-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.tg-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  color: var(--lume);
+  font-size: var(--fs-13);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tg-page-title {
+  font-size: var(--fs-display-s);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.tg-page-lead {
+  font-size: var(--fs-16);
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.timegrapher {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Верхняя панель вибрографа */
+.tg-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.tg-head__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 600px;
+}
+
+.tg-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--lume);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tg-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tg-desc {
+  font-size: var(--fs-13);
+  color: var(--text-3);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tg-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tg-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-3);
+  color: var(--text);
+  font-size: var(--fs-13);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+}
+.tg-select:focus {
+  border-color: var(--lume);
+}
+
+/* Дисплей осциллографа (CRT ЭЛТ-экран) */
+.tg-crt {
+  border-radius: 16px;
+  background: #060907;
+  border: 2px solid #1a2920;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(10, 30, 18, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+.tg-crt__bezel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+.tg-crt__hud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.tg-hud-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: rgba(14, 24, 18, 0.65);
+  border: 1px solid rgba(50, 224, 132, 0.15);
+}
+
+.tg-hud-card__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(159, 233, 196, 0.75);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tg-hud-card__val {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #32e084;
+  text-shadow: 0 0 10px rgba(50, 224, 132, 0.5);
+  line-height: 1.1;
+}
+
+.tg-hud-card__val.is-negative {
+  color: #f2a39b;
+  text-shadow: 0 0 10px rgba(242, 163, 155, 0.4);
+}
+
+.tg-hud-card__val.is-low {
+  color: #ffb834;
+  text-shadow: 0 0 10px rgba(255, 184, 52, 0.4);
+}
+
+.tg-hud-card__val.is-high {
+  color: #f2a39b;
+}
+
+.tg-hud-card__sub {
+  font-size: var(--fs-12);
+  color: var(--text-3);
+}
+
+.tg-hud-card--meta {
+  justify-content: center;
+  gap: 6px;
+}
+
+.tg-hud-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-12);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+.tg-hud-meta-row strong {
+  color: var(--steel);
+}
+
+.tg-canvas-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #080c09;
+  border: 1px solid rgba(50, 224, 132, 0.18);
+}
+
+.tg-canvas {
+  width: 100%;
+  height: 260px;
+  display: block;
+}
+
+.tg-crt__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(159, 233, 196, 0.65);
+  padding: 4px 6px 0;
+}
+
+.tg-crt__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tg-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #32e084;
+  box-shadow: 0 0 8px #32e084;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Панель оператора */
+.tg-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.tg-ctrl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tg-ctrl-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: var(--text);
+}
+.tg-ctrl-title i {
+  color: var(--lume);
+  font-size: 18px;
+}
+
+.tg-ctrl-hint {
+  font-size: var(--fs-13);
+  color: var(--text-3);
+}
+
+.tg-pos-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tg-pos-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.tg-pos-btn:hover {
+  border-color: var(--line-3);
+  background: var(--surface-3);
+}
+
+.tg-pos-btn.is-active {
+  background: rgba(50, 224, 132, 0.08);
+  border-color: var(--lume);
+  box-shadow: 0 0 12px rgba(159, 233, 196, 0.15);
+}
+
+.tg-pos-btn__code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lume);
+}
+
+.tg-pos-btn__name {
+  font-size: var(--fs-13);
+  font-weight: 500;
+}
+
+.tg-pos-btn__desc {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* Сетка регулировочных карточек */
+.tg-tuning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.tg-tuning-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+.tg-tuning-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tg-tuning-card__title {
+  font-size: var(--fs-13);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tg-tuning-card__val {
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  font-weight: 700;
+  color: var(--lume);
+}
+
+.tg-tuning-card__desc {
+  font-size: 12px;
+  color: var(--text-3);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.tg-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tg-slider-bound {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.tg-slider-wrap input[type="range"] {
+  flex: 1;
+  accent-color: var(--lume);
+  cursor: pointer;
+}
+
+.tg-pwr-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tg-pwr-buttons .chip {
+  cursor: pointer;
+}
+.tg-pwr-buttons .chip.is-active {
+  background: var(--surface);
+  border-color: var(--lume);
+  color: var(--lume);
+}
+
+/* Протокол испытаний и сертификаты */
+.tg-cert-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.tg-cert-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tg-cert-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.tg-positions-table-wrap {
+  overflow-x: auto;
+}
+
+.tg-pos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+}
+
+.tg-pos-table th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.tg-pos-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-2);
+}
+
+.tg-pos-table tr.is-current {
+  background: rgba(159, 233, 196, 0.05);
+}
+
+.tg-pos-table td strong {
+  color: var(--text);
+}
+
+.tg-rate-col {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+.tg-rate-col.is-pos {
+  color: var(--lume);
+}
+.tg-rate-col.is-neg {
+  color: var(--danger);
+}
+
+.tg-status-badge {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+.tg-status-badge--pass {
+  background: rgba(50, 224, 132, 0.15);
+  color: #32e084;
+}
+
+.tg-status-badge--warn {
+  background: rgba(242, 163, 155, 0.15);
+  color: #f2a39b;
+}
+
+/* Сетка сертификатов */
+.tg-standards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.tg-cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+.tg-cert-card.is-pass {
+  border-color: rgba(50, 224, 132, 0.35);
+  background: rgba(14, 24, 18, 0.5);
+}
+
+.tg-cert-card.is-fail {
+  border-color: rgba(242, 163, 155, 0.25);
+  background: rgba(26, 16, 16, 0.5);
+}
+
+.tg-cert-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tg-cert-name {
+  font-size: var(--fs-13);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tg-cert-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tg-cert-card.is-pass .tg-cert-badge {
+  background: #32e084;
+  color: #060907;
+}
+
+.tg-cert-card.is-fail .tg-cert-badge {
+  background: #f2a39b;
+  color: #1a0808;
+}
+
+.tg-cert-criteria {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+/* Образовательные спойлеры */
+.tg-edu-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tg-edu-item {
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  padding: 16px 20px;
+}
+
+.tg-edu-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+.tg-edu-summary::-webkit-details-marker {
+  display: none;
+}
+.tg-edu-summary i {
+  color: var(--lume);
+  font-size: 18px;
+}
+
+.tg-edu-body {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-13);
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.tg-edu-body p {
+  margin: 0 0 10px;
+}
+.tg-edu-body ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
 
 

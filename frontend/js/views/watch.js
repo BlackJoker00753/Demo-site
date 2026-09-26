@@ -261,6 +261,11 @@ export default {
                 : ""}
               ${m.features.length ? html`<ul class="wmove__features" role="list" data-reveal>${m.features.map((f) => html`<li>${f}</li>`)}</ul>` : ""}
               ${renderCaliberEscapementPlayer(m)}
+              <div style="margin-top: 10px; margin-bottom: 12px;" data-reveal>
+                <a class="chip chip--sm chip--lume" href="/timegrapher" data-link>
+                  <i class="ph-light ph-wave-sine" aria-hidden="true"></i> Проверить ход на виртуальном вибрографе
+                </a>
+              </div>
               <a class="link-arrow" href="/movement/${m.slug}">Все часы с калибром ${m.caliber}<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
