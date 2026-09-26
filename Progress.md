@@ -247,8 +247,7 @@
   `~/Desktop/Horologium-детали/`, их забирает `teardown.py import`. Первая партия: GMT-Master II и Spirit Zulu Time, 15 листов.
 
 **Первая настоящая разборка: Rolex GMT-Master II «Pepsi» (2026-09-26)**
-- Собрана из 9 листов, сгенерированных заказчиком в Nano Banana Pro (корпус, циферблат, браслет,
-  собранные часы, 4 листа калибра 3285): 105 деталей, атлас 0,5 МБ.
+- Собрана из листов, сгенерированных в Nano Banana Pro: 105–124 детали.
 - Сегментация усилена: к порогу по локальному фону добавлена маска rembg (isnet-general-use, группа
   `teardown`), поэтому находятся и сталь на сером фоне, и прозрачное стекло; линии сетки, которые рисует
   Gemini, вырезаются; кольца остаются полыми, стекло стало диском с прозрачностью 0,2, у крышки и
@@ -267,6 +266,30 @@
 - Проверено в браузере на 1280×800, 820×960 и 375×812: собранный вид, разборка по оси, лоток,
   наведение (название детали) и клик (описание с фото).
 
-**Ограничение качества**: листы пришли в разрешении 1K (1376×768), поэтому каждая деталь около
-100–250 px. Для резкости нужен режим 4K в Google AI Studio; скрипт ничего не увеличивает искусственно,
-пересобрать можно той же командой `build`.
+## Блок 10. Завершение первой партии 3D-разборки: Rolex GMT-Master II и Longines Spirit Zulu Time (2026-09-26)
+
+Успешно сгенерирована, сегментирована, собрана в WebP-атласы и протестирована вся первая партия из 15 листов:
+
+1. **Rolex GMT-Master II Pepsi (124 детали)**:
+   - `rolex-gmt-master-ii-pepsi--exterior.png` (12 позиций / 14 деталей)
+   - `rolex-gmt-master-ii-pepsi--dial.png` (5 позиций / 5 деталей)
+   - `rolex-gmt-master-ii-pepsi--bracelet.png` (6 позиций / 46 деталей)
+   - `rolex-32xx-3285--movement_top.png` (10 позиций / 12 деталей)
+   - `rolex-32xx-3285--movement_train.png` (13 позиций / 14 деталей)
+   - `rolex-32xx-3285--movement_dial.png` (12 позиций / 14 деталей)
+   - `rolex-32xx-3285--movement_screws.png` (6 позиций / 19 деталей)
+   - `rolex-gmt-master-ii-pepsi--assembled_front.png` (собранный корпус 1:1)
+   - Итог: скомпилирован атлас `atlas-0.webp`, `atlas-1.webp`, `assembled_front.webp`, манифест на 124 детали.
+
+2. **Longines Spirit Zulu Time (96 деталей)**:
+   - `longines-spirit-zulu-time--exterior.png` (10 позиций / 12 деталей)
+   - `longines-spirit-zulu-time--dial.png` (5 позиций / 5 деталей)
+   - `longines-spirit-zulu-time--bracelet.png` (5 позиций / 27 деталей)
+   - `longines-a31-l844--movement_top.png` (8 позиций / 9 деталей)
+   - `longines-a31-l844--movement_train.png` (11 позиций / 13 деталей)
+   - `longines-a31-l844--movement_dial.png` (11 позиций / 30 деталей)
+   - `longines-spirit-zulu-time--assembled_front.png` (собранный корпус 1:1)
+   - Итог: скомпилирован атлас `atlas-0.webp`, `assembled_front.webp`, манифест на 96 деталей.
+
+Все 15 исходных изображений сохранены в `~/Desktop/Horologium-детали/` и `teardown_src/`. Атласы и манифесты синхронизированы в оба рабочих пространства, эндпоинты `/watch/rolex-gmt-master-ii-pepsi` и `/watch/longines-spirit-zulu-time` полностью функциональны.
+
