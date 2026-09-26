@@ -109,3 +109,10 @@ def test_movements_api_and_route(client):
     assert "Калибры часов" in res_page.text
 
 
+def test_history_route(client):
+    res = client.get("/history")
+    assert res.status_code == 200
+    assert "История часового дела" in res.text
+
+
+

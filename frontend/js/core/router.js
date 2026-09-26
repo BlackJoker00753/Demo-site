@@ -22,6 +22,7 @@ const ROUTES = [
   { name: "watch", re: /^\/watch\/([a-z0-9-]+)\/?$/, load: () => import("../views/watch.js") },
   { name: "complication", re: /^\/complication\/([a-z0-9-]+)\/?$/, load: () => import("../views/complication.js") },
   { name: "glossary", re: /^\/glossary\/?$/, load: () => import("../views/glossary.js") },
+  { name: "history", re: /^\/history\/?$/, load: () => import("../views/history.js") },
   { name: "movements", re: /^\/movements\/?$/, load: () => import("../views/movements.js") },
   { name: "movement", re: /^\/movement\/([a-z0-9-]+)\/?$/, load: () => import("../views/movement.js") },
   { name: "lab", re: /^\/lab\/?$/, load: () => import("../views/lab.js") },
