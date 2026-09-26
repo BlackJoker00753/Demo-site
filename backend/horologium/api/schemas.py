@@ -160,6 +160,8 @@ class WatchCard(Out):
     name: str
     brand: str
     brand_name: str
+    country: str | None = None
+    country_name: str | None = None
     collection: str | None
     reference: str | None
     year_introduced: int | None
@@ -169,6 +171,8 @@ class WatchCard(Out):
     caliber: str
     diameter_mm: float
     thickness_mm: float | None = None
+    water_resistance_m: int | None = None
+    material: str | None = None
     frequency_vph: int | None = None
     price: Price
     complications: list[ComplicationRef]

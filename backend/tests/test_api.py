@@ -45,6 +45,7 @@ def test_watch_filters(client):
     asc = client.get("/api/v1/watches", params={"sort": "price_asc"}).json()
     prices = [w["price"]["usd"] for w in asc]
     assert prices == sorted(prices)
+    assert all("material" in w and "water_resistance_m" in w and "diameter_mm" in w for w in all_)
 
 
 def test_search_transliterates_cyrillic(client):

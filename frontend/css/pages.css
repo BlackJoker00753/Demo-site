@@ -131,7 +131,18 @@
   background: var(--surface-2); border: 1px solid var(--line-2); color: var(--text);
   font-size: var(--fs-13); cursor: pointer; outline: none;
 }
-.catalog-status { font-size: var(--fs-13); color: var(--text-3); }
+.catalog-status {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-size: var(--fs-13); color: var(--text-3); flex-wrap: wrap; margin-top: 4px;
+}
+.catalog-reset {
+  padding: 4px 14px; border-radius: var(--r-pill); border: 1px solid var(--line-2);
+  background: var(--surface-2); color: var(--text-2); font-size: var(--fs-12);
+  cursor: pointer; transition: all 0.2s ease;
+}
+.catalog-reset:hover {
+  color: var(--text); border-color: var(--lume); background: var(--lume-dim);
+}
 .catalog-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 20px; margin: 0;

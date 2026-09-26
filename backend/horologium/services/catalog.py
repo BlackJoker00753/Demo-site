@@ -65,10 +65,15 @@ def has_teardown(slug: str) -> bool:
 
 def watch_card(w: Watch) -> S.WatchCard:
     return S.WatchCard(
-        slug=w.slug, name=w.name, brand=w.brand.slug, brand_name=w.brand.name, collection=w.collection,
+        slug=w.slug, name=w.name, brand=w.brand.slug, brand_name=w.brand.name,
+        country=w.brand.country.slug if w.brand and w.brand.country else None,
+        country_name=w.brand.country.name if w.brand and w.brand.country else None,
+        collection=w.collection,
         reference=w.reference, year_introduced=w.year_introduced, status=w.status,
         movement_type=w.movement.type, in_house=w.movement.in_house, caliber=w.movement.caliber,
         diameter_mm=w.case["diameter_mm"], thickness_mm=w.case.get("thickness_mm"),
+        water_resistance_m=w.case.get("water_resistance_m"),
+        material=w.render.get("case", {}).get("material") or w.case.get("material"),
         frequency_vph=w.movement.frequency_vph, price=_price(w),
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
@@ -241,7 +246,7 @@ def get_watch(s: Session, slug: str) -> S.WatchDetail | None:
     brand_prices = s.scalars(select(Watch.price_usd).where(Watch.brand_id == w.brand_id)).all()
     return S.WatchDetail(
         **watch_card(w).model_dump(),
-        country=w.brand.country.slug, country_name=w.brand.country.name, year_current=w.year_current,
+        year_current=w.year_current,
         designer=w.designer, case=S.CaseInfo(**w.case), bracelet=w.bracelet, dial=w.dial, summary=w.summary,
         story=w.story, history=[S.HistoryEntry(**h) for h in w.history], highlights=w.highlights,
         movement=S.MovementOut.model_validate(w.movement),
