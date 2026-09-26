@@ -286,7 +286,7 @@ export default {
               <div class="wexplode__head">
                 <h2 class="display display--m">Из чего собраны ${w.name}</h2>
                 <p class="muted wexplode__hint" data-mode-hint="3d">Интерактивная разборка модели 1 в 1: корпус, безель, сапфировое стекло, стрелки, циферблат, детали калибра и браслет именно этих часов. Потяните ползунок или прокрутите страницу. Нажмите на деталь, чтобы узнать её назначение и увидеть макроснимок.</p>
-                <p class="muted wexplode__hint" data-mode-hint="td" hidden>Все детали этих часов по отдельности: прокрутите, и они разойдутся вдоль оси, как на схеме часовщика. Наведите на деталь, чтобы увидеть название, нажмите, чтобы узнать, зачем она нужна. <span class="wtd-note">Изображения деталей созданы ИИ (Gemini) по официальным фото модели.</span></p>
+                <p class="muted wexplode__hint" data-mode-hint="td" hidden><span class="wtd-how">Все детали этих часов по отдельности: прокрутите, и они разойдутся вдоль оси, как на схеме часовщика. Наведите на деталь, чтобы увидеть название, нажмите, чтобы узнать, зачем она нужна.</span><span class="wtd-short">Прокрутите: часы разойдутся по оси и лягут на лоток. Коснитесь детали, чтобы узнать, зачем она.</span> <span class="wtd-note">Изображения деталей созданы ИИ (Gemini) по официальным фото модели.</span></p>
                 <p class="muted wexplode__hint" data-mode-hint="photo" hidden>${mech
                 ? "Анатомический фото-разбор классического механического калибра: анкерный спуск, баланс, мосты и заводной барабан. Нажимайте на светящиеся точки."
                 : "Анатомический фото-разбор кварцевого калибра: кристалл кварца, интегральная схема и шаговый двигатель. Нажимайте на светящиеся точки."}</p>
@@ -518,6 +518,36 @@ export default {
       teardown = new Teardown(tdCanvas, w.slug);
       await teardown.load();
       if (!root.isConnected) return null;
+      // кадр справа от колонки с текстом (на узком экране колонка над сценой, отступ не нужен)
+      const side = qs(".wexplode__side", root);
+      const head = qs(".wexplode__head", root);
+      const modes = qs(".wexplode__modes", root);
+      const slider = qs(".wexplode__slider", root);
+      const pin = qs(".wexplode__pin", root);
+      const inset = () => {
+        // холст занимает весь .wexplode__pin; меряем от контейнера, т. к. скрытый холст даёт нулевой rect
+        const c = pin.getBoundingClientRect();
+        const m = modes.getBoundingClientRect();
+        // вкладки режимов на широком экране сверху справа, на узком внизу над ползунком
+        const modesLow = m.top > c.top + c.height / 2;
+        const bottom = c.bottom - Math.min(slider.getBoundingClientRect().top, modesLow ? m.top : Infinity) + 12;
+        // широкий экран: колонка с текстом слева; узкий: текст сверху, сцена под ним
+        return window.innerWidth > 900
+          ? [side.getBoundingClientRect().right - c.left + 16, modesLow ? 0 : m.bottom - c.top + 12, bottom]
+          : [0, head.getBoundingClientRect().bottom - c.top + 12, bottom];
+      };
+      const applyInset = () => {
+        const [left, top, bottom] = inset();
+        teardown.setInset(left, top, bottom);
+        // на узком экране браслет уходит под заголовок и под вкладки: там сцена плавно гаснет
+        tdCanvas.style.setProperty("--td-top", `${left ? 0 : top}px`);
+        tdCanvas.style.setProperty("--td-bottom", `${left ? 0 : bottom}px`);
+      };
+      applyInset();
+      // высота заголовка меняется со сменой подсказки режима, шрифтами и шириной окна
+      const ro = new ResizeObserver(() => applyInset());
+      [pin, head, modes].forEach((el) => ro.observe(el));
+      cleanups.push(() => ro.disconnect());
       teardown.bind();
       teardown.on((ev) => {
         if (ev.type === "hover") {

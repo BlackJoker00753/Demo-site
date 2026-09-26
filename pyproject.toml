@@ -39,4 +39,5 @@ dev = [
 ]
 teardown = [
     "google-genai>=2.25.0",
+    "rembg[cpu]>=2.0.85",
 ]

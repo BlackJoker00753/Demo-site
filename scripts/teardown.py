@@ -13,8 +13,8 @@
     uv run python scripts/teardown.py tasks                         # задание для Gemini (все модели)
     uv run python scripts/teardown.py plan rolex-gmt-master-ii-pepsi # какие листы нужны и где они
     uv run --group teardown python scripts/teardown.py generate rolex-gmt-master-ii-pepsi [--plate dial] [--dry-run]
-    uv run python scripts/teardown.py build rolex-gmt-master-ii-pepsi
-    uv run python scripts/teardown.py review rolex-gmt-master-ii-pepsi
+    uv run --group teardown python scripts/teardown.py build rolex-gmt-master-ii-pepsi   # rembg в группе teardown
+    uv run --group teardown python scripts/teardown.py review rolex-gmt-master-ii-pepsi
 
 Ключ Gemini берётся из переменной окружения GEMINI_API_KEY (никогда не храните его в репозитории).
 """
@@ -66,8 +66,14 @@ LAYERS = {
     "bracelet_end": 6.2, "bracelet_link": 6.2, "clasp": 6.2, "bracelet_pins": 6.2, "spring_bar": 6.2, "strap": 6.2,
 }
 SIDE_KEYS = {"crown", "pushers"}  # сидят сбоку на 3 часах
+# Стрелки на листе нарисованы остриём вправо (на 3 часа), ось у левого края. В собранных часах
+# они встают осью в центр под углом, как на собранном фото (10:10 и т. д.). pivot: доля длины от левого края.
+HANDS = {"hand_hour": (305, None), "hand_minute": (55, None), "hand_second": (225, 0.2), "hand_gmt": (135, None), "subdial_hands": (0, None)}
 STRAP_KEYS = {"bracelet_end", "bracelet_link", "clasp", "bracelet_pins", "spring_bar", "strap"}
 DISK_KEYS = {"crystal"}  # прозрачное стекло почти не видно на фоне: маска по вписанному кругу
+# Сплошные детали без сквозных отверстий: светлые места (матовая крышка, люминофор стрелок)
+# не должны становиться дырами.
+FILL_KEYS = {"caseback", "hand_hour", "hand_minute", "hand_second", "hand_gmt", "subdial_hands"}
 
 STYLE = (
     "Ultra-detailed macro product photograph for a technical watch encyclopedia. "
@@ -292,6 +298,45 @@ def cmd_generate(slug: str, plate: str | None, dry: bool, force: bool, size: str
 # ----------------------------------------------------------------------------- segmentation
 
 
+_REMBG = {}
+
+
+def _rembg_alpha(img: Image.Image):
+    """Альфа-маска rembg (isnet-general-use) или None, если пакет не установлен (группа teardown)."""
+    import numpy as np
+
+    try:
+        from rembg import new_session, remove
+    except ImportError:
+        return None
+    key = (img.size, img.tobytes()[:4096])
+    if key not in _REMBG:
+        sess = _REMBG.setdefault("session", new_session("isnet-general-use"))
+        _REMBG[key] = np.asarray(remove(img.convert("RGB"), session=sess, only_mask=True)).astype(np.float32) / 255
+    return _REMBG[key]
+
+
+def _grid_lines(mask):
+    """Линии сетки, которые Gemini иногда рисует между клетками: длинные и тонкие (до 6 px)."""
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    h, w = mask.shape
+    lines = np.zeros_like(mask)
+    for axis, length in ((0, w), (1, h)):
+        # тонкое поперёк оси: сверху и снизу (или слева и справа) через 5 px уже фон
+        thin = mask & ~np.roll(mask, 5, axis=axis) & ~np.roll(mask, -5, axis=axis)
+        struct = np.array([[0, 0, 0], [1, 1, 1], [0, 0, 0]]) if axis == 0 else np.array([[0, 1, 0], [0, 1, 0], [0, 1, 0]])
+        lab, n = ndi.label(thin, structure=struct)
+        if not n:
+            continue
+        for k, sl in enumerate(ndi.find_objects(lab), start=1):
+            span = (sl[1].stop - sl[1].start) if axis == 0 else (sl[0].stop - sl[0].start)
+            if span > length * 0.15:
+                lines[sl] |= lab[sl] == k
+    return ndi.binary_dilation(lines, iterations=3)
+
+
 def _segment(img: Image.Image):
     """Маска деталей на однородном фоне (как в cutouts.py) и метки компонент."""
     import numpy as np
@@ -314,6 +359,12 @@ def _segment(img: Image.Image):
     d_l = lab[..., 0] - bg[..., 0]
     d_c = np.hypot(lab[..., 1] - bg[..., 1], lab[..., 2] - bg[..., 2])
     mask = (d_c > 8) | (d_l < -18) | (d_l > 7)
+    # Нейросеть rembg ловит детали, которые по цвету почти совпадают с серым фоном (матовая сталь,
+    # стекло), а порог держит полые кольца полыми. Итоговая маска: объединение обоих.
+    ai = _rembg_alpha(img)
+    if ai is not None:
+        mask |= ai > 0.15
+    mask &= ~_grid_lines(mask)
     mask = ndi.binary_opening(mask, iterations=1)
     mask = ndi.binary_closing(mask, iterations=2)
     holes = ndi.binary_fill_holes(mask) & ~mask
@@ -419,11 +470,16 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
         y0, y1 = max(0, y0 - pad), min(img.size[1], y1 + pad)
         x0, x1 = max(0, x0 - pad), min(img.size[0], x1 + pad)
         m = np.isin(groups[y0:y1, x0:x1], ids)
-        if item.key in DISK_KEYS or item.opts.get("shape") == "disk":
+        glass = item.key in DISK_KEYS or item.opts.get("shape") == "disk"
+        if item.key in FILL_KEYS or item.opts.get("fill"):
+            m = ndi.binary_fill_holes(m)
+        if glass:
             yy, xx = np.mgrid[0:m.shape[0], 0:m.shape[1]]
             r = min(m.shape) / 2 - pad
             m = m | (np.hypot(xx - m.shape[1] / 2, yy - m.shape[0] / 2) <= r)
-        alpha = Image.fromarray((m * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(1.0))
+        # стекло полупрозрачное: сквозь него в собранных часах виден циферблат
+        level = 0.2 if glass else 1.0
+        alpha = Image.fromarray((m * 255 * level).astype("uint8")).filter(ImageFilter.GaussianBlur(1.0))
         sprite = Image.fromarray(rgb[y0:y1, x0:x1]).convert("RGBA")
         sprite.putalpha(alpha)
         # копии одинаковых деталей делят одну картинку в атласе
@@ -434,48 +490,42 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
 # ----------------------------------------------------------------------------- layout
 
 
-def _strap_layout(cuts: list[Cut], idx: list[int], R: float) -> dict[int, tuple[list, list]]:
-    """Браслет рядами от ушек: в каждом ряду по одной детали каждого типа, поперёк ряда по ширине.
+def _strap_layout(cuts: list[Cut], idx: list[int], R: float) -> dict[int, tuple[list, list, float]]:
+    """Браслет цепочкой от ушек вдоль оси 12–6: концевые звенья, затем звенья по порядку.
 
-    Возвращает для каждой детали (at, ex) в миллиметрах. Сторона −1 = 12 часов, +1 = 6 часов.
+    Широкие детали (звенья, застёжка, ремешок) идут цепочкой с шагом в свою длину, мелкие
+    (центральные звенья, штифты) спрятаны под цепочкой и в разборке расходятся в стороны.
+    Возвращает для детали (at, ex, dy): положения в мм и сдвиг по высоте.
     """
-    out: dict[int, tuple[list, list]] = {}
-    width = 20.0
-    ends = [i for i in idx if cuts[i].item.key == "bracelet_end"]
+    out: dict[int, tuple[list, list, float]] = {}
+
+    def length(i):  # длина детали вдоль оси браслета (мм)
+        sw, sh = cuts[i].sprite.size
+        return cuts[i].item.mm * sh / max(sw, sh)
+
+    wide = [i for i in idx if cuts[i].item.key in ("bracelet_end", "bracelet_link", "strap") and cuts[i].item.mm >= 14]
+    small = [i for i in idx if i not in wide and cuts[i].item.key != "clasp"]
     clasp = [i for i in idx if cuts[i].item.key == "clasp"]
-    small = [i for i in idx if cuts[i].item.key in ("bracelet_pins", "spring_bar")]
-    straps = [i for i in idx if cuts[i].item.key == "strap"]
-    links = [i for i in idx if cuts[i].item.key == "bracelet_link"]
-    for n, i in enumerate(ends):
+    ends = [i for i in wide if cuts[i].item.key == "bracelet_end"]
+    chain = [i for i in wide if cuts[i].item.key != "bracelet_end"]
+    reach = {-1: R + 1.0, 1: R + 1.0}
+    order = ends + chain
+    for n, i in enumerate(order):
         side = -1 if n % 2 == 0 else 1
-        out[i] = ([0.0, side * (R + 2)], [0.0, side * (R + 14)])
-    for n, i in enumerate(straps):
-        side = -1 if n % 2 == 0 else 1
-        L = cuts[i].item.mm
-        out[i] = ([0.0, side * (R + 2 + L / 2)], [0.0, side * (R + 16 + L / 2)])
-    # ряды звеньев: типы по названию, каждый тип делится поровну между сторонами
-    types: dict[str, list[int]] = {}
-    for i in links:
-        types.setdefault(cuts[i].item.name, []).append(i)
-    # рядов на сторону столько, сколько деталей у самого редкого типа; частые типы идут по 2-3 в ряд
-    rows = min((math.ceil(len(v) / 2) for v in types.values()), default=0)
-    pitch = 7.0 if len(types) > 1 else min(max((cuts[i].item.mm for i in links), default=14) * 0.45, 9.0)
-    for tname, members in types.items():
-        per_side = [members[0::2], members[1::2]]
-        for s, group in enumerate(per_side):
-            side = -1 if s == 0 else 1
-            per_row = max(1, math.ceil(len(group) / max(1, rows)))
-            for n, i in enumerate(group):
-                row, col = divmod(n, per_row)
-                xs = [0.0] if per_row == 1 else [(-0.5 + c / (per_row - 1)) * width * 0.62 for c in range(per_row)]
-                dist = R + 8 + row * pitch
-                out[i] = ([xs[col], side * dist], [xs[col] * 1.5, side * (dist + 22 + row * pitch * 0.8)])
-    far = R + 8 + max(1, rows) * (pitch if links else 0) + 12
+        L = length(i)
+        d = reach[side] + L / 2
+        reach[side] += L - 0.6  # звенья чуть заходят друг на друга, как в настоящем браслете
+        step = (d - R) / 20
+        out[i] = ([0.0, side * d], [0.0, side * (d + 10 + step * 22)], 0.0)
     for i in clasp:
-        out[i] = ([0.0, far], [0.0, far + 40])
+        L = length(i)
+        d = reach[1] + L / 2
+        reach[1] += L
+        out[i] = ([0.0, d], [0.0, d + 38], 0.0)
     for n, i in enumerate(small):
         side = -1 if n % 2 == 0 else 1
-        out[i] = ([(n % 3 - 1) * 6.0, side * (R + 1)], [R + 20 + (n // 2) * 5.0, side * (10 + (n % 4) * 5.0)])
+        along = R + 6 + (n // 2) * 5.0
+        out[i] = ([0.0, side * along], [(14 + (n // 2) % 4 * 5) * (1 if n % 4 < 2 else -1), side * (along + 8)], -1.0)
     return out
 
 
@@ -493,12 +543,12 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
     heights, h = {}, 0.0
     for z in layers:
         heights[z] = h
-        h += 7 + 1.2 * math.sqrt(len(by_layer[z]))
+        h += 4.5 + 0.8 * math.sqrt(len(by_layer[z]))
     mid = h / 2
     R = case_mm / 2
     strap_y = heights.get(min(layers, key=lambda z: abs(z - 6.2)), 0.0) - mid if layers else 0.0
-    for i, (at, ex) in _strap_layout(cuts, strap_idx, R).items():
-        placed.append({"i": i, "at": at, "ex": ex, "y": strap_y})
+    for i, (at, ex, dy) in _strap_layout(cuts, strap_idx, R).items():
+        placed.append({"i": i, "at": at, "ex": ex, "y": strap_y + dy})
     for z in layers:
         members = sorted(by_layer[z], key=lambda i: -cuts[i].item.mm)
         ring_r, ring_used, ring_cap = 0.0, 0.0, 0.0
@@ -506,6 +556,18 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
             c = cuts[i]
             s = c.item.mm
             key = c.item.key
+            if key in HANDS:
+                angle, pivot = HANDS[key]
+                angle = c.item.opts.get("angle", angle)
+                sw, sh = c.sprite.size
+                # от оси до центра спрайта в мм (длина детали = s мм по большей стороне)
+                piv = c.item.opts.get("pivot", pivot if pivot is not None else sh / sw / 2)
+                off = s * (0.5 - piv)
+                rad = math.radians(angle)
+                at = [math.sin(rad) * off, -math.cos(rad) * off]
+                ex = [math.sin(rad) * (off + 4 + rank * 2), -math.cos(rad) * (off + 4 + rank * 2)]
+                placed.append({"i": i, "at": at, "ex": ex, "y": heights[z] - mid, "rot": angle - 90})
+                continue
             if key in SIDE_KEYS:
                 at = [R + s * 0.3, rnd.uniform(-3, 3) if key == "pushers" else 0.0]
                 ex = [R + 18 + rank * 6, 0.0]
@@ -524,6 +586,42 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
                 ex = [math.cos(ang) * ring_r, math.sin(ang) * ring_r]
             placed.append({"i": i, "at": at, "ex": ex, "y": heights[z] - mid})
     return sorted(placed, key=lambda p: p["i"])
+
+
+TRAY_ORDER = ["exterior", "dial", "movement_dial", "movement_calendar", "movement_chrono", "movement_train",
+              "movement_top", "movement_screws", "bracelet", "strap"]
+
+
+TRAYS = {"tray": 1.75, "tray_sq": 1.1, "tray_tall": 0.72}
+
+
+def _tray(cuts: list[Cut], sizes: list[tuple[float, float]], aspect: float = 1.75) -> list[tuple[float, float]]:
+    """Лоток часовщика: все детали лежат плоско группами (корпус, циферблат, механизм, браслет).
+
+    Полочная упаковка в миллиметрах по порядку групп; центр лотка в нуле. Возвращает (x, z) центров.
+    """
+    gap = 3.0
+    order = sorted(range(len(cuts)), key=lambda i: (TRAY_ORDER.index(cuts[i].job.plate) if cuts[i].job.plate in TRAY_ORDER else 99, i))
+    area = sum((sizes[i][0] + gap) * (sizes[i][1] + gap) for i in order)
+    limit = math.sqrt(area * aspect) * 1.12
+    pos: dict[int, tuple[float, float]] = {}
+    x = y = shelf = 0.0
+    last_group = None
+    for i in order:
+        w, h = sizes[i]
+        group = cuts[i].job.plate
+        if last_group is not None and group != last_group:
+            x += gap * 3  # просвет между группами
+        last_group = group
+        if x + w > limit and x > 0:
+            x, y, shelf = 0.0, y + shelf + gap, 0.0
+        pos[i] = (x + w / 2, y + h / 2)
+        x += w + gap
+        shelf = max(shelf, h)
+    xs = [pos[i][0] for i in pos]
+    ys = [pos[i][1] for i in pos]
+    cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
+    return [(round(pos[i][0] - cx, 2), round(pos[i][1] - cy, 2)) for i in range(len(cuts))]
 
 
 def _pack(sprites: list[Image.Image]) -> tuple[list[Image.Image], list[tuple[int, int, int, int, int]]]:
@@ -584,9 +682,10 @@ def cmd_build(slug: str) -> None:
         if id(c.sprite) in uniq:
             continue
         s = c.sprite
-        scale = c.item.mm * PPMM / max(s.size)
+        # не растягивать сверх исходного разрешения: увеличивать будет GPU, а атлас не раздувается
+        scale = min(1.0, c.item.mm * PPMM / max(s.size))
         uniq[id(c.sprite)] = len(packed)
-        packed.append(s.resize((max(2, round(s.width * scale)), max(2, round(s.height * scale))), Image.LANCZOS))
+        packed.append(s.resize((max(2, round(s.width * scale)), max(2, round(s.height * scale))), Image.LANCZOS) if scale < 1 else s)
     pages, packed_rects = _pack(packed)
     sprites = [packed[uniq[id(c.sprite)]] for c in cuts]
     rects = [packed_rects[uniq[id(c.sprite)]] for c in cuts]
@@ -623,15 +722,24 @@ def cmd_build(slug: str) -> None:
     parts = []
     for c, sp, rect, lay in zip(cuts, sprites, rects, layout):
         page, x, y, pw, ph = rect
-        parts.append({
+        mm_per_px = c.item.mm / max(sp.size)  # наибольшая сторона детали = её реальный размер
+        part = {
             "key": c.item.key, "name": c.item.name, "plate": c.job.plate,
-            "w": round(sp.width / PPMM, 2), "h": round(sp.height / PPMM, 2), "z": c.item.z,
+            "w": round(sp.width * mm_per_px, 2), "h": round(sp.height * mm_per_px, 2), "z": c.item.z,
             "page": page, "uv": [x / ATLAS, y / ATLAS, pw / ATLAS, ph / ATLAS],
             "at": [round(v, 2) for v in lay["at"]], "ex": [round(v, 2) for v in lay["ex"]], "y": round(lay["y"], 2),
-        })
+        }
+        if lay.get("rot"):
+            part["rot"] = lay["rot"]
+        parts.append(part)
     import hashlib
 
     version = hashlib.sha1(b"".join(f.read_bytes() for f in sorted(out.glob("*.webp")))).hexdigest()[:10]
+    # лотки под разную форму свободной части экрана: широкий, квадратный (телефон), высокий
+    sizes = [(pp["w"], pp["h"]) for pp in parts]
+    for name, aspect in TRAYS.items():
+        for pp, (tx, tz) in zip(parts, _tray(cuts, sizes, aspect)):
+            pp[name] = [tx, tz]
     manifest = {
         "slug": slug, "case_mm": case_mm, "version": version, "pages": [f"atlas-{n}.webp" for n in range(len(pages))],
         "assembled": extra, "generated": "Gemini 3 Pro Image по официальным фото модели", "parts": parts,

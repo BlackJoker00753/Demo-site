@@ -28,9 +28,9 @@ plates:
 - id: bracelet
   title: Браслет Jubilee
   parts:
-  - [bracelet_end, Концевое звено, 'Jubilee bracelet end link, Oystersteel with polished white-gold-look centre links', 20, 2]
-  - [bracelet_link, Внешнее звено Jubilee, 'Jubilee outer link piece (brushed), Oystersteel with polished white-gold-look centre links', 6, 14]
-  - [bracelet_link, Центральное звено Jubilee, 'small polished Jubilee centre link piece, Oystersteel with polished white-gold-look centre links', 3, 21]
+  - [bracelet_end, Концевое звено, 'Jubilee bracelet end section: curved end link joined to four link rows, Oystersteel', 22, 2]
+  - [bracelet_link, Звено Jubilee, 'one complete Jubilee link row seen from above: two brushed outer pieces and polished centre pieces joined, Oystersteel', 20, 10]
+  - [bracelet_link, Центральное звено Jubilee, 'single small polished Jubilee centre link piece, Oystersteel', 6, 6]
   - [clasp, Застёжка Oysterclasp, 'concealed folding Crownclasp / Oysterclasp, opened, Oystersteel with polished white-gold-look centre links', 36, 1]
   - [bracelet_pins, Винт-штифт звена, tiny threaded link screw pin, 5, 6]
   - [spring_bar, Пружинный штифт, spring bar, 20, 2]

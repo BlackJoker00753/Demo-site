@@ -9,6 +9,9 @@ import * as THREE from "three";
 
 const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - (-2 * x + 2) ** 3 / 2);
 const clamp01 = (x) => Math.min(1, Math.max(0, x));
+const Y = new THREE.Vector3(0, 1, 0);
+// варианты раскладки лотка и их пропорции (scripts/teardown.py, TRAYS)
+const TRAYS = { tray: 1.75, tray_sq: 1.1, tray_tall: 0.72 };
 
 const VERT = /* glsl */ `
   attribute vec4 iUv;
@@ -84,9 +87,12 @@ export class Teardown {
     // геометрия детали: единичный квадрат, лежащий в плоскости XZ лицом вверх
     const geo = new THREE.PlaneGeometry(1, 1);
     geo.rotateX(-Math.PI / 2);
-    this.parts = m.parts.map((p, i) => ({ ...p, i }));
+    const groups = [...new Set(m.parts.map((p) => p.plate))];
+    this.parts = m.parts.map((p, i) => ({ ...p, i, trayDelay: (groups.indexOf(p.plate) / Math.max(1, groups.length - 1)) * 0.3 }));
     this.byPage = pages.map(() => []);
     this.parts.forEach((p) => this.byPage[p.page].push(p));
+    // снизу вверх: полупрозрачное стекло, нарисованное раньше циферблата, закрыло бы его по глубине
+    for (const list of this.byPage) list.sort((p, q) => p.y - q.y);
     this.meshes = [];
     this.shadows = [];
     const floor = Math.min(...this.parts.map((p) => p.y)) - 6;
@@ -123,7 +129,8 @@ export class Teardown {
       const size = m.assembled.front_mm ?? m.case_mm * 1.16;
       const plane = new THREE.Mesh(geo.clone(), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
       plane.scale.set(size * (tex.image.width / tex.image.height), 1, size);
-      plane.position.y = Math.max(...this.parts.map((p) => p.y)) + 0.5;
+      // лежит прямо над собранными деталями (в собранном виде слои сжаты до 3,5 % высоты)
+      plane.position.y = Math.max(...this.parts.map((p) => p.y)) * 0.035 + 0.3;
       plane.renderOrder = 10;
       this.cover = plane;
       this.scene.add(plane);
@@ -153,33 +160,51 @@ export class Teardown {
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
-    if (this.parts) this.#camera();
-    this.render();
+    if (this.parts && this.t >= 0) this.setT(this.t, true);
+    else this.render();
   }
 
-  /** t: 0 собраны, 1 разобраны до детали. */
+  /**
+   * t: 0 собраны, 1 разложены на лотке. Две фазы:
+   *   0 … AX   часы расходятся вдоль своей оси (3D), камера наклоняется;
+   *   AX … 1   детали опускаются на лоток часовщика группами, камера возвращается в вид сверху.
+   */
   setT(t, force = false) {
     if (!this.parts || (!force && Math.abs(t - this.t) < 1e-4)) return;
     this.t = t;
+    const AX = 0.52;
+    const a = clamp01(t / AX), b = clamp01((t - AX) / (1 - AX));
     const m = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(), v = new THREE.Vector3();
-    const layers = [...new Set(this.parts.map((p) => p.z))].sort((a, b) => a - b);
+    const layers = this.layers ??= [...new Set(this.parts.map((p) => p.z))].sort((x, y) => x - y);
     const mid = (layers.length - 1) / 2;
-    const zRank = new Map(layers.map((z, i) => [z, Math.abs(i - mid) / Math.max(1, mid)]));
+    const zRank = this.zRank ??= new Map(layers.map((z, i) => [z, Math.abs(i - mid) / Math.max(1, mid)]));
+    const tk = this.#free().trayKey;
     for (const [pi, mesh] of this.meshes.entries()) {
       const shadow = this.shadows[pi];
       const alpha = shadow.geometry.getAttribute("iAlpha");
       mesh.userData.list.forEach((p, k) => {
-        // крайние слои (стекло, крышка) уходят первыми, середина механизма последней
-        const delay = (1 - zRank.get(p.z)) * 0.35;
-        const e = ease(clamp01((t - delay) / 0.6));
-        const x = p.at[0] + (p.ex[0] - p.at[0]) * e;
-        const zz = p.at[1] + (p.ex[1] - p.at[1]) * e;
-        const y = p.y * (0.035 + 0.965 * e);
+        // фаза 1: крайние слои (стекло, крышка) уходят первыми
+        const e1 = ease(clamp01((a - (1 - zRank.get(p.z)) * 0.35) / 0.65));
+        let x = p.at[0] + (p.ex[0] - p.at[0]) * e1;
+        let zz = p.at[1] + (p.ex[1] - p.at[1]) * e1;
+        let y = p.y * (0.035 + 0.965 * e1);
+        let rot = p.rot ?? 0;
+        // фаза 2: на лоток, группами с небольшим сдвигом во времени
+        const tray = p[tk] ?? p.tray;
+        if (b > 0 && tray) {
+          const e2 = ease(clamp01((b - (p.trayDelay ?? 0)) / 0.7));
+          const arc = Math.sin(Math.PI * e2) * 14; // лёгкая дуга вверх в полёте
+          x += (tray[0] - x) * e2;
+          zz += (tray[1] - zz) * e2;
+          y = y * (1 - e2) + (this.floor + 0.6) * e2 + arc;
+          rot = rot * (1 - e2);
+        }
         s.set(p.w, 1, p.h);
+        q.setFromAxisAngle(Y, -THREE.MathUtils.degToRad(rot));
         m.compose(v.set(x, y, zz), q, s);
         mesh.setMatrixAt(k, m);
         // тень на полу: смещена от света и тем бледнее, чем выше деталь
-        const lift = y - this.floor;
+        const lift = Math.max(0, y - this.floor);
         m.compose(v.set(x + lift * 0.18, this.floor, zz + lift * 0.12), q, s.set(p.w * 1.04, 1, p.h * 1.04));
         shadow.setMatrixAt(k, m);
         alpha.setX(k, 0.42 / (1 + lift * 0.03));
@@ -188,36 +213,103 @@ export class Teardown {
       shadow.instanceMatrix.needsUpdate = true;
       alpha.needsUpdate = true;
     }
-    if (this.cover) this.cover.material.opacity = 1 - clamp01(t / 0.12);
-    this.#camera();
+    if (this.cover) this.cover.material.opacity = 1 - clamp01(t / 0.08);
+    this.#camera(a, b);
     this.render();
   }
 
-  /** Сфера, в которую помещаются детали при данном t (собранные часы или вся разборка). */
-  #bounds(k) {
-    const pts = this.parts.map((p) => [p.at[0] + (p.ex[0] - p.at[0]) * k, p.y * (0.035 + 0.965 * k), p.at[1] + (p.ex[1] - p.at[1]) * k, Math.max(p.w, p.h) / 2]);
-    // без браслета: он длинный, и кадр по нему делает механизм мелким
-    const core = this.parts.map((p, i) => (p.plate === "bracelet" || p.plate === "strap" ? null : pts[i])).filter(Boolean);
-    const use = core.length ? core : pts;
-    const c = use.reduce((a, p) => [a[0] + p[0] / use.length, a[1] + p[1] / use.length, a[2] + p[2] / use.length], [0, 0, 0]);
-    const r = Math.max(...use.map((p) => Math.hypot(p[0] - c[0], p[1] - c[1], p[2] - c[2]) + p[3]));
-    return { c: new THREE.Vector3(...c), r };
+  /** Точки [x, y, z, радиус] кадра: собранные часы (0), разборка по оси (1). Лоток (2): прямоугольник. */
+  #bounds(state, tk = "tray") {
+    if (state === 2) {
+      // лоток плоский: нужен прямоугольник (на лотке детали не повёрнуты)
+      const at = (p) => p[tk] ?? p.tray;
+      const xs = this.parts.flatMap((p) => [at(p)[0] - p.w / 2, at(p)[0] + p.w / 2]);
+      const zs = this.parts.flatMap((p) => [at(p)[1] - p.h / 2, at(p)[1] + p.h / 2]);
+      const [x0, x1, z0, z1] = [Math.min(...xs), Math.max(...xs), Math.min(...zs), Math.max(...zs)];
+      return { c: new THREE.Vector3((x0 + x1) / 2, this.floor, (z0 + z1) / 2), w: x1 - x0, h: z1 - z0 };
+    }
+    // кадр по корпусу и механизму: браслет длинный и делал бы часы мелкими, он уходит за край
+    const core = this.parts.filter((p) => !["bracelet", "strap"].includes(p.plate));
+    return (core.length ? core : this.parts).map((p) => [
+      p.at[0] + (p.ex[0] - p.at[0]) * state,
+      p.y * (0.035 + 0.965 * state),
+      p.at[1] + (p.ex[1] - p.at[1]) * state,
+      Math.max(p.w, p.h) / 2,
+    ]);
   }
 
-  #camera() {
-    const t = ease(clamp01(this.t));
-    this.fitA ??= this.#bounds(0);
-    this.fitB ??= this.#bounds(1);
-    const polar = THREE.MathUtils.degToRad(3 + 55 * t); // от вида сверху к трёхчетвертному
-    const azim = THREE.MathUtils.degToRad(-22 * t);
-    const half = THREE.MathUtils.degToRad(this.camera.fov / 2);
-    const aspect = Math.min(1, this.camera.aspect);
-    const dist = (b) => (b.r * 1.02) / Math.sin(half) / aspect;
-    const target = this.fitA.c.clone().lerp(this.fitB.c, t);
-    const r = dist(this.fitA) + (dist(this.fitB) - dist(this.fitA)) * t;
+  /**
+   * Центр и расстояние камеры, при которых все точки видны под заданным ракурсом.
+   * Точки проецируются в плоскость камеры, кадр центрируется по их реальным границам, а не по
+   * описанной сфере: высокая стопка деталей под углом занимает гораздо меньше места, чем сфера.
+   */
+  #fitView(pts, polar, azim, tanW, tanV, pad) {
+    const dir = new THREE.Vector3(Math.sin(polar) * Math.sin(azim), Math.cos(polar), Math.sin(polar) * Math.cos(azim));
+    const right = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 0, -1), dir).normalize();
+    const up = new THREE.Vector3().crossVectors(dir, right);
+    const c = pts.reduce((acc, p) => acc.add(new THREE.Vector3(p[0], p[1], p[2])), new THREE.Vector3()).divideScalar(pts.length);
+    const v = new THREE.Vector3();
+    const proj = pts.map((p) => {
+      v.set(p[0], p[1], p[2]).sub(c);
+      return [v.dot(right), v.dot(up), v.dot(dir), p[3]];
+    });
+    const cx = (Math.min(...proj.map((q) => q[0] - q[3])) + Math.max(...proj.map((q) => q[0] + q[3]))) / 2;
+    const cy = (Math.min(...proj.map((q) => q[1] - q[3])) + Math.max(...proj.map((q) => q[1] + q[3]))) / 2;
+    const d = Math.max(...proj.map(([x, y, z, r]) => z + r + Math.max((Math.abs(x - cx) + r) / tanW, (Math.abs(y - cy) + r) / tanV) * pad));
+    return { c: c.addScaledVector(right, cx).addScaledVector(up, cy), d };
+  }
+
+  /** Отступы под текст, вкладки и ползунок (px): кадр центрируется в оставшейся части холста. */
+  setInset(left, top = 0, bottom = 0) {
+    this.inset = left;
+    this.insetTop = top;
+    this.insetBottom = bottom;
+    this.resize();
+  }
+
+  /** Свободная часть холста (без отступов под текст) и подходящий к ней лоток. */
+  #free() {
+    const W = this.canvas.clientWidth || 1, H = this.canvas.clientHeight || 1;
+    const lim = (x, max) => Math.min(Math.max(0, x || 0), max);
+    const inset = lim(this.inset, W * 0.45);
+    const top = lim(this.insetTop, H * 0.4);
+    const bottom = lim(this.insetBottom, H * 0.3);
+    const freeW = W - inset, freeH = H - top - bottom;
+    // лоток с пропорциями, ближайшими к свободной области (широкий, квадратный или высокий)
+    const k = Math.log(freeW / freeH);
+    const trayKey = Object.entries(TRAYS).sort((x, y) => Math.abs(Math.log(x[1]) - k) - Math.abs(Math.log(y[1]) - k))[0][0];
+    return { W, H, inset, top, bottom, freeW, freeH, trayKey };
+  }
+
+  #camera(a = 0, b = 0) {
+    const { W, H, inset, top, bottom, freeW, freeH, trayKey } = this.#free();
+    // тангенсы половинных углов обзора, суженных до свободной части холста
+    const tanH = Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2));
+    const tanV = (tanH * freeH) / H, tanW = (tanH * freeW) / H;
+    const rad = THREE.MathUtils.degToRad;
+    const key = `${W}x${H}:${inset}:${top}:${bottom}`;
+    if (this.fitKey !== key) {
+      const pts = (this.pts ??= [this.#bounds(0), this.#bounds(1)]);
+      const C = this.#bounds(2, trayKey);
+      this.fitKey = key;
+      this.fit = [
+        this.#fitView(pts[0], rad(3), 0, tanW, tanV, 1.18),
+        this.#fitView(pts[1], rad(55), rad(-20), tanW, tanV, 1.04),
+        { c: C.c, d: Math.max(C.h / 2 / tanV, C.w / 2 / tanW) * 1.08 },
+      ];
+    }
+    const [A, B, C] = this.fit;
+    const ea = ease(a), eb = ease(b);
+    const polar = rad((3 + 52 * ea) * (1 - eb) + 0.5 * eb);
+    const azim = rad(-20 * ea * (1 - eb));
+    const target = A.c.clone().lerp(B.c, ea).lerp(C.c, eb);
+    let r = A.d + (B.d - A.d) * ea;
+    r += (C.d - r) * eb;
     this.camera.position.set(target.x + Math.sin(polar) * Math.sin(azim) * r, target.y + Math.cos(polar) * r, target.z + Math.sin(polar) * Math.cos(azim) * r);
     this.camera.up.set(0, 0, -1);
     this.camera.lookAt(target);
+    // «сдвиг объектива»: центр сцены в середине свободной части, а не всего холста
+    this.camera.setViewOffset(W, H, -inset / 2, -(top - bottom) / 2, W, H);
   }
 
   /** Подсветить детали с ключом key (остальные приглушить); null снимает подсветку. */
@@ -278,6 +370,9 @@ export class Teardown {
     });
     c.addEventListener("click", (e) => {
       const p = this.pick(e.clientX, e.clientY);
+      // на тач-экране pointermove перед кликом нет: подсказку обновляем и здесь
+      this.#setHover(p ? p.i : -1);
+      this.listeners.forEach((fn) => fn({ type: "hover", part: p, x: e.clientX, y: e.clientY }));
       this.listeners.forEach((fn) => fn({ type: "pick", part: p }));
     });
     return this;

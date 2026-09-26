@@ -280,6 +280,9 @@
 }
 .wtd-tip[hidden] { display: none; }
 .wtd-note { display: block; margin-top: 8px; font-size: var(--fs-12); color: var(--text-3); }
+.wtd-short { display: none; }
+/* на телефоне короткая подсказка: длинная занимала бы половину экрана над сценой */
+@media (max-width: 600px) { .wtd-how { display: none; } .wtd-short { display: inline; } }
 .wparts button small { color: var(--text-4); font-size: 11px; margin-left: 4px; }
 .wexplode__side {
   position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
@@ -415,6 +418,14 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
   .wexplode__panel { display: none; }
   .wpart-card { left: 12px; right: 12px; width: auto; top: auto; bottom: 100px; transform: none; }
   .wexplode__slider { width: calc(100% - 24px); justify-content: center; }
+  /* сцена гаснет под заголовком и под вкладками с ползунком (--td-top/--td-bottom задаёт watch.js) */
+  .wexplode__td {
+    --td-mask: linear-gradient(180deg,
+      transparent calc(var(--td-top, 0px) - 48px), #000 calc(var(--td-top, 0px) + 24px),
+      #000 calc(100% - var(--td-bottom, 0px) - 8px), transparent calc(100% - var(--td-bottom, 0px) + 56px));
+    -webkit-mask-image: var(--td-mask);
+    mask-image: var(--td-mask);
+  }
 }
 
 /* ---------------------------------------------------------------- price */
