@@ -1,0 +1,76 @@
+brand:
+  slug: ulysse-nardin
+  name: Ulysse Nardin
+  aliases: [улисс нардан, улисс нардин, un]
+  country: switzerland
+  founded: 1846
+  founder: Улисс Нарден
+  city: Ле-Локль
+  lat: 47.0583
+  lon: 6.7483
+  group: Sowind Group
+  independent: false
+  tier: haute
+  manufacture: full
+  manufacture_note: Собственная мануфактура в Ле-Локле, лидер в области кремниевых компонентов и передовой механики.
+  website: https://www.ulysse-nardin.com
+  sort: 27
+  tagline: Морские хронометры с 1846 года и революционный кремниевый авангард Freak.
+  story:
+    - Основанная в Ле-Локле в 1846 году, компания завоевала свыше 4300 наград за точность и снабжала морскими палубными хронометрами более 50 военных флотов мира.
+    - "В 2001 году под руководством Рольфа Шнайдера и часовщика-визионера Людвига Окслина дом выпустил модель Freak, навсегда изменившую часовую индустрию: это были первые часы со спуском из кремния, не требующие смазки, без циферблата, стрелок и традиционной заводной головки."
+    - С тех пор Ulysse Nardin развивает концепцию механического карусельного турбийона, где сам механизм совершает один оборот в час, выполняя роль минутной стрелки.
+  facts:
+    - {label: "Морские хронометры", value: "На флотах более 50 государств"}
+    - {label: "Первый кремниевый спуск", value: "2001 год (Freak)"}
+    - {label: "Инновационная концепция", value: "Карусель без стрелок и заводной головки"}
+  milestones:
+    - {year: 1846, text: "Улисс Нарден открывает часовую мастерскую в Ле-Локле"}
+    - {year: 1893, text: "Первый приз на Всемирной выставке в Чикаго за морской хронометр"}
+    - {year: 1983, text: "Рольф Шнайдер и Людвиг Окслин начинают эпоху астрономических шедевров"}
+    - {year: 2001, text: "Презентация Freak: первый в истории кремниевый спусковой механизм"}
+    - {year: 2023, text: "Премьера Freak ONE, триумф на Гран-при часового искусства в Женеве (GPHG)"}
+
+movements:
+  - slug: ulysse-nardin-un-230
+    caliber: UN-230
+    maker: Ulysse Nardin
+    type: automatic
+    in_house: true
+    power_reserve_h: 72
+    frequency_vph: 21600
+    jewels: 21
+    year: 2023
+    features: [Карусельный турбийон с полным оборотом за 60 минут, Кремниевое балансовое колесо увеличенного диаметра с грузами, Система автоподзавода Grinder с исключительной чувствительностью]
+    description: Авангардный карусельный механизм с парящим кремниевым осциллятором, вращающимся вокруг собственной оси.
+
+watches:
+  - slug: ulysse-nardin-freak-one
+    name: Freak ONE
+    collection: Freak
+    reference: 2405-500-2A/3D
+    year_introduced: 2001
+    movement: ulysse-nardin-un-230
+    complications: [tourbillon]
+    case: {diameter_mm: 44.0, thickness_mm: 12.0, material: Титан с черным DLC-покрытием и розовое золото 18k, water_resistance_m: 30}
+    bracelet: Интегрированный каучуковый ремешок с баллистической текстурой
+    dial: Открытый карусельный механизм с черным санцевым диском часов
+    price: {usd: 68600, kind: msrp, source: "официальная розничная цена Ulysse Nardin", checked: 2026-09-24}
+    summary: "Манифест авангардной механики: карусельный турбийон без стрелок, циферблата и заводной головки."
+    icon: true
+    story:
+      - "Freak ONE соединяет в себе все ключевые изобретения линейки за 20 лет: открытый кремниевый спуск, установку времени поворотом безеля и подзавод Grinder."
+      - Нижний треугольный указатель отсчитывает часы, а парящий карусельный мост механизма вращается раз в час, указывая минуты.
+    history:
+      - {year: 2001, ref: "016-88", title: "Рождение Freak", text: "Первые наручные часы в истории с кремниевым спусковым механизмом Dual Direct Escapement."}
+      - {year: 2023, ref: "2405-500", title: "Победа на GPHG", text: "Freak ONE завоевал главный приз в номинации Iconic Watch на Гран-при Женевы."}
+    highlights: ["Карусельный турбийон", "Кремниевый спуск без смазки", "Установка времени безелем"]
+    render:
+      case: {shape: round, material: carbon, finish: mixed}
+      bezel: {type: coin, material: metal}
+      dial: {color: "#0f1115", finish: skeleton, indices: none, text_color: "#e6ad5c", lume: true}
+      hands: {style: skeleton, color: "#e6ad5c", lume: true, seconds: none}
+      strap: {type: rubber, color: "#16181d"}
+      logo: ULYSSE NARDIN
+      movement_plate: black
+    sort: 10

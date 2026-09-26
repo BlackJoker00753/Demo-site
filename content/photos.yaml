@@ -1667,4 +1667,49 @@ junghans-max-bill-mega-solar:
   license_url: https://creativecommons.org/licenses/by/2.5
   source_url: https://commons.wikimedia.org/wiki/File:Junghans-max-bill.jpg
   title: Max Bill MEGA Solar
+fp-journe-chronometre-souverain:
+- author: Monochrome Watches / Frank Geelen
+  caption: Chronomètre Souverain, золотой калибр 1304 и серебряный циферблат с гильоше Clous de Paris
+  context: false
+  file: fp-journe-chronometre-souverain/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/fp-journe-chronometre-souverain-20th-anniversary-boutique-editions-blue-historical-importance-video-review/
+  title: F.P. Journe Chronomètre Souverain
+girard-perregaux-laureato-42:
+- author: Monochrome Watches / Frank Geelen
+  caption: Laureato, восьмиугольный безель и циферблат Clous de Paris
+  context: false
+  file: girard-perregaux-laureato-42/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/2026-girard-perregaux-laureato-fifty-tourbillon-micro-rotor-39mm-review/
+  title: Girard-Perregaux Laureato
+ulysse-nardin-freak-one:
+- author: Monochrome Watches / Frank Geelen
+  caption: Freak ONE, открытый кремниевый карусельный турбийон
+  context: false
+  file: ulysse-nardin-freak-one/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1600
+  hotspots: []
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/2026-new-ulysse-nardin-freak-one-blue-enamel-and-freak-one-guilloche-review-price/
+  title: Ulysse Nardin Freak ONE
 

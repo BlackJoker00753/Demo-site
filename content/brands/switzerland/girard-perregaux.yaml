@@ -1,0 +1,76 @@
+brand:
+  slug: girard-perregaux
+  name: Girard-Perregaux
+  aliases: [жирар перрего, gp]
+  country: switzerland
+  founded: 1791
+  founder: Жан-Франсуа Ботт и Констан Жирар
+  city: Ла-Шо-де-Фон
+  lat: 47.1035
+  lon: 6.8328
+  group: Sowind Group
+  independent: false
+  tier: haute
+  manufacture: full
+  manufacture_note: Полный мануфактурный цикл в Ла-Шо-де-Фон, старейшая часовая мануфактура Швейцарии.
+  website: https://www.girard-perregaux.com
+  sort: 26
+  tagline: Высокое часовое искусство с 1791 года, легендарные три золотых моста и икона Laureato.
+  story:
+    - Мануфактура берёт начало от женевского мастера Жан-Франсуа Ботта в 1791 году, творениями которого восхищалась королева Виктория. В 1856 году Констан Жирар и Мари Перрего объединили фамилии, основав дом Girard-Perregaux.
+    - В 1889 году карманный турбийон с тремя параллельными стреловидными золотыми мостами получил золотую медаль на Всемирной выставке в Париже, превратив функциональные детали механизма в высокое искусство.
+    - В 1975 году марка представила спортивную модель Laureato с интегрированным браслетом и восьмиугольным безелем на круглом цоколе, опередив многие знаменитые формы эпохи.
+  facts:
+    - {label: "Основание", value: "1791 год (Жан-Франсуа Ботт)"}
+    - {label: "Три золотых моста", value: "Золотая медаль Всемирной выставки 1889"}
+    - {label: "Премьера Laureato", value: "1975 год"}
+  milestones:
+    - {year: 1791, text: "Жан-Франсуа Ботт открывает мастерскую ультратонких часов"}
+    - {year: 1867, text: "Создан первый хронометр с тремя параллельными мостами"}
+    - {year: 1889, text: "Золотая медаль в Париже за Tourbillon with Three Gold Bridges"}
+    - {year: 1975, text: "Выпуск роскошных спортивных часов Laureato с интегрированным браслетом"}
+    - {year: 2017, text: "Возрождение современной базовой коллекции Laureato"}
+
+movements:
+  - slug: girard-perregaux-gp01800
+    caliber: GP01800
+    maker: Girard-Perregaux
+    type: automatic
+    in_house: true
+    power_reserve_h: 54
+    frequency_vph: 28800
+    jewels: 28
+    year: 2017
+    features: [Мануфактурный ротор из розового золота, Узор Côtes de Genève, Круговое зернение]
+    description: Современный флагманский базовый автомат диаметром 30 мм для коллекции Laureato 42.
+
+watches:
+  - slug: girard-perregaux-laureato-42
+    name: Laureato 42
+    collection: Laureato
+    reference: 81010-11-431-11A
+    year_introduced: 1975
+    movement: girard-perregaux-gp01800
+    complications: [date]
+    case: {diameter_mm: 42.0, thickness_mm: 10.68, material: Нержавеющая сталь, water_resistance_m: 100}
+    bracelet: Интегрированный стальной браслет с полированными центральными H-звеньями
+    dial: Синий циферблат с рельефным гильоше Clous de Paris
+    price: {usd: 14300, kind: msrp, source: "официальная розничная цена GP", checked: 2026-09-24}
+    summary: Культовые спортивные часы с восьмиугольным безелем на круглом постаменте и циферблатом Clous de Paris.
+    icon: true
+    story:
+      - Название Laureato («Выпускник») вдохновлено фильмом Майка Николса 1967 года с Дастином Хоффманом.
+      - Геометрия безеля сочетает восьмиугольник и круг, образуя гармоничный силуэт в традициях итальянской архитектуры.
+    history:
+      - {year: 1975, ref: "Laureato 1975", title: "Премьера", text: "Выпуск первой модели с высокоточным кварцевым калибром хронометра."}
+      - {year: 2017, ref: "81010", title: "Современное перерождение", text: "Возвращение мануфактурного автоматического калибра GP01800 в регулярную линейку."}
+    highlights: ["Восьмиугольный безель", "Гильоше Clous de Paris", "Водозащита 100 м"]
+    render:
+      case: {shape: round, material: steel, finish: mixed, lugs: integrated}
+      bezel: {type: octagon, material: metal}
+      dial: {color: "#1c355e", finish: clous, indices: baton, text_color: "#ffffff", lume: true}
+      hands: {style: baton, color: "#ffffff", lume: true, seconds: center}
+      date: "3"
+      strap: {type: integrated, color: "#c0c5cc"}
+      logo: GIRARD-PERREGAUX
+    sort: 10

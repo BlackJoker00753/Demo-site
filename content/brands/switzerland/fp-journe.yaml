@@ -1,0 +1,78 @@
+brand:
+  slug: fp-journe
+  name: F.P. Journe
+  aliases: [fp journe, франсуа поль журн, журн]
+  country: switzerland
+  founded: 1999
+  founder: Франсуа-Поль Журн
+  city: Женева
+  lat: 46.2044
+  lon: 6.1432
+  group: null
+  independent: true
+  tier: haute
+  manufacture: full
+  manufacture_note: Все платины и мосты механизмов изготавливаются из цельного 18-каратного розового золота на собственной мануфактуре в центре Женевы.
+  website: https://www.fpjourne.com
+  sort: 25
+  tagline: "«Invenit et Fecit» (Изобрёл и создал): независимый гений с калибрами из цельного золота."
+  story:
+    - Франсуа-Поль Журн, потомственный марсельский часовщик и реставратор старинных хронометров Бреге и Жанвье, основал собственную мануфактуру в Женеве в 1999 году под девизом «Invenit et Fecit».
+    - Журн совершил революцию в современном часовом деле, начав изготавливать платины и мосты всех своих механизмов исключительно из цельного 18-каратного розового золота.
+    - Мануфактура выпускает менее 1000 экземпляров в год, сохраняя бескомпромиссную ручную отделку и создавая сложнейшие калибры с резонансом и ремонтиром постоянной силы.
+  facts:
+    - {label: "Девиз", value: "«Invenit et Fecit»"}
+    - {label: "Материал калибров", value: "Цельное 18-каратное розовое золото"}
+    - {label: "Годовой объём", value: "Около 900 экземпляров"}
+  milestones:
+    - {year: 1999, text: "Основание мануфактуры в Женеве и презентация Tourbillon Souverain"}
+    - {year: 2000, text: "Премьера первого в мире наручного хронометра с резонансом Chronomètre à Résonance"}
+    - {year: 2004, text: "Переход на изготовление всех механизмов из розового золота 18k"}
+    - {year: 2005, text: "Выпуск Chronomètre Souverain, победа на Женевском Гран-при GPHG"}
+    - {year: 2009, text: "Дебют культового Chronomètre Bleu в корпусе из тантала"}
+
+movements:
+  - slug: fp-journe-1304
+    caliber: F.P. Journe 1304
+    maker: F.P. Journe
+    type: manual
+    in_house: true
+    power_reserve_h: 56
+    frequency_vph: 21600
+    jewels: 22
+    year: 2005
+    features: [Платина и мосты из розового золота 18k, Два параллельных заводных барабана, Баланс со свободной спиралью и четырьмя регулировочными грузами]
+    description: Мануфактурный калибр с ручным заводом из цельного розового золота 18k, обеспечивающий линейную подачу энергии благодаря спаренным барабанам.
+
+watches:
+  - slug: fp-journe-chronometre-souverain
+    name: Chronomètre Souverain
+    collection: Souveraine
+    reference: CS.RG.40
+    year_introduced: 2005
+    movement: fp-journe-1304
+    complications: [power-reserve]
+    case: {diameter_mm: 40.0, thickness_mm: 8.6, material: 18-каратное розовое золото 6N, water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора с золотой застёжкой
+    dial: Серебряный циферблат с гильоше Clous de Paris, стрелки из синей вороненой стали
+    price: {usd: 48000, kind: market, source: "оценка вторичного рынка и бутиковых квот", checked: 2026-09-24}
+    summary: Эталон классического хронометра с механизмом из цельного золота и указателем запаса хода.
+    icon: true
+    story:
+      - Chronomètre Souverain признан экспертами одним из самых красивых и точных костюмных хронометров XXI века.
+      - Циферблат украшен традиционным гильоше, а сквозь сапфировое стекло открывается архитектура золотого калибра с солнечным сатинированием на барабанах.
+    history:
+      - {year: 2005, ref: CS, title: "Дебют и Гран-при Женевы", text: "Модель удостоена высшей награды Aiguille d'Or на GPHG за исключительную хронометрическую точность."}
+    highlights: ["Механизм из розового золота 18k", "Два заводных барабана", "Корпус толщиной 8,6 мм"]
+    render:
+      case: {shape: round, material: rose_gold, finish: polished}
+      bezel: {type: smooth}
+      dial: {color: "#f4f1ea", finish: guilloche, indices: arabic, text_color: "#1a1f2c", lume: false}
+      hands: {style: lance, color: "#1f3a8a", lume: false, seconds: small}
+      subdials:
+        - {pos: 6, kind: small_seconds, color: "#ece8de"}
+        - {pos: 3, kind: power_reserve, color: "#ece8de"}
+      strap: {type: alligator, color: "#4a2a18"}
+      logo: F.P. JOURNE
+      movement_plate: gilt
+    sort: 10
