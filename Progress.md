@@ -312,3 +312,16 @@ Studio; после замены файлов в `~/Desktop/Horologium-детал
   Explorer 40, Datejust 41, Day-Date 40, Spirit Pilot, Master Collection Moonphase: 4–5 листов на модель),
   потом новые калибры (Daytona, Sky-Dweller, 1908, Land-Dweller, Spirit Flyback). В инструкции: только 4K
   и проверка порядка деталей на картинке.
+
+## Блок 11. Rolex Submariner, калибр 3230 и апскейл первой партии в 4K (2026-09-26)
+
+- **Rolex Submariner ref. 124060 (no date)** полностью собран и проверен:
+  - Сгенерированы все листы: корпус Oyster 41 мм, черный циферблат с метками Chromalight (без даты), браслет Oyster с застежкой Glidelock, сторона циферблата калибра 3230, собранный корпус 1:1.
+  - Все исходные листы переведены в 4K (3840×2160) с фильтрацией резкости (UnsharpMask).
+  - Нарезка: распознаны все 98 деталей без пропусков (с правкой в `fixes.yaml` для стороны циферблата 3230).
+  - Скомпилирован атлас `atlas-0.webp` (1,5 МБ) и манифест `manifest.json`.
+  - Эндпоинты `/watch/rolex-submariner` и `/assets/teardown/rolex-submariner/manifest.json` отдают 200 OK.
+- **Общий калибр 3230**: сторона циферблата `rolex-32xx-3230--movement_dial.png` готова и автоматически закрывает требования для моделей Oyster Perpetual 41 и Explorer 40.
+- **Rolex Submariner Date**: подготовлен лист браслета Oyster, общие листы механизмов 32xx (мосты, колесная передача, винты) подключены.
+- **4K-апскейл готовых листов**: все ранее созданные листы для GMT-Master II Pepsi и Longines Zulu Time переведены в 3840×2160, пересобраны и проверены.
+
