@@ -35,7 +35,8 @@ Gemini не должен писать на картинке никаких по�
 1. `uv run python scripts/teardown.py page [slug ...]` (без аргументов: все модели, готовые листы пропускаются).
 2. Открыть http://localhost:8765/assets/teardown-tasks/index.html: для каждого листа промпт, референс, имя файла.
 3. Картинки сохранять в `~/Desktop/Horologium-детали/` под показанными именами.
-4. `uv run python scripts/teardown.py import`, затем `review <slug>` (проверка подписей) и `build <slug>`.
+4. `uv run python scripts/teardown.py import`, затем `review <slug>` (проверка подписей), `build <slug>`
+   и `sheet <slug>` (все вырезанные детали на одном листе: проверить, что они целые).
 
 ## Проверка и ручные правки
 

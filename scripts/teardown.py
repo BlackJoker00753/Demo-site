@@ -694,6 +694,31 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
     return sorted(placed, key=lambda p: p["i"])
 
 
+def _broken(cuts: list[Cut]) -> list[str]:
+    """Детали, рассыпавшиеся на куски: признак сломанной нарезки (фон съел середину стальной детали).
+
+    Считаются заметные куски непрозрачной части спрайта; целая деталь это один крупный кусок
+    (плюс, может быть, пара мелких). Много кусков без явно главного: нарезка испорчена.
+    """
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    out, seen = [], set()
+    for c in cuts:
+        if id(c.sprite) in seen:
+            continue
+        seen.add(id(c.sprite))
+        a = np.asarray(c.sprite)[..., 3] > 128
+        lab, n = ndi.label(a)
+        if n < 2:
+            continue
+        sizes = ndi.sum(a, lab, range(1, n + 1))
+        big = sizes[sizes > a.size * 0.002]
+        if len(big) > 4 and big.max() / big.sum() < 0.8:
+            out.append(f"{c.job.id}: «{c.item.name}» распалась на {len(big)} кусков")
+    return out
+
+
 TRAY_ORDER = ["exterior", "dial", "movement_dial", "movement_calendar", "movement_chrono", "movement_train",
               "movement_top", "movement_screws", "bracelet", "strap"]
 
@@ -848,13 +873,54 @@ def cmd_build(slug: str) -> None:
             pp[name] = [tx, tz]
     manifest = {
         "slug": slug, "case_mm": case_mm, "version": version, "pages": [f"atlas-{n}.webp" for n in range(len(pages))],
-        "assembled": extra, "generated": "Gemini 3 Pro Image по официальным фото модели", "parts": parts,
+        "assembled": extra, "generated": "Gemini (Nano Banana) по официальным фото модели", "parts": parts,
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     size = sum(f.stat().st_size for f in out.glob("*"))
     print(f"{slug}: {len(parts)} деталей, {len(pages)} стр. атласа, {size / 1e6:.1f} МБ")
     for wr in warnings:
         print("  внимание:", wr)
+    broken = _broken(cuts)
+    if broken:
+        print(f"\n!!! НАРЕЗКА ИСПОРЧЕНА у {len(broken)} деталей. Не коммитьте атлас, проверьте `review {slug}` и `sheet {slug}`:")
+        for b in broken:
+            print("   ", b)
+    print(f"Проверьте глазами: uv run python scripts/teardown.py sheet {slug}")
+
+
+def cmd_sheet(slug: str) -> None:
+    """Все вырезанные детали собранной модели с подписями: проверка качества нарезки глазами."""
+    base = OUT / slug
+    m = json.loads((base / "manifest.json").read_text(encoding="utf-8"))
+    pages = [Image.open(base / f).convert("RGBA") for f in m["pages"]]
+    try:
+        font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial.ttf", 15)
+    except OSError:
+        font = ImageFont.load_default()
+    tiles, seen = [], set()
+    for p in m["parts"]:
+        key = (p["page"], tuple(p["uv"]))
+        if key in seen:
+            continue
+        seen.add(key)
+        at = pages[p["page"]]
+        W, H = at.size
+        u, v, w, h = p["uv"]
+        sp = at.crop((int(u * W), int(v * H), int((u + w) * W), int((v + h) * H)))
+        sp.thumbnail((230, 230))
+        t = Image.new("RGB", (250, 280), (38, 40, 44))
+        t.paste(sp, ((250 - sp.width) // 2, (240 - sp.height) // 2), sp)
+        ImageDraw.Draw(t).text((8, 252), f"{p['plate']}: {p['name']}"[:36], fill=(235, 235, 235), font=font)
+        tiles.append(t)
+    cols = 8
+    rows = (len(tiles) + cols - 1) // cols
+    sheet = Image.new("RGB", (250 * cols, 280 * rows), (20, 20, 22))
+    for i, t in enumerate(tiles):
+        sheet.paste(t, ((i % cols) * 250, (i // cols) * 280))
+    CACHE.mkdir(parents=True, exist_ok=True)
+    path = CACHE / f"{slug}-sprites.png"
+    sheet.save(path)
+    print(path.relative_to(ROOT), f"({len(tiles)} разных деталей)")
 
 
 def cmd_import(folder: Path) -> None:
@@ -1024,7 +1090,7 @@ def main() -> int:
     im.add_argument("--from", dest="folder", default=str(INBOX))
     pg = sub.add_parser("page", help="страница с промптами для ручной генерации")
     pg.add_argument("slugs", nargs="*")
-    for name in ("plan", "build", "review"):
+    for name in ("plan", "build", "review", "sheet"):
         sp = sub.add_parser(name)
         sp.add_argument("slug")
     g = sub.add_parser("generate")
@@ -1046,6 +1112,8 @@ def main() -> int:
         cmd_generate(args.slug, args.plate, args.dry_run, args.force, args.size)
     elif args.cmd == "build":
         cmd_build(args.slug)
+    elif args.cmd == "sheet":
+        cmd_sheet(args.slug)
     else:
         cmd_review(args.slug)
     return 0
