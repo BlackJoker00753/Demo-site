@@ -139,8 +139,13 @@
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
-.btn--ghost:hover { background: rgba(30, 34, 40, 0.7); border-color: var(--line-3); }
 .btn--small { height: 38px; padding: 0 16px; font-size: var(--fs-14); }
+.btn--lume {
+  background: var(--lume) !important;
+  color: #07080a !important;
+  border-color: var(--lume) !important;
+  box-shadow: 0 0 16px var(--lume-glow);
+}
 
 .icon-btn {
   display: inline-grid; place-items: center;
@@ -173,6 +178,7 @@
 }
 .chip--lume { border-color: rgba(159, 233, 196, 0.35); color: var(--lume); }
 .chip--solid { background: var(--surface-2); border-color: transparent; }
+.chip--spec { border-color: var(--line-2); color: var(--text-2); font-feature-settings: "tnum" 1; }
 
 /* ---------------------------------------------------------------- tabs */
 
@@ -311,7 +317,8 @@
 .wcard__top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .wcard__name { font-family: var(--font-display); font-size: 1.55rem; line-height: 1.05; font-weight: 400; }
 .wcard__ref { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
-.wcard__meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.wcard__meta { display: flex; flex-wrap: wrap; gap: 5px; }
+.wcard__meta .chip { height: 25px; padding: 0 9px; font-size: 11px; }
 .wcard__price { font-size: 1.35rem; }
 .wcard__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
 .wcard[hidden] { display: none; }
@@ -435,3 +442,22 @@
 .credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 2px; }
 .credit a:hover { color: var(--text-2); }
 .credit__note { color: var(--text-2); }
+
+/* ---------------------------------------------------------------- toast notification */
+
+.toast-msg {
+  position: fixed; bottom: 32px; right: 32px; z-index: 1000;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border-radius: var(--r-pill);
+  background: rgba(18, 22, 28, 0.95);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--lume);
+  color: var(--text); font-size: var(--fs-14); font-weight: 500;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px var(--lume-glow);
+  transform: translateY(20px); opacity: 0; pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.toast-msg.is-visible {
+  transform: translateY(0); opacity: 1; pointer-events: auto;
+}
+.toast-msg i { color: var(--lume); font-size: 18px; }

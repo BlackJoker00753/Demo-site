@@ -6,9 +6,35 @@ import { MOVEMENT, usd } from "../core/format.js";
 import { photoImg, revealPhotos } from "./photo.js";
 import { hasCompare } from "../core/compare.js";
 
+export const MATERIAL_LABELS = {
+  steel: "Сталь",
+  rose_gold: "Розовое золото",
+  yellow_gold: "Желтое золото",
+  white_gold: "Белое золото",
+  two_tone_yellow: "Биколор",
+  two_tone_rose: "Биколор",
+  platinum: "Платина",
+  titanium: "Титан",
+  ceramic: "Керамика",
+  ceramic_black: "Керамика",
+  ceramic_white: "Керамика",
+  carbon: "Карбон",
+  bronze: "Бронза",
+  resin_black: "Полимер",
+  resin_white: "Полимер",
+  gold: "Золото",
+  tantalum: "Тантал",
+};
+
+export function formatMaterial(mat) {
+  if (!mat) return null;
+  return MATERIAL_LABELS[mat] || mat;
+}
+
 export function watchCard(w, { showBrand = false, i = 0 } = {}) {
   const comps = w.complications.filter((c) => !["date", "small-seconds", "tachymeter"].includes(c.slug)).slice(0, 2);
   const inComp = hasCompare(w.slug);
+  const matLabel = formatMaterial(w.material || w.render?.case?.material);
   return html`<a class="wcard" href="/watch/${w.slug}" data-slug="${w.slug}" data-type="${w.movement_type}"
       data-comps="${w.complications.map((c) => c.slug).join(" ")}" data-price="${w.price.usd}" data-year="${w.year_introduced ?? 9999}"
       style="--i:${i % 8}" data-reveal>
@@ -33,6 +59,9 @@ export function watchCard(w, { showBrand = false, i = 0 } = {}) {
       </div>
       <div class="wcard__meta">
         <span class="chip">${MOVEMENT[w.movement_type]?.short ?? w.movement_type}</span>
+        ${w.diameter_mm ? html`<span class="chip chip--spec" title="Диаметр корпуса">Ø ${w.diameter_mm} мм</span>` : ""}
+        ${matLabel ? html`<span class="chip chip--spec" title="Материал корпуса">${matLabel}</span>` : ""}
+        ${w.water_resistance_m ? html`<span class="chip chip--spec" title="Водозащита">${w.water_resistance_m} м</span>` : ""}
         ${w.in_house ? html`<span class="chip chip--lume">Свой калибр</span>` : ""}
         ${comps.map((c) => html`<span class="chip">${c.name}</span>`)}
       </div>

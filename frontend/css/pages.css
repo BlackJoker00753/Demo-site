@@ -152,6 +152,7 @@
 .compare-page { padding-block: calc(var(--nav-h) + var(--s-6)) var(--s-9); }
 .compare-page__head { margin-bottom: var(--s-6); }
 .compare-page__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.compare-actions { display: flex; align-items: center; gap: 10px; }
 .compare-empty__actions { display: grid; gap: 16px; margin-top: 20px; }
 .compare-presets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: var(--fs-13); }
 .compare-table-wrap {
