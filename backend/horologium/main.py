@@ -11,6 +11,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 from .api.routes import router
 from .config import settings
 from .db.build import ensure_database
+from .web.security import add_security_middleware
 from .web.spa import mount_frontend
 
 log = logging.getLogger("horologium")
@@ -34,9 +35,11 @@ def create_app() -> FastAPI:
         openapi_url="/api/openapi.json",
     )
     app.add_middleware(GZipMiddleware, minimum_size=1024)
+    add_security_middleware(app)
     app.include_router(router)
     mount_frontend(app)
     return app
+
 
 
 app = create_app()

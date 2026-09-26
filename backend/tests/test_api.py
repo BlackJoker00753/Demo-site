@@ -82,3 +82,16 @@ def test_search_finds_calibers(client):
     hits = client.get("/api/v1/search", params={"q": "3235"}).json()
     assert hits[0]["kind"] == "movement" and hits[0]["url"] == "/movement/rolex-3235"
     assert any(h["kind"] == "movement" for h in client.get("/api/v1/search", params={"q": "El Primero"}).json())
+
+
+def test_security_headers_and_server_mask(client):
+    res = client.get("/api/v1/countries")
+    assert res.headers["x-frame-options"] == "SAMEORIGIN"
+    assert res.headers["x-content-type-options"] == "nosniff"
+    assert res.headers["referrer-policy"] == "strict-origin-when-cross-origin"
+    assert "geolocation=()" in res.headers["permissions-policy"]
+    assert res.headers["server"] == "Horologium"
+
+    html_res = client.get("/watches")
+    assert "default-src 'self'" in html_res.headers.get("content-security-policy", "")
+
