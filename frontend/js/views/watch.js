@@ -16,6 +16,7 @@ import { Teardown } from "../ui/teardown.js";
 import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
 import { renderCaliberEscapementPlayer, mountCaliberEscapementPlayer } from "../ui/escapement-player.js";
+import { renderWristFitWidget, mountWristFitWidget } from "../ui/wrist-fit.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
 const CUTOUTS = { exploded_quartz: "eta-955", exploded_mechanical: "prim" };
@@ -139,6 +140,7 @@ export default {
                 <button type="button" class="btn btn--ghost" id="whero-compare-btn" data-compare="${w.slug}">
                   <i class="ph-light ph-scales" aria-hidden="true"></i><span id="whero-compare-text">${hasCompare(w.slug) ? "В сравнении" : "Сравнить"}</span>
                 </button>
+                <a class="btn btn--ghost" href="#wrist-fit" data-jump="wrist-fit"><i class="ph-light ph-ruler" aria-hidden="true"></i>Примерка</a>
                 <a class="btn btn--ghost" href="#story" data-jump="story">История</a>
               </div>
             </div>
@@ -327,6 +329,10 @@ export default {
 
         ${priceBlock(w)}
 
+        <section class="wwrist container" id="wrist-fit" aria-label="Примерка на запястье">
+          ${renderWristFitWidget(w)}
+        </section>
+
         ${w.siblings.length
           ? html`<section class="wmore container">
               <div class="wmore__head">
@@ -352,6 +358,7 @@ export default {
     revealPhotos(root);
     mountKinematicFlow(root);
     cleanups.push(mountCaliberEscapementPlayer(root));
+    cleanups.push(mountWristFitWidget(root, w));
     if (!still) g.from(qsa("[data-h]", root), { y: 32, autoAlpha: 0, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.12 });
     const plate = qs(".whero__plate", root);
     const compareBtn = qs("#whero-compare-btn", root);
