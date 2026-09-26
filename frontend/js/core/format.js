@@ -86,6 +86,18 @@ export const MOVEMENT = {
 };
 export const movementLabel = (t) => MOVEMENT[t]?.label ?? t;
 
+/** Сложность усложнения по шкале 1–5 (content/complications.yaml). */
+export const DIFFICULTY = ["", "Простое", "Несложное", "Среднее", "Сложное", "Вершина ремесла"];
+export const COMP_CATEGORY = {
+  time: "Время",
+  calendar: "Календарь",
+  chronograph: "Хронограф",
+  tool: "Инструмент",
+  display: "Индикация",
+  acoustic: "Звук",
+  astronomy: "Астрономия",
+  regulation: "Регулировка хода",
+};
 export const TIER = {
   accessible: "Доступный",
   mid: "Средний",

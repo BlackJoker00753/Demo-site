@@ -6,7 +6,7 @@
 
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
-import { date, hours, MOVEMENT, num, PRICE_KIND, usd, vph } from "../core/format.js";
+import { date, DIFFICULTY, hours, MOVEMENT, num, PRICE_KIND, usd, vph } from "../core/format.js";
 import { countUp, reduced, splitWords } from "../core/motion.js";
 import { scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
@@ -27,7 +27,6 @@ const PHOTO_ALIAS = {
 };
 const photoKey = (key) => PHOTO_ALIAS[key] ?? key;
 
-const DIFFICULTY = ["", "Простое", "Несложное", "Среднее", "Сложное", "Вершина ремесла"];
 
 function specTiles(w) {
   const m = w.movement;

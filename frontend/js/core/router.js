@@ -12,7 +12,7 @@
 // на своё место (FLIP). ctx.shared = key, чтобы страница не запускала свою анимацию появления фото.
 
 import { gsap, reduced } from "./motion.js";
-import { scrollTop, getLenis } from "./scroll.js";
+import { scrollTop, scrollToEl, getLenis } from "./scroll.js";
 import { setHTML, html } from "./dom.js";
 
 const ROUTES = [
@@ -41,6 +41,7 @@ export class Router {
     this.scrollMemory = new Map();
     this.listeners = new Set();
     this.pendingShared = null;
+    this.pendingHash = null;
   }
 
   start() {
@@ -68,9 +69,23 @@ export class Router {
     const url = new URL(a.href, location.href);
     if (url.origin !== location.origin || url.pathname.startsWith("/api/")) return;
     e.preventDefault();
-    if (url.pathname + url.search === location.pathname + location.search) return;
+    if (url.pathname + url.search === location.pathname + location.search) {
+      // якорь на этой же странице (#level-3, «К содержимому»): плавно прокрутить и передать фокус
+      if (url.hash) this.#toHash(url.hash);
+      return;
+    }
     this.pendingShared = this.#captureShared(a);
+    this.pendingHash = url.hash;
     this.go(url.pathname + url.search);
+  }
+
+  #toHash(hash, immediate = false) {
+    const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!el) return;
+    if (immediate) el.scrollIntoView();
+    else scrollToEl(el, -80);
+    if (el.tabIndex < 0 && !el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
   }
 
   /** Запомнить фото внутри ссылки, чтобы после перехода перенести его на новое место. */
@@ -193,6 +208,8 @@ export class Router {
     setHTML(this.root, view.render(data, ctx));
 
     const restore = !push && this.scrollMemory.has(key) ? this.scrollMemory.get(key) : 0;
+    const hash = push ? this.pendingHash : location.hash;
+    this.pendingHash = null;
     if (restore) {
       getLenis()?.scrollTo(restore, { immediate: true, force: true });
       if (!getLenis()) window.scrollTo(0, restore);
@@ -208,7 +225,11 @@ export class Router {
     await this.#enter(view, { sameLayer, initial });
     window.ScrollTrigger?.refresh();
     this.listeners.forEach((fn) => fn(route.name, params));
-    if (!initial) this.root.focus({ preventScroll: true });
+    if (hash && !restore) {
+      // адрес с якорем (/watch/…#explode): после отрисовки сразу к нужному разделу
+      if (push) history.replaceState(history.state, "", path + hash);
+      this.#toHash(hash, true);
+    } else if (!initial) this.root.focus({ preventScroll: true });
   }
 
   async #leave(prev, nextView) {
