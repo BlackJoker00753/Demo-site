@@ -31,8 +31,8 @@ plates:
   title: Браслет
   parts:
   - [bracelet_end, Концевое звено, 'bracelet end link, stainless steel', 22, 2]
-  - [bracelet_link, Звено браслета, 'single three-piece bracelet link, brushed with polished centre, stainless steel', 22, 14]
+  - [bracelet_link, Звенья браслета, 'section of two joined rows of three-piece links, brushed outer pieces with polished centre, stainless steel', 23, 7]
   - [clasp, Застёжка, 'folding clasp with push buttons, opened, stainless steel', 36, 1]
-  - [bracelet_pins, Штифт звена, link pin, 5, 8]
+  - [bracelet_pins, Штифт звена, link pin, 10, 8]
   - [spring_bar, Пружинный штифт, spring bar, 22, 2]
 assembled: {front: 'the complete watch head (case, bezel, dial, hands, crown) WITHOUT bracelet or strap, seen exactly from above, centred, same lighting and background'}

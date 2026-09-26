@@ -100,7 +100,7 @@ Nothing else in the image.
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel
 2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
 3. centre wheel
@@ -110,14 +110,15 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 7. pallet fork with ruby pallet stones
 8. balance wheel with dark silicon hairspring
 9. shock protection setting with lyre spring
-10. winding pinion and sliding pinion
-11. winding stem
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/longines-a31-l899/movement_dial.png`
 
-Сторона циферблата, деталей: 30, сетка 5×3. Референсы: нет.
+Сторона циферблата, деталей: 25, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -247,27 +248,30 @@ Nothing else in the image.
 
 ### `teardown_src/movements/longines-l791-l791/movement_train.png`
 
-Энергия, передача и спуск, деталей: 11, сетка 4×2. Референсы: нет.
+Энергия, передача и спуск, деталей: 11, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Swiss automatic column-wheel flyback chronograph calibre, rhodium-plated bridges with Côtes de Genève, polished steel chronograph levers, blued column wheel, red ruby jewels, dark silicon hairspring..
-Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel
 2. mainspring out of the barrel
-3. centre, third and fourth wheels
-4. escape wheel
-5. pallet fork
-6. balance wheel with dark silicon hairspring
-7. winding pinion and sliding pinion
-8. winding stem
+3. centre wheel with long pinion arbor, gold-coloured
+4. third wheel, gold-coloured with steel pinion
+5. fourth wheel (seconds wheel) with long arbor
+6. escape wheel
+7. pallet fork
+8. balance wheel with dark silicon hairspring
+9. winding pinion (small steel gear)
+10. sliding pinion / clutch wheel (steel, teeth on both ends)
+11. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/longines-l791-l791/movement_dial.png`
 
-Сторона циферблата, деталей: 20, сетка 4×2. Референсы: нет.
+Сторона циферблата, деталей: 17, сетка 4×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -376,7 +380,7 @@ Nothing else in the image.
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel
 2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
 3. centre wheel
@@ -386,14 +390,15 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 7. pallet fork with ruby pallet stones
 8. balance wheel with dark silicon hairspring
 9. shock protection setting with lyre spring
-10. winding pinion and sliding pinion
-11. winding stem
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/longines-a31-l888/movement_dial.png`
 
-Сторона циферблата, деталей: 27, сетка 4×3. Референсы: нет.
+Сторона циферблата, деталей: 23, сетка 4×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -464,7 +469,7 @@ Nothing else in the image.
 
 ### `teardown_src/watches/longines-spirit-zulu-time/bracelet.png`
 
-Браслет, деталей: 27, сетка 3×2. Референсы: `frontend/assets/photos/longines-spirit-zulu-time/1-1600.jpg`.
+Браслет, деталей: 20, сетка 3×2. Референсы: `frontend/assets/photos/longines-spirit-zulu-time/1-1600.jpg`.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -472,7 +477,7 @@ Ultra-detailed macro product photograph for a technical watch encyclopedia. Came
 Subject: the disassembled components of this watch: Longines Spirit Zulu Time 42 mm ref. L3.812.4.50.6: stainless steel case, bidirectional black ceramic 24-hour bezel, black sunray dial with applied Arabic numerals and luminescent indices, gold-coloured GMT hand, date at 3, three-link steel bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
 Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. bracelet end link, stainless steel
-2. single three-piece bracelet link, brushed with polished centre, stainless steel
+2. section of two joined rows of three-piece links, brushed outer pieces with polished centre, stainless steel
 3. folding clasp with push buttons, opened, stainless steel
 4. link pin
 5. spring bar
@@ -507,7 +512,7 @@ Nothing else in the image.
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel
 2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
 3. centre wheel
@@ -517,14 +522,15 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 7. pallet fork with ruby pallet stones
 8. balance wheel with dark silicon hairspring
 9. shock protection setting with lyre spring
-10. winding pinion and sliding pinion
-11. winding stem
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/longines-a31-l844/movement_dial.png`
 
-Сторона циферблата, деталей: 30, сетка 5×3. Референсы: нет.
+Сторона циферблата, деталей: 25, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -632,28 +638,31 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-71xx-7140/movement_train.png`
 
-Энергия, передача и спуск, деталей: 13, сетка 4×3. Референсы: нет.
+Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: thin Rolex manufacture automatic calibre, bridges with Rolex Côtes de Genève (wide stripes), polished bevels, skeletonised 18 ct gold rotor, silicon Syloxi hairspring (dark grey-blue), red ruby jewels..
-Show EXACTLY 9 separate items, one of each, arranged in a grid of 4 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. thin closed mainspring barrel
 2. mainspring out of the barrel
-3. centre, third and fourth wheels
-4. escape wheel (Chronergy on 7140, silicon Dynapulse wheels on 7135)
-5. pallet fork with ruby pallet stones
-6. balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts
-7. Paraflex shock absorber
-8. winding pinion and sliding pinion
-9. winding stem
+3. centre wheel with long pinion arbor, gold-coloured
+4. third wheel, gold-coloured with steel pinion
+5. fourth wheel (seconds wheel) with long arbor
+6. escape wheel (Chronergy on 7140, silicon Dynapulse wheels on 7135)
+7. pallet fork with ruby pallet stones
+8. balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts
+9. Paraflex shock absorber
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/rolex-71xx-7140/movement_dial.png`
 
-Сторона циферблата, деталей: 24, сетка 4×2. Референсы: нет.
+Сторона циферблата, деталей: 21, сетка 4×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -792,7 +801,7 @@ Nothing else in the image.
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Rolex manufacture automatic chronograph calibre, bridges with Rolex Côtes de Genève stripes and polished bevels, skeletonised 18 ct yellow gold rotor, red ruby jewels, blue Parachrom hairspring, polished steel chronograph levers..
-Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel, gold-coloured
 2. mainspring out of the barrel, relaxed steel spiral
 3. centre wheel
@@ -802,14 +811,15 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 7. Chronergy pallet fork with ruby pallet stones
 8. balance wheel with blue Parachrom hairspring and gold Microstella nuts
 9. Paraflex shock absorber
-10. winding pinion and sliding pinion
-11. winding stem
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/rolex-4131-4131/movement_dial.png`
 
-Сторона циферблата, деталей: 23, сетка 4×2. Референсы: нет.
+Сторона циферблата, деталей: 22, сетка 4×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -878,16 +888,16 @@ Nothing else in the image.
 
 ### `teardown_src/watches/rolex-datejust-41/bracelet.png`
 
-Браслет Jubilee, деталей: 46, сетка 4×2. Референсы: `frontend/assets/photos/rolex-datejust-41/1-1600.jpg`.
+Браслет Jubilee, деталей: 27, сетка 4×2. Референсы: `frontend/assets/photos/rolex-datejust-41/1-1600.jpg`.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Rolex Datejust 41 ref. 126334: 41 mm Oystersteel case with fluted 18 ct white gold bezel, blue sunray dial with baton indices, date at 3 with Cyclops, Jubilee bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
 Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. Jubilee bracelet end link, Oystersteel with polished white-gold-look centre links
-2. Jubilee outer link piece (brushed), Oystersteel with polished white-gold-look centre links
-3. small polished Jubilee centre link piece, Oystersteel with polished white-gold-look centre links
+1. Jubilee bracelet end section: curved end link joined to four link rows, Oystersteel
+2. one complete Jubilee link row seen from above: two brushed outer pieces and polished centre pieces joined, Oystersteel
+3. single small polished Jubilee centre link piece, Oystersteel
 4. concealed folding Crownclasp / Oysterclasp, opened, Oystersteel with polished white-gold-look centre links
 5. tiny threaded link screw pin
 6. spring bar
@@ -943,7 +953,7 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-32xx-3235/movement_dial.png`
 
-Сторона циферблата, деталей: 11, сетка 5×2. Референсы: нет.
+Сторона циферблата, деталей: 10, сетка 5×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -1096,7 +1106,7 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-32xx-3255/movement_dial.png`
 
-Сторона циферблата, деталей: 12, сетка 5×3. Референсы: нет.
+Сторона циферблата, деталей: 11, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -1251,7 +1261,7 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-32xx-3230/movement_dial.png`
 
-Сторона циферблата, деталей: 8, сетка 4×2. Референсы: нет.
+Сторона циферблата, деталей: 7, сетка 4×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -1340,16 +1350,16 @@ Nothing else in the image.
 
 ### `teardown_src/watches/rolex-gmt-master-ii-pepsi/bracelet.png`
 
-Браслет Jubilee, деталей: 46, сетка 4×2. Референсы: `frontend/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg`.
+Браслет Jubilee, деталей: 27, сетка 4×2. Референсы: `frontend/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg`.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Rolex GMT-Master II ref. 126710BLRO: 40 mm Oystersteel case with crown guards, bidirectional rotatable 24-hour bezel with two-colour Cerachrom ceramic insert (upper half blue from 18 through 24 to 6, lower half red from 6 to 18) and platinum-coated numerals, black lacquer dial with round Chromalight hour markers, date window at 3 with Cyclops lens, red GMT hand with triangle tip, Jubilee five-piece bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
 Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. Jubilee bracelet end link, Oystersteel
-2. Jubilee outer link piece (brushed), Oystersteel
-3. small polished Jubilee centre link piece, Oystersteel
+1. Jubilee bracelet end section: curved end link joined to four link rows, Oystersteel
+2. one complete Jubilee link row seen from above: two brushed outer pieces and polished centre pieces joined, Oystersteel
+3. single small polished Jubilee centre link piece, Oystersteel
 4. concealed folding Crownclasp / Oysterclasp, opened, Oystersteel
 5. tiny threaded link screw pin
 6. spring bar
@@ -1405,7 +1415,7 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-32xx-3285/movement_dial.png`
 
-Сторона циферблата, деталей: 14, сетка 5×3. Референсы: нет.
+Сторона циферблата, деталей: 12, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -1532,27 +1542,30 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-71xx-7135/movement_train.png`
 
-Энергия, передача и спуск, деталей: 14, сетка 4×2. Референсы: нет.
+Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: thin Rolex manufacture automatic calibre, bridges with Rolex Côtes de Genève (wide stripes), polished bevels, skeletonised 18 ct gold rotor, silicon Syloxi hairspring (dark grey-blue), red ruby jewels..
-Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. thin closed mainspring barrel
 2. mainspring out of the barrel
-3. centre, third and fourth wheels
-4. Dynapulse escapement: two silicon escape wheels with a small silicon impulse lever
-5. balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts
-6. Paraflex shock absorber
-7. winding pinion and sliding pinion
-8. winding stem
+3. centre wheel with long pinion arbor, gold-coloured
+4. third wheel, gold-coloured with steel pinion
+5. fourth wheel (seconds wheel) with long arbor
+6. Dynapulse escapement: two silicon escape wheels with a small silicon impulse lever
+7. balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts
+8. Paraflex shock absorber
+9. winding pinion (small steel gear)
+10. sliding pinion / clutch wheel (steel, teeth on both ends)
+11. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/rolex-71xx-7135/movement_dial.png`
 
-Сторона циферблата, деталей: 24, сетка 4×2. Референсы: нет.
+Сторона циферблата, деталей: 21, сетка 4×2. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
@@ -1692,16 +1705,16 @@ Nothing else in the image.
 
 ### `teardown_src/watches/rolex-sky-dweller/bracelet.png`
 
-Браслет Jubilee, деталей: 46, сетка 4×2. Референсы: `frontend/assets/photos/rolex-sky-dweller/1-1600.jpg`.
+Браслет Jubilee, деталей: 27, сетка 4×2. Референсы: `frontend/assets/photos/rolex-sky-dweller/1-1600.jpg`.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Rolex Sky-Dweller ref. 336934: 42 mm Oystersteel case, rotatable fluted 18 ct white gold Ring Command bezel, blue sunray dial with off-centre 24-hour disc and 12 month windows around the edge, date at 3 with Cyclops, Jubilee bracelet. The attached reference photo shows the finished watch: every exterior part (case, bezel, dial, hands, crown, bracelet) must match it exactly in shape, colour, finish and printing.
 Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. Jubilee bracelet end link, Oystersteel
-2. Jubilee outer link piece (brushed), Oystersteel
-3. small polished Jubilee centre link piece, Oystersteel
+1. Jubilee bracelet end section: curved end link joined to four link rows, Oystersteel
+2. one complete Jubilee link row seen from above: two brushed outer pieces and polished centre pieces joined, Oystersteel
+3. single small polished Jubilee centre link piece, Oystersteel
 4. concealed folding Crownclasp / Oysterclasp, opened, Oystersteel
 5. tiny threaded link screw pin
 6. spring bar
@@ -1730,28 +1743,31 @@ Nothing else in the image.
 
 ### `teardown_src/movements/rolex-9002-9002/movement_train.png`
 
-Энергия, передача и спуск, деталей: 13, сетка 4×3. Референсы: нет.
+Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
 
 Subject: the disassembled components of this watch: Rolex manufacture automatic calibre with annual calendar, rhodium-plated bridges with Côtes de Genève, red ruby jewels, blue Parachrom hairspring, gold-coloured wheels..
-Show EXACTLY 9 separate items, one of each, arranged in a grid of 4 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
+Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
 1. closed mainspring barrel
 2. mainspring out of the barrel
-3. centre, third and fourth wheels
-4. Chronergy escape wheel
-5. Chronergy pallet fork
-6. balance wheel with blue Parachrom hairspring
-7. Paraflex shock absorber
-8. winding pinion and sliding pinion
-9. winding stem
+3. centre wheel with long pinion arbor, gold-coloured
+4. third wheel, gold-coloured with steel pinion
+5. fourth wheel (seconds wheel) with long arbor
+6. Chronergy escape wheel
+7. Chronergy pallet fork
+8. balance wheel with blue Parachrom hairspring
+9. Paraflex shock absorber
+10. winding pinion (small steel gear)
+11. sliding pinion / clutch wheel (steel, teeth on both ends)
+12. winding stem
 Nothing else in the image.
 ```
 
 ### `teardown_src/movements/rolex-9002-9002/movement_calendar.png`
 
-Календарь Saros и второй пояс, деталей: 26, сетка 5×3. Референсы: нет.
+Календарь Saros и второй пояс, деталей: 23, сетка 5×3. Референсы: нет.
 
 ```text
 Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).

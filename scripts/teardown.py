@@ -37,6 +37,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = ROOT / "content" / "teardown"
+FIXES = SPEC / "fixes.yaml"  # ручные правки раскладки конкретных картинок
 SRC = ROOT / "teardown_src"  # исходные 4K-листы (в .gitignore: тяжёлые)
 OUT = ROOT / "frontend" / "assets" / "teardown"
 CACHE = Path(__file__).resolve().parent / ".cache" / "teardown"
@@ -73,6 +74,8 @@ STRAP_KEYS = {"bracelet_end", "bracelet_link", "clasp", "bracelet_pins", "spring
 DISK_KEYS = {"crystal"}  # прозрачное стекло почти не видно на фоне: маска по вписанному кругу
 # Сплошные детали без сквозных отверстий: светлые места (матовая крышка, люминофор стрелок)
 # не должны становиться дырами.
+# кольца: отверстие в середине всегда прозрачное, даже если сегментация его залила
+RING_KEYS = {"case", "bezel", "bezel_insert", "bezel_spring", "flange", "gasket", "movement_ring"}
 FILL_KEYS = {"caseback", "hand_hour", "hand_minute", "hand_second", "hand_gmt", "subdial_hands"}
 
 STYLE = (
@@ -414,12 +417,41 @@ class Cut:
     job: Job
 
 
+def _fix(job: Job) -> list | None:
+    """Ручная правка раскладки листа из content/teardown/fixes.yaml, если она для этой картинки."""
+    if not FIXES.exists() or not job.path.exists():
+        return None
+    import hashlib
+
+    fix = (yaml.safe_load(FIXES.read_text(encoding="utf-8")) or {}).get(job.id)
+    if not fix:
+        return None
+    sha = hashlib.sha1(job.path.read_bytes()).hexdigest()[:10]
+    if fix.get("sha") != sha:
+        print(f"  {job.id}: правка в fixes.yaml для другой картинки ({fix.get('sha')} ≠ {sha}), пропущена")
+        return None
+    cells = fix["cells"]
+    if len(cells) != len(job.unique):
+        sys.exit(f"{job.id}: в fixes.yaml {len(cells)} позиций, а деталей в списке {len(job.unique)}")
+    return [c if isinstance(c, list) else [c] for c in cells]
+
+
+def _cell(box: tuple, size: tuple[int, int], grid: tuple[int, int]) -> int:
+    """Номер клетки заказанной сетки (с нуля, по строкам), в которую попадает центр рамки."""
+    (x0, y0, x1, y1), (W, H), (cols, rows) = box, size, grid
+    c = min(cols - 1, int((x0 + x1) / 2 / W * cols))
+    r = min(rows - 1, int((y0 + y1) / 2 / H * rows))
+    return r * cols + c
+
+
 def _assign(job: Job, img: Image.Image, groups, objs) -> tuple[list[list[int]], list[tuple], list[str]]:
     """Какие компоненты маски относятся к какой детали списка.
 
-    Если компонент ровно столько, сколько деталей, достаточно порядка чтения. Иначе деталь
-    распалась на куски (или Gemini добавил лишнее): компоненты раскладываются по клеткам
-    заданной сетки и склеиваются внутри клетки.
+    1. Ручная правка из fixes.yaml (Gemini положил детали не в те клетки или добавил лишнее).
+    2. Каждый компонент в своей клетке заказанной сетки и заняты ровно первые клетки: по клеткам.
+       Это надёжнее порядка чтения, когда высокая деталь (застёжка) перекрывает две строки.
+    3. Компонент столько же, сколько деталей: порядок чтения.
+    4. Иначе деталь распалась на куски: компоненты склеиваются внутри своей клетки.
     """
     min_area = (img.size[0] / 400) ** 2
     comps = []
@@ -431,26 +463,53 @@ def _assign(job: Job, img: Image.Image, groups, objs) -> tuple[list[list[int]], 
     boxes = [(sl[1].start, sl[0].start, sl[1].stop, sl[0].stop) for _, sl in comps]
     warnings = []
     items = [it for it, _ in job.unique]
-    if len(comps) == len(items):
-        order = _reading_order(boxes)
+    cells: dict[int, list[int]] = {}
+    for k, box in enumerate(boxes):
+        cells.setdefault(_cell(box, img.size, job.grid), []).append(k)
+    fix = _fix(job)
+    if fix is None and len(comps) == len(items):
+        if sorted(cells) == list(range(len(items))):
+            order = [cells[n][0] for n in range(len(items))]
+        else:
+            order = _reading_order(boxes)
         return [[comps[i][0]] for i in order], [boxes[i] for i in order], warnings
     cols, rows = job.grid
-    W, H = img.size
-    cells: dict[int, list[int]] = {}
-    for k, (x0, y0, x1, y1) in enumerate(boxes):
-        c = min(cols - 1, int((x0 + x1) / 2 / W * cols))
-        r = min(rows - 1, int((y0 + y1) / 2 / H * rows))
-        cells.setdefault(r * cols + c, []).append(k)
+    # позиции деталей: по правке (номера клеток с единицы) или клетки по порядку
+    want = [[c - 1 for c in f] for f in fix] if fix else [[n] for n in range(len(items))]
     out, out_boxes = [], []
     for n in range(len(items)):
-        ks = cells.get(n, [])
+        ks = [k for c in want[n] for k in cells.get(c, [])]
         if not ks:
             warnings.append(f"{job.id}: пустая клетка {n + 1} ({items[n].name})")
         out.append([comps[k][0] for k in ks])
         out_boxes.append((min(boxes[k][0] for k in ks), min(boxes[k][1] for k in ks), max(boxes[k][2] for k in ks), max(boxes[k][3] for k in ks)) if ks else None)
-    extra = sorted(set(cells) - set(range(len(items))))
-    warnings.insert(0, f"{job.id}: компонент {len(comps)} при {len(items)} деталях, склеено по клеткам {cols}×{rows}" + (f", лишние клетки {extra}" if extra else ""))
+    extra = sorted(c + 1 for c in set(cells) - {c for w in want for c in w})
+    how = "по правке из fixes.yaml" if fix else "склеено по клеткам"
+    warnings.insert(0, f"{job.id}: компонент {len(comps)} при {len(items)} деталях, {how} {cols}×{rows}" + (f", не использованы клетки {extra}" if extra else ""))
     return out, out_boxes, warnings
+
+
+def _clear_center(m, crop):
+    """Отверстие кольца: область цвета фона, связанная с центром рамки, становится прозрачной.
+
+    rembg иногда считает середину безеля частью детали, и в собранных часах она закрывает циферблат.
+    Область не должна касаться края рамки: у разомкнутой детали это был бы внешний фон.
+    """
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    outside = ~m
+    bg = np.median(crop[outside], axis=0) if outside.sum() > 50 else np.array([214, 214, 214])
+    lab, _ = ndi.label(np.abs(crop.astype(int) - bg).max(axis=2) < 10)
+    cy, cx = m.shape[0] // 2, m.shape[1] // 2
+    ids = lab[max(0, cy - 3):cy + 4, max(0, cx - 3):cx + 4]
+    ids = ids[ids > 0]
+    if not ids.size:
+        return m
+    hole = lab == np.bincount(ids).argmax()
+    if hole[0].any() or hole[-1].any() or hole[:, 0].any() or hole[:, -1].any():
+        return m
+    return m & ~ndi.binary_dilation(hole, iterations=1)
 
 
 def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
@@ -473,12 +532,14 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
         glass = item.key in DISK_KEYS or item.opts.get("shape") == "disk"
         if item.key in FILL_KEYS or item.opts.get("fill"):
             m = ndi.binary_fill_holes(m)
+        elif item.key in RING_KEYS or item.opts.get("shape") == "ring":
+            m = _clear_center(m, rgb[y0:y1, x0:x1])
         if glass:
             yy, xx = np.mgrid[0:m.shape[0], 0:m.shape[1]]
             r = min(m.shape) / 2 - pad
             m = m | (np.hypot(xx - m.shape[1] / 2, yy - m.shape[0] / 2) <= r)
         # стекло полупрозрачное: сквозь него в собранных часах виден циферблат
-        level = 0.2 if glass else 1.0
+        level = 0.14 if glass else 1.0
         alpha = Image.fromarray((m * 255 * level).astype("uint8")).filter(ImageFilter.GaussianBlur(1.0))
         sprite = Image.fromarray(rgb[y0:y1, x0:x1]).convert("RGBA")
         sprite.putalpha(alpha)
@@ -883,6 +944,13 @@ def cmd_review(slug: str) -> None:
         _, groups, _ = _segment(img)
         _, boxes, warnings = _assign(job, img, groups, ndi.find_objects(groups))
         draw = ImageDraw.Draw(img)
+        # номера клеток заказанной сетки: по ним пишется правка в content/teardown/fixes.yaml
+        cols, rows = job.grid
+        cw, ch = img.size[0] / cols, img.size[1] / rows
+        for c in range(cols * rows):
+            x, y = (c % cols) * cw, (c // cols) * ch
+            draw.rectangle([x, y, x + cw, y + ch], outline=(120, 120, 200), width=1)
+            draw.text((x + 6, y + 4), f"#{c + 1}", fill=(90, 90, 190), font=font)
         for n, box in enumerate(boxes):
             if box is None:
                 continue

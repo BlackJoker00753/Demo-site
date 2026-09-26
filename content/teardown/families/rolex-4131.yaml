@@ -44,7 +44,8 @@ plates:
       - [pallet, "Анкерная вилка Chronergy", "Chronergy pallet fork with ruby pallet stones", 6, 1]
       - [balance, "Баланс со спиралью Parachrom", "balance wheel with blue Parachrom hairspring and gold Microstella nuts", 10, 1]
       - [shock, "Амортизатор Paraflex", "Paraflex shock absorber", 2.5, 2]
-      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [winding, "Заводной триб", "winding pinion (small steel gear)", 3, 1]
+      - [winding, "Кулачковая муфта", "sliding pinion / clutch wheel (steel, teeth on both ends)", 3, 1]
       - [stem, "Заводной вал", "winding stem", 14, 1]
   - id: movement_dial
     title: Сторона циферблата
@@ -53,7 +54,7 @@ plates:
       - [cannon, "Минутный триб", "cannon pinion", 4, 1]
       - [cannon, "Вексельное колесо", "minute wheel", 4, 1]
       - [hour_wheel, "Часовое колесо", "hour wheel", 6, 1]
-      - [setting, "Рычаг перевода стрелок и кулиса", "setting lever and yoke, polished steel", 9, 2]
+      - [setting, "Рычаг перевода стрелок и кулиса", "setting lever and yoke, polished steel", 9, 1]
       - [screws, "Винт моста", "polished steel screw", 2, 10]
       - [jewels, "Рубиновый камень", "synthetic ruby jewel", 1.5, 6]
       - [movement_ring, "Кольцо механизма", "movement holder ring", 33, 1]

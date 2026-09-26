@@ -24,21 +24,24 @@ plates:
     parts:
       - [barrel, "Барабан", "thin closed mainspring barrel", 10, 1]
       - [mainspring, "Заводная пружина", "mainspring out of the barrel", 12, 1]
-      - [train, "Колёса передачи", "centre, third and fourth wheels", 9, 3]
+      - [train, "Центральное колесо", "centre wheel with long pinion arbor, gold-coloured", 9, 1]
+      - [train, "Промежуточное колесо", "third wheel, gold-coloured with steel pinion", 7.2, 1]
+      - [train, "Секундное колесо", "fourth wheel (seconds wheel) with long arbor", 6.5, 1]
       - [escape_wheel, "Анкерное колесо", "escape wheel (Chronergy on 7140, silicon Dynapulse wheels on 7135)", 5, 1, {only: [7140]}]
       - [pallet, "Анкерная вилка", "pallet fork with ruby pallet stones", 6, 1, {only: [7140]}]
       - [dynapulse, "Спуск Dynapulse", "Dynapulse escapement: two silicon escape wheels with a small silicon impulse lever", 5, 3, {only: [7135]}]
       - [balance, "Баланс со спиралью Syloxi", "balance wheel with silicon Syloxi hairspring (grey-blue), gold Microstella nuts", 10, 1]
       - [shock, "Амортизатор Paraflex", "Paraflex shock absorber", 2.5, 2]
-      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [winding, "Заводной триб", "winding pinion (small steel gear)", 3, 1]
+      - [winding, "Кулачковая муфта", "sliding pinion / clutch wheel (steel, teeth on both ends)", 3, 1]
       - [stem, "Заводной вал", "winding stem", 14, 1]
   - id: movement_dial
     title: Сторона циферблата
     parts:
       - [mainplate, "Платина", "thin mainplate seen from the dial side, perlage", 30.5, 1]
-      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 2]
+      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 1]
       - [hour_wheel, "Часовое колесо", "hour wheel", 6, 1]
-      - [setting, "Рычаги перевода", "setting lever, yoke and yoke spring", 8, 3]
+      - [setting, "Рычаги перевода", "setting lever, yoke and yoke spring", 8, 1]
       - [screws, "Винт моста", "polished steel screw", 2, 10]
       - [jewels, "Рубиновый камень", "synthetic ruby jewel", 1.5, 6]
       - [movement_ring, "Кольцо механизма", "movement holder ring", 33, 1]

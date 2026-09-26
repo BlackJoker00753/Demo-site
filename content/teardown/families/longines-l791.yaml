@@ -34,20 +34,23 @@ plates:
     parts:
       - [barrel, "Барабан", "closed mainspring barrel", 10, 1]
       - [mainspring, "Заводная пружина", "mainspring out of the barrel", 12, 1]
-      - [train, "Колёса передачи", "centre, third and fourth wheels", 8, 3]
+      - [train, "Центральное колесо", "centre wheel with long pinion arbor, gold-coloured", 8, 1]
+      - [train, "Промежуточное колесо", "third wheel, gold-coloured with steel pinion", 6.4, 1]
+      - [train, "Секундное колесо", "fourth wheel (seconds wheel) with long arbor", 5.8, 1]
       - [escape_wheel, "Анкерное колесо", "escape wheel", 4.5, 1]
       - [pallet, "Анкерная вилка", "pallet fork", 5, 1]
       - [balance, "Баланс с кремниевой спиралью", "balance wheel with dark silicon hairspring", 9.5, 1]
-      - [winding, "Заводной триб и муфта", "winding pinion and sliding pinion", 3, 2]
+      - [winding, "Заводной триб", "winding pinion (small steel gear)", 3, 1]
+      - [winding, "Кулачковая муфта", "sliding pinion / clutch wheel (steel, teeth on both ends)", 3, 1]
       - [stem, "Заводной вал", "winding stem", 13, 1]
   - id: movement_dial
     title: Сторона циферблата
     parts:
       - [mainplate, "Платина", "mainplate seen from the dial side, perlage", 30, 1]
-      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 2]
+      - [cannon, "Минутный триб и вексельное колесо", "cannon pinion and minute wheel", 4, 1]
       - [hour_wheel, "Часовое колесо", "hour wheel", 5.5, 1]
-      - [setting, "Рычаги перевода", "setting lever and yoke", 8, 2]
+      - [setting, "Рычаги перевода", "setting lever and yoke", 8, 1]
       - [date_disc, "Диск даты", "date disc printed 1 to 31", 26, 1]
-      - [calendar, "Колесо даты и фиксатор", "date driving wheel and jumper", 6, 2]
+      - [calendar, "Колесо даты и фиксатор", "date driving wheel and jumper", 6, 1]
       - [screws, "Винт моста", "steel screw", 2, 10]
       - [movement_ring, "Кольцо механизма", "movement holder ring", 33, 1]
