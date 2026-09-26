@@ -16,8 +16,11 @@ export default {
       <header class="credits__head">
         <p class="label" data-reveal>Фотографии</p>
         <h1 class="display display--l" data-reveal>Авторы снимков</h1>
-        <p class="lead" data-reveal>Все фотографии в атласе настоящие и опубликованы их авторами под свободными лицензиями
-          (CC0, Public Domain, CC BY, CC BY-SA) на Wikimedia Commons и Flickr. Спасибо им.</p>
+        <p class="lead" data-reveal>Все фотографии часов в атласе настоящие. Это официальные студийные снимки с сайтов и
+          из пресс-материалов брендов, а также снимки владельцев, музеев и аукционов под свободными лицензиями
+          (CC0, CC BY, CC BY-SA) с Wikimedia Commons и Flickr. Ниже автор и лицензия каждого снимка.</p>
+        <p class="muted" data-reveal>Изображения деталей в режиме «До детали» не фотографии: их создал ИИ (Gemini) по официальным
+          фото модели, и на странице каждой такой модели это подписано.</p>
       </header>
       <ul class="credits__grid" role="list">
         ${list.map((c, i) => html`<li class="credit-item" data-reveal style="--i:${i % 6}">

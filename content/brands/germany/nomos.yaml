@@ -83,7 +83,7 @@ watches:
     name: Club Campus
     collection: Club
     reference: "708"
-    year_introduced: 2007
+    year_introduced: 2017
     movement: nomos-alpha
     complications: [small-seconds]
     case: {diameter_mm: 38.5, thickness_mm: 8.2, material: Сталь, water_resistance_m: 100}
@@ -91,6 +91,9 @@ watches:
     dial: Кремовый с яркими акцентами
     price: {usd: 1830, kind: msrp, source: nomos-glashuette.com (US), url: "https://nomos-glashuette.com/en-us/club/club-campus-708", checked: 2026-09-24, note: "самая доступная модель NOMOS"}
     summary: Первые механические часы для выпускников. Молодёжная версия Club с водозащитой 100 м.
+    story:
+      - "NOMOS Glashütte основал Роланд Швертнер в 1990 году, сразу после падения Берлинской стены. Марка делает собственные механизмы и держится дизайна в духе Баухауса."
+      - "Линия Club появилась в 2007 году как самые спортивные NOMOS, а версию Campus в 2017-м задумали как часы к выпускному: механика с ручным заводом, водозащита 100 метров и цена ниже большинства моделей марки."
     highlights: [Вход в NOMOS, Ручной завод, 100 м]
     render:
       case: {shape: round, material: steel, display_back: true}
@@ -114,6 +117,9 @@ watches:
     dial: Серебристый
     price: {usd: 4690, kind: msrp, source: "nomos-glashuette.com (US) по данным monochrome-watches.com", checked: 2026-09-24}
     summary: Tangente с автоподзаводом и датой, показанной двумя красными метками по краю циферблата.
+    story:
+      - "Tangente вышли в 1992 году и стали самыми узнаваемыми NOMOS: тонкий корпус с прямыми ушками и строгий циферблат в духе довоенных часов Гласхютте."
+      - "В 2018 году марка представила новую индикацию даты: кольцо по краю циферблата, где текущее число выделяют две красные метки. Отсюда название Update. Внутри тонкий автомат собственной разработки DUW 6101."
     highlights: [Кольцо даты по периметру, Собственный спуск swing system, Автоподзавод]
     render:
       case: {shape: round, material: steel, lugs: wire, display_back: true}

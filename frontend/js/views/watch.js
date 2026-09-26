@@ -28,6 +28,14 @@ const PHOTO_ALIAS = {
 const photoKey = (key) => PHOTO_ALIAS[key] ?? key;
 
 
+/** Откуда фото в галерее: официальные снимки бренда, свободные снимки владельцев или и то и другое. */
+function photosNote(photos) {
+  const free = photos.filter((p) => /creativecommons|publicdomain/.test(p.license_url ?? "")).length;
+  if (!free) return "Официальные студийные снимки бренда.";
+  if (free === photos.length) return "Настоящие снимки владельцев, музеев и аукционов под свободными лицензиями.";
+  return "Официальные снимки бренда и фотографии владельцев под свободными лицензиями.";
+}
+
 function specTiles(w) {
   const m = w.movement;
   const tiles = [
@@ -168,7 +176,7 @@ export default {
           ? html`<section class="wphotos" aria-label="Фотографии">
               <div class="container wphotos__head">
                 <h2 class="display display--m" data-reveal>Вживую</h2>
-                <p class="muted" data-reveal>Настоящие снимки владельцев, музеев и аукционов под свободными лицензиями.</p>
+                <p class="muted" data-reveal>${photosNote(w.photos)}</p>
               </div>
               <ol class="wphotos__strip" role="list" data-lenis-prevent-horizontal>
                 ${w.photos.map((p, i) => html`<li class="wphoto" style="--ar:${(p.width / p.height).toFixed(3)};--i:${i}" data-reveal>

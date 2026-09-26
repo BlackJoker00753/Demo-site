@@ -160,6 +160,9 @@ watches:
     dial: Синий с вертикальными полосами «тик»
     price: {usd: 7100, kind: msrp, source: omegawatches.com (US), url: "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog", checked: 2026-09-24}
     summary: Универсальные спортивно-элегантные часы. Полосы на циферблате напоминают палубу парусной яхты.
+    story:
+      - "Aqua Terra появился в 2002 году как Seamaster для города: водозащита 150 метров без спортивного безеля дайвера."
+      - "Горизонтальные полосы на циферблате напоминают тиковую палубу яхты. Калибр сертифицирован METAS как Master Chronometer и выдерживает магнитные поля до 15 000 гаусс."
     highlights: [Циферблат «тиковая палуба», Калибр 8900 на 60 часов, 150 м]
     render:
       case: {shape: round, material: steel}
@@ -183,6 +186,9 @@ watches:
     dial: Серебристый
     price: {usd: 5500, kind: msrp, source: omegawatches.com (US), checked: 2026-09-24, note: самая доступная механическая Omega в коллекции Prestige}
     summary: Классические часы на каждый день с тем же хронометрическим калибром, что и в Seamaster.
+    story:
+      - "Линия De Ville выросла из Seamaster De Ville 1960 года и в 1967 году стала отдельной коллекцией нарядных часов Omega."
+      - "Prestige, выпускаемые с 1994 года, самая классическая часть линии. Современные версии получили коаксиальный спуск и сертификат Master Chronometer, как у спортивных моделей марки."
     highlights: [Калибр Master Chronometer, Классический дизайн, Вход в мир Omega]
     render:
       case: {shape: round, material: steel}
