@@ -175,6 +175,7 @@ class WatchCard(Out):
     icon: bool
     render: dict[str, Any]
     photo: Photo | None = None
+    teardown: bool = False  # собрана разборка до детали (frontend/assets/teardown/<slug>)
 
 
 class Facet(Out):

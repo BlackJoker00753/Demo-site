@@ -14,6 +14,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
 from ..api import schemas as S
+from ..config import settings
 from ..db.models import Brand, Complication, Country, Meta, Movement, PartPhoto, PriceSnapshot, Watch
 
 MOVEMENT_LABELS = {
@@ -57,6 +58,11 @@ def _price(w: Watch) -> S.Price:
     )
 
 
+def has_teardown(slug: str) -> bool:
+    """Собрана ли для модели разборка до детали (scripts/teardown.py build)."""
+    return (settings.frontend_dir / "assets" / "teardown" / slug / "manifest.json").is_file()
+
+
 def watch_card(w: Watch) -> S.WatchCard:
     return S.WatchCard(
         slug=w.slug, name=w.name, brand=w.brand.slug, brand_name=w.brand.name, collection=w.collection,
@@ -67,6 +73,7 @@ def watch_card(w: Watch) -> S.WatchCard:
         complications=[S.ComplicationRef.model_validate(c) for c in w.complications],
         icon=w.icon, render=w.render,
         photo=_card_photo(w),
+        teardown=has_teardown(w.slug),
     )
 
 

@@ -263,6 +263,10 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
+.wcard__badge--td {
+  top: auto; bottom: 14px; display: inline-flex; align-items: center; gap: 6px;
+  color: var(--lume); border-color: rgba(159, 233, 196, 0.35);
+}
 /* типографская заглушка вместо фото */
 .wcard__stage--type {
   display: grid; align-content: center; justify-items: center; gap: 10px; padding: 24px; text-align: center;

@@ -12,7 +12,7 @@ import { scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { PhotoExplode } from "../ui/photo-explode.js";
-import { Teardown, hasTeardown } from "../ui/teardown.js";
+import { Teardown } from "../ui/teardown.js";
 import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
@@ -669,10 +669,11 @@ export default {
     };
     qsa(".seg__btn", seg).forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
     requestAnimationFrame(() => moveSegPill(qs('[aria-selected="true"]', seg)));
-    window.addEventListener("resize", () => moveSegPill(qs('[aria-selected="true"]', seg)));
-    // По умолчанию разборка до детали, если для модели она собрана; иначе 3D-схема.
-    hasTeardown(w.slug).then((ok) => {
-      if (!ok || !root.isConnected) return;
+    const onSegResize = () => moveSegPill(qs('[aria-selected="true"]', seg));
+    window.addEventListener("resize", onSegResize);
+    cleanups.push(() => window.removeEventListener("resize", onSegResize));
+    // По умолчанию разборка до детали, если для модели она собрана (флаг из API); иначе 3D-схема.
+    if (w.teardown) {
       const btn = document.createElement("button");
       btn.className = "seg__btn";
       btn.type = "button";
@@ -683,7 +684,7 @@ export default {
       qs(".seg__pill", seg).after(btn);
       btn.addEventListener("click", () => setMode("td"));
       setMode("td");
-    });
+    }
 
     if (!still) {
       ST.create({

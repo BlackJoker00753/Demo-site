@@ -19,6 +19,7 @@ export function watchCard(w, { showBrand = false, i = 0 } = {}) {
       ? html`<div class="wcard__stage wcard__stage--photo" data-shared="w-${w.slug}">
           ${photoImg(w.photo, { cls: "wcard__photo", sizes: "(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 380px", alt: `${w.brand_name} ${w.name}` })}
           ${w.photo.context ? html`<span class="wcard__badge" title="${w.photo.caption ?? ""}">Похожая модель</span>` : ""}
+          ${w.teardown ? html`<span class="wcard__badge wcard__badge--td" title="На странице модели часы разбираются до каждой детали"><i class="ph-light ph-stack" aria-hidden="true"></i>До детали</span>` : ""}
         </div>`
       : html`<div class="wcard__stage wcard__stage--type" aria-hidden="true">
           <span class="wcard__mono">${w.brand_name}</span>
