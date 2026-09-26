@@ -26,7 +26,7 @@
   /* Text */
   --text: #e8ebee;
   --text-2: #a9b0b8;
-  --text-3: #737b84;
+  --text-3: #7c848d; /* 4,9:1 на surface, 4,6:1 на surface-2 (WCAG AA) */
   --text-4: #4c535b;
 
   /* Metals (декоративные значения: цены, акценты металла) */

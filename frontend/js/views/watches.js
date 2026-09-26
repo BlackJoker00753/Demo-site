@@ -31,7 +31,7 @@ export default {
         <div class="catalog-filters" data-reveal>
           <div class="catalog-filters__search">
             <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
-            <input type="search" id="catalog-search" placeholder="Поиск по названию, бренду, калибру..." autocomplete="off">
+            <input type="search" id="catalog-search" placeholder="Поиск по названию, бренду, калибру..." autocomplete="off" aria-label="Поиск по каталогу">
           </div>
           
           <div class="catalog-filters__row">
@@ -67,7 +67,7 @@ export default {
 
             <div class="catalog-filters__group catalog-filters__group--sort">
               <span class="catalog-filters__title">Сортировка:</span>
-              <select class="catalog-select" id="catalog-sort">
+              <select class="catalog-select" id="catalog-sort" aria-label="Сортировка">
                 <option value="default">По популярности</option>
                 <option value="price_asc">Сначала доступные</option>
                 <option value="price_desc">Сначала дорогие</option>
@@ -83,6 +83,7 @@ export default {
         </div>
       </header>
 
+      <h2 class="visually-hidden">Модели</h2>
       <div class="catalog-grid" id="catalog-grid">
         ${watches.map((w, i) => watchCard(w, { showBrand: true, i }))}
       </div>

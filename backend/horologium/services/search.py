@@ -13,7 +13,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from ..api import schemas as S
-from ..db.models import Brand, Complication, Country, Watch
+from ..db.models import Brand, Complication, Country, Movement, Watch
 
 _TRANSLIT = str.maketrans(
     {
@@ -96,6 +96,16 @@ def search(s: Session, q: str, limit: int = 24) -> list[S.SearchHit]:
         sc = _score(queries, [c.name, c.name_en])
         if sc:
             hits.append((sc, S.SearchHit(kind="complication", slug=c.slug, title=c.name, subtitle=c.short, url=f"/complication/{c.slug}")))
+
+    # калибры, на которых работает хотя бы одна модель: «3235», «El Primero», «Spring Drive»
+    used = select(Watch.movement_id)
+    for m in s.scalars(select(Movement).where(Movement.id.in_(used))):
+        fields = [m.caliber, f"{m.maker} {m.caliber}", m.caliber.split()[-1]]
+        if m.type == "spring_drive":
+            fields.append("Spring Drive")
+        sc = _score(queries, fields)
+        if sc:
+            hits.append((sc - 0.02, S.SearchHit(kind="movement", slug=m.slug, title=f"Калибр {m.caliber}", subtitle=m.maker, url=f"/movement/{m.slug}")))
 
     hits.sort(key=lambda h: -h[0])
     return [h for _, h in hits[:limit]]

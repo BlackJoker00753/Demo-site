@@ -76,3 +76,9 @@ def test_spa_routes_and_manifest(client):
     assert res_manifest.status_code == 200
     assert "Horologium" in res_manifest.text
 
+
+
+def test_search_finds_calibers(client):
+    hits = client.get("/api/v1/search", params={"q": "3235"}).json()
+    assert hits[0]["kind"] == "movement" and hits[0]["url"] == "/movement/rolex-3235"
+    assert any(h["kind"] == "movement" for h in client.get("/api/v1/search", params={"q": "El Primero"}).json())

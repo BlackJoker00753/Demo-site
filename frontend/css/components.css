@@ -306,7 +306,7 @@
 .wcard__stage--type::after { display: none; }
 .wcard__mono { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-3); }
 .wcard__type-name { font-family: var(--font-display); font-size: clamp(1.8rem, 1.4rem + 1vw, 2.4rem); line-height: 1.05; color: var(--text-2); }
-.wcard__type-note { font-size: 11px; color: var(--text-4); }
+.wcard__type-note { font-size: 11px; color: var(--text-3); }
 .wcard__body { padding: 18px 20px 20px; display: grid; gap: 10px; align-content: start; }
 .wcard__top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .wcard__name { font-family: var(--font-display); font-size: 1.55rem; line-height: 1.05; font-weight: 400; }

@@ -9,6 +9,7 @@ const KIND = {
   brand: { label: "Бренды", icon: "ph-crown-simple" },
   watch: { label: "Модели", icon: "ph-watch" },
   complication: { label: "Усложнения", icon: "ph-gear-six" },
+  movement: { label: "Калибры", icon: "ph-circles-three" },
 };
 
 export function initSearch(router) {

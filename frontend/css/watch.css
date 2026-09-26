@@ -283,7 +283,7 @@
 .wtd-short { display: none; }
 /* на телефоне короткая подсказка: длинная занимала бы половину экрана над сценой */
 @media (max-width: 600px) { .wtd-how { display: none; } .wtd-short { display: inline; } }
-.wparts button small { color: var(--text-4); font-size: 11px; margin-left: 4px; }
+.wparts button small { color: var(--text-3); font-size: 11px; margin-left: 4px; }
 .wexplode__side {
   position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
   display: flex; flex-direction: column; gap: 22px; pointer-events: none; z-index: 1;
