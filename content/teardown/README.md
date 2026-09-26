@@ -32,7 +32,7 @@ Gemini не должен писать на картинке никаких по�
 
 ## Ручная генерация в Nano Banana Pro
 
-1. `uv run python scripts/teardown.py page [slug ...]` (без аргументов: GMT-Master II и Spirit Zulu Time).
+1. `uv run python scripts/teardown.py page [slug ...]` (без аргументов: все модели, готовые листы пропускаются).
 2. Открыть http://localhost:8765/assets/teardown-tasks/index.html: для каждого листа промпт, референс, имя файла.
 3. Картинки сохранять в `~/Desktop/Horologium-детали/` под показанными именами.
 4. `uv run python scripts/teardown.py import`, затем `review <slug>` (проверка подписей) и `build <slug>`.
@@ -44,7 +44,7 @@ Gemini не должен писать на картинке никаких по�
 лишнее, в `fixes.yaml` для листа указываются клетки каждой детали списка (по порядку, с 1):
 
 ```yaml
-movements/longines-a31-l844/movement_train:
+movements/longines-a31/movement_train:
   sha: 0259f88d90          # первые 10 знаков sha1 картинки: к новой картинке правка не применится
   cells: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13]
 ```

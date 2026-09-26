@@ -44,7 +44,14 @@ CACHE = Path(__file__).resolve().parent / ".cache" / "teardown"
 TASK_MD = ROOT / "docs" / "TEARDOWN_GEMINI_TASK.md"
 INBOX = Path.home() / "Desktop" / "Horologium-детали"  # сюда сохраняются картинки из Nano Banana Pro
 TASK_PAGE = ROOT / "frontend" / "assets" / "teardown-tasks" / "index.html"
-FIRST_BATCH = ["rolex-gmt-master-ii-pepsi", "longines-spirit-zulu-time"]
+# порядок моделей на странице заданий: сначала те, чьи механизмы уже нарисованы (нужны корпус и циферблат),
+# потом новые калибры; готовые листы страница пропускает
+PAGE_ORDER = [
+    "rolex-gmt-master-ii-pepsi", "longines-spirit-zulu-time",
+    "rolex-submariner", "rolex-submariner-date", "rolex-oyster-perpetual-41", "rolex-explorer-40",
+    "rolex-datejust-41", "rolex-day-date-40", "longines-spirit-pilot", "longines-master-collection-moonphase",
+    "rolex-cosmograph-daytona", "rolex-sky-dweller", "rolex-1908", "rolex-land-dweller-40", "longines-spirit-flyback",
+]
 
 MODEL = os.environ.get("TEARDOWN_MODEL", "gemini-3-pro-image")
 BACKGROUND = "#d6d6d6"
@@ -168,8 +175,11 @@ def jobs_for(slug: str) -> list[Job]:
     jobs = []
     for pl in w["plates"]:
         jobs.append(Job(f"watches/{slug}/{pl['id']}", pl["id"], pl["title"], _items(pl["parts"], w["variant"]), w["look"], refs, "watch"))
-    mid = f"{w['family']}-{w['variant']}".lower()
     for pl in fam["plates"]:
+        # лист без деталей «only» одинаков у всех вариантов калибра: один на семейство
+        # (мосты 3285 годятся и для 3230/3235/3255); иначе свой лист на вариант
+        own = any(len(p) > 5 and "only" in p[5] for p in pl["parts"])
+        mid = f"{w['family']}-{w['variant']}".lower() if own else w["family"].lower()
         jobs.append(Job(f"movements/{mid}/{pl['id']}", pl["id"], pl["title"], _items(pl["parts"], w["variant"]), fam["look"], [], "movement"))
     for side, text in (w.get("assembled") or {}).items():
         jobs.append(Job(f"watches/{slug}/assembled_{side}", f"assembled_{side}", "Собранные часы", [], w["look"], refs, "assembled", text))
@@ -842,12 +852,16 @@ def cmd_page(slugs: list[str]) -> None:
     """Страница-помощник: промпты с кнопками копирования, референсы и имена файлов."""
     import html
 
-    seen, cards, n = set(), [], 0
+    seen, cards, n, ready = set(), [], 0, 0
     for slug in slugs:
         for job in jobs_for(slug):
             if job.id in seen:
                 continue
             seen.add(job.id)
+            # уже сгенерированные листы (в том числе общие для семейства калибров) не показываем
+            if job.path.exists():
+                ready += 1
+                continue
             n += 1
             aspect = "1:1" if job.kind == "assembled" else "16:9"
             refs = "".join(
@@ -902,7 +916,8 @@ ol {{ margin:0; padding-left:20px; color:var(--t2); font-size:13px }} .muted {{ 
 <div class="intro"><b>Как делать</b><ol>
 <li>Откройте <a href="https://aistudio.google.com/" target="_blank" rel="noopener" style="color:var(--lume)">Google AI Studio</a>, модель <b>Nano Banana Pro</b> (Gemini 3 Pro Image). В настройках: разрешение <b>4K</b>, соотношение сторон как указано у листа.</li>
 <li>Для каждого листа: скачайте референс (если есть) и прикрепите его, нажмите «Копировать промпт» и вставьте.</li>
-<li>Если на картинке детали налезают друг на друга, появились подписи, тени или обрезанные края, сгенерируйте ещё раз.</li>
+<li>Проверьте картинку: детали должны идти в том же порядке, что в списке «Детали на картинке» (по строкам, слева направо), каждая один раз. Если деталь пропущена, добавлена лишняя, детали налезают друг на друга, появились подписи или обрезанные края, сгенерируйте ещё раз.</li>
+<li><b>Только 4K.</b> В 1K каждая деталь получается около 150 пикселей и на сайте выглядит мутной.</li>
 <li>Скачайте картинку и сохраните в папку <code>Рабочий стол / Horologium-детали</code> под именем с кнопки «Сохраните как» (нажмите, имя скопируется).</li>
 <li>Когда сделаете, напишите мне: я заберу картинки, вырежу детали, проверю подписи и соберу разборку.</li>
 </ol></div>
@@ -925,7 +940,7 @@ document.querySelectorAll(".job").forEach((job) => {{
 </script></body></html>"""
     TASK_PAGE.parent.mkdir(parents=True, exist_ok=True)
     TASK_PAGE.write_text(page, encoding="utf-8")
-    print(f"{TASK_PAGE.relative_to(ROOT)}: {n} листов → http://localhost:8765/assets/teardown-tasks/index.html")
+    print(f"{TASK_PAGE.relative_to(ROOT)}: {n} листов (ещё {ready} уже готовы) → http://localhost:8765/assets/teardown-tasks/index.html")
 
 
 def cmd_review(slug: str) -> None:
@@ -989,7 +1004,7 @@ def main() -> int:
     elif args.cmd == "import":
         cmd_import(Path(args.folder).expanduser())
     elif args.cmd == "page":
-        cmd_page(args.slugs or FIRST_BATCH)
+        cmd_page(args.slugs or PAGE_ORDER + [s for s in all_slugs() if s not in PAGE_ORDER])
     elif args.cmd == "plan":
         cmd_plan(args.slug)
     elif args.cmd == "generate":

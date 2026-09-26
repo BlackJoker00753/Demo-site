@@ -2,7 +2,7 @@
 
 Сгенерировано `scripts/teardown.py tasks` из `content/teardown/`. Не правьте вручную.
 
-Всего уникальных листов: **102** (ориентировочно $24 по цене 4K в Gemini API).
+Всего уникальных листов: **87** (ориентировочно $21 по цене 4K в Gemini API).
 ## Как выполнять
 
 1. Модель: **Gemini 3 Pro Image** (Nano Banana Pro). Размер **4K**, соотношение сторон **16:9**
@@ -72,7 +72,7 @@ Show EXACTLY 4 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-a31-l899/movement_top.png`
+### `teardown_src/movements/longines-a31/movement_top.png`
 
 Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
 
@@ -92,7 +92,7 @@ Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-a31-l899/movement_train.png`
+### `teardown_src/movements/longines-a31/movement_train.png`
 
 Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
 
@@ -205,7 +205,7 @@ Show EXACTLY 4 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-l791-l791/movement_top.png`
+### `teardown_src/movements/longines-l791/movement_top.png`
 
 Автоподзавод и мосты, деталей: 8, сетка 4×2. Референсы: нет.
 
@@ -224,7 +224,7 @@ Show EXACTLY 7 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-l791-l791/movement_chrono.png`
+### `teardown_src/movements/longines-l791/movement_chrono.png`
 
 Хронограф флайбэк, деталей: 14, сетка 5×2. Референсы: нет.
 
@@ -246,7 +246,7 @@ Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-l791-l791/movement_train.png`
+### `teardown_src/movements/longines-l791/movement_train.png`
 
 Энергия, передача и спуск, деталей: 11, сетка 5×3. Референсы: нет.
 
@@ -269,7 +269,7 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-l791-l791/movement_dial.png`
+### `teardown_src/movements/longines-l791/movement_dial.png`
 
 Сторона циферблата, деталей: 17, сетка 4×2. Референсы: нет.
 
@@ -352,50 +352,8 @@ Show EXACTLY 4 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-a31-l888/movement_top.png`
-
-Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. oscillating weight with Côtes de Genève and engraved winged-hourglass style emblem area (no readable text)
-2. automatic winding bridge
-3. reversing wheel
-4. balance cock with shock protection
-5. barrel bridge with perlage and Côtes de Genève
-6. train wheel bridge with ruby jewels
-7. ratchet wheel, sunburst finish
-8. crown wheel
-Nothing else in the image.
-```
-
-### `teardown_src/movements/longines-a31-l888/movement_train.png`
-
-Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. closed mainspring barrel
-2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
-3. centre wheel
-4. third wheel
-5. fourth wheel
-6. escape wheel
-7. pallet fork with ruby pallet stones
-8. balance wheel with dark silicon hairspring
-9. shock protection setting with lyre spring
-10. winding pinion (small steel gear)
-11. sliding pinion / clutch wheel (steel, teeth on both ends)
-12. winding stem
-Nothing else in the image.
-```
-
+- `movements/longines-a31/movement_top.png`: уже описан выше (общий механизм).
+- `movements/longines-a31/movement_train.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/longines-a31-l888/movement_dial.png`
 
 Сторона циферблата, деталей: 23, сетка 4×3. Референсы: нет.
@@ -484,50 +442,8 @@ Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/longines-a31-l844/movement_top.png`
-
-Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. oscillating weight with Côtes de Genève and engraved winged-hourglass style emblem area (no readable text)
-2. automatic winding bridge
-3. reversing wheel
-4. balance cock with shock protection
-5. barrel bridge with perlage and Côtes de Genève
-6. train wheel bridge with ruby jewels
-7. ratchet wheel, sunburst finish
-8. crown wheel
-Nothing else in the image.
-```
-
-### `teardown_src/movements/longines-a31-l844/movement_train.png`
-
-Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Swiss automatic calibre (ETA-made exclusive for Longines), rhodium-plated bridges with Côtes de Genève and perlage, gilded engravings, red ruby jewels, dark silicon hairspring, gold-coloured wheels, blued screws on the rotor..
-Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. closed mainspring barrel
-2. long mainspring for 72 hours out of the barrel, relaxed steel spiral
-3. centre wheel
-4. third wheel
-5. fourth wheel
-6. escape wheel
-7. pallet fork with ruby pallet stones
-8. balance wheel with dark silicon hairspring
-9. shock protection setting with lyre spring
-10. winding pinion (small steel gear)
-11. sliding pinion / clutch wheel (steel, teeth on both ends)
-12. winding stem
-Nothing else in the image.
-```
-
+- `movements/longines-a31/movement_top.png`: уже описан выше (общий механизм).
+- `movements/longines-a31/movement_train.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/longines-a31-l844/movement_dial.png`
 
 Сторона циферблата, деталей: 25, сетка 5×3. Референсы: нет.
@@ -616,7 +532,7 @@ Show EXACTLY 4 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-71xx-7140/movement_top.png`
+### `teardown_src/movements/rolex-71xx/movement_top.png`
 
 Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
 
@@ -660,7 +576,7 @@ Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-71xx-7140/movement_dial.png`
+### `teardown_src/movements/rolex-71xx/movement_dial.png`
 
 Сторона циферблата, деталей: 21, сетка 4×2. Референсы: нет.
 
@@ -750,7 +666,7 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-4131-4131/movement_top.png`
+### `teardown_src/movements/rolex-4131/movement_top.png`
 
 Автоподзавод и мосты, деталей: 10, сетка 4×3. Референсы: нет.
 
@@ -771,7 +687,7 @@ Show EXACTLY 9 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-4131-4131/movement_chrono.png`
+### `teardown_src/movements/rolex-4131/movement_chrono.png`
 
 Хронограф, деталей: 14, сетка 5×2. Референсы: нет.
 
@@ -793,7 +709,7 @@ Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-4131-4131/movement_train.png`
+### `teardown_src/movements/rolex-4131/movement_train.png`
 
 Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
 
@@ -817,7 +733,7 @@ Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-4131-4131/movement_dial.png`
+### `teardown_src/movements/rolex-4131/movement_dial.png`
 
 Сторона циферблата, деталей: 22, сетка 4×2. Референсы: нет.
 
@@ -904,7 +820,7 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3235/movement_top.png`
+### `teardown_src/movements/rolex-32xx/movement_top.png`
 
 Автоподзавод и мосты, деталей: 12, сетка 5×2. Референсы: нет.
 
@@ -926,7 +842,7 @@ Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3235/movement_train.png`
+### `teardown_src/movements/rolex-32xx/movement_train.png`
 
 Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
 
@@ -973,7 +889,7 @@ Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3235/movement_screws.png`
+### `teardown_src/movements/rolex-32xx/movement_screws.png`
 
 Винты и мелочь, деталей: 19, сетка 4×2. Референсы: нет.
 
@@ -1057,53 +973,8 @@ Show EXACTLY 5 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3255/movement_top.png`
-
-Автоподзавод и мосты, деталей: 12, сетка 5×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. oscillating weight (rotor), half-moon shape, satin finish with Côtes de Genève, central ball bearing
-2. automatic winding bridge (reverser bridge), polished bevels
-3. reversing wheel of the automatic winding (small gold wheel with pinion)
-4. automatic winding intermediate wheel
-5. traversing balance bridge fixed at two points, with regulating stud carrier, Côtes de Genève
-6. barrel bridge with jewel settings, Côtes de Genève stripes, polished bevels
-7. train wheel bridge with red ruby jewels, Côtes de Genève stripes
-8. ratchet wheel with sunburst (soleil) finish, large flat steel wheel
-9. crown wheel, small steel wheel with sunburst finish
-10. pallet bridge, small polished bridge with one ruby jewel
-Nothing else in the image.
-```
-
-### `teardown_src/movements/rolex-32xx-3255/movement_train.png`
-
-Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 13 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. closed mainspring barrel with toothed rim, gold-coloured
-2. mainspring removed from barrel, relaxed spiral of thin polished steel ribbon
-3. barrel arbor (small steel shaft with hook)
-4. centre wheel with long pinion arbor, gold-coloured
-5. third wheel, gold-coloured with steel pinion
-6. fourth wheel (seconds wheel) with long arbor
-7. Chronergy escape wheel, skeletonised, nickel-phosphorus, grey metallic
-8. Chronergy pallet fork with two red ruby pallet stones
-9. balance wheel with blue Parachrom hairspring with Breguet overcoil and gold Microstella nuts
-10. Paraflex shock absorber assembly (tiny spring and jewel setting)
-11. winding pinion (small steel gear)
-12. sliding pinion / clutch wheel (steel, teeth on both ends)
-13. winding stem (long thin steel rod with square section)
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/rolex-32xx-3255/movement_dial.png`
 
 Сторона циферблата, деталей: 11, сетка 5×3. Референсы: нет.
@@ -1127,24 +998,7 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3255/movement_screws.png`
-
-Винты и мелочь, деталей: 19, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. polished steel bridge screw with slotted head
-2. rotor screw with slotted head
-3. ratchet wheel screw, large flat head
-4. single synthetic ruby jewel bearing (tiny red disc with hole)
-5. movement holder ring (spacer ring), thin steel ring
-6. casing clamp screw with flat clamp
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-day-date-40/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-day-date-40/1-1600.jpg`, `frontend/assets/photos/rolex-day-date-40/2-1600.jpg`.
@@ -1212,53 +1066,8 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3230/movement_top.png`
-
-Автоподзавод и мосты, деталей: 12, сетка 5×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. oscillating weight (rotor), half-moon shape, satin finish with Côtes de Genève, central ball bearing
-2. automatic winding bridge (reverser bridge), polished bevels
-3. reversing wheel of the automatic winding (small gold wheel with pinion)
-4. automatic winding intermediate wheel
-5. traversing balance bridge fixed at two points, with regulating stud carrier, Côtes de Genève
-6. barrel bridge with jewel settings, Côtes de Genève stripes, polished bevels
-7. train wheel bridge with red ruby jewels, Côtes de Genève stripes
-8. ratchet wheel with sunburst (soleil) finish, large flat steel wheel
-9. crown wheel, small steel wheel with sunburst finish
-10. pallet bridge, small polished bridge with one ruby jewel
-Nothing else in the image.
-```
-
-### `teardown_src/movements/rolex-32xx-3230/movement_train.png`
-
-Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 13 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. closed mainspring barrel with toothed rim, gold-coloured
-2. mainspring removed from barrel, relaxed spiral of thin polished steel ribbon
-3. barrel arbor (small steel shaft with hook)
-4. centre wheel with long pinion arbor, gold-coloured
-5. third wheel, gold-coloured with steel pinion
-6. fourth wheel (seconds wheel) with long arbor
-7. Chronergy escape wheel, skeletonised, nickel-phosphorus, grey metallic
-8. Chronergy pallet fork with two red ruby pallet stones
-9. balance wheel with blue Parachrom hairspring with Breguet overcoil and gold Microstella nuts
-10. Paraflex shock absorber assembly (tiny spring and jewel setting)
-11. winding pinion (small steel gear)
-12. sliding pinion / clutch wheel (steel, teeth on both ends)
-13. winding stem (long thin steel rod with square section)
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/rolex-32xx-3230/movement_dial.png`
 
 Сторона циферблата, деталей: 7, сетка 4×2. Референсы: нет.
@@ -1278,24 +1087,7 @@ Show EXACTLY 7 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3230/movement_screws.png`
-
-Винты и мелочь, деталей: 19, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. polished steel bridge screw with slotted head
-2. rotor screw with slotted head
-3. ratchet wheel screw, large flat head
-4. single synthetic ruby jewel bearing (tiny red disc with hole)
-5. movement holder ring (spacer ring), thin steel ring
-6. casing clamp screw with flat clamp
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-explorer-40/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-explorer-40/1-1600.jpg`, `frontend/assets/photos/rolex-explorer-40/2-1600.jpg`.
@@ -1366,53 +1158,8 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3285/movement_top.png`
-
-Автоподзавод и мосты, деталей: 12, сетка 5×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 10 separate items, one of each, arranged in a grid of 5 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. oscillating weight (rotor), half-moon shape, satin finish with Côtes de Genève, central ball bearing
-2. automatic winding bridge (reverser bridge), polished bevels
-3. reversing wheel of the automatic winding (small gold wheel with pinion)
-4. automatic winding intermediate wheel
-5. traversing balance bridge fixed at two points, with regulating stud carrier, Côtes de Genève
-6. barrel bridge with jewel settings, Côtes de Genève stripes, polished bevels
-7. train wheel bridge with red ruby jewels, Côtes de Genève stripes
-8. ratchet wheel with sunburst (soleil) finish, large flat steel wheel
-9. crown wheel, small steel wheel with sunburst finish
-10. pallet bridge, small polished bridge with one ruby jewel
-Nothing else in the image.
-```
-
-### `teardown_src/movements/rolex-32xx-3285/movement_train.png`
-
-Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 13 separate items, one of each, arranged in a grid of 5 columns and 3 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. closed mainspring barrel with toothed rim, gold-coloured
-2. mainspring removed from barrel, relaxed spiral of thin polished steel ribbon
-3. barrel arbor (small steel shaft with hook)
-4. centre wheel with long pinion arbor, gold-coloured
-5. third wheel, gold-coloured with steel pinion
-6. fourth wheel (seconds wheel) with long arbor
-7. Chronergy escape wheel, skeletonised, nickel-phosphorus, grey metallic
-8. Chronergy pallet fork with two red ruby pallet stones
-9. balance wheel with blue Parachrom hairspring with Breguet overcoil and gold Microstella nuts
-10. Paraflex shock absorber assembly (tiny spring and jewel setting)
-11. winding pinion (small steel gear)
-12. sliding pinion / clutch wheel (steel, teeth on both ends)
-13. winding stem (long thin steel rod with square section)
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/rolex-32xx-3285/movement_dial.png`
 
 Сторона циферблата, деталей: 12, сетка 5×3. Референсы: нет.
@@ -1437,24 +1184,7 @@ Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-32xx-3285/movement_screws.png`
-
-Винты и мелочь, деталей: 19, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: Rolex manufacture automatic calibre, rhodium-plated nickel silver bridges with Côtes de Genève stripes and polished bevels, mainplate with perlage (circular graining), red synthetic ruby jewels, gold-coloured gear wheels, blue Parachrom hairspring, satin-finished rotor, blued steel screws are NOT used (Rolex uses polished steel screws)..
-Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. polished steel bridge screw with slotted head
-2. rotor screw with slotted head
-3. ratchet wheel screw, large flat head
-4. single synthetic ruby jewel bearing (tiny red disc with hole)
-5. movement holder ring (spacer ring), thin steel ring
-6. casing clamp screw with flat clamp
-Nothing else in the image.
-```
-
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-gmt-master-ii-pepsi/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-gmt-master-ii-pepsi/1-1600.jpg`.
@@ -1520,26 +1250,7 @@ Show EXACTLY 4 separate items, one of each, arranged in a grid of 3 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-71xx-7135/movement_top.png`
-
-Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: thin Rolex manufacture automatic calibre, bridges with Rolex Côtes de Genève (wide stripes), polished bevels, skeletonised 18 ct gold rotor, silicon Syloxi hairspring (dark grey-blue), red ruby jewels..
-Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. openworked 18 ct gold oscillating weight with central bearing
-2. automatic winding bridge
-3. reversing wheel
-4. traversing balance bridge
-5. barrel bridge, Rolex Côtes de Genève
-6. train wheel bridge with ruby jewels
-7. ratchet wheel, sunburst finish
-8. crown wheel
-Nothing else in the image.
-```
-
+- `movements/rolex-71xx/movement_top.png`: уже описан выше (общий механизм).
 ### `teardown_src/movements/rolex-71xx-7135/movement_train.png`
 
 Энергия, передача и спуск, деталей: 14, сетка 5×3. Референсы: нет.
@@ -1563,25 +1274,7 @@ Show EXACTLY 11 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-71xx-7135/movement_dial.png`
-
-Сторона циферблата, деталей: 21, сетка 4×2. Референсы: нет.
-
-```text
-Ultra-detailed macro product photograph for a technical watch encyclopedia. Camera exactly perpendicular, looking straight down (orthographic top-down view, no perspective tilt). Watch components are laid out flat and fully separated in a clean knolling grid: every item sits alone in its own grid cell, generous empty space between items, nothing overlaps or touches, nothing is cropped by the frame. Seamless, perfectly uniform light-grey background (#d6d6d6), no texture, no gradient, no vignette. Soft, even, shadowless studio lighting from a large overhead softbox: no cast shadows, no dark reflections of the camera. Correct relative sizes between the items. Accurate materials and finishes (polished and satin-brushed steel or gold, ceramic, sapphire, gilded brass wheels, synthetic ruby jewels). Razor-sharp focus on every item. No captions, labels, numbers, arrows, rulers, tweezers, human hands or tools added to the scene (text that is really printed or engraved on a part, such as dial printing, stays as on the real watch).
-
-Subject: the disassembled components of this watch: thin Rolex manufacture automatic calibre, bridges with Rolex Côtes de Genève (wide stripes), polished bevels, skeletonised 18 ct gold rotor, silicon Syloxi hairspring (dark grey-blue), red ruby jewels..
-Show EXACTLY 7 separate items, one of each, arranged in a grid of 4 columns and 2 rows, in reading order (left to right, then next row), each item centred in its own cell and as large as the cell allows, in this order:
-1. thin mainplate seen from the dial side, perlage
-2. cannon pinion and minute wheel
-3. hour wheel
-4. setting lever, yoke and yoke spring
-5. polished steel screw
-6. synthetic ruby jewel
-7. movement holder ring
-Nothing else in the image.
-```
-
+- `movements/rolex-71xx/movement_dial.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-land-dweller-40/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-land-dweller-40/1-1600.jpg`.
@@ -1649,10 +1342,10 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-- `movements/rolex-32xx-3230/movement_top.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3230/movement_train.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 - `movements/rolex-32xx-3230/movement_dial.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3230/movement_screws.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-oyster-perpetual-41/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-oyster-perpetual-41/1-1600.jpg`.
@@ -1721,7 +1414,7 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-9002-9002/movement_top.png`
+### `teardown_src/movements/rolex-9002/movement_top.png`
 
 Автоподзавод и мосты, деталей: 9, сетка 4×2. Референсы: нет.
 
@@ -1741,7 +1434,7 @@ Show EXACTLY 8 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-9002-9002/movement_train.png`
+### `teardown_src/movements/rolex-9002/movement_train.png`
 
 Энергия, передача и спуск, деталей: 13, сетка 5×3. Референсы: нет.
 
@@ -1765,7 +1458,7 @@ Show EXACTLY 12 separate items, one of each, arranged in a grid of 5 columns and
 Nothing else in the image.
 ```
 
-### `teardown_src/movements/rolex-9002-9002/movement_calendar.png`
+### `teardown_src/movements/rolex-9002/movement_calendar.png`
 
 Календарь Saros и второй пояс, деталей: 23, сетка 5×3. Референсы: нет.
 
@@ -1858,10 +1551,10 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-- `movements/rolex-32xx-3230/movement_top.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3230/movement_train.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 - `movements/rolex-32xx-3230/movement_dial.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3230/movement_screws.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-submariner/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-submariner/1-1600.jpg`, `frontend/assets/photos/rolex-submariner/2-1600.jpg`.
@@ -1931,10 +1624,10 @@ Show EXACTLY 6 separate items, one of each, arranged in a grid of 4 columns and 
 Nothing else in the image.
 ```
 
-- `movements/rolex-32xx-3235/movement_top.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3235/movement_train.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_top.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_train.png`: уже описан выше (общий механизм).
 - `movements/rolex-32xx-3235/movement_dial.png`: уже описан выше (общий механизм).
-- `movements/rolex-32xx-3235/movement_screws.png`: уже описан выше (общий механизм).
+- `movements/rolex-32xx/movement_screws.png`: уже описан выше (общий механизм).
 ### `teardown_src/watches/rolex-submariner-date/assembled_front.png`
 
 Собранные часы. Референсы: `frontend/assets/photos/rolex-submariner-date/1-1600.jpg`, `frontend/assets/photos/rolex-submariner-date/2-1600.jpg`.
