@@ -9,6 +9,7 @@ import { toggleCompare, hasCompare, onCompareChange } from "../core/compare.js";
 
 export default {
   layer: "page",
+  currencyAware: true, // цены пересчитываются в mount без перерисовки страницы
 
   async data() {
     const [watches, countries] = await Promise.all([api.watches(), api.countries()]);

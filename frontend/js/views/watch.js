@@ -6,7 +6,7 @@
 
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
-import { date, DIFFICULTY, hours, MOVEMENT, num, PRICE_KIND, usd, vph } from "../core/format.js";
+import { date, DIFFICULTY, getActiveCurrency, hours, inUSD, MOVEMENT, num, PRICE_KIND, RATES, usd, vph } from "../core/format.js";
 import { countUp, reduced, splitWords } from "../core/motion.js";
 import { scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
@@ -54,6 +54,9 @@ function priceBlock(w) {
         Источник: ${p.url ? html`<a href="${p.url}" target="_blank" rel="noopener" data-external>${p.source}</a>` : p.source}.
         Проверено ${date(p.checked)}.${p.note ? html` ${p.note}.` : ""}
       </p>
+      ${getActiveCurrency().code !== "USD"
+        ? html`<p class="wprice__meta wprice__fx">Исходная цена ${inUSD(p.usd)}, пересчёт по курсу на ${date(RATES.date)}: примерная сумма, а не официальная цена в этой валюте.</p>`
+        : ""}
     </div>
     <div class="wprice__compare" data-reveal style="--i:1">
       <p class="wprice__diff">${diff === 0 ? "Ровно на уровне средней цены" : diff > 0 ? `На ${diff}% дороже` : `На ${Math.abs(diff)}% дешевле`}

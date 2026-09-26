@@ -7,6 +7,7 @@ import pytest
 # Тесты работают на отдельной временной базе, собранной из настоящего контента.
 _TMP = Path(tempfile.mkdtemp(prefix="horologium-test-"))
 os.environ["HOROLOGIUM_DB"] = str(_TMP / "test.sqlite3")
+os.environ["HOROLOGIUM_RATES_LIVE"] = "0"  # тесты не ходят в сеть за курсами
 
 
 @pytest.fixture(scope="session")

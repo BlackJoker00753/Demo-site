@@ -271,6 +271,11 @@ def get_movement(s: Session, slug: str) -> tuple[S.MovementOut, list[S.WatchCard
     return S.MovementOut.model_validate(m), [watch_card(w) for w in watches]
 
 
+def movement_slugs(s: Session) -> list[str]:
+    """Калибры, на которых работает хотя бы одна модель атласа (для sitemap)."""
+    return list(s.scalars(select(Movement.slug).where(Movement.id.in_(select(Watch.movement_id))).order_by(Movement.slug)))
+
+
 def part_photos(s: Session) -> dict[str, list[S.Photo]]:
     return {row.key: [S.Photo(**p) for p in row.photos] for row in s.scalars(select(PartPhoto))}
 

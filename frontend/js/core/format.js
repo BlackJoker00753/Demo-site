@@ -5,10 +5,30 @@ const dateFmt = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long"
 
 export const CURRENCIES = {
   USD: { code: "USD", symbol: "$", pos: "before", rate: 1.0, label: "USD ($)" },
-  EUR: { code: "EUR", symbol: "€", pos: "before", rate: 0.92, label: "EUR (€)" },
-  RUB: { code: "RUB", symbol: "₽", pos: "after", rate: 92.5, label: "RUB (₽)" },
-  KZT: { code: "KZT", symbol: "₸", pos: "after", rate: 480.0, label: "KZT (₸)" },
+  // запасные курсы; при загрузке их заменяют свежие с /api/v1/rates (applyRates)
+  EUR: { code: "EUR", symbol: "€", pos: "before", rate: 0.8773, label: "EUR (€)" },
+  RUB: { code: "RUB", symbol: "₽", pos: "after", rate: 84.28, label: "RUB (₽)" },
+  KZT: { code: "KZT", symbol: "₸", pos: "after", rate: 443.05, label: "KZT (₸)" },
 };
+/** Дата курсов (ISO) и источник: подпись к пересчитанным ценам. */
+export const RATES = { date: "2026-09-26", source: "open.er-api.com" };
+
+/** Свежие курсы с сервера. Если активная валюта не доллар и курс изменился, страница перерисуется. */
+export function applyRates(r) {
+  if (!r?.rates) return;
+  let changed = false;
+  for (const [code, cur] of Object.entries(CURRENCIES)) {
+    const v = r.rates[code];
+    if (v && Math.abs(v - cur.rate) > 1e-6) {
+      cur.rate = v;
+      if (code === currentCurrency) changed = true;
+    }
+  }
+  RATES.date = r.date ?? RATES.date;
+  RATES.source = r.source ?? RATES.source;
+  window.dispatchEvent(new CustomEvent("ratesupdate", { detail: RATES }));
+  if (changed && currentCurrency !== "USD") window.dispatchEvent(new CustomEvent("currencychange", { detail: CURRENCIES[currentCurrency] }));
+}
 
 let currentCurrency = "USD";
 try {
@@ -39,12 +59,20 @@ export function onCurrencyChange(fn) {
 }
 
 export const num = (n) => (n == null ? "" : nf.format(n));
+/** Сумма в долларах независимо от выбранной валюты (исходная цена). */
+export const inUSD = (n) => (n == null ? "" : `$${nf.format(n)}`);
 
+/** Пересчитанная сумма примерная: округляем до 4 значащих цифр (4 452 649 ₸ → 4 453 000 ₸). */
+const approx = (v) => {
+  if (v < 10000) return Math.round(v);
+  const step = 10 ** (Math.floor(Math.log10(v)) - 3);
+  return Math.round(v / step) * step;
+};
 export const usd = (n) => {
   if (n == null) return "";
   const cur = getActiveCurrency();
-  const val = Math.round(n * cur.rate);
-  return cur.pos === "before" ? `${cur.symbol}${nf.format(val)}` : `${nf.format(val)} ${cur.symbol}`;
+  const val = cur.code === "USD" ? Math.round(n) : approx(n * cur.rate);
+  return cur.pos === "before" ? `${cur.symbol}${nf.format(val)}` : `${nf.format(val)}\u00a0${cur.symbol}`;
 };
 
 /** Компактная подпись цены с учетом активной валюты */
@@ -54,11 +82,11 @@ export function usdShort(n) {
   const val = n * cur.rate;
   if (val >= 1_000_000) {
     const formatted = (val / 1_000_000).toLocaleString("ru-RU", { maximumFractionDigits: 1 });
-    return cur.pos === "before" ? `${cur.symbol}${formatted} млн` : `${formatted} млн ${cur.symbol}`;
+    return cur.pos === "before" ? `${cur.symbol}${formatted}\u00a0млн` : `${formatted}\u00a0млн\u00a0${cur.symbol}`;
   }
   if (val >= 10_000) {
     const formatted = Math.round(val / 1000);
-    return cur.pos === "before" ? `${cur.symbol}${formatted} тыс.` : `${formatted} тыс. ${cur.symbol}`;
+    return cur.pos === "before" ? `${cur.symbol}${formatted}\u00a0тыс.` : `${formatted}\u00a0тыс.\u00a0${cur.symbol}`;
   }
   return usd(n);
 }

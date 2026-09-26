@@ -43,6 +43,7 @@ export const api = {
   search: (q) => get(`/search?q=${encodeURIComponent(q)}`),
   partPhotos: () => get("/part-photos"),
   credits: () => get("/credits"),
+  rates: () => get("/rates"),
 };
 
 const json = new Map();

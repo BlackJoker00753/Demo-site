@@ -53,6 +53,12 @@ export class Router {
     return this.go(location.pathname + location.search, { push: false, key, initial: true });
   }
 
+  /** Перерисовать текущую страницу на месте (смена валюты), сохранив прокрутку. */
+  refresh() {
+    if (!this.current?.key || this.current.name === "error") return null;
+    return this.go(location.pathname + location.search, { push: false, key: this.current.key });
+  }
+
   onChange(fn) {
     this.listeners.add(fn);
     return () => this.listeners.delete(fn);

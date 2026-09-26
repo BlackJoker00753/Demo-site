@@ -127,8 +127,8 @@ kbd { font-family: var(--font-mono); font-size: 0.72em; }
 .stack > * + * { margin-top: var(--stack, var(--s-4)); }
 
 .noscript {
-  position: fixed; inset: 0; display: grid; place-items: center; padding: 24px;
-  background: var(--bg); color: var(--text-2); text-align: center;
+  margin-bottom: 28px; padding: 14px 18px; border-radius: 14px;
+  border: 1px solid var(--line-2); background: var(--surface); color: var(--text-2); font-size: var(--fs-14);
 }
 
 /* ---------------------------------------------------------------- reveal
@@ -162,3 +162,11 @@ kbd { font-family: var(--font-mono); font-size: 0.72em; }
     scroll-behavior: auto !important;
   }
 }
+
+/* текст страницы без JavaScript (сервер кладёт его в <noscript>) */
+.ssr-text { max-width: 72ch; margin: 0 auto; padding: calc(var(--nav-h) + 24px) var(--gutter) 64px; color: var(--text-2); line-height: 1.6; }
+.ssr-text h1 { font-family: var(--font-display); font-weight: 400; font-size: 2.6rem; color: var(--text); margin-bottom: 16px; }
+.ssr-text h2 { font-size: var(--fs-16); color: var(--text); margin: 28px 0 8px; }
+.ssr-text p { margin-bottom: 12px; }
+.ssr-text ul { padding-left: 18px; columns: 2 220px; }
+.ssr-text a { color: var(--lume); }

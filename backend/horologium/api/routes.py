@@ -5,12 +5,12 @@ from __future__ import annotations
 from collections.abc import Iterator
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from ..db.base import session_factory
-from ..services import catalog, search as search_service
+from ..services import catalog, rates as rates_service, search as search_service
 from . import schemas as S
 
 router = APIRouter(prefix="/api/v1")
@@ -120,3 +120,17 @@ def credits(s: DB):
 @router.get("/search", response_model=list[S.SearchHit])
 def search(s: DB, q: str = Query(min_length=1, max_length=80)):
     return search_service.search(s, q)
+
+
+class Rates(BaseModel):
+    base: str
+    date: str
+    source: str
+    rates: dict[str, float]
+
+
+@router.get("/rates", response_model=Rates)
+def rates(response: Response):
+    """Курсы USD → EUR, RUB, KZT для пересчёта цен (обновляются раз в сутки)."""
+    response.headers["Cache-Control"] = "public, max-age=3600"
+    return rates_service.current()

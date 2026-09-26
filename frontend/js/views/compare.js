@@ -8,6 +8,7 @@ import { getComparedSlugs, toggleCompare, clearCompare, onCompareChange } from "
 
 export default {
   layer: "page",
+  currencyAware: true, // цены пересчитываются в mount без перерисовки страницы
 
   async data(ctx) {
     const params = new URLSearchParams(location.search);

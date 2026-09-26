@@ -165,7 +165,11 @@ export class GlobeScene {
   }
 
   async #upgradeDayTexture(loader) {
-    // Сначала быстрый 2K, затем 8K для крупных планов.
+    // Сначала быстрый 2K, затем 8K для крупных планов. 8K занимает ~128 МБ видеопамяти:
+    // на телефонах и слабых устройствах остаётся 2K (иначе мобильный Safari может закрыть вкладку).
+    const small = Math.min(screen.width, screen.height) < 820 || (navigator.deviceMemory ?? 8) < 4;
+    const saveData = navigator.connection?.saveData;
+    if (small || saveData || this.renderer.capabilities.maxTextureSize < 8192) return;
     const hi = await loader.loadAsync("/assets/earth/day-8k.jpg").catch(() => null);
     if (!hi) return;
     hi.colorSpace = THREE.SRGBColorSpace;

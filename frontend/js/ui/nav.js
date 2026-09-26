@@ -1,7 +1,7 @@
 // Верхняя навигация: хлебные крошки, переключатель валют и плавающая панель сравнения.
 
 import { html, setHTML } from "../core/dom.js";
-import { getActiveCurrency, setActiveCurrency, onCurrencyChange } from "../core/format.js";
+import { date, getActiveCurrency, onCurrencyChange, RATES, setActiveCurrency } from "../core/format.js";
 import { getComparedSlugs, clearCompare, onCompareChange } from "../core/compare.js";
 
 export function initNav() {
@@ -59,6 +59,12 @@ export function initNav() {
   });
 
   onCurrencyChange(updateCurUI);
+  const curNote = document.getElementById("cur-note");
+  const updateRatesNote = () => {
+    if (curNote) curNote.textContent = `Цены хранятся в долларах США. Пересчёт по курсу на ${date(RATES.date)} (${RATES.source}).`;
+  };
+  updateRatesNote();
+  window.addEventListener("ratesupdate", updateRatesNote);
 
   // Плавающая панель сравнения (Floating Compare Bar)
   let floatBar = document.getElementById("compare-float-bar");

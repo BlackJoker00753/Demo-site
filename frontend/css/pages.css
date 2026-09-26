@@ -40,6 +40,7 @@
   background: transparent; border: none; cursor: pointer; transition: background 0.15s ease;
 }
 .nav__cur-dropdown button:hover { background: var(--surface-2); color: var(--text); }
+.nav__cur-note { grid-column: 1 / -1; margin: 6px 4px 2px; padding-top: 8px; border-top: 1px solid var(--line); font-size: var(--fs-12); line-height: 1.45; color: var(--text-3); max-width: 26ch; }
 .nav__cur-dropdown button.is-selected { color: var(--lume); background: var(--lume-dim); font-weight: 600; }
 .nav__badge {
   display: inline-block; padding: 2px 7px; border-radius: 10px;
@@ -260,3 +261,5 @@
   .topic__next { grid-template-columns: 1fr; }
   .topic__nav--next { text-align: left; justify-items: start; }
 }
+
+.wprice__fx { color: var(--text-3); font-size: var(--fs-13); }

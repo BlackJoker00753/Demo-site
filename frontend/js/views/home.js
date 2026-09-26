@@ -43,7 +43,7 @@ export default {
                 <a class="hcountry ${c.brand_count ? "" : "is-empty"}" href="/country/${c.slug}" data-slug="${c.slug}">
                   <span class="hcountry__name">${c.name}</span>
                   <span class="hcountry__meta">${c.brand_count ? brands(c.brand_count) : "скоро"}</span>
-                  <span class="hcountry__price num">${c.prices.min ? `от ${usd(c.prices.min)}` : ""}</span>
+                  <span class="hcountry__price num">${c.prices.min ? `от\u00a0${usd(c.prices.min)}` : ""}</span>
                 </a>
               </li>`,
             )}

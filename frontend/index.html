@@ -7,15 +7,15 @@
   <meta name="description" content="<!--SSR:DESCRIPTION-->">
   <meta property="og:title" content="<!--SSR:TITLE-->">
   <meta property="og:description" content="<!--SSR:DESCRIPTION-->">
-  <meta property="og:type" content="website">
+  <!--SSR:HEAD-->
   <meta name="theme-color" content="#07080a">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Horologium">
 
-  <link rel="preload" href="/assets/earth/day-2k.jpg" as="image" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/fonts/fonts.css">
   <link rel="stylesheet" href="/vendor/phosphor/light/style.css">
   <link rel="stylesheet" href="/vendor/lenis/lenis.css">
@@ -43,6 +43,7 @@
 </head>
 <body>
   <a class="skip-link" href="#view">К содержимому</a>
+  <noscript><!--SSR:BODY--></noscript>
 
   <!-- Постоянный слой: глобус живёт между страницами. -->
   <div class="globe-layer" id="globe-layer" aria-hidden="true">
@@ -71,6 +72,7 @@
           <button type="button" role="option" data-cur="EUR">EUR (€)</button>
           <button type="button" role="option" data-cur="RUB">RUB (₽)</button>
           <button type="button" role="option" data-cur="KZT">KZT (₸)</button>
+          <p class="nav__cur-note" id="cur-note">Цены хранятся в долларах США и пересчитываются по курсу.</p>
         </div>
       </div>
 
@@ -113,8 +115,5 @@
     </div>
   </div>
 
-  <noscript>
-    <div class="noscript">Horologium работает на JavaScript и WebGL. Включите JavaScript, чтобы открыть атлас.</div>
-  </noscript>
 </body>
 </html>
