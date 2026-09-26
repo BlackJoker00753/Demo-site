@@ -2105,6 +2105,507 @@
   gap: 6px;
 }
 
+/* ==========================================================================
+   Perpetual Calendar Mechanics & Secular Matrix Simulator (/complication/perpetual-calendar)
+   ========================================================================== */
+
+.topic__perpetual {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.qp-sim {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.qp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.qp-head__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 650px;
+}
+
+.qp-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.qp-desc {
+  font-size: var(--fs-14);
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.qp-stage-card {
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, #10151c 0%, #080a0d 100%);
+  border: 1px solid var(--line-2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Циферблат вечного календаря */
+.qp-dial-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qp-dial-view.is-hidden,
+.qp-skel-view.is-hidden {
+  display: none;
+}
+
+.qp-dial {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #141a22 0%, #090c0f 100%);
+  border: 4px solid var(--surface-3);
+  box-shadow: 0 0 0 1px var(--line-2), inset 0 0 30px rgba(0, 0, 0, 0.7);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 20px;
+  gap: 16px;
+}
+
+.qp-subdial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(16, 20, 26, 0.6);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+.qp-subdial__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  padding-bottom: 2px;
+}
+
+.qp-subdial__val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+/* Шкала и стрелка субциферблатов */
+.qp-scale-ring {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.qp-tick-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--rot)) translateY(-44px) rotate(calc(-1 * var(--rot)));
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.qp-tick-label--sm {
+  font-size: 9px;
+  transform: translate(-50%, -50%) rotate(var(--rot)) translateY(-46px) rotate(calc(-1 * var(--rot)));
+}
+
+.qp-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 38px;
+  background: #32e084;
+  transform-origin: bottom center;
+  margin-top: -38px;
+  margin-left: -1px;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 6px rgba(50, 224, 132, 0.6);
+  z-index: 2;
+}
+.qp-hand::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* Внутренний цикл високосного года */
+.qp-leap-sub {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px dashed var(--line-2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.qp-leap-tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--lrot)) translateY(-15px);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-3);
+}
+.qp-leap-tick--l {
+  color: var(--gold);
+}
+
+.qp-leap-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  background: var(--gold);
+  transform-origin: bottom center;
+  margin-top: -14px;
+  margin-left: -1px;
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+
+/* Лунный указатель */
+.qp-moon-aperture {
+  position: relative;
+  width: 84px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 42px 42px 0 0;
+  background: #040608;
+  border: 1px solid rgba(216, 192, 138, 0.3);
+  margin-top: 14px;
+}
+
+.qp-moon-disc {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #060912;
+  left: -13px;
+  top: -2px;
+  transition: transform 0.4s ease;
+}
+
+.qp-moon-sphere {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff2b0 0%, #d8c08a 60%, #8a6a24 100%);
+  box-shadow: 0 0 10px rgba(255, 242, 176, 0.6);
+}
+.qp-moon-sphere--1 {
+  top: 10px;
+  left: 43px;
+}
+.qp-moon-sphere--2 {
+  bottom: 10px;
+  left: 43px;
+}
+
+.qp-moon-stars {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 48px;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 4px;
+}
+
+.qp-moon-mask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, transparent 40%, rgba(9, 12, 15, 0.95) 75%);
+}
+
+/* Дата (число месяца) */
+.qp-date-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 2px solid var(--line-2);
+  margin-top: 10px;
+}
+
+.qp-date-big {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+/* Центральный год */
+.qp-center-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line-2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.qp-year-val {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.qp-leap-badge {
+  font-size: 10px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.qp-leap-badge.is-leap {
+  color: var(--lume);
+  font-weight: 600;
+}
+.qp-leap-badge.is-error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Рентген-схема SVG */
+.qp-skel-canvas-wrap {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.qp-skel-svg {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  display: block;
+}
+
+.qp-skel-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: var(--fs-12);
+  color: var(--text-3);
+}
+
+.qp-skel-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qp-skel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Консоль управления */
+.qp-console {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.qp-time-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.qp-secular-toggle {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+.qp-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-13);
+  color: var(--text-2);
+  cursor: pointer;
+}
+.qp-checkbox-label input {
+  accent-color: var(--lume);
+  cursor: pointer;
+}
+
+.qp-scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qp-scenarios__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-13);
+  font-weight: 600;
+  color: var(--text);
+}
+.qp-scenarios__title i {
+  color: var(--lume);
+}
+
+.qp-scenarios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.qp-sc-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+.qp-sc-btn:hover {
+  background: var(--surface-3);
+  border-color: var(--line-3);
+}
+
+.qp-sc-btn__name {
+  font-size: var(--fs-13);
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.qp-sc-btn__desc {
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.4;
+}
+
+/* Сравнительная таблица календарей */
+.qp-comparison-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.qp-comp-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.qp-table-wrap {
+  overflow-x: auto;
+}
+
+.qp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+}
+
+.qp-table th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.qp-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-2);
+}
+
+.qp-table tr.is-highlight {
+  background: rgba(159, 233, 196, 0.05);
+}
+
+.qp-table tr.is-highlight td strong {
+  color: var(--lume);
+}
+
+
 
 
 

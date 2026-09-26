@@ -10,6 +10,7 @@ import { diffMeter } from "./glossary.js";
 import { renderCompTechCard } from "../ui/comp-tech.js";
 import { renderRepeaterSimulator, mountRepeaterSimulator } from "../ui/repeater-sim.js";
 import { renderChronographSimulator, mountChronographSimulator } from "../ui/chronograph-sim.js";
+import { renderPerpetualSimulator, mountPerpetualSimulator } from "../ui/perpetual-sim.js";
 
 export default {
   layer: "page",
@@ -103,6 +104,12 @@ export default {
           </section>`
         : ""}
 
+      ${["perpetual-calendar", "annual-calendar", "moonphase"].includes(c.slug)
+        ? html`<section class="topic__perpetual container" aria-label="Симулятор механического вечного календаря">
+            ${renderPerpetualSimulator(c.slug)}
+          </section>`
+        : ""}
+
       ${watches.length
         ? html`<section class="catalog topic__models" id="models">
             <div class="container">
@@ -127,11 +134,15 @@ export default {
     revealPhotos(root);
     let offRepeater = null;
     let offChrono = null;
+    let offPerpetual = null;
     if (c?.slug === "minute-repeater") {
       offRepeater = mountRepeaterSimulator(root);
     }
     if (["chronograph", "flyback", "split-seconds", "tachymeter"].includes(c?.slug)) {
       offChrono = mountChronographSimulator(root);
+    }
+    if (["perpetual-calendar", "annual-calendar", "moonphase"].includes(c?.slug)) {
+      offPerpetual = mountPerpetualSimulator(root);
     }
     if (g && !reduced()) {
       g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
@@ -144,6 +155,7 @@ export default {
     return () => {
       offRepeater?.();
       offChrono?.();
+      offPerpetual?.();
       off?.();
     };
   },

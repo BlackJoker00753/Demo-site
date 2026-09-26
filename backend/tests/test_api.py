@@ -121,5 +121,16 @@ def test_timegrapher_route(client):
     assert "Виртуальный виброграф" in res.text
 
 
+def test_complication_routes(client):
+    res_qp = client.get("/complication/perpetual-calendar")
+    assert res_qp.status_code == 200
+    assert "Вечный календарь" in res_qp.text
+
+    res_annual = client.get("/complication/annual-calendar")
+    assert res_annual.status_code == 200
+    assert "Годовой календарь" in res_annual.text
+
+
+
 
 
