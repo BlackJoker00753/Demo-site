@@ -11,6 +11,7 @@ import { renderCompTechCard } from "../ui/comp-tech.js";
 import { renderRepeaterSimulator, mountRepeaterSimulator } from "../ui/repeater-sim.js";
 import { renderChronographSimulator, mountChronographSimulator } from "../ui/chronograph-sim.js";
 import { renderPerpetualSimulator, mountPerpetualSimulator } from "../ui/perpetual-sim.js";
+import { renderTourbillonSimulator, mountTourbillonSimulator } from "../ui/tourbillon-sim.js";
 
 export default {
   layer: "page",
@@ -110,6 +111,12 @@ export default {
           </section>`
         : ""}
 
+      ${c.slug === "tourbillon"
+        ? html`<section class="topic__tourbillon container" aria-label="Симулятор компенсации гравитации турбийона">
+            ${renderTourbillonSimulator()}
+          </section>`
+        : ""}
+
       ${watches.length
         ? html`<section class="catalog topic__models" id="models">
             <div class="container">
@@ -135,6 +142,7 @@ export default {
     let offRepeater = null;
     let offChrono = null;
     let offPerpetual = null;
+    let offTourbillon = null;
     if (c?.slug === "minute-repeater") {
       offRepeater = mountRepeaterSimulator(root);
     }
@@ -143,6 +151,9 @@ export default {
     }
     if (["perpetual-calendar", "annual-calendar", "moonphase"].includes(c?.slug)) {
       offPerpetual = mountPerpetualSimulator(root);
+    }
+    if (c?.slug === "tourbillon") {
+      offTourbillon = mountTourbillonSimulator(root);
     }
     if (g && !reduced()) {
       g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
@@ -156,6 +167,7 @@ export default {
       offRepeater?.();
       offChrono?.();
       offPerpetual?.();
+      offTourbillon?.();
       off?.();
     };
   },

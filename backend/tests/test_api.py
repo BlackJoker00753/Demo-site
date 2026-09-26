@@ -130,6 +130,12 @@ def test_complication_routes(client):
     assert res_annual.status_code == 200
     assert "Годовой календарь" in res_annual.text
 
+    res_tb = client.get("/complication/tourbillon")
+    assert res_tb.status_code == 200
+    assert "Турбийон" in res_tb.text
+
+
+
 
 
 
