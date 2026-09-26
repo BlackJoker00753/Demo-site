@@ -81,8 +81,20 @@
         <span>Поиск</span>
         <kbd>⌘K</kbd>
       </button>
+      <button class="nav__menu" id="menu-open" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav">
+        <i class="ph-light ph-list" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
+
+  <!-- Меню разделов на телефоне (на широком экране ссылки прямо в шапке). -->
+  <nav class="mnav" id="mnav" aria-label="Разделы атласа" hidden>
+    <a href="/" data-link><i class="ph-light ph-globe-hemisphere-east" aria-hidden="true"></i>Глобус</a>
+    <a href="/watches" data-link><i class="ph-light ph-squares-four" aria-hidden="true"></i>Каталог часов</a>
+    <a href="/glossary" data-link><i class="ph-light ph-gear-six" aria-hidden="true"></i>Усложнения</a>
+    <a href="/compare" data-link id="mnav-compare" hidden><i class="ph-light ph-scales" aria-hidden="true"></i>Сравнение <span class="nav__badge" id="mnav-compare-count">0</span></a>
+    <a href="/credits" data-link><i class="ph-light ph-camera" aria-hidden="true"></i>Авторы фотографий</a>
+  </nav>
 
   <main id="view" class="view" tabindex="-1"></main>
 

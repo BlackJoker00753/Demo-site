@@ -66,6 +66,32 @@ export function initNav() {
   updateRatesNote();
   window.addEventListener("ratesupdate", updateRatesNote);
 
+  // Меню разделов на телефоне
+  const menuBtn = document.getElementById("menu-open");
+  const mnav = document.getElementById("mnav");
+  const setMenu = (open) => {
+    if (!mnav || !menuBtn) return;
+    mnav.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+    menuBtn.querySelector("i").className = `ph-light ${open ? "ph-x" : "ph-list"}`;
+    if (open) mnav.querySelector("a:not([hidden])")?.focus({ preventScroll: true });
+  };
+  menuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setMenu(mnav.hidden);
+  });
+  mnav?.addEventListener("click", (e) => e.target.closest("a") && setMenu(false));
+  document.addEventListener("click", (e) => {
+    if (mnav && !mnav.hidden && !e.target.closest("#mnav, #menu-open")) setMenu(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mnav && !mnav.hidden) {
+      setMenu(false);
+      menuBtn.focus();
+    }
+  });
+
   // Плавающая панель сравнения (Floating Compare Bar)
   let floatBar = document.getElementById("compare-float-bar");
   if (!floatBar) {
@@ -83,6 +109,11 @@ export function initNav() {
     if (navLink) {
       navLink.hidden = count === 0;
       if (countBadge) countBadge.textContent = count;
+    }
+    const mLink = document.getElementById("mnav-compare");
+    if (mLink) {
+      mLink.hidden = count === 0;
+      document.getElementById("mnav-compare-count").textContent = count;
     }
 
     if (count > 0 && !location.pathname.startsWith("/compare")) {
@@ -116,6 +147,12 @@ export function initNav() {
 
   return {
     update(meta, routeName) {
+      // текущий раздел в меню телефона
+      document.querySelectorAll("#mnav a").forEach((a) => {
+        const here = a.getAttribute("href") === location.pathname;
+        if (here) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
       nav.dataset.layer = routeName === "home" || routeName === "country" ? "globe" : "page";
       if (nav.dataset.layer === "globe") nav.classList.remove("is-solid");
       const items = meta.crumbs ?? [];

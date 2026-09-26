@@ -263,3 +263,11 @@
 }
 
 .wprice__fx { color: var(--text-3); font-size: var(--fs-13); }
+
+/* на телефоне в шапке ещё и кнопка меню: переключатель валюты компактнее */
+.nav__cur-btn { white-space: nowrap; }
+@media (max-width: 760px) {
+  .nav__cur-btn { padding-inline: 10px; gap: 4px; }
+  .nav__cur-btn .ph-caret-down { display: none; }
+}
+@media (max-width: 380px) { .nav__word { font-size: 1.15rem; } }
