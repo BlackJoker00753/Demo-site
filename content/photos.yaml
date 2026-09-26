@@ -295,35 +295,35 @@ hublot-big-bang-unico:
   source_url: https://www.hublot.com
   title: Big Bang Unico Titanium 42 Ref. 441.NM.1170.RX
 iwc-ingenieur-40:
-- author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
-  caption: Ingenieur Automatic 40 Ref. IW328901, официальное студийное фото
+- author: EMore98
+  caption: Ingenieur Automatic Ref. IW328901 / IW3239, дизайн Джеральда Дженты с винтовым безелем
   context: false
   file: iwc-ingenieur-40/1
   focus:
   - 0.5
   - 0.5
-  height: 365
-  width: 376
+  height: 1600
+  width: 1061
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.iwc.com
-  source_url: https://www.iwc.com
-  title: Ingenieur Automatic 40 Ref. IW328901
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:IWC_Ingenieur_ref._IW323902_risalente_al_2013.jpg
+  title: IWC Ingenieur ref. IW323902
 iwc-pilots-watch-mark-xx:
-- author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
-  caption: Pilot's Watch Mark XX Ref. IW328201, официальное студийное фото
+- author: サフィル
+  caption: Pilot's Watch Mark XX / Mark Series, эталонный авиатор с защитой от магнитных полей
   context: false
   file: iwc-pilots-watch-mark-xx/1
   focus:
   - 0.5
   - 0.5
-  height: 384
-  width: 352
+  height: 1200
+  width: 1600
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.iwc.com
-  source_url: https://www.iwc.com
-  title: Pilot's Watch Mark XX Ref. IW328201
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:IWC_Mark_XV.jpg
+  title: IWC Pilot's Watch Mark series
 iwc-portugieser-chronograph:
 - author: IWC Schaffhausen (Официальный медиа-сервер / iwc.com)
   caption: Portugieser Chronograph Ref. IW371605, официальное студийное фото
@@ -340,50 +340,50 @@ iwc-portugieser-chronograph:
   source_url: https://www.iwc.com
   title: Portugieser Chronograph Ref. IW371605
 jaeger-lecoultre-master-ultra-thin-moon:
-- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
-  caption: Master Ultra Thin Moon Ref. Q1368430, официальное студийное фото
+- author: Remi Mathis
+  caption: Master Ultra Thin Moon Ref. Q1368430, указатель фаз Луны и даты на отметке 6 часов
   context: false
   file: jaeger-lecoultre-master-ultra-thin-moon/1
   focus:
   - 0.5
   - 0.5
-  height: 270
-  width: 270
+  height: 1453
+  width: 1600
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.jaeger-lecoultre.com
-  source_url: https://www.jaeger-lecoultre.com
-  title: Master Ultra Thin Moon Ref. Q1368430
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:Jaeger_Le_Coultre_ultra_thin_moonphase_Q1258420.jpg
+  title: Jaeger Le Coultre ultra thin moonphase
 jaeger-lecoultre-polaris-date:
-- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
-  caption: Polaris Date Ref. Q9068670, официальное студийное фото
+- author: Monochrome Watches / Frank Geelen
+  caption: Polaris Date Ref. Q9068670, спортивный компрессор с внутренним вращающимся безелем
   context: false
   file: jaeger-lecoultre-polaris-date/1
   focus:
   - 0.5
   - 0.5
-  height: 340
-  width: 340
+  height: 1067
+  width: 1600
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.jaeger-lecoultre.com
-  source_url: https://www.jaeger-lecoultre.com
-  title: Polaris Date Ref. Q9068670
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/jaeger-lecoultre-polaris-date-sihh-2018-hands-on-price/
+  title: Jaeger-LeCoultre Polaris Date 2018
 jaeger-lecoultre-reverso-tribute:
-- author: Jaeger-LeCoultre (Официальный медиа-сервер / jaeger-lecoultre.com)
-  caption: Reverso Tribute Monoface Small Seconds Ref. Q397846J, официальное студийное фото
+- author: Provo rossi
+  caption: Reverso Tribute Monoface Small Seconds Ref. Q397846J, поворотный корпус в стиле ар-деко
   context: false
   file: jaeger-lecoultre-reverso-tribute/1
   focus:
   - 0.5
   - 0.5
-  height: 340
-  width: 340
+  height: 1600
+  width: 1363
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.jaeger-lecoultre.com
-  source_url: https://www.jaeger-lecoultre.com
-  title: Reverso Tribute Monoface Small Seconds Ref. Q397846J
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0
+  source_url: https://commons.wikimedia.org/wiki/File:JLC_Reverso_Tribute_Monoface.jpg
+  title: Jaeger-LeCoultre Reverso Tribute Monoface
 junghans-max-bill-automatic:
 - author: Junghans (Официальный каталог / junghans.de)
   caption: Max Bill Automatic Ref. 027/3500.02, официальное студийное фото
@@ -1578,35 +1578,35 @@ nomos-club-campus:
   source_url: https://nomos-glashuette.com
   title: Club Campus Ref. 701
 a-lange-soehne-saxonia-thin:
-- author: A. Lange & Söhne (Официальный медиа-сервер / alange-soehne.com)
-  caption: Saxonia Thin Ref. 205.086, официальное студийное фото
+- author: Monochrome Watches / Frank Geelen
+  caption: Saxonia Thin Ref. 205.086, циферблат из авантюринового стекла (медная лазурь)
   context: false
   file: a-lange-soehne-saxonia-thin/1
   focus:
   - 0.5
   - 0.5
-  height: 224
-  width: 335
+  height: 1067
+  width: 1600
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.alange-soehne.com
-  source_url: https://www.alange-soehne.com
-  title: Saxonia Thin Ref. 205.086
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/a-lange-sohne-saxonia-thin-copper-blue-aventurine-dial-review-price/
+  title: A. Lange & Söhne Saxonia Thin Copper Blue
 a-lange-soehne-odysseus:
-- author: A. Lange & Söhne (Официальный медиа-сервер / alange-soehne.com)
-  caption: Odysseus Ref. 363.179, официальное студийное фото
+- author: Monochrome Watches / Frank Geelen
+  caption: Odysseus Ref. 363.179, мануфактурный калибр L155.1 Datomatic и стальной браслет
   context: false
   file: a-lange-soehne-odysseus/1
   focus:
   - 0.5
   - 0.5
-  height: 224
-  width: 335
+  height: 1064
+  width: 1600
   hotspots: []
-  license: Официальные промо-материалы бренда
-  license_url: https://www.alange-soehne.com
-  source_url: https://www.alange-soehne.com
-  title: Odysseus Ref. 363.179
+  license: Editorial / Monochrome Watches
+  license_url: https://monochrome-watches.com
+  source_url: https://monochrome-watches.com/a-lange-sohne-odysseus-steel-luxury-sports-watch-review-price/
+  title: A. Lange & Söhne Odysseus Steel
 sinn-104-st-sa:
 - author: Sinn Spezialuhren (Официальный каталог / sinn.de)
   caption: 104 St Sa A Ref. 104.011, официальное студийное фото
