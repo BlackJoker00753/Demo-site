@@ -322,7 +322,9 @@ def _rembg_alpha(img: Image.Image):
         from rembg import new_session, remove
     except ImportError:
         return None
-    key = (img.size, img.tobytes()[:4096])
+    import hashlib
+
+    key = (img.size, hashlib.sha1(img.tobytes()).hexdigest())
     if key not in _REMBG:
         sess = _REMBG.setdefault("session", new_session("isnet-general-use"))
         _REMBG[key] = np.asarray(remove(img.convert("RGB"), session=sess, only_mask=True)).astype(np.float32) / 255
@@ -350,7 +352,31 @@ def _grid_lines(mask):
     return ndi.binary_dilation(lines, iterations=3)
 
 
+# Разрешение, в котором ищутся детали (пороги, морфология и группировка подобраны под него).
+# Листы больше (настоящие 4K) уменьшаются для поиска маски, а детали вырезаются из полного размера.
+WORK_PX = 1400
+
+
 def _segment(img: Image.Image):
+    """Маска деталей и метки компонент в размере img; считается в рабочем разрешении WORK_PX."""
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    k = WORK_PX / max(img.size)
+    if k >= 1:
+        return _segment_work(img)
+    small = img.convert("RGB").resize((round(img.size[0] * k), round(img.size[1] * k)), Image.LANCZOS)
+    mask_s, groups_s, n = _segment_work(small)
+    W, H = img.size
+    zoom = (H / mask_s.shape[0], W / mask_s.shape[1])
+    # край маски растягивается билинейно (гладкий контур), метки по ближайшему соседу
+    mask = ndi.zoom(mask_s.astype(np.float32), zoom, order=1)[:H, :W] > 0.5
+    labels = ndi.zoom(groups_s, zoom, order=0)[:H, :W]
+    labels = ndi.grey_dilation(labels, size=(5, 5))  # покрыть пиксели сглаженного края
+    return mask, labels * mask, n
+
+
+def _segment_work(img: Image.Image):
     """Маска деталей на однородном фоне (как в cutouts.py) и метки компонент."""
     import numpy as np
     from scipy import ndimage as ndi
@@ -427,6 +453,13 @@ class Cut:
     job: Job
 
 
+def image_sha(path: Path) -> str:
+    """Отпечаток картинки по пикселям (не по байтам файла): пересохранение PNG его не меняет."""
+    import hashlib
+
+    return hashlib.sha1(Image.open(path).convert("RGB").tobytes()).hexdigest()[:10]
+
+
 def _fix(job: Job) -> list | None:
     """Ручная правка раскладки листа из content/teardown/fixes.yaml, если она для этой картинки."""
     if not FIXES.exists() or not job.path.exists():
@@ -436,7 +469,7 @@ def _fix(job: Job) -> list | None:
     fix = (yaml.safe_load(FIXES.read_text(encoding="utf-8")) or {}).get(job.id)
     if not fix:
         return None
-    sha = hashlib.sha1(job.path.read_bytes()).hexdigest()[:10]
+    sha = image_sha(job.path)
     if fix.get("sha") != sha:
         print(f"  {job.id}: правка в fixes.yaml для другой картинки ({fix.get('sha')} ≠ {sha}), пропущена")
         return None
@@ -550,7 +583,9 @@ def cut_plate(job: Job, img: Image.Image) -> tuple[list[Cut], list[str]]:
             m = m | (np.hypot(xx - m.shape[1] / 2, yy - m.shape[0] / 2) <= r)
         # стекло полупрозрачное: сквозь него в собранных часах виден циферблат
         level = 0.14 if glass else 1.0
-        alpha = Image.fromarray((m * 255 * level).astype("uint8")).filter(ImageFilter.GaussianBlur(1.0))
+        # край мягче на больших листах: маска найдена в рабочем разрешении
+        blur = max(1.0, 0.7 * max(img.size) / WORK_PX)
+        alpha = Image.fromarray((m * 255 * level).astype("uint8")).filter(ImageFilter.GaussianBlur(blur))
         sprite = Image.fromarray(rgb[y0:y1, x0:x1]).convert("RGBA")
         sprite.putalpha(alpha)
         # копии одинаковых деталей делят одну картинку в атласе
