@@ -9,6 +9,7 @@ import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { diffMeter } from "./glossary.js";
 import { renderCompTechCard } from "../ui/comp-tech.js";
 import { renderRepeaterSimulator, mountRepeaterSimulator } from "../ui/repeater-sim.js";
+import { renderChronographSimulator, mountChronographSimulator } from "../ui/chronograph-sim.js";
 
 export default {
   layer: "page",
@@ -96,6 +97,12 @@ export default {
           </section>`
         : ""}
 
+      ${["chronograph", "flyback", "split-seconds", "tachymeter"].includes(c.slug)
+        ? html`<section class="topic__chrono container" aria-label="Интерактивный хронограф">
+            ${renderChronographSimulator(c.slug)}
+          </section>`
+        : ""}
+
       ${watches.length
         ? html`<section class="catalog topic__models" id="models">
             <div class="container">
@@ -119,8 +126,12 @@ export default {
     const g = window.gsap;
     revealPhotos(root);
     let offRepeater = null;
+    let offChrono = null;
     if (c?.slug === "minute-repeater") {
       offRepeater = mountRepeaterSimulator(root);
+    }
+    if (["chronograph", "flyback", "split-seconds", "tachymeter"].includes(c?.slug)) {
+      offChrono = mountChronographSimulator(root);
     }
     if (g && !reduced()) {
       g.from(qsa("[data-hero]", root), { y: 28, autoAlpha: 0, duration: 1.2, stagger: 0.07, ease: "expo.out", delay: 0.1 });
@@ -132,6 +143,7 @@ export default {
     if (grid) attachGallery(grid, watches).then((fn) => (off = fn));
     return () => {
       offRepeater?.();
+      offChrono?.();
       off?.();
     };
   },

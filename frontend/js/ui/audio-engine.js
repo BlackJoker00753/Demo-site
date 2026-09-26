@@ -368,3 +368,24 @@ class MinuteRepeaterPlayer {
 }
 
 export const minuteRepeaterPlayer = new MinuteRepeaterPlayer();
+
+// Звук механического клика кнопки хронографа (колонное колесо / рычаг сброса)
+export function playPusherClick(heavy = true) {
+  const ctx = getAudioContext();
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(heavy ? 1200 : 1600, t);
+  osc.frequency.exponentialRampToValueAtTime(140, t + 0.025);
+
+  gain.gain.setValueAtTime(0.24, t);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(t);
+  osc.stop(t + 0.035);
+}
