@@ -73,6 +73,38 @@ LAYERS = {
     "flange": 8.6, "bezel_spring": 8.8, "bezel": 9, "bezel_insert": 9.3, "crystal": 10,
     "bracelet_end": 6.2, "bracelet_link": 6.2, "clasp": 6.2, "bracelet_pins": 6.2, "spring_bar": 6.2, "strap": 6.2,
 }
+
+# ---------------------------------------------------------------- 3D: толщина, материал, высота в сборке
+# Каждая деталь в плеере становится твёрдым телом: её контур выдавливается на толщину (мм) с фасками.
+THICK = {
+    "case": 8.0, "bezel": 3.0, "bezel_insert": 0.8, "bezel_spring": 0.5, "crystal": 1.6, "flange": 1.2,
+    "crown": 4.5, "pushers": 3.0, "caseback": 3.0, "caseback_display": 3.0, "gasket": 0.8,
+    "dial": 0.5, "date_disc": 0.25, "day_disc": 0.25, "moon_disc": 0.3,
+    "hand_hour": 0.3, "hand_minute": 0.3, "hand_second": 0.2, "hand_gmt": 0.3, "subdial_hands": 0.2,
+    "mainplate": 2.2, "bridges": 1.6, "balance_cock": 1.6, "auto_bridge": 1.4, "rotor": 1.2,
+    "barrel": 2.6, "mainspring": 0.9, "train": 0.5, "escape_wheel": 0.4, "pallet": 0.5, "balance": 0.8,
+    "ratchet": 0.7, "crown_wheel": 0.6, "reverser": 0.6, "shock": 1.0, "winding": 1.6, "stem": 1.2,
+    "cannon": 1.4, "hour_wheel": 0.8, "setting": 0.5, "calendar": 0.5, "gmt_wheel": 0.6, "saros": 0.6,
+    "ring_command": 0.8, "column_wheel": 1.2, "clutch": 0.6, "chrono_wheel": 0.4, "chrono_lever": 0.5,
+    "dynapulse": 0.5, "screws": 1.6, "jewels": 0.6, "movement_ring": 1.5,
+    "bracelet_end": 4.0, "bracelet_link": 3.6, "bracelet_pins": 1.2, "spring_bar": 1.8, "clasp": 5.0, "strap": 3.0,
+}
+# материал поверхности: как деталь отражает свет
+MATERIAL = {
+    "crystal": "glass", "gasket": "rubber", "strap": "leather",
+    "dial": "dial", "date_disc": "dial", "day_disc": "dial", "moon_disc": "dial",
+    "bezel_insert": "ceramic", "jewels": "jewel",
+}
+# нижняя грань детали в собранных часах (мм от задней крышки): так часы собираются в правильном порядке
+ASSEMBLY = {
+    "caseback": 0.0, "caseback_display": 0.0, "gasket": 2.6, "case": 0.5, "crown": 2.5, "pushers": 3.0,
+    "mainplate": 6.2, "movement_ring": 5.2, "cannon": 8.2, "hour_wheel": 8.3, "setting": 8.2, "calendar": 8.2,
+    "gmt_wheel": 8.3, "saros": 8.2, "ring_command": 8.2, "moon_disc": 8.4, "date_disc": 8.45, "day_disc": 8.45,
+    "dial": 8.6, "subdial_hands": 9.15, "hand_hour": 9.2, "hand_gmt": 9.45, "hand_minute": 9.7, "hand_second": 9.95,
+    "flange": 9.1, "bezel_spring": 9.2, "bezel": 9.3, "bezel_insert": 11.6, "crystal": 10.6,
+    "bracelet_end": 3.0, "bracelet_link": 3.0, "clasp": 1.0, "bracelet_pins": 3.5, "spring_bar": 4.0, "strap": 3.0,
+}
+
 SIDE_KEYS = {"crown", "pushers"}  # сидят сбоку на 3 часах
 # Стрелки на листе нарисованы остриём вправо (на 3 часа), ось у левого края. В собранных часах
 # они встают осью в центр под углом, как на собранном фото (10:10 и т. д.). pivot: доля длины от левого края.
@@ -648,8 +680,9 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
     # высота слоя в разборке: чем больше деталей в слое, тем больше места
     heights, h = {}, 0.0
     for z in layers:
-        heights[z] = h
-        h += 4.5 + 0.8 * math.sqrt(len(by_layer[z]))
+        thick = max(_thick(cuts[i].item) for i in by_layer[z])
+        heights[z] = h + thick / 2
+        h += max(4.5 + 0.8 * math.sqrt(len(by_layer[z])), thick + 4)
     mid = h / 2
     R = case_mm / 2
     strap_y = heights.get(min(layers, key=lambda z: abs(z - 6.2)), 0.0) - mid if layers else 0.0
@@ -692,6 +725,99 @@ def _layout(cuts: list[Cut], case_mm: float) -> list[dict]:
                 ex = [math.cos(ang) * ring_r, math.sin(ang) * ring_r]
             placed.append({"i": i, "at": at, "ex": ex, "y": heights[z] - mid})
     return sorted(placed, key=lambda p: p["i"])
+
+
+def _thick(item: Item) -> float:
+    return float(item.opts.get("t", THICK.get(item.key, 1.0)))
+
+
+def _assembly_y(item: Item) -> float:
+    """Нижняя грань детали в собранных часах: из таблицы, иначе по слою.
+
+    Всё, что под циферблатом по слою (механизм, диски календаря), не выше его нижней грани, иначе
+    колёса «прорастают» сквозь циферблат в собранном виде.
+    """
+    if "ya" in item.opts:
+        return float(item.opts["ya"])
+    y = ASSEMBLY.get(item.key, 3.0 + max(0.0, item.z - 1) * 0.8)
+    if item.z < LAYERS["dial"] and item.key not in ("case", "crown", "pushers") and item.key not in STRAP_KEYS:
+        y = min(y, ASSEMBLY["dial"] - _thick(item) - 0.02)
+    return y
+
+
+def _solid(sprite: Image.Image, disk: bool = False) -> dict:
+    """Контур детали для выдавливания в 3D и цвет её кромки.
+
+    poly: кольца [x0, y0, x1, y1, …] в долях спрайта (0..1, y вниз), внешние и отверстия вперемешку
+    (плеер сам различает их по вложенности); edge: средний цвет полосы у края, им красятся боковые стенки.
+    """
+    import numpy as np
+    from scipy import ndimage as ndi
+    from skimage import measure
+
+    a = np.asarray(sprite)[..., 3].astype(np.float32) / 255
+    H, W = a.shape
+    k = min(1.0, 320 / max(W, H))  # контур на копии до 320 px: точности хватает, точек меньше
+    if k < 1:
+        a_s = np.asarray(Image.fromarray((a * 255).astype("uint8")).resize((max(2, round(W * k)), max(2, round(H * k))), Image.LANCZOS)).astype(np.float32) / 255
+    else:
+        a_s = a
+    # гладкий край: маска размывается перед обводкой, иначе на кромке остаются «зубцы» пикселей
+    m = ndi.gaussian_filter(ndi.binary_opening(a_s > 0.5, iterations=1).astype(np.float32), 1.3) > 0.5
+    m = np.pad(m, 1)
+    hs, ws = a_s.shape
+    rings = []
+    if not m.any() or disk:
+        # стекло и прозрачные прокладки: ровный круг, вписанный в спрайт
+        t = np.linspace(0, 2 * np.pi, 97)[:-1]
+        return {"poly": [np.stack([0.5 + 0.5 * np.cos(t), 0.5 + 0.5 * np.sin(t)], 1).round(4).ravel().tolist()],
+                "edge": "#d8dde3"}
+    for c in measure.find_contours(m.astype(np.float32), 0.5):
+        c = measure.approximate_polygon(c, tolerance=0.45)
+        if len(c) < 4:
+            continue
+        ys, xs = c[:, 0] - 1, c[:, 1] - 1
+        area = 0.5 * abs(np.dot(xs, np.roll(ys, 1)) - np.dot(ys, np.roll(xs, 1)))
+        if area < hs * ws * 0.0015:
+            continue
+        ring = np.stack([np.clip(xs / ws, 0, 1), np.clip(ys / hs, 0, 1)], 1).round(4).ravel().tolist()
+        rings.append(ring)
+    # цвет кромки: полоса 3 px внутри края
+    full = a > 0.5
+    band = full & ~ndi.binary_erosion(full, iterations=3)
+    rgb = np.asarray(sprite.convert("RGB")).astype(np.float32)
+    col = rgb[band].mean(0) if band.any() else rgb[full].mean(0) if full.any() else np.array([160, 160, 160])
+    return {"poly": rings, "edge": "#%02x%02x%02x" % tuple(int(v) for v in col)}
+
+
+def _bleed(sprite: Image.Image) -> Image.Image:
+    """Цвет детали «растекается» под прозрачный фон: у края 3D-детали не будет серой каймы фона."""
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    a = np.asarray(sprite)
+    solid = a[..., 3] >= 128
+    if not solid.any() or solid.all():
+        return sprite
+    idx = ndi.distance_transform_edt(~solid, return_distances=False, return_indices=True)
+    out = a.copy()
+    out[..., :3] = a[idx[0], idx[1], :3]
+    return Image.fromarray(out, "RGBA")
+
+
+def _normal_map(sprite: Image.Image, strength: float = 1.2) -> Image.Image:
+    """Карта нормалей из яркости: гравировка, зубцы, «женевские полосы» ловят свет при повороте."""
+    import numpy as np
+    from scipy import ndimage as ndi
+
+    rgba = np.asarray(sprite).astype(np.float32) / 255
+    lum = (rgba[..., :3] @ np.array([0.299, 0.587, 0.114])) * (rgba[..., 3] > 0.5)
+    h = ndi.gaussian_filter(lum, 2.2)
+    dx = ndi.sobel(h, axis=1) * strength
+    dy = ndi.sobel(h, axis=0) * strength
+    n = np.stack([-dx, dy, np.ones_like(h)], -1)
+    n /= np.linalg.norm(n, axis=-1, keepdims=True)
+    return Image.fromarray(((n * 0.5 + 0.5) * 255).astype("uint8"), "RGB")
 
 
 def _broken(cuts: list[Cut]) -> list[str]:
@@ -817,6 +943,7 @@ def cmd_build(slug: str) -> None:
         scale = min(1.0, c.item.mm * PPMM / max(s.size))
         uniq[id(c.sprite)] = len(packed)
         packed.append(s.resize((max(2, round(s.width * scale)), max(2, round(s.height * scale))), Image.LANCZOS) if scale < 1 else s)
+    packed = [_bleed(sp) for sp in packed]
     pages, packed_rects = _pack(packed)
     sprites = [packed[uniq[id(c.sprite)]] for c in cuts]
     rects = [packed_rects[uniq[id(c.sprite)]] for c in cuts]
@@ -828,6 +955,16 @@ def cmd_build(slug: str) -> None:
         f.unlink()
     for n, page in enumerate(pages):
         page.save(out / f"atlas-{n}.webp", "WEBP", quality=86, method=6)
+    # карты нормалей той же раскладки, что атлас
+    normal_pages = [Image.new("RGB", pg.size, (128, 128, 255)) for pg in pages]
+    for sp, (pg, x, y, pw, ph) in zip(packed, packed_rects):
+        normal_pages[pg].paste(_normal_map(sp), (x, y))
+    for n, page in enumerate(normal_pages):
+        # рельефу хватает половинного разрешения: файл в 4 раза меньше
+        page.resize((page.width // 2, page.height // 2), Image.LANCZOS).save(out / f"atlas-{n}-n.webp", "WEBP", quality=88, method=6)
+    # стекло и «дисковые» детали (shape: disk) получают ровный круг
+    disk_ids = {uniq[id(c.sprite)] for c in cuts if c.item.key in DISK_KEYS or c.item.opts.get("shape") == "disk"}
+    solids = [_solid(sp, disk=i in disk_ids) for i, sp in enumerate(packed)]
     extra = {}
     for name, img in assembled.items():
         # собранные часы тоже вырезаются с фона: самая крупная связная область листа
@@ -862,6 +999,9 @@ def cmd_build(slug: str) -> None:
         }
         if lay.get("rot"):
             part["rot"] = lay["rot"]
+        # 3D: индекс контура (общий у копий), толщина, материал, нижняя грань в сборке
+        part.update({"shape": uniq[id(c.sprite)], "d": _thick(c.item), "mat": MATERIAL.get(c.item.key, "metal"),
+                     "ya": _assembly_y(c.item)})
         parts.append(part)
     import hashlib
 
@@ -874,6 +1014,7 @@ def cmd_build(slug: str) -> None:
     manifest = {
         "slug": slug, "case_mm": case_mm, "version": version, "pages": [f"atlas-{n}.webp" for n in range(len(pages))],
         "assembled": extra, "generated": "Gemini (Nano Banana) по официальным фото модели", "parts": parts,
+        "normals": [f"atlas-{n}-n.webp" for n in range(len(pages))], "shapes": solids,
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     size = sum(f.stat().st_size for f in out.glob("*"))

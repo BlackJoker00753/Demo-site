@@ -546,6 +546,7 @@ export default {
     const initTeardown = async () => {
       if (teardown) return teardown;
       teardown = new Teardown(tdCanvas, w.slug);
+      if (window.__horologium) window.__horologium.teardown = teardown; // отладка из консоли
       await teardown.load();
       if (!root.isConnected) return null;
       // кадр справа от колонки с текстом (на узком экране колонка над сценой, отступ не нужен)

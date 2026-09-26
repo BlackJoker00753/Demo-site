@@ -105,6 +105,8 @@ export default {
             </div>
           </div>
         </div>
+      </section>
+
       <section class="container" aria-label="Кинематическая схема">
         ${renderKinematicFlow(m.type, m.frequency_vph)}
       </section>
