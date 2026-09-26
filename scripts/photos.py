@@ -409,6 +409,8 @@ def cmd_pick(slug: str, indices: list[int], focus: str | None, caption: str | No
             im = img.copy()
             im.thumbnail((size, size), Image.LANCZOS)
             im.save(target / f"{base}-{size}.jpg", "JPEG", quality=84, optimize=True, progressive=True)
+            # WebP на ~40 % легче; сайт отдаёт его через <picture>, JPEG остаётся запасным
+            im.save(target / f"{base}-{size}.webp", "WEBP", quality=80, method=6)
         big = img.copy()
         big.thumbnail((SIZES[-1], SIZES[-1]))
         entries.append({

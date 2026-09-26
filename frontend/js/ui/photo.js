@@ -1,23 +1,25 @@
 // Настоящие фотографии: адаптивный <img> и подпись с автором и лицензией.
 //
-// Файлы лежат в /assets/photos/<file>-{480,960,1600}.jpg (см. scripts/photos.py).
+// Файлы лежат в /assets/photos/<file>-{480,960,1600}.{webp,jpg} (см. scripts/photos.py): браузер берёт
+// WebP (на ~40 % легче), JPEG остаётся запасным.
 // Изображение проявляется, когда декодировано (класс is-loaded), без скачка вёрстки:
 // width/height заданы заранее.
 
 import { html } from "../core/dom.js";
 
 const SIZES = [480, 960, 1600];
-const src = (p, w) => `/assets/photos/${p.file}-${w}.jpg`;
+const src = (p, w, ext = "jpg") => `/assets/photos/${p.file}-${w}.${ext}`;
 
 /** Адаптивное фото. sizes подсказывает браузеру ширину слота. */
 export function photoImg(p, { sizes = "(max-width: 700px) 100vw, 480px", cls = "", eager = false, alt = "" } = {}) {
   if (!p) return "";
   const [fx, fy] = p.focus ?? [0.5, 0.5];
   const avail = SIZES.filter((w) => w <= Math.max(p.width, p.height) || w === SIZES[0]);
-  return html`<img class="photo ${cls}" src="${src(p, 960)}" srcset="${avail.map((w) => `${src(p, w)} ${w}w`).join(", ")}"
+  const set = (ext) => avail.map((w) => `${src(p, w, ext)} ${w}w`).join(", ");
+  return html`<picture class="photo-pic"><source type="image/webp" srcset="${set("webp")}" sizes="${sizes}"><img class="photo ${cls}" src="${src(p, 960)}" srcset="${set("jpg")}"
     sizes="${sizes}" width="${p.width}" height="${p.height}" alt="${alt || p.title || ""}"
     style="object-position:${Math.round(fx * 100)}% ${Math.round(fy * 100)}%"
-    loading="${eager ? "eager" : "lazy"}" decoding="async" ${eager ? html`fetchpriority="high"` : ""} data-photo>`;
+    loading="${eager ? "eager" : "lazy"}" decoding="async" ${eager ? html`fetchpriority="high"` : ""} data-photo></picture>`;
 }
 
 /** Короткая подпись: «Фото: автор, CC BY-SA 4.0» со ссылкой на исходник. */

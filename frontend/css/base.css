@@ -170,3 +170,6 @@ kbd { font-family: var(--font-mono); font-size: 0.72em; }
 .ssr-text p { margin-bottom: 12px; }
 .ssr-text ul { padding-left: 18px; columns: 2 220px; }
 .ssr-text a { color: var(--lume); }
+
+/* <picture> вокруг фото не участвует в раскладке: стили фото относятся к самому <img> */
+.photo-pic { display: contents; }
