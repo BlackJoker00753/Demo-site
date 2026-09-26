@@ -7,6 +7,7 @@ import { reduced } from "../core/motion.js";
 import { attachGallery, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { diffMeter } from "./glossary.js";
+import { renderCompTechCard } from "../ui/comp-tech.js";
 
 export default {
   layer: "page",
@@ -82,6 +83,10 @@ export default {
             <span><b>${DIFFICULTY[c.difficulty]}</b> · сложность ${c.difficulty} из 5</span>
           </div>
         </div>
+      </section>
+
+      <section class="topic__tech container" aria-label="Инженерная анатомия">
+        ${renderCompTechCard(c.slug)}
       </section>
 
       ${watches.length

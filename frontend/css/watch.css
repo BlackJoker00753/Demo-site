@@ -237,6 +237,7 @@
 .beat__wheel::after { transform: translateY(-50%) rotate(90deg); }
 @keyframes beat { from { transform: rotate(-150deg); } to { transform: rotate(150deg); } }
 @media (max-width: 900px) { .wmove__grid { grid-template-columns: 1fr; } .wmove__gauge { max-width: 280px; } }
+.wmove__kflow-wrap { margin-top: var(--s-6); }
 
 /* ---------------------------------------------------------------- complications */
 

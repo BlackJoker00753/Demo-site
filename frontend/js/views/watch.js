@@ -14,6 +14,7 @@ import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { PhotoExplode } from "../ui/photo-explode.js";
 import { Teardown } from "../ui/teardown.js";
 import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
+import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
 const CUTOUTS = { exploded_quartz: "eta-955", exploded_mechanical: "prim" };
@@ -259,6 +260,9 @@ export default {
               <a class="link-arrow" href="/movement/${m.slug}">Все часы с калибром ${m.caliber}<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
+          <div class="wmove__kflow-wrap" data-reveal>
+            ${renderKinematicFlow(m.type, m.frequency_vph)}
+          </div>
         </section>
 
         ${w.complications_full.length
@@ -344,6 +348,7 @@ export default {
 
     // ---------------------------------------------------------- hero
     revealPhotos(root);
+    mountKinematicFlow(root);
     if (!still) g.from(qsa("[data-h]", root), { y: 32, autoAlpha: 0, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.12 });
     const plate = qs(".whero__plate", root);
     const compareBtn = qs("#whero-compare-btn", root);

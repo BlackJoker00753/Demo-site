@@ -283,3 +283,108 @@
   .nav__cur-btn .ph-caret-down { display: none; }
 }
 @media (max-width: 380px) { .nav__word { font-size: 1.15rem; } }
+
+/* ---------------------------------------------------------------- complication tech card */
+
+.topic__tech { padding-bottom: var(--s-8); }
+.comp-tech {
+  padding: 28px; border-radius: var(--r-surface);
+  background: var(--surface); border: 1px solid var(--line); display: grid; gap: 22px;
+}
+.comp-tech__head { display: grid; gap: 6px; }
+.comp-tech__badge {
+  display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-12);
+  color: var(--lume); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+}
+.comp-tech__badge i { font-size: 16px; }
+.comp-tech__title { font-family: var(--font-display); font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem); font-weight: 400; }
+
+.comp-tech__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+}
+.comp-tech__item {
+  display: grid; gap: 6px; padding: 16px 18px; border-radius: var(--r-card, 12px);
+  background: var(--surface-2); border: 1px solid var(--line-2);
+}
+.comp-tech__label {
+  display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-12);
+  color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.comp-tech__label i { color: var(--lume); }
+.comp-tech__val { font-size: var(--fs-14); color: var(--text); line-height: 1.45; }
+.comp-tech__desc {
+  padding: 16px 20px; border-radius: var(--r-card, 12px);
+  background: rgba(10, 12, 16, 0.7); border: 1px solid var(--line-2);
+}
+.comp-tech__desc p { font-size: var(--fs-14); line-height: 1.6; color: var(--text-2); margin: 0; }
+
+/* ---------------------------------------------------------------- kinematic flow */
+
+.kflow {
+  margin-top: var(--s-7); padding: 28px; border-radius: var(--r-surface);
+  background: var(--surface); border: 1px solid var(--line);
+  display: grid; gap: 24px;
+}
+.kflow__head { display: grid; gap: 8px; }
+.kflow__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--fs-12); color: var(--lume); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+}
+.kflow__title { font-family: var(--font-display); font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem); font-weight: 400; }
+.kflow__sub { font-size: var(--fs-14); color: var(--text-2); max-width: 60ch; }
+
+.kflow__steps {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+}
+.kflow__node {
+  position: relative; display: grid; gap: 6px; padding: 14px 12px; border-radius: var(--r-card, 12px);
+  background: var(--surface-2); border: 1px solid var(--line-2); text-align: left;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.kflow__node:hover {
+  border-color: var(--line-3); background: rgba(255, 255, 255, 0.05); transform: translateY(-2px);
+}
+.kflow__node.is-active {
+  background: rgba(159, 233, 196, 0.08); border-color: var(--lume);
+  box-shadow: 0 0 16px rgba(159, 233, 196, 0.12);
+}
+.kflow__node-num {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-3); font-weight: 600;
+}
+.kflow__node.is-active .kflow__node-num { color: var(--lume); }
+.kflow__node-icon { font-size: 20px; color: var(--text-2); transition: color 0.2s; }
+.kflow__node.is-active .kflow__node-icon { color: var(--lume); }
+.kflow__node-name { font-size: var(--fs-13); font-weight: 600; color: var(--text); }
+.kflow__node-part { font-size: 11px; color: var(--text-3); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.kflow__detail {
+  padding: 20px 24px; border-radius: var(--r-card, 12px);
+  background: rgba(10, 12, 16, 0.85); border: 1px solid var(--line-2);
+}
+.kflow__detail-card--enter {
+  animation: kflowFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes kflowFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.kflow__detail-top {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.kflow__detail-tag {
+  font-size: var(--fs-12); color: var(--lume); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.kflow__detail-title {
+  font-family: var(--font-display); font-size: 1.45rem; font-weight: 400; color: var(--text); margin-top: 2px;
+}
+.kflow__detail-tech {
+  display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; color: var(--text-3);
+  background: var(--surface-2); padding: 4px 10px; border-radius: var(--r-pill); border: 1px solid var(--line);
+}
+.kflow__detail-tech i { color: var(--lume); }
+.kflow__detail-desc { font-size: var(--fs-14); line-height: 1.6; color: var(--text-2); max-width: 72ch; }
+
+@media (max-width: 900px) {
+  .kflow__steps { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+}
+
