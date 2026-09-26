@@ -53,6 +53,17 @@ movements:
     year: 2023
     features: [Хронограф флайбэк, Колонное колесо, Частота 5 Гц]
     description: Высокочастотный хронограф флайбэк для Type XX.
+  - slug: breguet-581
+    caliber: Breguet 581
+    maker: Breguet
+    type: automatic
+    in_house: true
+    power_reserve_h: 80
+    frequency_vph: 28800
+    jewels: 33
+    features: [Турбийон с титановой кареткой, Кремниевая спираль, Периферийный платиновый ротор, Ультратонкий механизм (3 мм)]
+    description: Ультратонкий мануфактурный автомат с турбийоном, кремниевым спуском и периферийным ротором.
+
 
 watches:
   - slug: breguet-classique-5177
@@ -110,3 +121,31 @@ watches:
       strap: {type: leather, color: "#3d2a1e"}
       logo: BREGUET
     sort: 20
+
+  - slug: breguet-classique-tourbillon-5367
+    name: Classique Tourbillon Extra-Plat 5367
+    collection: Classique
+    reference: 5367BR/29/9VU
+    year_introduced: 2018
+    movement: breguet-581
+    complications: [tourbillon, small-seconds]
+    case: {diameter_mm: 41, thickness_mm: 7.45, material: "18-каратное розовое золото", water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора с золотой раскладывающейся застёжкой
+    dial: Белая эмаль Grand Feu с цифрами Бреге
+    price: {usd: 165000, kind: msrp, source: "официальный каталог Breguet 2026", checked: 2026-09-24}
+    summary: "Ультратонкий турбийон в каноническом стиле дома: эмаль Grand Feu, воронёные стрелки и парящая каретка."
+    story:
+      - Абрахам-Луи Бреге запатентовал турбийон 26 июня 1801 года. Модель 5367 воплощает это изобретение в тончайшем корпусе толщиной всего 7,45 мм.
+      - Каретка турбийона выполнена из титана и делает полный оборот за 60 секунд. Циферблат выполнен в сложнейшей технике горячей эмали Grand Feu.
+    highlights: ["Турбийон в каретке из титана", "Эмаль Grand Feu", "Толщина всего 7,45 мм"]
+    render:
+      case: {shape: round, material: rose_gold, lugs: wire, display_back: true}
+      bezel: {type: fluted}
+      dial: {color: "#fbfaf8", finish: enamel, indices: breguet, text_color: "#1d2433", lume: false}
+      hands: {style: breguet, color: "#1f3a8a", lume: false}
+      subdials:
+        - {pos: 6, kind: tourbillon}
+      strap: {type: alligator, color: "#4a2d1d"}
+      logo: BREGUET
+    sort: 15
+

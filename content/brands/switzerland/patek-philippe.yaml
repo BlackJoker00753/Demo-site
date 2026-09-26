@@ -80,6 +80,29 @@ movements:
     jewels: 6
     features: [Кварцевый механизм с отделкой по стандарту Seal]
     description: Собственный кварцевый калибр для женской линии Twenty~4.
+  - slug: patek-r27-ps
+    caliber: Patek Philippe R 27 PS
+    maker: Patek Philippe
+    type: automatic
+    in_house: true
+    power_reserve_h: 48
+    frequency_vph: 21600
+    jewels: 39
+    certification: Patek Philippe Seal
+    features: [Минутный репетир, Два классических гонга, Микроротор из 22-каратного золота]
+    description: "Мануфактурный калибр с минутным репетиром и микроротором. Звучание каждого механизма лично слушает президент мануфактуры Тьерри Стерн."
+  - slug: patek-chr-29-535
+    caliber: Patek Philippe CHR 29-535 PS
+    maker: Patek Philippe
+    type: manual
+    in_house: true
+    power_reserve_h: 65
+    frequency_vph: 28800
+    jewels: 34
+    certification: Patek Philippe Seal
+    features: [Сплит-хронограф (Rattrapante), Два колонных колеса, Мгновенный 30-минутный счётчик]
+    description: "Шедевр классической механики: мануфактурный сплит-хронограф с ручным заводом и двумя колонными колёсами."
+
 
 watches:
   - slug: patek-philippe-nautilus-5811
@@ -228,3 +251,60 @@ watches:
       strap: {type: three_link}
       logo: PATEK PHILIPPE
     sort: 50
+
+  - slug: patek-philippe-minute-repeater-5078
+    name: Minute Repeater 5078G
+    collection: Grand Complications
+    reference: 5078G-001
+    year_introduced: 2005
+    movement: patek-r27-ps
+    complications: [minute-repeater, small-seconds]
+    case: {diameter_mm: 38, thickness_mm: 10.18, material: "18-каратное белое золото", water_resistance_m: 30}
+    bracelet: Ремешок из блестящей кожи аллигатора
+    dial: Белая эмаль Grand Feu с римскими цифрами
+    price: {usd: 385000, kind: estimate, source: "оценка коллекционного рынка и аукционных домов", checked: 2026-09-24}
+    summary: "Эталон минутного репетира: чистейший колокольный звон двух гонгов, активируемый ползунком на левой стороне корпуса."
+    story:
+      - "Минутный репетир Patek Philippe считается эталоном акустического часового искусства. По нажатию на ползунок часы отбивают часы низким тоном, четверти двойным ударом и минуты высоким тоном."
+      - "Модель 5078G оснащена калибром R 27 PS с золотым микроротором. Перед отправкой клиенту акустический профиль каждых часов лично утверждает президент мануфактуры Тьерри Стерн."
+    highlights: ["Минутный репетир с двумя гонгами", "Эмалевый циферблат Grand Feu", "Стандарт звучания Patek Philippe Seal"]
+    render:
+      case: {shape: round, material: white_gold, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#fbfaf8", finish: enamel, indices: roman, text_color: "#1d2433", lume: false}
+      hands: {style: leaf, color: "#1d2433", lume: false}
+      subdials:
+        - {pos: 6, kind: small_seconds}
+      strap: {type: alligator, color: "#1a1f2b"}
+      logo: PATEK PHILIPPE
+    sort: 42
+
+  - slug: patek-philippe-split-seconds-5370
+    name: Split-Seconds Chronograph 5370P
+    collection: Grand Complications
+    reference: 5370P-011
+    year_introduced: 2015
+    year_current: 2020
+    movement: patek-chr-29-535
+    complications: [chronograph, split-seconds, tachymeter, small-seconds]
+    case: {diameter_mm: 41, thickness_mm: 13.56, material: "Платина 950", water_resistance_m: 30}
+    bracelet: Ремешок из кожи аллигатора с платиновой раскладывающейся застёжкой
+    dial: Синяя эмаль Grand Feu с накладными золотыми цифрами Бреге
+    price: {usd: 310000, kind: msrp, source: "официальный каталог Patek Philippe 2026", checked: 2026-09-24}
+    summary: "Сплит-хронограф раттрапан в платиновом корпусе. Две секундные стрелки позволяют замерять два одновременных события."
+    story:
+      - "Раттрапан (от французского rattraper, «догонять») входит в тройку сложнейших часовых механизмов наряду с турбийоном и репетиром. Вторая секундная стрелка способна останавливаться для фиксации промежуточного времени, а затем мгновенно догонять первую."
+      - "Ref. 5370P объединяет полностью мануфактурный сплит-калибр CHR 29-535 PS с двумя колонными колёсами, массивный корпус из платины 950 пробы с бриллиантом между ушками и циферблат из синей эмали горячего обжига."
+    highlights: ["Сплит-хронограф с кнопкой в головке", "Циферблат из синей эмали Grand Feu", "Платиновый корпус с бриллиантом в торце"]
+    render:
+      case: {shape: round, material: platinum, display_back: true}
+      bezel: {type: smooth}
+      dial: {color: "#0f2042", finish: enamel, indices: breguet, text_color: "#eef1f5", lume: false}
+      hands: {style: leaf, color: "#eef1f5", lume: false}
+      subdials:
+        - {pos: 9, kind: small_seconds}
+        - {pos: 3, kind: chrono_min}
+      strap: {type: alligator, color: "#0c1527"}
+      logo: PATEK PHILIPPE
+    sort: 45
+

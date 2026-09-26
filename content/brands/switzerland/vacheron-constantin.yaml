@@ -66,6 +66,19 @@ movements:
     certification: Женевское клеймо
     features: [Дата, Центральная секундная стрелка]
     description: Классический автомат для коллекции Patrimony.
+  - slug: vc-2460-r31l
+    caliber: Vacheron Constantin 2460 R31L/2
+    maker: Vacheron Constantin
+    type: automatic
+    in_house: true
+    power_reserve_h: 40
+    frequency_vph: 28800
+    jewels: 27
+    year: 2023
+    certification: Женевское клеймо
+    features: [Ретроградная дата, Высокоточная фаза Луны, Ротор из 22-каратного золота]
+    description: "Калибр с патентованной ретроградной датой по дуге циферблата и фазой Луны с точностью до одного дня за 122 года."
+
 
 watches:
   - slug: vacheron-constantin-overseas
@@ -155,3 +168,31 @@ watches:
       crystal: domed
       logo: VACHERON CONSTANTIN
     sort: 30
+
+  - slug: vacheron-constantin-overseas-retrograde
+    name: Overseas Moon Phase Retrograde Date
+    collection: Overseas
+    reference: 4000V/210A-B911
+    year_introduced: 2023
+    movement: vc-2460-r31l
+    complications: [retrograde, moonphase]
+    case: {diameter_mm: 41, thickness_mm: 10.48, material: "Сталь", water_resistance_m: 50}
+    bracelet: "Стальной браслет и два сменных ремешка (кожа телёнка и синий каучук)"
+    dial: Синий лаковый с солнечной шлифовкой
+    price: {usd: 39900, kind: msrp, source: "официальная розница Vacheron Constantin 2026", checked: 2026-09-24}
+    summary: "Первое сочетание ретроградной индикации и спортивного корпуса Overseas: стрелка даты идёт по верхней дуге и в полночь 31-го числа мгновенно отскакивает к началу."
+    story:
+      - "Vacheron Constantin славится сложными ретроградными указателями с начала XX века. В 2023 году дом впервые соединил ретроградную дату со стальным спортивным корпусом Overseas."
+      - "Верхнюю половину синего циферблата занимает дуговая шкала от 1 до 31 числа, по которой скользит центральная стрелка. В нижней половине на 6 часах расположена прецизионная фаза Луны, требующая коррекции лишь раз в 122 года."
+    highlights: ["Ретроградная стрелка даты", "Высокоточная фаза Луны на 6 часах", "Женевское клеймо"]
+    render:
+      case: {shape: round, material: steel, lugs: integrated, display_back: true}
+      bezel: {type: hexagon}
+      dial: {color: "#1b3a6e", finish: sunburst, indices: baton}
+      hands: {style: sword, color: "#eef1f3"}
+      subdials:
+        - {pos: 6, kind: moonphase}
+      strap: {type: integrated}
+      logo: VACHERON CONSTANTIN
+    sort: 15
+

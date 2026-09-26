@@ -1652,3 +1652,19 @@ panerai-radiomir:
   license_url: https://www.panerai.com
   source_url: https://www.panerai.com
   title: Radiomir Tre Giorni Ref. PAM01334
+junghans-max-bill-mega-solar:
+- author: Christos Vittoratos, modified by Xavax (Wikimedia Commons, CC BY 2.5)
+  caption: Max Bill MEGA Solar Ref. 059/2021.02, студийное фото
+  context: false
+  file: junghans-max-bill-mega-solar/1
+  focus:
+  - 0.5
+  - 0.5
+  height: 1600
+  width: 1112
+  hotspots: []
+  license: CC BY 2.5
+  license_url: https://creativecommons.org/licenses/by/2.5
+  source_url: https://commons.wikimedia.org/wiki/File:Junghans-max-bill.jpg
+  title: Max Bill MEGA Solar
+

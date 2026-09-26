@@ -47,6 +47,14 @@ movements:
     in_house: true
     features: [Стрелки и цифровой дисплей, Мировое время, Будильник]
     description: Комбинированный модуль со стрелками и небольшим дисплеем.
+  - slug: casio-module-3515
+    caliber: Casio модуль 3515
+    maker: Casio
+    type: smart
+    in_house: true
+    features: [Оптический пульсометр Polar, Датчик кислорода SpO2, Акселерометр, Барометр, Шагомер, Bluetooth]
+    description: "Электронный модуль с оптическими сенсорами Polar, измерением насыщения крови кислородом и зарядкой от солнца."
+
 
 watches:
   - slug: casio-g-shock-dw5600
@@ -104,3 +112,29 @@ watches:
       strap: {type: resin, color: "#16171a"}
       logo: G-SHOCK
     sort: 20
+
+  - slug: casio-g-shock-gbd-h2000
+    name: G-Shock Move GBD-H2000
+    collection: G-Shock
+    reference: GBD-H2000-1A
+    year_introduced: 2023
+    movement: casio-module-3515
+    complications: [smart-sensors, chronograph, alarm, world-time]
+    case: {diameter_mm: 52.6, thickness_mm: 19.4, material: "Биопластик с карбоновым армированием", water_resistance_m: 200, crystal: "Минеральное стекло"}
+    bracelet: Ремешок из биопластика на основе кукурузы
+    dial: Цифровой MIP-дисплей высокой чёткости
+    price: {usd: 399, kind: msrp, source: "официальный каталог Casio 2026", checked: 2026-09-24}
+    summary: "Спортивный G-Shock с оптическими датчиками здоровья Polar: пульс, уровень кислорода в крови SpO2, фазы сна и кардиотренировки."
+    story:
+      - "GBD-H2000 создан для бега и мультиспорта: на задней крышке установлены оптические датчики пульса и насыщения крови кислородом SpO2, а алгоритмы анализа разработаны совместно с Polar."
+      - "Корпус и ремешок впервые в линейке изготовлены из экологичного биопластика на основе касторового масла и кукурузы. Часы сочетают традиционную противоударность G-Shock и водозащиту 200 метров со смарт-функциями трекера здоровья."
+    highlights: ["Оптический пульс и кислород SpO2", "Биопластик и солнечная зарядка", "Водозащита 200 метров"]
+    render:
+      case: {shape: round, material: resin_black}
+      bezel: {type: none}
+      dial: {color: "#111317", finish: lcd, indices: none}
+      hands: {style: none}
+      strap: {type: resin, color: "#16171a"}
+      logo: G-SHOCK
+    sort: 30
+

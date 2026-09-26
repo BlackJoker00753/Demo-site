@@ -41,6 +41,15 @@ movements:
     jewels: 25
     features: [Дата]
     description: Автомат на базе ETA 2824-2 для классики Max Bill.
+  - slug: junghans-j101-85
+    caliber: Junghans J101.85
+    maker: Junghans
+    type: solar
+    in_house: true
+    power_reserve_h: 7200
+    features: [Радиосинхронизация на 4 континентах, Солнечная панель, Вечный календарь, Технология ITC]
+    description: "Многочастотный радиоуправляемый калибр на солнечной энергии. Автоматически принимает сигналы DCF77, MSF, WWVB и JJY40/60."
+
 
 watches:
   - slug: junghans-max-bill-automatic
@@ -68,3 +77,31 @@ watches:
       strap: {type: leather, color: "#1b1c20"}
       logo: JUNGHANS
     sort: 10
+
+  - slug: junghans-max-bill-mega-solar
+    name: Max Bill MEGA Solar
+    collection: Max Bill
+    reference: 059/2021.02
+    year_introduced: 2020
+    movement: junghans-j101-85
+    complications: [radio-sync, date]
+    case: {diameter_mm: 38, thickness_mm: 9.0, material: "Титан", water_resistance_m: 30, crystal: "Выпуклое сапфировое стекло с двусторонним антибликом"}
+    bracelet: Ремешок из кожи растительного дубления
+    dial: Матовый циферблат с полупрозрачной солнечной ячейкой
+    price: {usd: 1250, kind: msrp, source: "официальный каталог Junghans 2026", checked: 2026-09-24}
+    summary: "Икона дизайна Баухаус на солнечной энергии с точностью атомных часов благодаря радиосинхронизации."
+    story:
+      - "В 1990 году Junghans представила первые в мире наручные радиочасы MEGA 1. Модель Max Bill MEGA Solar объединяет чистоту пропорций 1961 года с передовыми технологиями автономности."
+      - "Под полупрозрачным циферблатом скрыта солнечная батарея, а антенна внутри титанового корпуса каждую ночь ловит сигналы атомных часов в Европе, США и Азии. Запатентованная технология ITC сверяет положение стрелок 1440 раз в сутки."
+    highlights: ["Радиосинхронизация с атомными часами", "Питание от солнечной энергии", "Лёгкий титановый корпус"]
+    render:
+      case: {shape: round, material: titanium, lugs: wire}
+      bezel: {type: none}
+      dial: {color: "#e2e2de", finish: matte, indices: arabic, text_color: "#2a2c30", lume: false}
+      hands: {style: pencil, color: "#2a2c30", lume: false}
+      crystal: domed
+      date: "3"
+      strap: {type: leather, color: "#3d3027"}
+      logo: JUNGHANS
+    sort: 20
+
