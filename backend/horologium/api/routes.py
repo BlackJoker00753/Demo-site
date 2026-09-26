@@ -96,6 +96,16 @@ def complication(slug: str, s: DB):
     return ComplicationPage(complication=comp, watches=watches)
 
 
+@router.get("/movements", response_model=list[S.MovementOut])
+def movements(
+    s: DB,
+    type: str | None = None,
+    in_house: bool | None = None,
+    maker: str | None = None,
+):
+    return catalog.list_movements(s, type=type, in_house=in_house, maker=maker)
+
+
 class MovementPage(BaseModel):
     movement: S.MovementOut
     watches: list[S.WatchCard]

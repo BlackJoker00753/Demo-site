@@ -96,3 +96,16 @@ def test_security_headers_and_server_mask(client):
     html_res = client.get("/watches")
     assert "default-src 'self'" in html_res.headers.get("content-security-policy", "")
 
+
+def test_movements_api_and_route(client):
+    res = client.get("/api/v1/movements")
+    assert res.status_code == 200
+    data = res.json()
+    assert len(data) >= 100
+    assert any("3285" in m["caliber"] for m in data)
+
+    res_page = client.get("/movements")
+    assert res_page.status_code == 200
+    assert "Калибры часов" in res_page.text
+
+

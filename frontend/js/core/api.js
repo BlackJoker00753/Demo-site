@@ -40,6 +40,7 @@ export const api = {
   complications: () => get("/complications"),
   complication: (slug) => get(`/complications/${slug}`),
   movement: (slug) => get(`/movements/${slug}`),
+  movements: (query = "") => get(`/movements${query ? `?${query}` : ""}`),
   search: (q) => get(`/search?q=${encodeURIComponent(q)}`),
   partPhotos: () => get("/part-photos"),
   credits: () => get("/credits"),

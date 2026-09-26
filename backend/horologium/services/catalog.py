@@ -283,6 +283,23 @@ def get_movement(s: Session, slug: str) -> tuple[S.MovementOut, list[S.WatchCard
     return S.MovementOut.model_validate(m), [watch_card(w) for w in watches]
 
 
+def list_movements(
+    s: Session,
+    type: str | None = None,
+    in_house: bool | None = None,
+    maker: str | None = None,
+) -> list[S.MovementOut]:
+    q = select(Movement)
+    if type:
+        q = q.where(Movement.type == type)
+    if in_house is not None:
+        q = q.where(Movement.in_house == in_house)
+    if maker:
+        q = q.where(Movement.maker == maker)
+    rows = s.scalars(q.order_by(Movement.maker, Movement.caliber))
+    return [S.MovementOut.model_validate(m) for m in rows]
+
+
 def movement_slugs(s: Session) -> list[str]:
     """Калибры, на которых работает хотя бы одна модель атласа (для sitemap)."""
     return list(s.scalars(select(Movement.slug).where(Movement.id.in_(select(Watch.movement_id))).order_by(Movement.slug)))
