@@ -138,6 +138,10 @@ def test_complication_routes(client):
     assert res_mr.status_code == 200
     assert "Минутный репетир" in res_mr.text
 
+    res_wt = client.get("/complication/world-time")
+    assert res_wt.status_code == 200
+    assert "Мировое время" in res_wt.text
+
 
 def test_tco_route(client):
     res_tco = client.get("/tco")
@@ -147,6 +151,17 @@ def test_tco_route(client):
     res_calc = client.get("/calculator")
     assert res_calc.status_code == 200
     assert "Калькулятор ликвидности и стоимости владения" in res_calc.text
+
+
+def test_world_time_route(client):
+    res_wt = client.get("/world-time")
+    assert res_wt.status_code == 200
+    assert "Симулятор мирового времени" in res_wt.text
+
+    res_alias = client.get("/worldtime")
+    assert res_alias.status_code == 200
+    assert "Симулятор мирового времени" in res_alias.text
+
 
 
 

@@ -29,6 +29,7 @@ const ROUTES = [
   { name: "lab", re: /^\/lab\/?$/, load: () => import("../views/lab.js") },
   { name: "watches", re: /^\/watches\/?$/, load: () => import("../views/watches.js") },
   { name: "tco", re: /^\/(?:tco|calculator|value-retention)\/?$/, load: () => import("../views/tco.js") },
+  { name: "worldtime", re: /^\/(?:world-time|worldtime|cottier)\/?$/, load: () => import("../views/worldtime.js") },
   { name: "compare", re: /^\/compare\/?$/, load: () => import("../views/compare.js") },
   { name: "credits", re: /^\/credits\/?$/, load: () => import("../views/credits.js") },
 ];
