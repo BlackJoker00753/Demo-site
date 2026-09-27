@@ -143,6 +143,9 @@ export default {
                 </button>
                 <a class="btn btn--ghost" href="#wrist-fit" data-jump="wrist-fit"><i class="ph-light ph-ruler" aria-hidden="true"></i>Примерка</a>
                 <a class="btn btn--ghost" href="#tco-calc" data-jump="tco-calc"><i class="ph-light ph-calculator" aria-hidden="true"></i>Калькулятор TCO</a>
+                ${w.complications.includes("minute-repeater")
+                  ? html`<a class="btn btn--lume" href="/complication/minute-repeater" data-link><i class="ph-light ph-speaker-high" aria-hidden="true"></i>Послушать бой репетира</a>`
+                  : ""}
                 <a class="btn btn--ghost" href="#story" data-jump="story">История</a>
               </div>
             </div>

@@ -134,6 +134,10 @@ def test_complication_routes(client):
     assert res_tb.status_code == 200
     assert "Турбийон" in res_tb.text
 
+    res_mr = client.get("/complication/minute-repeater")
+    assert res_mr.status_code == 200
+    assert "Минутный репетир" in res_mr.text
+
 
 def test_tco_route(client):
     res_tco = client.get("/tco")
