@@ -2931,6 +2931,772 @@
   color: var(--lume);
 }
 
+/* ---------------------------------------------------------------- TCO & Value Retention Calculator */
+.wtco-section {
+  margin-top: var(--s-8);
+  margin-bottom: var(--s-8);
+}
+
+.tco-box {
+  background: var(--glass-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-surface);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.tco-box__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tco-box__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tco-box__title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tco-box__title {
+  margin: 0;
+  font-size: var(--fs-24);
+  color: var(--text);
+}
+
+.tco-box__desc {
+  color: var(--text-2);
+  font-size: var(--fs-14);
+  line-height: 1.55;
+  max-width: 80ch;
+  margin: 0;
+}
+
+/* Бейджи эшелонов брендов */
+.tco-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-12);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.tco-tier-badge--emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.tco-tier-badge--gold {
+  background: rgba(212, 163, 89, 0.12);
+  border: 1px solid rgba(212, 163, 89, 0.4);
+  color: var(--gold);
+}
+
+.tco-tier-badge--blue {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+
+/* Панель управления */
+.tco-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.tco-control-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tco-control-group--inline {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tco-control-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-13);
+  color: var(--text-2);
+}
+
+.tco-val-highlight {
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+}
+
+.tco-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tco-pill {
+  cursor: pointer;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-12);
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tco-pill:hover {
+  background: var(--surface-2);
+  border-color: var(--line-3);
+  color: var(--text);
+}
+
+.tco-pill.is-active {
+  background: var(--surface-2);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(212, 163, 89, 0.2);
+}
+
+.tco-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.tco-slider {
+  width: 100%;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.tco-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+}
+
+.tco-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: var(--fs-13);
+  color: var(--text-2);
+}
+
+.tco-toggle-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--lume);
+  cursor: pointer;
+}
+
+.tco-price-input-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-13);
+  color: var(--text-2);
+}
+
+.tco-price-input-box {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.tco-price-sym {
+  position: absolute;
+  left: 10px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.tco-price-input-box input {
+  padding: 6px 12px 6px 26px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  width: 130px;
+}
+
+/* 4 Ключевые карточки метрик */
+.tco-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.tco-metric-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tco-metric-card:hover {
+  border-color: var(--line-3);
+  transform: translateY(-2px);
+}
+
+.tco-metric-card--hero {
+  border-color: rgba(212, 163, 89, 0.4);
+  background: linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%);
+}
+
+.tco-metric-card--profit {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%);
+}
+
+.tco-metric-card__label {
+  font-size: var(--fs-12);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  font-weight: 600;
+}
+
+.tco-metric-card__val {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.tco-val--profit {
+  color: #10b981;
+}
+
+.tco-metric-card__hero-num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.tco-metric-card__hero-num small {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.tco-metric-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.tco-badge--green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.tco-badge--gold {
+  background: rgba(212, 163, 89, 0.15);
+  color: var(--gold);
+}
+
+.tco-badge--blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.tco-badge--neutral {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+.tco-metric-card__breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.tco-metric-card__breakdown b {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.tco-metric-card__hint {
+  font-size: 12px;
+  color: var(--text-3);
+  line-height: 1.45;
+  margin: 0;
+  margin-top: auto;
+}
+
+/* Структура капитала (полоса прогресса) */
+.tco-breakdown-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tco-breakdown-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tco-breakdown-sum {
+  font-size: var(--fs-13);
+  font-family: var(--font-mono);
+  color: var(--text-2);
+}
+
+.tco-bar-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+}
+
+.tco-bar-seg {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.tco-bar-seg--retention {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+}
+
+.tco-bar-seg--service {
+  background: linear-gradient(90deg, var(--gold) 0%, #fcd34d 100%);
+}
+
+.tco-bar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.tco-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tco-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tco-dot--emerald { background: #10b981; }
+.tco-dot--gold { background: var(--gold); }
+.tco-dot--slate { background: rgba(255, 255, 255, 0.2); }
+
+/* Таблица хроники владения */
+.tco-timeline-table-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.tco-table-title {
+  margin: 0;
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tco-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+  text-align: left;
+}
+
+.tco-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line-2);
+  color: var(--text-3);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.tco-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-2);
+}
+
+.tco-table tr.is-selected-year {
+  background: rgba(212, 163, 89, 0.08);
+}
+
+.tco-table tr.is-selected-year td {
+  color: var(--text);
+}
+
+/* Инсайт-блок */
+.tco-insight-box {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.tco-insight-icon {
+  font-size: 24px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tco-insight-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--fs-13);
+  line-height: 1.55;
+  color: var(--text-2);
+}
+
+.tco-insight-text h5 {
+  margin: 0;
+  font-size: var(--fs-14);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.tco-insight-rules {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* Страница /tco */
+.tco-page {
+  padding-block: calc(var(--nav-h) + var(--s-7)) var(--s-9);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.tco-page__head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+}
+
+.tco-presets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tco-presets__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tco-watch-selector-card {
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tco-watch-selector-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.tco-selector-label {
+  font-size: var(--fs-13);
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.tco-select {
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-3);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.tco-selected-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.tco-selected-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface-2);
+  flex-shrink: 0;
+}
+
+.tco-selected-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tco-selected-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tco-selected-info p {
+  margin: 2px 0 0;
+  font-size: 13px;
+}
+
+/* Эшелоны брендов */
+.tco-matrix-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tco-matrix-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tco-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.tco-matrix-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tco-matrix-card__badge {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.tco-matrix-card--bluechip .tco-matrix-card__badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.tco-matrix-card--high .tco-matrix-card__badge {
+  background: rgba(212, 163, 89, 0.15);
+  color: var(--gold);
+}
+
+.tco-matrix-card--main .tco-matrix-card__badge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.tco-matrix-card--access .tco-matrix-card__badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-2);
+}
+
+.tco-matrix-card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.tco-matrix-card__brands {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.tco-matrix-card__desc {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* 5 правил сохранения стоимости */
+.tco-rules-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tco-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.tco-rule-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tco-rule-num {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.tco-rule-card h4 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.tco-rule-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* Адаптивность TCO калькулятора */
+@media (max-width: 1100px) {
+  .tco-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tco-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tco-rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .tco-controls {
+    grid-template-columns: 1fr;
+  }
+  .tco-box {
+    padding: 20px;
+  }
+  .tco-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .tco-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  .tco-rules-grid {
+    grid-template-columns: 1fr;
+  }
+  .tco-selected-preview {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    width: 100%;
+  }
+}
+
+
 
 
 

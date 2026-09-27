@@ -135,6 +135,17 @@ def test_complication_routes(client):
     assert "Турбийон" in res_tb.text
 
 
+def test_tco_route(client):
+    res_tco = client.get("/tco")
+    assert res_tco.status_code == 200
+    assert "Калькулятор ликвидности и стоимости владения" in res_tco.text
+
+    res_calc = client.get("/calculator")
+    assert res_calc.status_code == 200
+    assert "Калькулятор ликвидности и стоимости владения" in res_calc.text
+
+
+
 
 
 

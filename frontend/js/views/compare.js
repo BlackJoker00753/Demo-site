@@ -7,6 +7,7 @@ import { formatMaterial } from "../ui/cards.js";
 import { toast } from "../ui/toast.js";
 import { usd, MOVEMENT, vph, hours, num } from "../core/format.js";
 import { getComparedSlugs, toggleCompare, clearCompare, onCompareChange, hasCompare } from "../core/compare.js";
+import { calculateWatchTCO } from "../core/tco.js";
 
 export default {
   layer: "page",
@@ -145,6 +146,27 @@ export default {
             <tr>
               <td class="compare-metric">Год появления</td>
               ${watches.map((w) => html`<td data-col="${w.slug}">${w.year_introduced ? `с ${w.year_introduced} года` : "-"}</td>`)}
+            </tr>
+            <tr>
+              <td class="compare-metric">Удержание стоимости (5 лет)</td>
+              ${watches.map((w) => {
+                const tco = calculateWatchTCO({ retailPriceUsd: w.price?.usd || 0, brandSlug: w.brand, years: 5 });
+                const chipCls = tco.retentionRate >= 100 ? "chip--lume" : tco.retentionRate >= 75 ? "chip--gold" : "";
+                return html`<td data-col="${w.slug}">
+                  <span class="chip ${chipCls}">${tco.retentionRate}%</span>
+                  <br><small class="num muted">${usd(tco.residualValueUsd)}</small>
+                </td>`;
+              })}
+            </tr>
+            <tr>
+              <td class="compare-metric">Стоимость одного дня носки</td>
+              ${watches.map((w) => {
+                const tco = calculateWatchTCO({ retailPriceUsd: w.price?.usd || 0, brandSlug: w.brand, years: 5 });
+                return html`<td data-col="${w.slug}">
+                  <b class="num ${tco.isNetProfit ? "tco-val--profit" : ""}">${tco.isNetProfit ? `+${usd(Math.abs(tco.costPerDayUsd))}` : usd(tco.costPerDayUsd)}/день</b>
+                  <br><a href="/tco?watch=${w.slug}" class="link-arrow" data-link style="font-size: 11px;">Расчет TCO</a>
+                </td>`;
+              })}
             </tr>
             <tr>
               <td class="compare-metric">Страница модели</td>

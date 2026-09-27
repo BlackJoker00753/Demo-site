@@ -17,6 +17,7 @@ import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
 import { renderCaliberEscapementPlayer, mountCaliberEscapementPlayer } from "../ui/escapement-player.js";
 import { renderWristFitWidget, mountWristFitWidget } from "../ui/wrist-fit.js";
+import { TcoCalculator } from "../ui/tco-calc.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
 const CUTOUTS = { exploded_quartz: "eta-955", exploded_mechanical: "prim" };
@@ -141,6 +142,7 @@ export default {
                   <i class="ph-light ph-scales" aria-hidden="true"></i><span id="whero-compare-text">${hasCompare(w.slug) ? "В сравнении" : "Сравнить"}</span>
                 </button>
                 <a class="btn btn--ghost" href="#wrist-fit" data-jump="wrist-fit"><i class="ph-light ph-ruler" aria-hidden="true"></i>Примерка</a>
+                <a class="btn btn--ghost" href="#tco-calc" data-jump="tco-calc"><i class="ph-light ph-calculator" aria-hidden="true"></i>Калькулятор TCO</a>
                 <a class="btn btn--ghost" href="#story" data-jump="story">История</a>
               </div>
             </div>
@@ -334,6 +336,10 @@ export default {
 
         ${priceBlock(w)}
 
+        <section class="wtco-section container" id="tco-calc" aria-label="Калькулятор стоимости владения и ликвидности">
+          <div id="tco-watch-mount"></div>
+        </section>
+
         <section class="wwrist container" id="wrist-fit" aria-label="Примерка на запястье">
           ${renderWristFitWidget(w)}
         </section>
@@ -364,6 +370,21 @@ export default {
     mountKinematicFlow(root);
     cleanups.push(mountCaliberEscapementPlayer(root));
     cleanups.push(mountWristFitWidget(root, w));
+
+    // ---------------------------------------------------------- калькулятор ликвидности и TCO
+    const tcoMount = qs("#tco-watch-mount", root);
+    if (tcoMount) {
+      const tcoCalc = new TcoCalculator({
+        container: tcoMount,
+        watch: w,
+        initialPriceUsd: w.price.usd,
+        brandSlug: w.brand,
+        brandName: w.brand_name,
+        complications: w.complications,
+        movementType: w.movement.type,
+      });
+      cleanups.push(() => tcoCalc.destroy());
+    }
     if (!still) g.from(qsa("[data-h]", root), { y: 32, autoAlpha: 0, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.12 });
     const plate = qs(".whero__plate", root);
     const compareBtn = qs("#whero-compare-btn", root);
