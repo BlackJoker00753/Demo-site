@@ -101,7 +101,7 @@ ASSEMBLY = {
     "mainplate": 6.2, "movement_ring": 5.2, "cannon": 8.2, "hour_wheel": 8.3, "setting": 8.2, "calendar": 8.2,
     "gmt_wheel": 8.3, "saros": 8.2, "ring_command": 8.2, "moon_disc": 8.4, "date_disc": 8.45, "day_disc": 8.45,
     "dial": 8.6, "subdial_hands": 9.15, "hand_hour": 9.2, "hand_gmt": 9.45, "hand_minute": 9.7, "hand_second": 9.95,
-    "flange": 9.1, "bezel_spring": 9.2, "bezel": 9.3, "bezel_insert": 11.6, "crystal": 10.6,
+    "flange": 9.1, "bezel_spring": 9.2, "bezel": 9.3, "bezel_insert": 10.95, "crystal": 10.6,
     "bracelet_end": 3.0, "bracelet_link": 3.0, "clasp": 1.0, "bracelet_pins": 3.5, "spring_bar": 4.0, "strap": 3.0,
 }
 
@@ -404,7 +404,10 @@ def _segment(img: Image.Image):
     # край маски растягивается билинейно (гладкий контур), метки по ближайшему соседу
     mask = ndi.zoom(mask_s.astype(np.float32), zoom, order=1)[:H, :W] > 0.5
     labels = ndi.zoom(groups_s, zoom, order=0)[:H, :W]
-    labels = ndi.grey_dilation(labels, size=(5, 5))  # покрыть пиксели сглаженного края
+    # метки растянуты «блоками» по zoom пикселей: расширяем их на блок с запасом, чтобы гладкий край маски
+    # не срезался ступеньками (было 5×5 и на листах 4K по контуру шли зубцы)
+    grow = int(2 * max(zoom)) + 3
+    labels = ndi.grey_dilation(labels, size=(grow, grow))
     return mask, labels * mask, n
 
 
@@ -773,9 +776,15 @@ def _solid(sprite: Image.Image, disk: bool = False) -> dict:
         return {"poly": [np.stack([0.5 + 0.5 * np.cos(t), 0.5 + 0.5 * np.sin(t)], 1).round(4).ravel().tolist()],
                 "edge": "#d8dde3"}
     for c in measure.find_contours(m.astype(np.float32), 0.5):
-        c = measure.approximate_polygon(c, tolerance=0.45)
+        c = measure.approximate_polygon(c, tolerance=0.8)
         if len(c) < 4:
             continue
+        # сглаживание Чайкина: ступеньки пикселей исчезают, углы чуть скругляются (фаска не даёт «пилу»)
+        for _ in range(2):
+            c = c[:-1] if np.allclose(c[0], c[-1]) else c
+            nxt = np.roll(c, -1, axis=0)
+            c = np.stack([0.75 * c + 0.25 * nxt, 0.25 * c + 0.75 * nxt], 1).reshape(-1, 2)
+        c = measure.approximate_polygon(np.vstack([c, c[:1]]), tolerance=0.25)
         ys, xs = c[:, 0] - 1, c[:, 1] - 1
         area = 0.5 * abs(np.dot(xs, np.roll(ys, 1)) - np.dot(ys, np.roll(xs, 1)))
         if area < hs * ws * 0.0015:

@@ -72,20 +72,116 @@ function shapesOf(rings, w, h) {
   return [...shapes.values()];
 }
 
+/** Координата в атласе для точки детали (мм, y к 12 часам): проекция изображения сверху. */
+const uvOf = (p) => {
+  const { w, h } = p;
+  const [u0, v0, uw, vh] = p.uv;
+  return (x, y) => new THREE.Vector2(u0 + (x / w + 0.5) * uw, 1 - (v0 + (0.5 - y / h) * vh));
+};
+
+// скруглённые фаски: полированные звенья, корпус и застёжка мягче ловят свет
+const BEVEL = { bracelet_link: 0.45, bracelet_end: 0.45, clasp: 0.4, case: 0.4, caseback: 0.35 };
+
+/**
+ * Профили вращения круглых деталей: сечение (r, y) снизу вверх, против часовой, которое прокручивается
+ * вокруг оси. R внешний радиус, ri радиус отверстия, d высота. Малые фаски у кромок ловят блик.
+ */
+const PROFILES = {
+  // выпуклый сапфир: тонкий бортик и купол
+  crystal: (R, ri, d) => {
+    const pts = [[0.001, 0], [R - 0.1, 0], [R, 0.1], [R, d * 0.42], [R * 0.992, d * 0.55]];
+    for (let k = 1; k <= 16; k++) {
+      const x = R * 0.99 * (1 - k / 16);
+      pts.push([Math.max(0.001, x), d * 0.55 + d * 0.45 * (1 - (x / (R * 0.99)) ** 2)]);
+    }
+    return pts;
+  },
+  // безель: скруглённый внешний край с насечкой и углубление-посадка, в которое ложится вставка
+  bezel: (R, ri, d) => [[ri + 0.15, 0], [R - 0.3, 0], [R, 0.3], [R, d * 0.7], [R - 0.15, d * 0.92], [R - 0.45, d], [R - 0.75, d * 0.96],
+    [R - 0.9, d * 0.55], [ri + 0.25, d * 0.55], [ri, d * 0.45], [ri, 0.15], [ri + 0.15, 0]],
+  // керамическая вставка: слегка коническая, внутренняя кромка выше
+  bezel_insert: (R, ri, d) => [[ri, 0], [R, 0], [R, d * 0.5], [R - 0.2, d * 0.62], [ri + 0.2, d], [ri, d * 0.9], [ri, 0]],
+  // флажок (рехаут): коническое кольцо, наклонённое к центру, как стенка вокруг циферблата
+  flange: (R, ri, d) => [[ri, 0], [R, 0], [R, d], [R - 0.25, d], [ri + 0.1, d * 0.18], [ri, 0]],
+  // задняя крышка: ступень под резьбу и выпуклая середина
+  caseback: (R, ri, d) => [[0.001, 0], [R - 0.3, 0], [R, 0.3], [R, d * 0.42], [R * 0.95, d * 0.5], [R * 0.9, d * 0.58], [R * 0.86, d * 0.72],
+    [R * 0.7, d * 0.88], [R * 0.45, d * 0.97], [0.001, d]],
+  // кольцо механизма: прямоугольное сечение со скруглёнными кромками
+  movement_ring: (R, ri, d) => [[ri + 0.15, 0], [R - 0.15, 0], [R, 0.15], [R, d - 0.15], [R - 0.15, d], [ri + 0.15, d], [ri, d - 0.15], [ri, 0.15], [ri + 0.15, 0]],
+};
+PROFILES.caseback_display = PROFILES.caseback;
+
+/** Радиус отверстия кольца (мм) по контуру; null, если отверстия нет. */
+function holeRadius(shape, w, h) {
+  const rings = shape.poly.map((r) => r.map((v, i) => (i % 2 ? (0.5 - v) * h : (v - 0.5) * w))).sort((a, b) => area(b) - area(a));
+  const hole = rings[1];
+  if (!hole || !inside(hole[0], hole[1], rings[0])) return null;
+  let sum = 0;
+  for (let i = 0; i < hole.length; i += 2) sum += Math.hypot(hole[i], hole[i + 1]);
+  return sum / (hole.length / 2);
+}
+
+/**
+ * Круглая деталь как тело вращения (или тор для кольцевой прокладки). null, если деталь не круглая
+ * или для её ключа нет профиля: тогда она выдавливается по контуру.
+ */
+function turnedGeometry(shape, p, ctx = {}) {
+  const { w, h, d, key } = p;
+  if (Math.abs(w - h) / Math.max(w, h) > 0.08) return null;
+  const R = Math.min(w, h) / 2;
+  const riTex = holeRadius(shape, w, h);
+  // флажок начинается у края циферблата, а не поверх меток: кольцо уже, текстура сжимается по радиусу
+  const ri = key === "flange" && riTex && ctx.dialR ? Math.min(R - 0.8, Math.max(riTex, ctx.dialR - 0.25)) : riTex;
+  let g;
+  if (key === "gasket") {
+    // О-кольцо: тор; прокладка без отверстия в контуре (прозрачная у стекла) тоже кольцо
+    if (shape.poly.length > 2) return null; // несколько колец на одном изображении
+    const inner = ri ?? R * 0.92;
+    g = new THREE.TorusGeometry((R + inner) / 2, Math.max(0.25, Math.min(d / 2, (R - inner) / 2)), 16, 128);
+    g.rotateX(Math.PI / 2);
+  } else {
+    const make = PROFILES[key];
+    const needsHole = !["crystal", "caseback", "caseback_display"].includes(key);
+    if (!make || (needsHole && !ri) || (ri && ri > R - 0.4)) return null;
+    const pts = make(R, ri ?? 0, d).map(([r, y]) => new THREE.Vector2(r, y - d / 2));
+    // точки на оси (r≈0) не сдвигаются при пересчёте радиуса выборки
+    g = new THREE.LatheGeometry(pts, 160);
+  }
+  // изображение накладывается сверху. Радиус выборки не выходит на самый край изображения (там размытый
+  // цвет фона): стенки берут насечку и полировку с полосы у края; у суженного флажка радиус пересчитывается
+  const toUV = uvOf(p);
+  const pos = g.attributes.position;
+  const uv = new Float32Array(pos.count * 2);
+  const rMax = R - 0.35, rMin = (riTex ?? 0) + 0.3;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), z = pos.getZ(i);
+    let r = Math.hypot(x, z);
+    if (ri && riTex && ri !== riTex) r = riTex + ((r - ri) * (R - riTex)) / (R - ri);
+    r = Math.min(rMax, riTex ? Math.max(rMin, r) : r);
+    const k = r / (Math.hypot(x, z) || 1);
+    const t = toUV(x * k, -z * k);
+    uv[i * 2] = t.x;
+    uv[i * 2 + 1] = t.y;
+  }
+  g.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+  g.clearGroups();
+  g.addGroup(0, g.index ? g.index.count : pos.count, 0);
+  return g;
+}
+
 /** Твёрдое тело детали: выдавливание контура на толщину d с фасками, лицевая сторона вверх (+Y). */
 function solidGeometry(shape, p) {
   const { w, h, d } = p;
-  const [u0, v0, uw, vh] = p.uv;
-  const toUV = (x, y) => new THREE.Vector2(u0 + (x / w + 0.5) * uw, 1 - (v0 + (0.5 - y / h) * vh));
+  const toUV = uvOf(p);
   const uvGen = {
     generateTopUV: (g, v, a, b, c) => [toUV(v[a * 3], v[a * 3 + 1]), toUV(v[b * 3], v[b * 3 + 1]), toUV(v[c * 3], v[c * 3 + 1])],
     generateSideWallUV: () => [new THREE.Vector2(), new THREE.Vector2(), new THREE.Vector2(), new THREE.Vector2()],
   };
-  const bevel = d > 0.35 ? Math.min(0.2, d * 0.22) : 0;
+  const bevel = d > 0.35 ? Math.min(BEVEL[p.key] ?? 0.2, d * (BEVEL[p.key] ? 0.3 : 0.22)) : 0;
   const shapes = shapesOf(shape.poly, w, h);
   const g = new THREE.ExtrudeGeometry(shapes.length ? shapes : [new THREE.Shape().absarc(0, 0, Math.min(w, h) / 2, 0, Math.PI * 2)], {
     depth: Math.max(0.05, d - bevel * 2), bevelEnabled: bevel > 0, bevelThickness: bevel, bevelSize: bevel, bevelOffset: -bevel,
-    bevelSegments: 2, curveSegments: 6, UVGenerator: uvGen,
+    bevelSegments: bevel > 0.3 ? 4 : 2, curveSegments: 6, UVGenerator: uvGen,
   });
   g.translate(0, 0, -(d - bevel * 2) / 2);
   g.rotateX(-Math.PI / 2); // лицевая сторона вверх, верх изображения к 12 часам (−Z)
@@ -112,7 +208,7 @@ export class Teardown {
     renderer.toneMapping = THREE.NeutralToneMapping;
     renderer.toneMappingExposure = 1.0;
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap; // мягкость даёт shadow.radius
     renderer.setClearColor(0x000000, 0);
     this.renderer = renderer;
     this.scene = new THREE.Scene();
@@ -154,16 +250,19 @@ export class Teardown {
     this.parts = m.parts.map((p, i) => ({ ...p, i, trayDelay: (groups.indexOf(p.plate) / Math.max(1, groups.length - 1)) * 0.3 }));
     const geoCache = new Map();
     this.meshes = [];
+    const dial = this.parts.find((p) => p.key === "dial");
+    const ctx = { dialR: dial ? Math.min(dial.w, dial.h) / 2 : null };
     for (const p of this.parts) {
-      const gk = `${p.shape}|${p.w}|${p.h}|${p.d}`;
-      if (!geoCache.has(gk)) geoCache.set(gk, solidGeometry(m.shapes[p.shape], p));
+      const gk = `${p.shape}|${p.w}|${p.h}|${p.d}|${p.key}`;
+      if (!geoCache.has(gk)) geoCache.set(gk, turnedGeometry(m.shapes[p.shape], p, ctx) ?? solidGeometry(m.shapes[p.shape], p));
       const shape = m.shapes[p.shape];
       let cap, side;
       if (p.mat === "glass") {
-        // сапфир: почти невидимый, с бликами студийного света и лёгким голубым отливом просветления
+        // сапфир: прозрачное тело с преломлением; блики появляются под углом (френель), как у настоящего стекла
         cap = side = new THREE.MeshPhysicalMaterial({
-          color: 0xdfe9ff, metalness: 0, roughness: 0.02, transparent: true, opacity: 0.1, depthWrite: false,
-          envMapIntensity: 2.2, specularIntensity: 1, clearcoat: 1, clearcoatRoughness: 0.02,
+          color: 0xffffff, metalness: 0, roughness: 0.02, transmission: 1, thickness: Math.max(0.6, p.d * 0.8), ior: 1.5,
+          envMapIntensity: 0.55, specularIntensity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.03,
+          attenuationColor: new THREE.Color(0xe6efff), attenuationDistance: 30,
         });
       } else {
         const s = SURFACE[p.mat] ?? SURFACE.metal;
