@@ -6,6 +6,7 @@
 //   node scripts/site_audit.mjs http://localhost:8765            (ПК 1440 и телефон 390)
 //   WIDTHS=390 ONLY=/watch/ node scripts/site_audit.mjs http://localhost:8765
 //   PER_SECTION=3 node scripts/site_audit.mjs …   (по 3 страницы каждого раздела: быстро, для CI)
+//   SLOW_MS=0 …   не считать медленные переходы ошибкой (в CI без GPU 3D рисуется программно)
 //
 // Выход: список проблем по страницам; код 1, если они есть.
 import { spawn } from "node:child_process";
@@ -17,6 +18,7 @@ const base = (process.argv[2] || "http://localhost:8765").replace(/\/$/, "");
 const widths = (process.env.WIDTHS || "1440,390").split(",").map(Number);
 const only = process.env.ONLY || "";
 const perSection = +(process.env.PER_SECTION || 0);
+const slowMs = +(process.env.SLOW_MS ?? 7000);
 // не в карте сайта, но открываются: сравнение, мировое время по старому адресу, 404
 const EXTRA = ["/compare?w=rolex-submariner,omega-speedmaster-moonwatch", "/world-time", "/nope-404"];
 
@@ -136,7 +138,7 @@ for (const W of widths) {
     const all = [...new Set([...bucket, ...(Array.isArray(issues) ? issues : [String(issues)])])];
     if (path === "/nope-404") all.splice(0, all.length, ...all.filter((s) => !/HTTP 404/.test(s)));
     if (res !== new URL(base + path).pathname) all.push(`адрес после перехода: ${res}`);
-    if (Date.now() - started > 7000) all.push(`медленно: ${Date.now() - started} мс`);
+    if (slowMs && Date.now() - started > slowMs) all.push(`медленно: ${Date.now() - started} мс`);
     for (const s of all) {
       const key = `${W}px ${s}`;
       if (!report.has(key)) report.set(key, []);

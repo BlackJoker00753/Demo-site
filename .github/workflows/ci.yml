@@ -13,21 +13,22 @@ jobs:
     env:
       HOROLOGIUM_RATES_LIVE: "0"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
       - name: Контент (схема и перекрёстные ссылки)
         run: uv run horologium check
       - name: Тесты
         run: uv run pytest
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Обход сайта (по 3 страницы каждого раздела, ПК и телефон)
         run: |
           uv run horologium serve --port 8765 > server.log 2>&1 &
           for i in $(seq 60); do curl -sf http://127.0.0.1:8765/ > /dev/null && break; sleep 1; done
-          PER_SECTION=3 node scripts/site_audit.mjs http://127.0.0.1:8765
+          # без GPU 3D рисуется программно (SwiftShader), поэтому скорость тут не проверяется
+          PER_SECTION=3 SLOW_MS=0 node scripts/site_audit.mjs http://127.0.0.1:8765
       - name: Лог сервера при ошибке
         if: failure()
         run: tail -100 server.log || true
