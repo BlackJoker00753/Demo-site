@@ -58,7 +58,7 @@
 .nav__crumbs [aria-current] { color: var(--text); overflow: hidden; text-overflow: ellipsis; }
 
 .nav__actions { display: flex; align-items: center; gap: var(--s-4); }
-.nav__link { font-size: var(--fs-14); color: var(--text-2); transition: color var(--t-fast); }
+.nav__link { font-size: var(--fs-14); color: var(--text-2); white-space: nowrap; transition: color var(--t-fast); }
 .nav__link:hover { color: var(--text); }
 .nav__search {
   display: inline-flex; align-items: center; gap: 10px;
@@ -114,7 +114,14 @@
 .mnav a[aria-current="page"] i { color: var(--lume); }
 .mnav a[hidden] { display: none; }
 @keyframes mnav-in { from { opacity: 0; transform: translateY(-6px) scale(0.98); } }
-@media (min-width: 761px) { .mnav { display: none !important; } }
+@media (min-width: 1241px) { .mnav { display: none !important; } }
+/* средний экран: второстепенные разделы уходят в меню, иначе «Калькулятор TCO» ломается на две строки */
+@media (min-width: 761px) and (max-width: 1240px) {
+  .nav__link--more { display: none; }
+  .nav__menu { display: inline-grid; }
+  .mnav { left: auto; width: 340px; transform-origin: top right; }
+  .mnav a { font-size: 1.2rem; padding: 11px 14px; }
+}
 
 /* ---------------------------------------------------------------- buttons */
 

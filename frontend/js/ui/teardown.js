@@ -287,6 +287,12 @@ export class Teardown {
     // порядок появления: снизу вверх по высоте в сборке
     const order = [...this.parts].sort((a, b) => a.ya - b.ya);
     order.forEach((p, n) => (p.introDelay = (n / Math.max(1, order.length - 1)) * 0.58));
+    // до вступления сцена пустая: часы не показываются собранными, чтобы тут же исчезнуть
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      this.introPending = true;
+      this.introT = 0;
+      this.#introMaterials(true);
+    }
     // пол: только тень, фон остаётся от страницы
     this.floor = Math.min(...this.parts.map((p) => p.y - p.d / 2), ...this.parts.map((p) => p.ya - ASM_MID)) - 8;
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.42 }));
@@ -317,6 +323,7 @@ export class Teardown {
   setT(t, force = false) {
     if (!this.parts || (!force && Math.abs(t - this.t) < 1e-4)) return;
     this.t = t;
+    if (this.introPending && t >= 0.05) this.#endIntro();
     const a = clamp01(t / AX), b = clamp01((t - AX) / (1 - AX));
     const q = new THREE.Quaternion(), qt = new THREE.Quaternion();
     const layers = this.layers ??= [...new Set(this.parts.map((p) => p.z))].sort((x, y) => x - y);
@@ -346,14 +353,24 @@ export class Teardown {
         tilt = fly * 0.45 * ((p.i % 2) * 2 - 1); // в полёте деталь чуть наклоняется, как в пинцете
       }
       if (intro != null) {
+        // деталь проявляется над своим местом и мягко садится; непрозрачной становится до касания
         const k = ease(clamp01((intro - p.introDelay) / 0.42));
-        y += (1 - k) * 70;
-        rot += (1 - k) * 35;
+        y += (1 - k) * 16;
+        rot += (1 - k) * 12;
+        p.mesh.visible = k > 0.002;
+        for (const mat of new Set(p.mesh.material)) mat.opacity = mat.userData.base.opacity * Math.min(1, k * 1.7);
       }
       q.setFromAxisAngle(Y, -rad(rot));
       if (tilt) q.multiply(qt.setFromAxisAngle(X, tilt));
       p.mesh.position.set(x, y, zz);
       p.mesh.quaternion.copy(q);
+    }
+    // под стеклом на лотке ничего нет, а three.js при прозрачном холсте подставляет за преломление
+    // белый фон: сапфир выглядел бы матовым белым диском. Пропускание гасится, и сквозь стекло
+    // читается тёмный лоток, а блики остаются
+    const gb = ease(b);
+    for (const p of this.glass ??= this.parts.filter((x) => x.mat === "glass")) {
+      p.mesh.material[0].color.setScalar(1 - 0.9 * gb);
     }
     this.#camera(a, b);
     this.render();
@@ -517,16 +534,37 @@ export class Teardown {
 
   /** Часы собираются на глазах, когда секция впервые попадает в кадр (без reduced motion). */
   #playIntro() {
-    if (this.introDone || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    this.introDone = true;
+    if (!this.introPending) return;
+    this.introPending = false;
     const t0 = performance.now();
     const step = () => {
       this.introT = Math.max(0, (performance.now() - t0) / 1900);
-      if (this.introT >= 1) this.introT = null;
+      if (this.introT >= 1) return this.#endIntro();
       this.setT(this.t, true);
-      if (this.introT != null) this.introRaf = requestAnimationFrame(step);
+      this.introRaf = requestAnimationFrame(step);
     };
     this.introRaf = requestAnimationFrame(step);
+  }
+
+  #endIntro() {
+    cancelAnimationFrame(this.introRaf);
+    this.introPending = false;
+    this.introT = null;
+    this.#introMaterials(false);
+    this.setT(this.t, true);
+  }
+
+  /** На время вступления материалы прозрачные (переключаются один раз, а не каждый кадр). */
+  #introMaterials(on) {
+    for (const mesh of this.meshes) {
+      mesh.visible = !on;
+      for (const mat of new Set(mesh.material)) {
+        const base = (mat.userData.base ??= { opacity: mat.opacity, transparent: mat.transparent, depthWrite: mat.depthWrite });
+        mat.transparent = on || base.transparent;
+        mat.opacity = on ? 0 : base.opacity;
+        mat.needsUpdate = true;
+      }
+    }
   }
 
   bind() {
@@ -607,6 +645,7 @@ export class Teardown {
       }
     });
     this.renderer.dispose();
+    this.renderer.forceContextLoss(); // освободить контекст сразу, см. WatchStage.dispose
   }
 }
 

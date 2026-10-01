@@ -48,6 +48,9 @@ def test_sitemap_and_robots(client):
     locs = re.findall(r"<loc>(.*?)</loc>", sm.text)
     assert "http://testserver/watch/rolex-submariner" in locs
     assert any("/movement/" in u for u in locs) and any("/complication/" in u for u in locs)
+    # разделы из навигации тоже в карте сайта
+    for page in ("/watches", "/movements", "/history", "/timegrapher", "/tco", "/worldtime", "/glossary"):
+        assert f"http://testserver{page}" in locs, page
     assert not any(u.endswith(("/compare", "/lab")) for u in locs)
     for u in locs[:40]:
         assert client.get(u.replace("http://testserver", "")).status_code == 200, u

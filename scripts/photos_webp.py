@@ -1,4 +1,4 @@
-"""WebP-копии всех фото атласа (frontend/assets/photos/*/*.jpg → .webp).
+"""WebP-копии всех фото атласа (frontend/assets/photos/**/*.jpg → .webp).
 
     uv run python scripts/photos_webp.py
 
@@ -16,7 +16,7 @@ PHOTOS = ROOT / "frontend" / "assets" / "photos"
 def main() -> None:
     made = skipped = 0
     jpg_total = webp_total = 0
-    for jpg in sorted(PHOTOS.glob("*/*.jpg")):
+    for jpg in sorted(PHOTOS.glob("**/*.jpg")):
         webp = jpg.with_suffix(".webp")
         if not webp.exists() or webp.stat().st_mtime < jpg.stat().st_mtime:
             Image.open(jpg).save(webp, "WEBP", quality=80, method=6)

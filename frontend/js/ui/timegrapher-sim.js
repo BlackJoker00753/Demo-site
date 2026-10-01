@@ -3,6 +3,7 @@
 // ошибка выкачки (beat error, мс), угол подъема (lift angle) и тестирование в 6 позициях.
 
 import { html, qs, qsa } from "../core/dom.js";
+import { frameGate } from "../core/motion.js";
 import { escapementPlayer } from "./audio-engine.js";
 
 // Предустановленные профили калибров
@@ -111,6 +112,7 @@ export class TimegrapherSimulator {
     this.dots = [];
     this.animFrameId = null;
     this.lastTickTime = performance.now();
+    this.raf = frameGate(container);
     this.tickCounter = 0;
 
     this.init();
@@ -782,18 +784,16 @@ export class TimegrapherSimulator {
         }
       });
 
-      this.animFrameId = requestAnimationFrame(animate);
+      this.animFrameId = this.raf(animate);
     };
 
-    this.animFrameId = requestAnimationFrame(animate);
+    this.animFrameId = this.raf(animate);
   }
 
   destroy() {
     this.isRunning = false;
-    if (this.animFrameId) {
-      cancelAnimationFrame(this.animFrameId);
-      this.animFrameId = null;
-    }
+    this.raf.stop();
+    this.animFrameId = null;
     if (!this.isMuted) {
       escapementPlayer.stop();
     }

@@ -2,6 +2,7 @@
 // Физическая модель акустики соборных гонгов и кинематика механизма боя: улитки, гребенки, молоточки и центробежный регулятор.
 
 import { html, qs, qsa } from "../core/dom.js";
+import { frameGate } from "../core/motion.js";
 
 // Звуковые профили соборных гонгов
 export const GONG_SOUND_PROFILES = {
@@ -161,10 +162,8 @@ export class MinuteRepeaterSimulator {
 
   destroy() {
     this.stopChime();
-    if (this.animId) {
-      cancelAnimationFrame(this.animId);
-      this.animId = null;
-    }
+    this.raf?.stop();
+    this.animId = null;
     if (this.container) {
       this.container.innerHTML = "";
     }
@@ -368,9 +367,10 @@ export class MinuteRepeaterSimulator {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext("2d");
 
+    this.raf ??= frameGate(this.container);
     const renderLoop = () => {
       this.drawMovement();
-      this.animId = requestAnimationFrame(renderLoop);
+      this.animId = this.raf(renderLoop);
     };
     renderLoop();
   }

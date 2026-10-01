@@ -48,3 +48,30 @@ export function countUp(el, to, { duration = 1.4, format = (v) => Math.round(v).
     onUpdate: () => { el.textContent = format(state.v); },
   });
 }
+
+/**
+ * requestAnimationFrame, который спит, пока элемент за экраном: симуляторы не жгут батарею, когда
+ * их не видно. Время в кадрах виртуальное и на паузе стоит, так что после возврата ничего не скачет.
+ * Возвращает raf(cb) и stop() для размонтирования.
+ */
+export function frameGate(el, margin = "160px") {
+  let visible = true, parked = null, pausedAt = 0, lost = 0, id = 0, alive = true;
+  const io = new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (!visible) pausedAt ||= performance.now();
+    else if (pausedAt) {
+      lost += performance.now() - pausedAt;
+      pausedAt = 0;
+      if (parked) { const cb = parked; parked = null; raf(cb); }
+    }
+  }, { rootMargin: margin });
+  io.observe(el);
+  function raf(cb) {
+    if (!alive) return 0;
+    if (!visible) { parked = cb; return 0; }
+    id = requestAnimationFrame((t) => (visible ? cb(t - lost) : (parked = cb)));
+    return id;
+  }
+  raf.stop = () => { alive = false; parked = null; cancelAnimationFrame(id); io.disconnect(); };
+  return raf;
+}

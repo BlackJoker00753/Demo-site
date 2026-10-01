@@ -3,6 +3,7 @@
 // вращающееся 24-часовое кольцо день/ночь, 24 эталонных города планеты и скачковая кнопка на 10 часах.
 
 import { html, qs, qsa } from "../core/dom.js";
+import { frameGate } from "../core/motion.js";
 import { playPusherClick } from "./audio-engine.js";
 
 // 24 эталонных города системы Луи Котье, упорядоченных по шагам долготы (пояса от UTC 0 до UTC -1)
@@ -64,6 +65,7 @@ export class WorldTimeSimulator {
 
     this.animId = null;
     this.lastTimestamp = performance.now();
+    this.raf = frameGate(container);
 
     this.init();
   }
@@ -533,9 +535,9 @@ export class WorldTimeSimulator {
       this.update(dt);
       this.draw();
 
-      this.animId = requestAnimationFrame(loop);
+      this.animId = this.raf(loop);
     };
-    this.animId = requestAnimationFrame(loop);
+    this.animId = this.raf(loop);
   }
 
   update(dt) {
@@ -1280,10 +1282,8 @@ export class WorldTimeSimulator {
   }
 
   destroy() {
-    if (this.animId) {
-      cancelAnimationFrame(this.animId);
-      this.animId = null;
-    }
+    this.raf.stop();
+    this.animId = null;
   }
 }
 

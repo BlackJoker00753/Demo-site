@@ -2,6 +2,7 @@
 // Физическая модель компенсации позиционной погрешности хода баланса за счет непрерывного вращения каретки на 360 градусов.
 
 import { html, qs, qsa } from "../core/dom.js";
+import { frameGate } from "../core/motion.js";
 import { escapementPlayer } from "./audio-engine.js";
 
 export const TOURBILLON_PRESETS = [
@@ -61,6 +62,7 @@ export class TourbillonSimulator {
     this.balanceAngle = 0; // Текущий угол поворота баланса
     this.balancePhase = 0;
     this.lastTime = performance.now();
+    this.raf = frameGate(container);
     this.isRunning = true;
     this.animId = null;
 
@@ -341,10 +343,10 @@ export class TourbillonSimulator {
       this.drawGraph();
       this.updateTelemetry();
 
-      this.animId = requestAnimationFrame(loop);
+      this.animId = this.raf(loop);
     };
 
-    this.animId = requestAnimationFrame(loop);
+    this.animId = this.raf(loop);
   }
 
   // Обновление физических углов
@@ -631,10 +633,8 @@ export class TourbillonSimulator {
 
   destroy() {
     this.isRunning = false;
-    if (this.animId) {
-      cancelAnimationFrame(this.animId);
-      this.animId = null;
-    }
+    this.raf.stop();
+    this.animId = null;
     if (this.isAudioActive) {
       escapementPlayer.stop();
     }

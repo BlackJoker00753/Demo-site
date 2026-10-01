@@ -17,6 +17,8 @@ eggs/
 lib/
 lib64/
 parts/
+# правило выше из шаблона Python; фото деталей механизмов сайту нужны
+!frontend/assets/photos/parts/
 sdist/
 var/
 wheels/

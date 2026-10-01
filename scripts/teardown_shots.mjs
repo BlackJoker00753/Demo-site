@@ -45,7 +45,13 @@ const ok = await evaluate(`(async () => {
   const st = window.ScrollTrigger?.getAll().find((s) => s.trigger === el);
   if (!st) return 'no-trigger';
   window.scrollTo(0, st.start + 2);
-  await new Promise((r) => setTimeout(r, 1500));
+  // дождаться конца вступительной сборки (1,9 с), иначе кадр t=0 снимется на середине
+  for (let i = 0; i < 40; i++) {
+    const td = window.__horologium?.teardown;
+    if (td && !td.introPending && td.introT == null) break;
+    await new Promise((r) => setTimeout(r, 150));
+  }
+  await new Promise((r) => setTimeout(r, 300));
   return 'ok:' + (!!window.__horologium?.teardown);
 })()`);
 console.log("ready", ok);

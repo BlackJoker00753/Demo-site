@@ -217,6 +217,9 @@ export class WatchStage {
     this.model?.dispose();
     this.composer?.dispose();
     this.renderer.dispose();
+    // dispose() не отдаёт сам контекст WebGL: он живёт, пока сборщик мусора не заберёт холст. После
+    // десятка страниц моделей браузер упирался в лимит (16) и гасил самый старый контекст, то есть глобус
+    this.renderer.forceContextLoss();
   }
 }
 

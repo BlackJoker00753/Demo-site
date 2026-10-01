@@ -77,7 +77,7 @@ export function renderWristFitWidget(watch = null) {
   const wristWidth = calculateWristWidth(defaultCircumference, defaultShape);
   const evaluation = evaluateWristFit(defaultLugToLug, wristWidth);
 
-  return html`<div class="wrist-fit" id="wrist-fit">
+  return html`<div class="wrist-fit">
     <div class="wrist-fit__header">
       <div class="wrist-fit__badge">
         <i class="ph-light ph-ruler" aria-hidden="true"></i>

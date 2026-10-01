@@ -60,9 +60,9 @@
     <div class="nav__actions">
       <a class="nav__link" href="/watches" data-link>Каталог</a>
       <a class="nav__link" href="/movements" data-link>Калибры</a>
-      <a class="nav__link" href="/history" data-link>История</a>
-      <a class="nav__link" href="/timegrapher" data-link>Виброграф</a>
-      <a class="nav__link" href="/tco" data-link>Калькулятор TCO</a>
+      <a class="nav__link nav__link--more" href="/history" data-link>История</a>
+      <a class="nav__link nav__link--more" href="/timegrapher" data-link>Виброграф</a>
+      <a class="nav__link nav__link--more" href="/tco" data-link>Калькулятор TCO</a>
       <a class="nav__link" href="/compare" data-link id="nav-compare-link" hidden>Сравнение <span class="nav__badge" id="compare-count">0</span></a>
       <a class="nav__link" href="/glossary" data-link>Усложнения</a>
       
@@ -91,7 +91,7 @@
     </div>
   </header>
 
-  <!-- Меню разделов на телефоне (на широком экране ссылки прямо в шапке). -->
+  <!-- Меню разделов: на телефоне все ссылки, на среднем экране те, что не уместились в шапку. -->
   <nav class="mnav" id="mnav" aria-label="Разделы атласа" hidden>
     <a href="/" data-link><i class="ph-light ph-globe-hemisphere-east" aria-hidden="true"></i>Глобус</a>
     <a href="/watches" data-link><i class="ph-light ph-squares-four" aria-hidden="true"></i>Каталог часов</a>

@@ -64,8 +64,16 @@ frontend/                    SPA без сборки (см. docs/DESIGN.md)
   assets/photos/<slug>/<n>-{480,960,1600}.jpg   фото моделей в трёх размерах
   assets/photos/parts/<key>/…                   фото деталей
   assets/exploded/<name>/p*.webp + manifest.json детали, вырезанные с фото разобранного калибра
+  js/views/*.js              страницы (по одной на маршрут, см. ниже)
+  js/ui/*-sim.js             симуляторы: репетир, хронограф, вечный календарь, турбийон, мировое время, виброграф
+  js/ui/teardown.js          3D-разборка до детали (Three.js)
 scripts/
   fetch_assets.py            библиотеки, шрифты, текстуры, HDRI
+  teardown.py                разборка до детали: листы Gemini → нарезка → атлас, контуры, карты нормалей
+  teardown_shots.mjs         кадры 3D-разборки в безголовом Chrome
+  site_audit.mjs             обход всех страниц в безголовом Chrome: ошибки, битые запросы, вёрстка
+  photos_webp.py             WebP-копии всех фото
+  brand_assets.py            иконки приложения и картинка для превью ссылок
   photos.py                  поиск фото (Commons + Openverse), контактные листы, выбор, кадрирование
   pick_batch.py              пакетный выбор фото из списка «slug|индекс|подпись|фокус|ctx|кадр»
   photo_queries.yaml         поисковые запросы по моделям и деталям
@@ -74,6 +82,25 @@ scripts/
 data/                        SQLite (в .gitignore)
 docs/                        документация
 ```
+
+### Страницы фронтенда
+
+| Маршрут | Вид | Интерактив |
+|---|---|---|
+| `/` | `home.js` | глобус (Three.js), список стран |
+| `/country/<slug>` | `country.js` | пролёт камеры к стране, спутниковый снимок |
+| `/brand/<slug>` | `brand.js` | вкладки-фасеты моделей |
+| `/watch/<slug>` | `watch.js` | разборка по скроллу (`teardown.js` или `photo-explode.js`), кинематика, звук спуска, примерка (`wrist-fit.js`), TCO (`tco-calc.js`) |
+| `/watches` | `watches.js` | фасетные фильтры, состояние в адресе |
+| `/movements`, `/movement/<slug>` | `movements.js`, `movement.js` | сравнение частот спуска, кинематическая схема |
+| `/glossary`, `/complication/<slug>` | `glossary.js`, `complication.js` | симуляторы `repeater-sim`, `chronograph-sim`, `perpetual-sim`, `tourbillon-sim`, `worldtime-sim` |
+| `/history` | `history.js` | лента времени |
+| `/timegrapher` | `timegrapher.js` | `timegrapher-sim.js` |
+| `/tco` | `tco.js` | `tco-calc.js` |
+| `/worldtime` | `worldtime.js` | `worldtime-sim.js` |
+| `/compare`, `/credits`, `/lab` | `compare.js`, `credits.js`, `lab.js` | |
+
+Звук (тиканье спуска, гонги репетира) синтезируется Web Audio в `ui/audio-engine.js`, файлов звука нет.
 
 ## 4. Поток данных
 
