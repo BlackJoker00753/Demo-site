@@ -7,6 +7,11 @@
 
 Сайты, закрытые антибот-защитой (Cloudflare challenge, 403), провайдер честно
 пропускает: цена в каталоге остаётся последней проверенной вручную.
+
+Страница коллекции перечисляет много моделей с разными ценами, и первая попавшаяся цена
+почти всегда чужая (так Spirit Zulu Time «дешевел» до цены обычного Spirit). Поэтому цена
+принимается, только если товар на странице совпадает с референсом модели или если цена на
+странице одна (страница конкретного товара). Иначе провайдер возвращает ``None``.
 """
 
 from __future__ import annotations
@@ -41,7 +46,12 @@ class FetchBlocked(RuntimeError):
 class Provider(Protocol):
     name: str
 
-    def quote(self, client: httpx.Client, url: str) -> PriceQuote | None: ...
+    def quote(self, client: httpx.Client, url: str, ref: str | None = None) -> PriceQuote | None: ...
+
+
+def _norm(text: str) -> str:
+    """Референс без разделителей: «L3.812.4.50.6» и «L38124506» совпадают."""
+    return re.sub(r"[^0-9a-z]", "", text.lower())
 
 
 def fetch_html(client: httpx.Client, url: str) -> str:
@@ -70,26 +80,39 @@ class JsonLdProvider:
     name = "json-ld"
     _script = re.compile(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', re.S | re.I)
 
-    def quote(self, client: httpx.Client, url: str) -> PriceQuote | None:
-        page = fetch_html(client, url)
+    def quote(self, client: httpx.Client, url: str, ref: str | None = None) -> PriceQuote | None:
+        return self.parse(fetch_html(client, url), url, ref)
+
+    def parse(self, page: str, url: str, ref: str | None = None) -> PriceQuote | None:
+        offers: list[tuple[float, str, str]] = []  # цена, валюта, текст товара (имя, sku, mpn)
         for raw in self._script.findall(page):
             try:
                 data = json.loads(raw.strip())
             except json.JSONDecodeError:
                 continue
-            for node in _walk(data):
-                offer_type = node.get("@type")
-                if offer_type in ("Offer", "AggregateOffer") or "price" in node or "lowPrice" in node:
+            for product in _walk(data):
+                if product.get("@type") not in ("Product", ["Product"]) and "offers" not in product:
+                    continue
+                label = " ".join(str(product.get(k, "")) for k in ("name", "sku", "mpn", "productID", "url"))
+                for node in _walk(product.get("offers", [])):
                     price = node.get("price") or node.get("lowPrice")
                     currency = node.get("priceCurrency")
-                    if price and currency:
-                        try:
-                            amount = float(str(price).replace(",", ""))
-                        except ValueError:
-                            continue
-                        if amount > 0:
-                            return PriceQuote(amount, currency.upper(), _host(url), url)
-        return None
+                    if not (price and currency):
+                        continue
+                    try:
+                        amount = float(str(price).replace(",", ""))
+                    except ValueError:
+                        continue
+                    if amount > 0:
+                        offers.append((amount, currency.upper(), label))
+        if ref and len(_norm(ref)) >= 4:
+            mine = [o for o in offers if _norm(ref) in _norm(o[2])]
+            if mine:
+                offers = mine
+        if len({(a, c) for a, c, _ in offers}) != 1:
+            return None  # нет цены или страница коллекции с разными ценами
+        amount, currency, _ = offers[0]
+        return PriceQuote(amount, currency, _host(url), url)
 
 
 class MetaTagProvider:
@@ -97,9 +120,12 @@ class MetaTagProvider:
     _amount = re.compile(r'<meta[^>]+(?:property|name)="(?:product|og):price:amount"[^>]+content="([\d.,]+)"', re.I)
     _currency = re.compile(r'<meta[^>]+(?:property|name)="(?:product|og):price:currency"[^>]+content="([A-Z]{3})"', re.I)
 
-    def quote(self, client: httpx.Client, url: str) -> PriceQuote | None:
+    def quote(self, client: httpx.Client, url: str, ref: str | None = None) -> PriceQuote | None:
         page = fetch_html(client, url)
         a, c = self._amount.search(page), self._currency.search(page)
+        # мета-теги одни на страницу; если референса на странице нет, это не та модель
+        if ref and len(_norm(ref)) >= 4 and _norm(ref) not in _norm(page):
+            return None
         if a and c:
             return PriceQuote(float(a.group(1).replace(",", "")), c.group(1).upper(), _host(url), url)
         return None

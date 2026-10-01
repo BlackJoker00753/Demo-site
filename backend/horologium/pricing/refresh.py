@@ -38,7 +38,7 @@ def refresh(*, brand: str | None = None, dry_run: bool = False, limit: int = 0, 
             quote = None
             for provider in DEFAULT_PROVIDERS:
                 try:
-                    quote = provider.quote(client, w.price_url)
+                    quote = provider.quote(client, w.price_url, w.reference)
                 except FetchBlocked as exc:
                     log.warning("blocked: %s (%s)", w.slug, exc)
                     blocked += 1

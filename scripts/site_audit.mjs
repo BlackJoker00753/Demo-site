@@ -5,6 +5,7 @@
 //
 //   node scripts/site_audit.mjs http://localhost:8765            (ПК 1440 и телефон 390)
 //   WIDTHS=390 ONLY=/watch/ node scripts/site_audit.mjs http://localhost:8765
+//   PER_SECTION=3 node scripts/site_audit.mjs …   (по 3 страницы каждого раздела: быстро, для CI)
 //
 // Выход: список проблем по страницам; код 1, если они есть.
 import { spawn } from "node:child_process";
@@ -15,15 +16,19 @@ import { join } from "node:path";
 const base = (process.argv[2] || "http://localhost:8765").replace(/\/$/, "");
 const widths = (process.env.WIDTHS || "1440,390").split(",").map(Number);
 const only = process.env.ONLY || "";
+const perSection = +(process.env.PER_SECTION || 0);
 // не в карте сайта, но открываются: сравнение, мировое время по старому адресу, 404
 const EXTRA = ["/compare?w=rolex-submariner,omega-speedmaster-moonwatch", "/world-time", "/nope-404"];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const profile = mkdtempSync(join(tmpdir(), "horo-audit-"));
 const port = 9300 + Math.floor(Math.random() * 500);
-const chrome = spawn(process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", [
+const mac = process.platform === "darwin";
+const chrome = spawn(process.env.CHROME || (mac ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" : "google-chrome"), [
   "--headless=new", `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`,
-  "--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist", "--hide-scrollbars", "--no-first-run",
+  // на Linux без GPU (CI) WebGL идёт через программный SwiftShader
+  ...(mac ? ["--use-angle=metal", "--enable-gpu"] : ["--enable-unsafe-swiftshader", "--no-sandbox"]),
+  "--ignore-gpu-blocklist", "--hide-scrollbars", "--no-first-run",
   "--autoplay-policy=no-user-gesture-required", "about:blank",
 ], { stdio: "ignore" });
 
@@ -70,7 +75,8 @@ await send("Network.enable");
 await send("Page.enable");
 
 const xml = await (await fetch(`${base}/sitemap.xml`)).text();
-const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname).concat(EXTRA).filter((p, i, all) => p.includes(only) && all.indexOf(p) === i);
+const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname).concat(EXTRA).filter((p, i, all) => p.includes(only) && all.indexOf(p) === i)
+  .filter((p, i, all) => !perSection || all.slice(0, i).filter((q) => q.split("/")[1] === p.split("/")[1]).length < perSection);
 
 // Проверки на отрисованной странице
 const CHECK = `(() => {

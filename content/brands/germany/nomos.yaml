@@ -63,7 +63,7 @@ watches:
     case: {diameter_mm: 37.5, thickness_mm: 6.8, material: Сталь, water_resistance_m: 30}
     bracelet: Кожаный ремешок Horween
     dial: Белый посеребрённый
-    price: {usd: 2550, kind: msrp, source: nomos-glashuette.com (US), url: "https://nomos-glashuette.com/en-us/tangente/tangente-38-164", checked: 2026-09-24}
+    price: {usd: 2800, kind: msrp, source: nomos-glashuette.com (US), url: "https://nomos-glashuette.com/en-us/tangente/tangente-38-164", checked: 2026-10-01}
     summary: Икона баухауса. Тонкие синие стрелки, чистый шрифт и корпус толщиной 6,8 мм.
     icon: true
     story:
