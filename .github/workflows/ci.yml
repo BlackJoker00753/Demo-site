@@ -25,7 +25,9 @@ jobs:
           node-version: 22
       - name: Обход сайта (по 3 страницы каждого раздела, ПК и телефон)
         run: |
-          uv run horologium serve --port 8765 > server.log 2>&1 &
+          # сервер из окружения напрямую: `uv run` держал бы блокировку кеша uv до конца задания
+          .venv/bin/horologium serve --port 8765 > server.log 2>&1 &
+          trap "kill $! 2>/dev/null" EXIT
           for i in $(seq 60); do curl -sf http://127.0.0.1:8765/ > /dev/null && break; sleep 1; done
           # без GPU 3D рисуется программно (SwiftShader), поэтому скорость тут не проверяется
           PER_SECTION=3 SLOW_MS=0 node scripts/site_audit.mjs http://127.0.0.1:8765
