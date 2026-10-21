@@ -60,8 +60,9 @@ async function boot() {
   document.fonts?.ready.then(() => window.ScrollTrigger?.refresh());
 
   // Глобус: на главной и странице страны грузится сразу, вместе с первой страницей. На остальных
-  // (модель, бренд, каталог) он не нужен сразу: ~4 МБ текстур и геоданных ждут простоя браузера
-  // или перехода на глобус, чтобы не мешать загрузке фото и разборки.
+  // (модель, бренд, каталог) только при переходе на глобус. Раньше он грузился фоном через 6 секунд на
+  // любой странице: 1,5 МБ текстур и геоданных и около секунды занятого потока на слабом ноутбуке,
+  // ровно когда человек начинал листать страницу.
   let globeBoot = null;
   const bootGlobe = () =>
     (globeBoot ??= (async () => {
@@ -78,8 +79,6 @@ async function boot() {
   if (needsGlobe) bootGlobe();
   else {
     globe.onNeed = bootGlobe;
-    const idle = window.requestIdleCallback ?? ((fn) => setTimeout(fn, 1500));
-    setTimeout(() => idle(() => bootGlobe(), { timeout: 8000 }), 6000);
   }
 
   // Курсы валют: для долларов не нужны, для остальных ждём их (недолго) до первой отрисовки.
@@ -98,7 +97,9 @@ async function boot() {
     const r1 = 48, r2 = i % 3 === 0 ? 42 : 45;
     return `<line x1="${60 + Math.sin(a) * r1}" y1="${60 - Math.cos(a) * r1}" x2="${60 + Math.sin(a) * r2}" y2="${60 - Math.cos(a) * r2}"/>`;
   }).join("");
-  await Promise.race([Promise.all([first, needsGlobe ? globeBoot : null]), new Promise((r) => setTimeout(r, 4500))]);
+  // заставка ждёт первую страницу и недолго глобус; если он грузится дольше, он проявится сам
+  await first;
+  if (needsGlobe) await Promise.race([globeBoot, new Promise((r) => setTimeout(r, 1800))]);
   intro.classList.add("is-done");
   setTimeout(() => intro.remove(), 1200);
 }

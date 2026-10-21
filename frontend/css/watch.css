@@ -282,8 +282,12 @@
 .wtd-tip[hidden] { display: none; }
 .wtd-note { display: block; margin-top: 8px; font-size: var(--fs-12); color: var(--text-3); }
 .wtd-short { display: none; }
+.wfilm-note-short { display: none !important; }
 /* на телефоне короткая подсказка: длинная занимала бы половину экрана над сценой */
-@media (max-width: 600px) { .wtd-how { display: none; } .wtd-short { display: inline; } }
+@media (max-width: 600px) {
+  .wtd-how { display: none; } .wtd-short { display: inline; }
+  .wfilm-note { display: none !important; } .wfilm-note-short { display: block !important; }
+}
 .wparts button small { color: var(--text-3); font-size: 11px; margin-left: 4px; }
 .wexplode__side {
   position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
@@ -454,3 +458,25 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 
 .wmore { padding-block: var(--s-8) var(--s-9); border-top: 1px solid var(--line); }
 .wmore__head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: var(--s-6); }
+
+/* ---------------------------------------------------------------- фильм-разборка (кадры Blender) */
+.wexplode__film { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.wexplode__film[hidden] { display: none; }
+.wfilm-cap {
+  position: absolute; left: clamp(16px, 4vw, 56px); bottom: 104px; z-index: 3;
+  width: min(420px, 32vw); padding: 16px 18px; border-radius: 16px;
+  background: rgba(12, 13, 16, 0.62); border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.wfilm-cap[hidden] { display: none; }
+.wfilm-cap__step { font-size: var(--fs-12, 0.75rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.wfilm-cap h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin: 6px 0 6px; }
+.wfilm-cap p { color: var(--text-2); font-size: var(--fs-14); line-height: 1.5; margin: 0; }
+@media (max-width: 900px) {
+  .wfilm-cap { left: 12px; right: 12px; width: auto; bottom: 96px; padding: 12px 14px; }
+  .wfilm-cap h3 { font-size: 1.2rem; }
+}
+.wfilm-ch { margin: 6px 14px 10px; color: var(--text-2); font-size: var(--fs-14); line-height: 1.5; max-width: 40ch; }
+.wfilm-ch[hidden] { display: none; }
+/* на широком экране описание шага в списке глав, карточка поверх кадра только на телефоне */
+@media (min-width: 901px) { .wfilm-cap { display: none !important; } }

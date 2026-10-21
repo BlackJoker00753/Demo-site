@@ -14,7 +14,7 @@ import { LineMaterial } from "three/addons/lines/LineMaterial.js";
 import { Line2 } from "three/addons/lines/Line2.js";
 import { LineGeometry } from "three/addons/lines/LineGeometry.js";
 import { esc } from "../core/dom.js";
-import { reduced } from "../core/motion.js";
+import { lowPower, reduced } from "../core/motion.js";
 import {
   bordersGeometry, lonLatToVec3, loadCountryShape, loadFrames, loadIdPicker, loadWorld, raySphere, ringArea,
   ringPositions, vec3ToLonLat,
@@ -24,6 +24,39 @@ import * as SH from "./shaders.js";
 const LUME = new THREE.Color("#9fe9c4");
 const DEG = Math.PI / 180;
 const HALO_R = 1.2;
+
+// Текстуры декодируются вне главного потока (ImageBitmap). Через обычный Image крупная JPEG распаковывалась
+// прямо при загрузке в видеопамять, и глобус замирал на полсекунды. Safari и старый Firefox не умеют
+// переворачивать ImageBitmap при создании: там картинка заранее декодируется через img.decode().
+const UA = navigator.userAgent;
+const BITMAPS = typeof createImageBitmap !== "undefined" && !/^((?!chrome|android).)*safari/i.test(UA)
+  && +(UA.match(/Firefox\/(\d+)/)?.[1] ?? 999) >= 98;
+
+/** Отдать управление браузеру между тяжёлыми шагами: заставка и ввод не замирают. */
+const yieldMain = () => (globalThis.scheduler?.yield ? scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+
+/** raw: данные, а не цвет (карта стран): без цветокоррекции. */
+async function loadTexture(url, raw = false) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${url}: ${res.status}`);
+  const blob = await res.blob();
+  let tex;
+  if (BITMAPS) {
+    const bmp = await createImageBitmap(blob, {
+      imageOrientation: "flipY", premultiplyAlpha: "none", colorSpaceConversion: raw ? "none" : "default",
+    });
+    tex = new THREE.Texture(bmp);
+    tex.flipY = false;
+  } else {
+    const img = new Image();
+    img.src = URL.createObjectURL(blob);
+    await img.decode();
+    URL.revokeObjectURL(img.src);
+    tex = new THREE.Texture(img);
+  }
+  tex.needsUpdate = true;
+  return tex;
+}
 
 export class GlobeScene {
   constructor(canvas, markers) {
@@ -61,7 +94,8 @@ export class GlobeScene {
 
   async init(ourCountries) {
     const renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    // слабый ноутбук: рендер в физических пикселях без апскейла, шейдер Земли считает вдвое меньше точек
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPower() ? 1 : 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
@@ -71,17 +105,15 @@ export class GlobeScene {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(32, 1, 0.01, 200);
 
-    const loader = new THREE.TextureLoader();
-    const load = (url) => loader.loadAsync(url);
-    const [day, night, ids, world, picker, frames] = await Promise.all([
-      load("/assets/earth/day-2k.jpg"),
-      load("/assets/earth/night-4k.jpg"),
-      load("/assets/earth/country-ids-4k.png"),
+    // на слабых устройствах ночь и карта стран в 2K: в видеопамять уходит вчетверо меньше
+    const lite = lowPower() ? "2k" : "4k";
+    const [day, night, ids, world, frames] = await Promise.all([
+      loadTexture("/assets/earth/day-2k.jpg"),
+      loadTexture(`/assets/earth/night-${lite}.jpg`),
+      loadTexture(`/assets/earth/country-ids-${lite}.png`, true),
       loadWorld(),
-      loadIdPicker(),
       loadFrames(),
     ]);
-    this.picker = picker;
     this.frames = frames;
     day.colorSpace = THREE.SRGBColorSpace;
     night.colorSpace = THREE.SRGBColorSpace;
@@ -131,6 +163,7 @@ export class GlobeScene {
       }),
     );
     this.scene.add(this.atmosphere);
+    await yieldMain();
 
     // Границы: все страны тонко, наши чуть ярче.
     const ourIso = new Set(ourCountries.map((c) => c.iso_a3));
@@ -143,6 +176,7 @@ export class GlobeScene {
       new THREE.LineBasicMaterial({ color: 0xdff3ea, transparent: true, opacity: 0.42, depthWrite: false }),
     );
     this.scene.add(this.borders, this.ourBorders);
+    await yieldMain();
 
     this.#buildStars();
     this.#bindEvents();
@@ -156,21 +190,32 @@ export class GlobeScene {
     this.coords.className = "gcoords mono";
     this.markers.append(this.coords);
 
+    // первый кадр без замирания: текстуры уходят в видеопамять по одной, каждая в своей задаче, а шейдеры
+    // компилируются параллельно (KHR_parallel_shader_compile), пока идёт заставка. Одним кадром это ~0,3 с
+    // заблокированной страницы на слабом ноутбуке.
+    for (const t of [day, night, ids]) {
+      renderer.initTexture(t);
+      await yieldMain();
+    }
+    await renderer.compileAsync(this.scene, this.camera).catch(() => {});
+
     this.ready = true;
     this.rig.dist = this.fitDist();
     this.#applyShift();
     if (this.mode === "visible") this.#start();
-    this.#upgradeDayTexture(loader);
+    // карта для наведения строится в фоне и не задерживает появление глобуса; до готовности наведение молчит
+    loadIdPicker().then((p) => (this.picker = p), () => {});
+    this.#upgradeDayTexture();
     return this;
   }
 
-  async #upgradeDayTexture(loader) {
+  async #upgradeDayTexture() {
     // Сначала быстрый 2K, затем 8K для крупных планов. 8K занимает ~128 МБ видеопамяти:
     // на телефонах и слабых устройствах остаётся 2K (иначе мобильный Safari может закрыть вкладку).
     const small = Math.min(screen.width, screen.height) < 820 || (navigator.deviceMemory ?? 8) < 4;
     const saveData = navigator.connection?.saveData;
-    if (small || saveData || this.renderer.capabilities.maxTextureSize < 8192) return;
-    const hi = await loader.loadAsync("/assets/earth/day-8k.jpg").catch(() => null);
+    if (small || saveData || lowPower() || this.renderer.capabilities.maxTextureSize < 8192) return;
+    const hi = await loadTexture("/assets/earth/day-8k.jpg").catch(() => null);
     if (!hi) return;
     hi.colorSpace = THREE.SRGBColorSpace;
     hi.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
@@ -249,6 +294,7 @@ export class GlobeScene {
     });
     el.addEventListener("pointermove", (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
+      this.lastInput = e.timeStamp;
       if (this.drag.active) {
         const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y;
         this.drag.x = e.clientX;
@@ -290,7 +336,7 @@ export class GlobeScene {
   }
 
   #pick(x, y) {
-    if (!this.size) return null;
+    if (!this.size || !this.picker) return null;
     const rect = this.canvas.getBoundingClientRect();
     const ndc = new THREE.Vector2(((x - rect.left) / rect.width) * 2 - 1, -((y - rect.top) / rect.height) * 2 + 1);
     const ray = new THREE.Raycaster();
@@ -467,7 +513,7 @@ export class GlobeScene {
     const frame = this.frames[country.slug];
     const [shape, map] = await Promise.all([
       loadCountryShape(country.slug),
-      frame ? new THREE.TextureLoader().loadAsync(`/assets/countries/${country.slug}.jpg`) : null,
+      frame ? loadTexture(`/assets/countries/${country.slug}.jpg`).catch(() => null) : null,
     ]);
     if (token !== this.layerToken) return;
     const group = new THREE.Group();
@@ -711,12 +757,25 @@ export class GlobeScene {
     if (this.running || !this.ready) return;
     this.running = true;
     this.time.last = performance.now();
-    const tick = () => {
+    // слабый ноутбук: пока глобус просто вращается сам, 30 кадров в секунду (вдвое меньше работы процессору
+    // и видеокарте, прокрутка страницы не дёргается); наведение, перетаскивание и перелёты в полной частоте
+    const lite = lowPower();
+    let drawn = -Infinity;
+    const tick = (t = performance.now()) => {
       if (!this.running) return;
       this.raf = requestAnimationFrame(tick);
+      if (lite && t - drawn < 30 && this.#calm(t)) return;
+      drawn = t;
       this.#frame();
     };
     tick();
+  }
+
+  /** Глобус в покое: никто не тянет и не наводит, инерция погасла, камера не летит. */
+  #calm(now) {
+    const d = this.drag;
+    return !d.active && Math.abs(d.vx) + Math.abs(d.vy) < 1e-3 && now - (this.lastInput ?? -Infinity) > 1200
+      && !window.gsap?.isTweening(this.rig);
   }
 
   #stop() {

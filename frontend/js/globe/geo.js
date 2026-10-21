@@ -34,28 +34,51 @@ export const loadWorld = () => asset("/assets/geo/world-50m.json");
 export const loadCountryShape = (slug) => asset(`/assets/geo/countries/${slug}.json`);
 export const loadFrames = () => asset("/assets/countries/frames.json");
 
-/** CPU-копия ID-карты стран для мгновенного пикинга (2048×1024, без сглаживания). */
-export async function loadIdPicker(url = "/assets/earth/country-ids-4k.png") {
+/** CPU-копия ID-карты стран для мгновенного пикинга (2048×1024, без сглаживания). Строится в фоновом
+ *  потоке (picker-worker.js); без OffscreenCanvas (старый Safari) на главном, когда браузер свободен. */
+export async function loadIdPicker(url = "/assets/earth/country-ids-2k.png") {
+  const { w, h, ids } = typeof OffscreenCanvas !== "undefined" ? await pickerInWorker(url).catch(() => pickerHere(url)) : await pickerHere(url);
+  return {
+    idAt(lon, lat) {
+      const x = Math.min(w - 1, Math.max(0, Math.floor(((lon + 180) / 360) * w)));
+      const y = Math.min(h - 1, Math.max(0, Math.floor(((90 - lat) / 180) * h)));
+      return ids[y * w + x];
+    },
+  };
+}
+
+function pickerInWorker(url) {
+  return new Promise((ok, fail) => {
+    const worker = new Worker(new URL("./picker-worker.js", import.meta.url));
+    worker.onmessage = ({ data }) => {
+      worker.terminate();
+      data.error ? fail(new Error(data.error)) : ok(data);
+    };
+    worker.onerror = (e) => {
+      worker.terminate();
+      fail(e);
+    };
+    worker.postMessage({ url: new URL(url, location.href).href });
+  });
+}
+
+async function pickerHere(url) {
+  await new Promise((r) => (window.requestIdleCallback ? requestIdleCallback(r, { timeout: 3000 }) : setTimeout(r, 300)));
   const img = new Image();
   img.decoding = "async";
   img.src = url;
   await img.decode();
-  const w = 2048, h = 1024;
+  const w = img.naturalWidth, h = img.naturalHeight;
   const canvas = document.createElement("canvas");
   canvas.width = w;
   canvas.height = h;
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
   ctx.imageSmoothingEnabled = false;
-  ctx.drawImage(img, 0, 0, w, h);
-  const data = ctx.getImageData(0, 0, w, h).data;
-  return {
-    idAt(lon, lat) {
-      const x = Math.min(w - 1, Math.max(0, Math.floor(((lon + 180) / 360) * w)));
-      const y = Math.min(h - 1, Math.max(0, Math.floor(((90 - lat) / 180) * h)));
-      const i = (y * w + x) * 4;
-      return data[i] + data[i + 1] * 256;
-    },
-  };
+  ctx.drawImage(img, 0, 0);
+  const px = ctx.getImageData(0, 0, w, h).data;
+  const ids = new Uint16Array(w * h);
+  for (let i = 0, j = 0; i < ids.length; i++, j += 4) ids[i] = px[j] + px[j + 1] * 256;
+  return { w, h, ids };
 }
 
 /** Все границы одним буфером отрезков (для тонких линий на глобусе). */

@@ -1,3 +1,5 @@
+import pytest
+
 from horologium.services.catalog import price_stats
 
 
@@ -170,3 +172,23 @@ def test_world_time_route(client):
 
 
 
+
+
+def test_teardown_film_flag_and_manifest(client):
+    """Фильм-разборка: признак в API и согласованный манифест (кадры, главы по порядку внутри фильма)."""
+    import json
+
+    from horologium.config import settings
+
+    # признак совпадает с наличием рендера; кадры появляются после полного рендера Blender
+    path = settings.frontend_dir / "assets/teardown/rolex-submariner/film/film.json"
+    d = client.get("/api/v1/watches/rolex-submariner").json()
+    assert d["film"] is path.is_file()
+    assert client.get("/api/v1/watches/rolex-gmt-master-ii-pepsi").json()["film"] is False
+    if not path.is_file():
+        pytest.skip("фильм ещё не отрендерен")
+    m = json.loads(path.read_text())
+    assert m["frames"] > 0 and set(m["sizes"]) == {"d", "m"}
+    starts = [c["from"] for c in m["chapters"]]
+    assert starts == sorted(starts) and starts[0] == 0 and starts[-1] < m["frames"]
+    assert all(c["title"] and c["text"] and "—" not in c["text"] for c in m["chapters"])

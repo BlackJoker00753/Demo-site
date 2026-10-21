@@ -1,6 +1,10 @@
 // Анимационные утилиты. GSAP и ScrollTrigger подключены глобально (UMD).
 
 export const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Слабое устройство: мало ядер или памяти, режим экономии трафика. Тяжёлые эффекты упрощаются. */
+export const lowPower = () =>
+  (navigator.hardwareConcurrency ?? 8) <= 4 || (navigator.deviceMemory ?? 8) <= 4 || !!navigator.connection?.saveData;
 export const gsap = () => window.gsap;
 
 let io;

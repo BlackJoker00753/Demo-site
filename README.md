@@ -49,7 +49,12 @@ uv run horologium serve
 | `uv run python scripts/photos_webp.py` | WebP-копии фото (сайт отдаёт WebP, JPEG запасной) |
 | `uv run --with fonttools --with brotli python scripts/brand_assets.py` | превью ссылок и иконки приложения |
 | `node scripts/site_audit.mjs http://127.0.0.1:8765` | обойти все страницы в безголовом Chrome: ошибки JS, битые запросы, горизонтальный скролл, «undefined» в тексте (ПК и телефон) |
+| `node scripts/perf_audit.mjs http://127.0.0.1:8765` | скорость страниц как на слабом ноутбуке: вес, FCP/LCP, блокировка потока, фоновая активность, плавность прокрутки |
+| `uv run --with fonttools --with brotli python scripts/icons_subset.py` | шрифт иконок только с иконками из кода (после новой иконки `ph-*`) |
 | `node scripts/teardown_shots.mjs <адрес модели> <префикс>` | кадры 3D-разборки: собраны, по оси, на лотке |
+| `uv run --with opencv-python-headless python scripts/blender/sub124060_textures.py` | маски текстур Submariner с официальных снимков Rolex |
+| Blender: `exec(open("scripts/blender/sub124060_scene.py").read(), G); G["make"](root)`, затем `Blender -b … -a` | модель, механизм, свет и анимация фильма-разборки; рендер кадров |
+| `uv run python scripts/teardown_film.py rolex-submariner` | кадры фильма → WebP для сайта и `film.json` с главами |
 
 Переменные окружения: `HOROLOGIUM_SITE_URL` (публичный адрес для canonical, Open Graph и sitemap),
 `HOROLOGIUM_RATES_LIVE=0` (не ходить в сеть за курсами валют), `HOROLOGIUM_DB`, `HOROLOGIUM_CONTENT`.

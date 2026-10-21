@@ -5,6 +5,7 @@
 
 import * as THREE from "three";
 import { HDRLoader } from "three/addons/loaders/HDRLoader.js";
+import { lowPower } from "../core/motion.js";
 
 // ------------------------------------------------------------------ studio environment
 
@@ -56,7 +57,11 @@ const hdriCache = new WeakMap();
  * Настоящая студийная HDRI-панорама (Poly Haven, CC0): отражения в металле как
  * на предметной съёмке. Пока файл грузится, сцена использует процедурную студию.
  */
-export function hdriEnvironment(renderer, url = "/assets/hdri/monochrome_studio_04_2k.hdr") {
+// Слабый ноутбук или экономия трафика: то же HDRI в 1K (1,5 МБ вместо 6, разбор вчетверо быстрее);
+// отражения на металле чуть мягче, но с той же студией.
+const HDRI = `/assets/hdri/monochrome_studio_04_${lowPower() ? "1k" : "2k"}.hdr`;
+
+export function hdriEnvironment(renderer, url = HDRI) {
   if (hdriCache.has(renderer)) return hdriCache.get(renderer);
   const promise = new HDRLoader().loadAsync(url).then((tex) => {
     tex.mapping = THREE.EquirectangularReflectionMapping;

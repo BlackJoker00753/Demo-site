@@ -180,6 +180,7 @@ class WatchCard(Out):
     render: dict[str, Any]
     photo: Photo | None = None
     teardown: bool = False  # собрана разборка до детали (frontend/assets/teardown/<slug>)
+    film: bool = False      # отрендерен фильм-разборка в Blender (frontend/assets/teardown/<slug>/film)
 
 
 class Facet(Out):

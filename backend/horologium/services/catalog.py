@@ -63,6 +63,11 @@ def has_teardown(slug: str) -> bool:
     return (settings.frontend_dir / "assets" / "teardown" / slug / "manifest.json").is_file()
 
 
+def has_film(slug: str) -> bool:
+    """Отрендерен ли фильм-разборка (scripts/teardown_film.py: кадры Blender в frontend/assets/teardown/<slug>/film)."""
+    return (settings.frontend_dir / "assets" / "teardown" / slug / "film" / "film.json").is_file()
+
+
 def watch_card(w: Watch) -> S.WatchCard:
     return S.WatchCard(
         slug=w.slug, name=w.name, brand=w.brand.slug, brand_name=w.brand.name,
@@ -79,6 +84,7 @@ def watch_card(w: Watch) -> S.WatchCard:
         icon=w.icon, render=w.render,
         photo=_card_photo(w),
         teardown=has_teardown(w.slug),
+        film=has_film(w.slug),
     )
 
 

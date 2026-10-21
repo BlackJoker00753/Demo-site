@@ -8,11 +8,11 @@ import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
 import { date, DIFFICULTY, getActiveCurrency, hours, inUSD, MOVEMENT, num, PRICE_KIND, RATES, usd, vph } from "../core/format.js";
 import { countUp, reduced, splitWords } from "../core/motion.js";
-import { scrollToEl } from "../core/scroll.js";
+import { getLenis, scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
 import { photoCredit, photoImg, revealPhotos } from "../ui/photo.js";
 import { PhotoExplode } from "../ui/photo-explode.js";
-import { Teardown } from "../ui/teardown.js";
+import { TeardownFilm } from "../ui/teardown-film.js";
 import { hasCompare, toggleCompare, onCompareChange } from "../core/compare.js";
 import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
 import { renderCaliberEscapementPlayer, mountCaliberEscapementPlayer } from "../ui/escapement-player.js";
@@ -300,6 +300,8 @@ export default {
           <div class="wexplode__pin">
             <canvas class="wexplode__canvas" aria-label="Интерактивная разборка часов"></canvas>
             <canvas class="wexplode__td" aria-label="Разборка ${w.name} до детали" hidden></canvas>
+            <canvas class="wexplode__film" aria-label="Фильм: разборка ${w.name}" hidden></canvas>
+            <div class="wfilm-cap" aria-live="polite" hidden><span class="wfilm-cap__step"></span><h3></h3><p></p></div>
             <div class="wtd-tip" hidden></div>
             <figure class="wreal" hidden>
               <div class="wreal__frame"></div>
@@ -315,6 +317,7 @@ export default {
                 <h2 class="display display--m">Из чего собраны ${w.name}</h2>
                 <p class="muted wexplode__hint" data-mode-hint="3d">Интерактивная разборка модели 1 в 1: корпус, безель, сапфировое стекло, стрелки, циферблат, детали калибра и браслет именно этих часов. Потяните ползунок или прокрутите страницу. Нажмите на деталь, чтобы узнать её назначение и увидеть макроснимок.</p>
                 <p class="muted wexplode__hint" data-mode-hint="td" hidden><span class="wtd-how">Все детали этих часов по отдельности: прокрутите, и они разойдутся вдоль оси, как на схеме часовщика. Наведите на деталь, чтобы увидеть название, нажмите, чтобы узнать, зачем она нужна.</span><span class="wtd-short">Прокрутите: часы разойдутся по оси и лягут на лоток. Коснитесь детали, чтобы узнать, зачем она.</span> <span class="wtd-note">Изображения деталей созданы ИИ (Gemini) по официальным фото модели.</span></p>
+                <p class="muted wexplode__hint" data-mode-hint="film" hidden><span class="wtd-how">Прокрутите: часы разбираются в порядке часовщика, от винтов браслета до последнего колеса, и каждая деталь встаёт на своё место в схеме. Главы слева переносят к нужному шагу.</span><span class="wtd-short">Прокрутите: часы разбираются в порядке часовщика.</span> <span class="wtd-note wfilm-note"></span><span class="wtd-note wfilm-note-short">Модель восстановлена по официальным фото Rolex, раскладка механизма условная.</span></p>
                 <p class="muted wexplode__hint" data-mode-hint="photo" hidden>${mech
                 ? "Анатомический фото-разбор классического механического калибра: анкерный спуск, баланс, мосты и заводной барабан. Нажимайте на светящиеся точки."
                 : "Анатомический фото-разбор кварцевого калибра: кристалл кварца, интегральная схема и шаговый двигатель. Нажимайте на светящиеся точки."}</p>
@@ -481,6 +484,7 @@ export default {
     const setT = (t) => {
       photoExplode?.setT(t);
       teardown?.setT(t);
+      film?.setT(t);
       if (!model || !explodeStage) {
         slider.value = Math.round(t * 1000);
         return;
@@ -532,16 +536,19 @@ export default {
       explodeStage.idle = false;
       model = buildWatch(w.render, { ...opts, detail: "hero" });
       explodeStage.setModel(model);
-      explodeStage.start();
+      if (mode === "3d") explodeStage.start();
       explodeStage.onPick((key) => showPart(key));
       window.__horologium && (window.__horologium.explode = explodeStage);
       const seen = new Set();
       const photoKeys = photoExplode?.parts.length ? photoExplode.hotspots().map((h) => h.key) : (partPhotos?.[realKey]?.[0]?.hotspots ?? []).map((h) => h.key);
       const keys = [...model.parts.map((p) => p.key), ...photoKeys].filter((k) => !seen.has(k) && seen.add(k));
       modelKeys = new Set(model.parts.map((p) => p.key));
+      // главы фильма и детали разборки до детали уже в списке: перестраиваем только детали 3D-схемы
+      const keep = qsa("li[data-film], li[data-td]", partsList);
       partsList.innerHTML = keys
         .map((k) => `<li ${modelKeys.has(k) ? "" : "hidden"}><button type="button" data-part="${k}" aria-pressed="false">${partInfo(k).name}</button></li>`)
         .join("");
+      keep.reverse().forEach((li) => partsList.prepend(li));
       filterParts();
       partsList.addEventListener("click", (e) => {
         const b = e.target.closest("[data-part]");
@@ -549,11 +556,11 @@ export default {
       });
       setT(state.t);
     };
+    // 3D-схема рисуется, только пока секция на экране (строится при входе в режим, см. setMode и near ниже)
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
         if (e.isIntersecting) {
-          if (!explodeStage) initExplode();
-          else explodeStage.start();
+          if (mode === "3d") explodeStage?.start();
         } else {
           explodeStage?.stop();
         }
@@ -568,6 +575,9 @@ export default {
     const tdCanvas = qs(".wexplode__td", root);
     const tdTip = qs(".wtd-tip", root);
     const initTeardown = async () => {
+      if (teardown) return teardown;
+      // three.js и сцена разборки нужны только здесь: грузятся, когда секция подходит к экрану
+      const { Teardown } = await import("../ui/teardown.js");
       if (teardown) return teardown;
       teardown = new Teardown(tdCanvas, w.slug);
       if (window.__horologium) window.__horologium.teardown = teardown; // отладка из консоли
@@ -632,6 +642,77 @@ export default {
     }, true);
     cleanups.push(() => teardown?.dispose());
 
+    // ---------------------------------------------------------- фильм-разборка (Blender)
+    // Кадры рендера по модели, восстановленной по официальным фото (scripts/blender, scripts/teardown_film.py).
+    let film = null;
+    let filmST = null;
+    const filmCanvas = qs(".wexplode__film", root);
+    const filmCap = qs(".wfilm-cap", root);
+    const initFilm = async () => {
+      if (film) return film;
+      film = new TeardownFilm(filmCanvas, w.slug);
+      filmCanvas.hidden = false;
+      try {
+        await film.load();
+      } catch {
+        film = null;
+        return null;
+      }
+      if (!root.isConnected) return null;
+      const side = qs(".wexplode__side", root);
+      const pin = qs(".wexplode__pin", root);
+      const modes = qs(".wexplode__modes", root);
+      const head = qs(".wexplode__head", root);
+      const sliderEl = qs(".wexplode__slider", root);
+      const applyInset = () => {
+        const c = pin.getBoundingClientRect();
+        const m = modes.getBoundingClientRect();
+        const modesLow = m.top > c.top + c.height / 2;
+        const bottom = c.bottom - Math.min(sliderEl.getBoundingClientRect().top, modesLow ? m.top : Infinity) + 12;
+        if (window.innerWidth > 900) film.setInset(side.getBoundingClientRect().right - c.left + 16, modesLow ? 0 : m.bottom - c.top + 12, bottom);
+        else film.setInset(0, head.getBoundingClientRect().bottom - c.top + 12, bottom + filmCap.offsetHeight);
+      };
+      applyInset();
+      const ro = new ResizeObserver(applyInset);
+      [pin, head, modes].forEach((el) => ro.observe(el));
+      cleanups.push(() => ro.disconnect());
+      qs(".wfilm-note", root).textContent = film.manifest.note ?? "";
+      // главы фильма в списке слева: клик переносит прокрутку к началу главы
+      partsList.insertAdjacentHTML("afterbegin", film.chapters
+        .map((c, i) => `<li data-film hidden><button type="button" data-chapter="${i}" aria-pressed="false">${c.title}</button><p class="wfilm-ch" hidden>${c.text}</p></li>`).join(""));
+      film.on((ev) => {
+        if (ev.type !== "chapter" || !ev.chapter) return;
+        qsa("[data-chapter]", partsList).forEach((b) => {
+          const on = +b.dataset.chapter === ev.index;
+          b.setAttribute("aria-pressed", String(on));
+          b.nextElementSibling.hidden = !on;          // описание шага раскрывается под активной главой
+        });
+        qs(".wfilm-cap__step", filmCap).textContent = `Шаг ${ev.index + 1} из ${film.chapters.length}`;
+        qs("h3", filmCap).textContent = ev.chapter.title;
+        qs("p", filmCap).textContent = ev.chapter.text;
+        if (!still) g.fromTo(filmCap, { y: 10, autoAlpha: 0.4 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "expo.out" });
+      });
+      film.setT(state.t);
+      filterParts();
+      return film;
+    };
+    partsList.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-chapter]");
+      if (!b || !film) return;
+      e.stopImmediatePropagation();
+      const t = film.chapterT(+b.dataset.chapter);
+      if (filmST) {
+        const y = filmST.start + (filmST.end - filmST.start) * (t / 1.15) + 2;
+        const lenis = getLenis();
+        if (lenis) lenis.scrollTo(y, { duration: 1.2 });
+        else window.scrollTo({ top: y, behavior: "smooth" });
+      } else {
+        state.t = t;
+        setT(t);
+      }
+    }, true);
+    cleanups.push(() => film?.dispose());
+
     // Режим «Настоящий механизм»: фото разобранного калибра того же типа с точками-деталями.
     const real = qs(".wreal", root);
     const seg = qs(".seg", root);
@@ -684,6 +765,11 @@ export default {
         .map((k) => `<li hidden><button type="button" data-part="${k}" aria-pressed="false">${partInfo(k).name}</button></li>`).join(""));
     };
     const filterParts = () => {
+      if (mode === "film") {
+        qsa("li", partsList).forEach((li) => (li.hidden = !li.hasAttribute("data-film")));
+        return;
+      }
+      qsa("li[data-film]", partsList).forEach((li) => (li.hidden = true));
       if (mode === "td") {
         qsa("[data-part]", partsList).forEach((b) => (b.parentElement.hidden = !b.parentElement.hasAttribute("data-td")));
         return;
@@ -696,6 +782,8 @@ export default {
       if (next === "photo" && !realBuilt) realBuilt = buildReal();
       if (next === "photo" && !realBuilt) return;
       if (next === "td" && !(await initTeardown())) return;
+      if (next === "3d" && !explodeStage) initExplode();
+      if (next === "film" && !(await initFilm())) return;
       mode = next;
       qsa(".seg__btn", seg).forEach((b) => b.setAttribute("aria-selected", b.dataset.mode === mode));
       moveSegPill(qs(`[data-mode="${mode}"]`, seg));
@@ -703,11 +791,12 @@ export default {
       showPart(null);
       filterParts();
       // видимые слои режима; ползунок нужен везде, кроме статичного фото-режима
-      const layers = { "3d": [canvasEl], photo: [real], td: [tdCanvas] };
+      const layers = { "3d": [canvasEl], photo: [real], td: [tdCanvas], film: [filmCanvas, filmCap] };
       const slide = !(mode === "photo" && !photoExplode);
       if (mode === "3d") explodeStage?.start();
       else explodeStage?.stop();
       tdCanvas.hidden = false;
+      if (mode === "film") filmCap.hidden = false;
       if (mode === "photo") real.hidden = false;
       for (const [m, els] of Object.entries(layers)) {
         const on = m === mode;
@@ -736,14 +825,43 @@ export default {
       btn.innerHTML = '<i class="ph-light ph-stack" aria-hidden="true"></i>До детали';
       qs(".seg__pill", seg).after(btn);
       btn.addEventListener("click", () => setMode("td"));
-      setMode("td");
     }
+    // Фильм-разборка: если отрендерен, это режим по умолчанию
+    if (w.film) {
+      const btn = document.createElement("button");
+      btn.className = "seg__btn";
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.dataset.mode = "film";
+      btn.setAttribute("aria-selected", "false");
+      btn.innerHTML = '<i class="ph-light ph-film-strip" aria-hidden="true"></i>Фильм';
+      qs(".seg__pill", seg).after(btn);
+      btn.addEventListener("click", () => setMode("film"));
+    }
+    // Режим по умолчанию: фильм, затем разборка до детали, затем 3D-схема. Сцена строится, когда секция
+    // в одном экране от видимой области, и только для этого режима. Раньше разборка до детали (HDR 4,4 МБ,
+    // атлас 1 МБ, three.js) грузилась сразу при открытии страницы, а невидимая 3D-схема строилась параллельно.
+    const openDefault = async () => {
+      if (mode !== "3d") return;                 // режим уже выбрали вручную
+      for (const m of [w.film && "film", w.teardown && "td"].filter(Boolean)) {
+        await setMode(m).catch(() => {});
+        if (mode === m) return;
+      }
+      if (mode === "3d" && !explodeStage) initExplode();
+    };
+    const near = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      near.disconnect();
+      openDefault();
+    }, { rootMargin: "100% 0px" });
+    near.observe(qs(".wexplode", root));
+    cleanups.push(() => near.disconnect());
 
     if (!still) {
-      ST.create({
+      filmST = ST.create({
         trigger: qs(".wexplode", root),
         start: "top top",
-        end: "+=220%",
+        end: w.film ? "+=480%" : "+=220%",   // фильм длиннее: 330 кадров листаются плавно
         pin: qs(".wexplode__pin", root),
         scrub: 0.3,
         onUpdate: (self) => {

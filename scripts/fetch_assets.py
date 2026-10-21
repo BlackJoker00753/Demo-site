@@ -127,22 +127,62 @@ KEEP_SUBSETS = {"latin", "latin-ext", "cyrillic", "cyrillic-ext"}
 
 
 def fetch_fonts() -> None:
+    """Шрифты Google Fonts локально. Google отдаёт вариативный файл, один и тот же для каждого заявленного
+    веса; поэтому один @font-face на семейство, начертание и набор символов с диапазоном весов, иначе
+    браузер качает одинаковый файл по разу на каждый вес (так было: 48 файлов, из них 14 разных)."""
     print("fonts")
     url = "https://fonts.googleapis.com/css2?" + "&".join(f"family={f}" for f in FONT_FAMILIES) + "&display=swap"
     css = get(url).decode()
     blocks = re.findall(r"/\*\s*([\w-]+)\s*\*/\s*(@font-face\s*{[^}]+})", css)
-    out = ["/* Сгенерировано scripts/fetch_assets.py из Google Fonts (SIL OFL). */"]
+    groups: dict[tuple, dict] = {}
     for subset, block in blocks:
         if subset not in KEEP_SUBSETS:
             continue
         family = re.search(r"font-family:\s*'([^']+)'", block).group(1)
         style = re.search(r"font-style:\s*(\w+)", block).group(1)
-        weight = re.search(r"font-weight:\s*([\d ]+)", block).group(1).strip().replace(" ", "-")
+        weight = int(re.search(r"font-weight:\s*(\d+)", block).group(1))
         src = re.search(r"url\((https://[^)]+\.woff2)\)", block).group(1)
-        name = f"{family.lower().replace(' ', '-')}-{style}-{weight}-{subset}.woff2"
-        save(ASSETS / "fonts" / name, get(src))
-        out.append(f"/* {subset} */\n" + block.replace(src, f"/assets/fonts/{name}"))
+        rng = re.search(r"unicode-range:\s*([^;]+);", block).group(1)
+        g = groups.setdefault((family, style, subset, src), {"weights": [], "range": rng})
+        g["weights"].append(weight)
+    write_font_css(groups, lambda src: get(src))
+
+
+def write_font_css(groups: dict, load) -> None:
+    out = ["/* Сгенерировано scripts/fetch_assets.py из Google Fonts (SIL OFL). Один файл на семейство, начертание и набор символов. */"]
+    keep = set()
+    for (family, style, subset, src), g in sorted(groups.items()):
+        lo, hi = min(g["weights"]), max(g["weights"])
+        name = f"{family.lower().replace(' ', '-')}-{style}-{subset}.woff2"
+        save(ASSETS / "fonts" / name, load(src))
+        keep.add(name)
+        weight = f"{lo}" if lo == hi else f"{lo} {hi}"
+        out.append(f"/* {subset} */\n@font-face {{\n  font-family: '{family}';\n  font-style: {style};\n  font-weight: {weight};\n"
+                   f"  font-display: swap;\n  src: url(/assets/fonts/{name}) format('woff2');\n  unicode-range: {g['range']};\n}}")
     save(ASSETS / "fonts" / "fonts.css", "\n".join(out) + "\n")
+    for f in (ASSETS / "fonts").glob("*.woff2"):
+        if f.name not in keep:
+            f.unlink()
+
+
+def dedupe_local_fonts() -> None:
+    """То же без сети: схлопнуть уже скачанные одинаковые файлы (по содержимому)."""
+    import hashlib
+    css = (ASSETS / "fonts" / "fonts.css").read_text()
+    groups: dict[tuple, dict] = {}
+    data: dict[str, bytes] = {}
+    for subset, block in re.findall(r"/\*\s*([\w-]+)\s*\*/\s*(@font-face\s*{[^}]+})", css):
+        family = re.search(r"font-family:\s*'([^']+)'", block).group(1)
+        style = re.search(r"font-style:\s*(\w+)", block).group(1)
+        weights = [int(w) for w in re.search(r"font-weight:\s*([\d ]+)", block).group(1).split()]
+        path = ASSETS / "fonts" / re.search(r"url\(/assets/fonts/([^)]+)\)", block).group(1)
+        rng = re.search(r"unicode-range:\s*([^;]+);", block).group(1)
+        blob = path.read_bytes()
+        key = hashlib.md5(blob).hexdigest()
+        data[key] = blob
+        g = groups.setdefault((family, style, subset, key), {"weights": [], "range": rng})
+        g["weights"] += weights
+    write_font_css(groups, lambda key: data[key])
 
 
 # --------------------------------------------------------------------------- earth textures
@@ -178,6 +218,21 @@ def fetch_earth() -> None:
     save_jpeg(ASSETS / "earth" / "day-2k.jpg", day.resize((2048, 1024), Image.LANCZOS), 82)
     night = wms(GIBS, "VIIRS_Black_Marble", world, 4096, 2048)
     save_jpeg(ASSETS / "earth" / "night-4k.jpg", night, 84)
+    earth_lite()
+
+
+def earth_lite() -> None:
+    """2K-версии ночной Земли и карты стран (без сети, из 4K): на слабых ноутбуках загрузка текстур в
+    видеопамять занимает вчетверо меньше времени. Карта стран уменьшается без сглаживания (это номера)."""
+    earth = ASSETS / "earth"
+    if (earth / "night-4k.jpg").exists():
+        night = Image.open(earth / "night-4k.jpg").convert("RGB")
+        save_jpeg(earth / "night-2k.jpg", night.resize((2048, 1024), Image.LANCZOS), 84)
+    if (earth / "country-ids-4k.png").exists():
+        ids = Image.open(earth / "country-ids-4k.png").convert("RGB").resize((2048, 1024), Image.NEAREST)
+        buf = io.BytesIO()
+        ids.save(buf, "PNG", optimize=True)
+        save(earth / "country-ids-2k.png", buf.getvalue())
 
 
 # --------------------------------------------------------------------------- geo
@@ -263,6 +318,7 @@ def fetch_geo() -> None:
     buf = io.BytesIO()
     img.save(buf, "PNG", optimize=True)
     save(ASSETS / "earth" / "country-ids-4k.png", buf.getvalue())
+    earth_lite()
 
     # Детальные границы (1:10m) только для наших стран.
     ne10 = json.loads(cached("ne_10m_admin_0_countries.geojson", f"{NE}/ne_10m_admin_0_countries.geojson"))
@@ -306,9 +362,11 @@ def fetch_hdri() -> None:
     print("hdri")
     meta = httpx.get("https://api.polyhaven.com/files/monochrome_studio_04", timeout=30).json()
     save(ASSETS / "hdri" / "monochrome_studio_04_2k.hdr", get(meta["hdri"]["2k"]["hdr"]["url"]))
+    # то же HDRI в 1K для слабых устройств: вчетверо меньше скачивать и разбирать
+    save(ASSETS / "hdri" / "monochrome_studio_04_1k.hdr", get(meta["hdri"]["1k"]["hdr"]["url"]))
 
 
-STEPS = {"hdri": fetch_hdri, "vendor": fetch_vendor, "fonts": fetch_fonts, "earth": fetch_earth, "geo": fetch_geo, "countries": fetch_countries}
+STEPS = {"hdri": fetch_hdri, "vendor": fetch_vendor, "fonts": fetch_fonts, "fonts-dedupe": dedupe_local_fonts, "earth": fetch_earth, "geo": fetch_geo, "countries": fetch_countries, "earth-lite": earth_lite}
 
 
 def main() -> int:

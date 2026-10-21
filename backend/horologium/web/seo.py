@@ -195,8 +195,9 @@ def head_tags(page: Page, path: str, base: str) -> str:
         tags.append('<meta name="robots" content="noindex">')
     clean = path.split("?")[0]
     if clean in ("", "/") or clean.startswith("/country/"):
-        # глобус нужен сразу только на главной и странице страны
-        tags.append('<link rel="preload" href="/assets/earth/day-2k.jpg" as="image" crossorigin="anonymous">')
+        # глобус нужен сразу только на главной и странице страны; текстуры глобус берёт через fetch
+        # (декодирование вне главного потока), поэтому и предзагрузка as="fetch", иначе файл скачается дважды
+        tags.append('<link rel="preload" href="/assets/earth/day-2k.jpg" as="fetch" crossorigin="anonymous">')
     ld = list(page.jsonld)
     if len(page.crumbs) > 1:
         ld.append({
