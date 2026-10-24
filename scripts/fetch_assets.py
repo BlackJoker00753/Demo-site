@@ -70,6 +70,8 @@ def cached(name: str, url: str) -> bytes:
 # --------------------------------------------------------------------------- vendor
 
 THREE_ADDONS = [
+    "loaders/GLTFLoader.js",
+    "utils/SkeletonUtils.js",
     "controls/OrbitControls.js",
     "environments/RoomEnvironment.js",
     "geometries/RoundedBoxGeometry.js",

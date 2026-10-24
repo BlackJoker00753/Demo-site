@@ -1,0 +1,55 @@
+
+/
+  запросов 54, 1657 КБ (Fetch 947 КБ, Script 300 КБ, Other 188 КБ, Font 171 КБ, Stylesheet 46 КБ, Document 4 КБ, Manifest 1 КБ, Image 0 КБ)
+  FCP 460 мс, LCP 1144 мс, DCL 683 мс, load 697 мс; блокировка потока (TBT) 541 мс; память JS 9 МБ
+  фон 10 с: запросов 1, 0 КБ, длинных задач 42 (TBT 8064 мс)
+    /js/globe/picker-worker.js 0 КБ
+
+/watches
+  запросов 45, 380 КБ (Font 150 КБ, Script 86 КБ, Image 66 КБ, Stylesheet 46 КБ, Fetch 25 КБ, Document 6 КБ, Manifest 1 КБ)
+  FCP 384 мс, LCP 1168 мс, DCL 554 мс, load 562 мс; блокировка потока (TBT) 313 мс; память JS 2 МБ
+  фон 10 с: запросов 18, 221 КБ, длинных задач 0 (TBT 0 мс)
+    /assets/photos/rolex-land-dweller-40/1-480.webp 27 КБ
+    /assets/photos/a-lange-soehne-saxonia-thin/1-480.webp 27 КБ
+    /assets/photos/seiko-presage-cocktail-time/1-480.webp 19 КБ
+    /assets/photos/seiko-5-sports-srpd55/1-480.webp 13 КБ
+  прокрутка: кадров 147, медленных (>33 мс) 5, p95 17 мс
+
+/watch/rolex-submariner
+  запросов 50, 382 КБ (Font 159 КБ, Script 142 КБ, Stylesheet 46 КБ, Image 22 КБ, Fetch 8 КБ, Document 4 КБ, Manifest 1 КБ)
+  FCP 320 мс, LCP 1528 мс, DCL 541 мс, load 549 мс; блокировка потока (TBT) 606 мс; память JS 3 МБ
+  фон 10 с: запросов 5, 110 КБ, длинных задач 0 (TBT 0 мс)
+    /vendor/three/three.module.js 88 КБ
+    /js/ui/teardown.js 12 КБ
+    /js/watch3d/materials.js 6 КБ
+    /vendor/three/addons/loaders/HDRLoader.js 4 КБ
+  прокрутка: кадров 148, медленных (>33 мс) 3, p95 17 мс
+
+/brand/rolex
+  запросов 39, 315 КБ (Font 150 КБ, Script 86 КБ, Stylesheet 46 КБ, Image 22 КБ, Fetch 5 КБ, Document 4 КБ, Manifest 1 КБ)
+  FCP 364 мс, LCP 1124 мс, DCL 577 мс, load 585 мс; блокировка потока (TBT) 255 мс; память JS 2 МБ
+  фон 10 с: запросов 11, 114 КБ, длинных задач 0 (TBT 0 мс)
+    /assets/photos/rolex-land-dweller-40/1-480.webp 27 КБ
+    /assets/photos/rolex-gmt-master-ii-pepsi/1-480.webp 10 КБ
+    /assets/photos/rolex-sky-dweller/1-480.webp 10 КБ
+    /assets/photos/rolex-day-date-40/1-480.webp 9 КБ
+  прокрутка: кадров 143, медленных (>33 мс) 8, p95 33 мс
+
+/complication/tourbillon
+  запросов 50, 459 КБ (Font 198 КБ, Script 145 КБ, Image 56 КБ, Stylesheet 46 КБ, Fetch 9 КБ, Document 4 КБ, Manifest 1 КБ)
+  FCP 384 мс, LCP 1284 мс, DCL 632 мс, load 644 мс; блокировка потока (TBT) 355 мс; память JS 2 МБ
+  фон 10 с: запросов 1, 21 КБ, длинных задач 0 (TBT 0 мс)
+    /assets/photos/ulysse-nardin-freak-one/1-480.webp 21 КБ
+  прокрутка: кадров 137, медленных (>33 мс) 14, p95 33 мс
+
+/movements
+  запросов 41, 338 КБ (Font 159 КБ, Script 93 КБ, Stylesheet 46 КБ, Fetch 35 КБ, Document 3 КБ, Manifest 1 КБ, Image 0 КБ)
+  FCP 372 мс, LCP 1936 мс, DCL 617 мс, load 620 мс; блокировка потока (TBT) 1011 мс; память JS 3 МБ
+  фон 10 с: запросов 0, 0 КБ, длинных задач 0 (TBT 0 мс)
+  прокрутка: кадров 147, медленных (>33 мс) 4, p95 17 мс
+
+/history
+  запросов 36, 297 КБ (Font 159 КБ, Script 87 КБ, Stylesheet 46 КБ, Document 3 КБ, Manifest 1 КБ, Fetch 0 КБ, Image 0 КБ)
+  FCP 348 мс, LCP 944 мс, DCL 574 мс, load 581 мс; блокировка потока (TBT) 244 мс; память JS 1 МБ
+  фон 10 с: запросов 0, 0 КБ, длинных задач 0 (TBT 0 мс)
+  прокрутка: кадров 152, медленных (>33 мс) 0, p95 17 мс

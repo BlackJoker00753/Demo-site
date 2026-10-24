@@ -2,12 +2,48 @@
 облегчённые текстуры для слабых устройств на месте."""
 
 import hashlib
+import json
 import importlib.util
 import re
+import struct
+import io
+
+from PIL import Image
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 FRONT = ROOT / "frontend"
+
+
+def test_submariner_workshop_asset_is_complete_and_bounded():
+    """Guard the shipped model, named educational parts and mobile download budget."""
+    directory = FRONT / "assets/workshop/submariner"
+    payload = (directory / "submariner.glb").read_bytes()
+    magic, version, length = struct.unpack_from("<III", payload)
+    assert magic == 0x46546C67 and version == 2 and length == len(payload)
+    assert len(payload) <= 4 * 1024 * 1024
+    json_length, chunk_type = struct.unpack_from("<II", payload, 12)
+    assert chunk_type == 0x4E4F534A
+    model = json.loads(payload[20:20 + json_length])
+    names = {node.get("name") for node in model["nodes"]}
+    assert {"Корпус", "Безель", "Стекло", "Баланс", "Заводная пружина", "Вал барабана"} <= names
+    assert len(model["scenes"][0]["nodes"]) >= 120
+    assert all("uri" not in image for image in model["images"])
+    # Ring masks must remain strips; square resizing makes mipmaps erase the fine numerals.
+    binary = payload[28 + json_length:]
+    for image in model["images"]:
+        if image.get("name") == "Cerachrom":
+            view = model["bufferViews"][image["bufferView"]]
+            start = view.get("byteOffset", 0)
+            with Image.open(io.BytesIO(binary[start:start + view["byteLength"]])) as texture:
+                assert texture.width / texture.height > 20
+    triangles = sum(model["accessors"][part["indices"]]["count"] // 3
+                    for mesh in model["meshes"] for part in mesh["primitives"])
+    assert triangles <= 220_000
+    manifest = json.loads((directory / "model-info.json").read_text())
+    assert manifest["bytes"] == len(payload)
+    assert manifest["triangles"] == triangles
+    assert manifest["sha256"] == hashlib.sha256(payload).hexdigest()
 
 
 def _script(name: str):

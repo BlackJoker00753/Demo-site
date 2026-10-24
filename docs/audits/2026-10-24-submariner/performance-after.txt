@@ -1,0 +1,13 @@
+
+/watch/rolex-submariner
+  запросов 52, 390 КБ (Font 159 КБ, Script 151 КБ, Stylesheet 48 КБ, Image 22 КБ, Fetch 5 КБ, Document 4 КБ, Manifest 1 КБ, Other 1 КБ)
+  FCP 508 мс, LCP 2112 мс, DCL 806 мс, load 808 мс; блокировка потока (TBT) 858 мс; память JS 2 МБ
+  фон 10 с: запросов 1, 22 КБ, длинных задач 0 (TBT 0 мс)
+    /assets/photos/rolex-submariner/1-960.webp 22 КБ
+  прокрутка: кадров 132, медленных (>33 мс) 17, p95 33 мс
+
+/watch/rolex-submariner-date
+  запросов 52, 394 КБ (Font 159 КБ, Script 151 КБ, Stylesheet 48 КБ, Image 22 КБ, Fetch 9 КБ, Document 4 КБ, Manifest 1 КБ)
+  FCP 548 мс, LCP 2064 мс, DCL 907 мс, load 915 мс; блокировка потока (TBT) 788 мс; память JS 3 МБ
+  фон 10 с: запросов 0, 0 КБ, длинных задач 0 (TBT 0 мс)
+  прокрутка: кадров 119, медленных (>33 мс) 20, p95 50 мс

@@ -3290,7 +3290,8 @@
   font-weight: 600;
   font-family: var(--font-mono);
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
 }
 
 .tco-tier-badge--emerald {
@@ -3314,11 +3315,12 @@
 /* Панель управления */
 .tco-controls {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
 .tco-control-group {
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -3339,6 +3341,8 @@
 
 .tco-control-label {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   font-size: var(--fs-13);
@@ -3358,6 +3362,9 @@
 }
 
 .tco-pill {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
   cursor: pointer;
   border-radius: var(--r-pill);
   font-size: var(--fs-12);
@@ -3645,6 +3652,8 @@
 
 /* Таблица хроники владения */
 .tco-timeline-table-wrap {
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -3968,7 +3977,7 @@
 
 @media (max-width: 800px) {
   .tco-controls {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .tco-box {
     padding: 20px;

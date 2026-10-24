@@ -249,6 +249,13 @@ content/*.yaml ──(loader + schema)──▶ ContentBundle ──(db/build)�
 
 ## 11. Разборка до детали (teardown)
 
+Для `rolex-submariner` основной интерактив теперь отдельный: `ui/submariner-workshop.js` и
+лениво загружаемый `ui/submariner-scene.js`. Он использует GLB, экспортированный из геометрии
+раздела 10, с отдельными узлами и описаниями. Управление: этапы, ползунок, автопоказ, поворот,
+выбор лучом, поиск и изоляция. Энергия пружины объясняется в том числе разборкой барабана.
+Детали реализации, источники и воспроизведение: `SUBMARINER_WORKSHOP.md`. Фильм не требуется.
+Описанный ниже атласный интерактив сохранён для остальных моделей.
+
 ```
 content/teardown/{families,watches}/*.yaml ──tasks──▶ docs/TEARDOWN_GEMINI_TASK.md
         ──generate (Gemini 3 Pro Image, 4K, референсы: официальные фото)──▶ teardown_src/…/<лист>.png

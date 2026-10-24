@@ -18,6 +18,7 @@ import { renderKinematicFlow, mountKinematicFlow } from "../ui/kinematics.js";
 import { renderCaliberEscapementPlayer, mountCaliberEscapementPlayer } from "../ui/escapement-player.js";
 import { renderWristFitWidget, mountWristFitWidget } from "../ui/wrist-fit.js";
 import { TcoCalculator } from "../ui/tco-calc.js";
+import { renderSubmarinerWorkshop, mountSubmarinerWorkshop } from "../ui/submariner-workshop.js";
 
 // Снимки разобранных калибров, нарезанные на детали (scripts/cutouts.py): разборка из настоящих фото.
 const CUTOUTS = { exploded_quartz: "eta-955", exploded_mechanical: "prim" };
@@ -296,7 +297,7 @@ export default {
             </section>`
           : ""}
 
-        <section class="wexplode" id="explode" aria-label="Разборка часов">
+        ${w.slug === "rolex-submariner" ? renderSubmarinerWorkshop() : html`<section class="wexplode" id="explode" aria-label="Разборка часов">
           <div class="wexplode__pin">
             <canvas class="wexplode__canvas" aria-label="Интерактивная разборка часов"></canvas>
             <canvas class="wexplode__td" aria-label="Разборка ${w.name} до детали" hidden></canvas>
@@ -338,7 +339,7 @@ export default {
               <span>Разобраны</span>
             </div>
           </div>
-        </section>
+        </section>`}
 
         ${priceBlock(w)}
 
@@ -475,6 +476,9 @@ export default {
     }
 
     // ---------------------------------------------------------- exploded view
+    if (w.slug === "rolex-submariner") {
+      cleanups.push(mountSubmarinerWorkshop(root));
+    } else {
     let explodeStage = null;
     let model = null;
     const state = { t: 0 };
@@ -875,6 +879,7 @@ export default {
       setT(state.t);
     });
     cleanups.push(() => explodeStage?.dispose());
+    }
 
     // ---------------------------------------------------------- siblings
     const more = qs(".wmore__grid", root);

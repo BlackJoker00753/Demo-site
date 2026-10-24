@@ -9,7 +9,7 @@
 //
 // Без сети открываются все страницы, которые уже смотрели: SPA-шелл берётся из кеша, данные тоже.
 
-const VERSION = "v2";
+const VERSION = "v3-submariner";
 const SHELL = `shell-${VERSION}`;
 const STATIC = `static-${VERSION}`;
 const MEDIA = `media-${VERSION}`;

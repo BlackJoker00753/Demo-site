@@ -33,3 +33,14 @@
   другой официальный (так печать под стрелками взята с голого циферблата raw-dial). Условность механизма
   подписывать в `content/teardown/films.yaml` (`note`). Проверять кадры глазами до полного рендера.
 - **Коммиты** от `Olzhas Raiganiyev <93197973+BlackJoker00753@users.noreply.github.com>` (настроено локально в репозитории).
+
+## Мастерская Submariner и дизайн
+
+- `/watch/rolex-submariner#explode`: самостоятельная GLB-мастерская. Сначала прочитайте
+  `docs/SUBMARINER_WORKSHOP.md`. Старую общую разборку остальных моделей не заменять попутно.
+- Для интерфейса доступны официальные Taste (`.agents/skills/design-taste-frontend/SKILL.md`) и
+  Impeccable (`.agents/skills/impeccable/SKILL.md`). Контекст продукта в `docs/PRODUCT.md`,
+  действующая визуальная система в `docs/DESIGN.md`. Кеш Impeccable: `sh scripts/design_tools.sh`.
+- После изменения мастерской: дополнительно `node scripts/submariner_audit.mjs <url>`.
+  Проверять изображения, выбор геометрии, описания, сборку, 390/768/1440 px, reduced-motion,
+  Save-Data и остановку кадров в покое. Бюджет GLB проверяет `test_assets.py`.
