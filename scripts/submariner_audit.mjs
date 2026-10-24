@@ -57,17 +57,55 @@ try {
     assert(await evaluate("window.__horologium.submariner.parts.every(p=>!p.name.includes('_')&&!p.text.startsWith('Отдельный элемент'))"), `${width}: missing part labels or explanations`);
     assert(initial.scrollWidth <= width + 1, `${width}: horizontal overflow`);
     await shot(`${width}-assembled`);
+    if (width === 390) {
+      await evaluate("document.querySelector('.sub-transport').scrollIntoView({block:'center',behavior:'instant'})");
+      await shot("390-controls");
+      await evaluate("document.querySelector('.sub-workshop').scrollIntoView({block:'start',behavior:'instant'})");
+    }
     if (process.env.MATERIAL_PROBE) console.log(await evaluate(`window.__horologium.submariner.parts.filter(p=>/Вставка|Циферблат/.test(p.name)).map(p=>({name:p.name,raw:p.node.userData.name,materials:p.materials.map(m=>({name:m.name,map:!!m.map,channel:m.map?.channel,repeat:m.map?.repeat,offset:m.map?.offset,imageWidth:m.map?.image?.width})),children:p.node.children.length}))`));
     const pick = await evaluate(`(() => {const s=window.__horologium.submariner,p=s.parts.find(p=>p.name==='Стекло'),v=p.center.clone().project(s.camera),r=s.canvas.getBoundingClientRect();return {x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()`);
     await send("Input.dispatchMouseEvent", { type: "mousePressed", ...pick, button: "left", clickCount: 1 });
     await send("Input.dispatchMouseEvent", { type: "mouseReleased", ...pick, button: "left", clickCount: 1 });
     assert(await evaluate("!document.querySelector('.sub-inspector').hidden"), `${width}: clicking physical geometry did not open its description`);
     await evaluate("document.querySelector('.sub-inspector__close').click()");
+    if (width === 1440) {
+      // Observe the real button-driven sequence, not just its final pose.
+      await evaluate("document.querySelector('[data-sub-next]').click()");
+      await waitFor("window.__horologium.submariner.t>0.018");
+      const threaded = await evaluate(`(() => {const s=window.__horologium.submariner,p=s.parts.filter(p=>p.stage===1&&p.thread).sort((a,b)=>b.node.quaternion.angleTo(s.scene.quaternion)-a.node.quaternion.angleTo(s.scene.quaternion))[0],link=s.parts.find(p=>p.name.startsWith('Звено'));const d=p.node.position.clone().sub(p.home),along=d.dot(p.thread.axis),sample={t:s.t,moving:s.moving,angle:p.node.quaternion.angleTo(s.scene.quaternion),axial:along,sideways:d.addScaledVector(p.thread.axis,-along).length(),linkTravel:link.node.position.distanceTo(link.home)};s.pause();return sample;})()`);
+      assert(threaded.moving && threaded.t < 1 / 7, "next button skipped the threaded phase");
+      assert(threaded.angle > 0.1 && threaded.axial > 0 && threaded.sideways < 1e-5, "fastener did not turn and advance along its own axis");
+      assert(threaded.linkTravel < 1e-5, "link moved before its screw cleared");
+      await shot("1440-unscrewing");
+      await evaluate("window.__horologium.submariner.setT(1/7)");
+      await waitFor("!window.__horologium.submariner.moving");
+      await shot("1440-bracelet-released");
+      await evaluate("document.querySelector('[data-sub-prev]').click()");
+      await waitFor("!window.__horologium.submariner.moving && !window.__horologium.submariner.cameraGoal");
+      assert(await evaluate("window.__horologium.submariner.parts.every(p=>p.node.position.distanceTo(p.home)<1e-5&&p.node.quaternion.angleTo(window.__horologium.submariner.scene.quaternion)<1e-5)"), "reverse assembly did not exactly restore all parts");
+      await evaluate("document.querySelector('[data-sub-play]').click()");
+      await waitFor("window.__horologium.submariner.t>0.01");
+      await evaluate("document.querySelector('[data-sub-play]').click()");
+      const paused = await evaluate("window.__horologium.submariner.t");
+      await sleep(700);
+      assert(await evaluate(`!window.__horologium.submariner.moving && window.__horologium.submariner.t===${paused}`), "pause did not freeze the physical sequence");
+      await evaluate("document.querySelector('.sub-playback select').value='1.5';document.querySelector('.sub-playback select').dispatchEvent(new Event('change'));document.querySelector('[data-sub-play]').click()");
+      await waitFor(`window.__horologium.submariner.t>${paused + 0.005}`);
+      assert(await evaluate("window.__horologium.submariner.speed===1.5"), "speed control did not apply");
+      await evaluate("scrollTo({top:0,behavior:'instant'})");
+      await waitFor("!window.__horologium.submariner.moving");
+      const offscreen = await evaluate("window.__horologium.submariner.t");
+      await sleep(700);
+      assert(await evaluate(`window.__horologium.submariner.t===${offscreen}`), "offscreen playback kept advancing");
+      await evaluate("document.querySelector('.sub-workshop').scrollIntoView({block:'start',behavior:'instant'})");
+      await evaluate("(() => {const slider=document.querySelector('.sub-progress input');slider.value=0;slider.dispatchEvent(new Event('input',{bubbles:true}));})()");
+      reports.push({ animation: threaded, reverse: "restored", pause: "stable", offscreen: "paused", speed: 1.5 });
+    }
     // Actual controls drive every stage; a photo cannot pass these checks.
     for (const step of [2, 4, 7]) {
-      await evaluate(`document.querySelector('[data-sub-step="${step}"]').click()`);
+      await evaluate(`(() => {const slider=document.querySelector('.sub-progress input');slider.value=${step / 7 * 1000};slider.dispatchEvent(new Event('input',{bubbles:true}));})()`);
       await sleep(1600);
-      assert(await evaluate(`document.querySelector('[data-sub-step="${step}"]').getAttribute('aria-current')==='step'`), `${width}: stage ${step} did not activate`);
+      assert(await evaluate(`Math.abs(window.__horologium.submariner.t-${step / 7})<0.002`), `${width}: stage ${step} did not activate`);
       await shot(`${width}-step-${step}`);
     }
     await evaluate("document.querySelector('.sub-catalogue').open=true;document.querySelector('.sub-catalogue input').value='Баланс';document.querySelector('.sub-catalogue input').dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('[data-sub-part]').click();document.querySelector('.sub-inspector__isolate').click()");
@@ -79,7 +117,7 @@ try {
       await sleep(1200);
       await shot("1440-ceramic-detail");
     }
-    await evaluate(`document.querySelector('.sub-inspector__close').click();document.querySelector('[data-sub-step="0"]').click()`);
+    await evaluate(`(() => {document.querySelector('.sub-inspector__close').click();const slider=document.querySelector('.sub-progress input');slider.value=0;slider.dispatchEvent(new Event('input',{bubbles:true}));})()`);
     await sleep(2000);
     const frame = await evaluate("window.__horologium.submariner.renderer.info.render.frame");
     await sleep(900);

@@ -26,6 +26,12 @@ def test_submariner_workshop_asset_is_complete_and_bounded():
     assert chunk_type == 0x4E4F534A
     model = json.loads(payload[20:20 + json_length])
     names = {node.get("name") for node in model["nodes"]}
+    screws = [node for node in model["nodes"] if node.get("name", "").startswith("Винт")]
+    assert len(screws) >= 20
+    for screw in screws:
+        thread = screw["extras"]
+        assert abs(sum(axis * axis for axis in thread["workshop_axis"]) - 1) < 1e-5
+        assert thread["workshop_turns"] >= 2 and thread["workshop_pitch"] > 0
     assert {"Корпус", "Безель", "Стекло", "Баланс", "Заводная пружина", "Вал барабана"} <= names
     assert len(model["scenes"][0]["nodes"]) >= 120
     assert all("uri" not in image for image in model["images"])

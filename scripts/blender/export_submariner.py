@@ -83,6 +83,19 @@ replacements = {
 coll = bpy.data.collections["Submariner"]
 objects = [o for o in coll.objects if o.type == "MESH"]
 for o in objects:
+    # Physical thread axes in the viewer's Y-up coordinates; geometry origins need
+    # not be at the screw head. The viewer builds centred rotation pivots.
+    if o.name.startswith("Винт"):
+        bracelet_screw = o.name.startswith(("Винт 12.", "Винт 6."))
+        local_axis = G["Vector"]((1 if o.name.startswith("Винт 12.") else -1, 0, 0)) if bracelet_screw else G["Vector"]((0, 0, -1))
+        axis = o.matrix_world.to_quaternion() @ local_axis
+        o["workshop_axis"] = [axis.x, axis.z, -axis.y]
+        o["workshop_turns"] = 3.0
+        o["workshop_pitch"] = 0.42 if bracelet_screw else 0.28
+    elif o.name in ("Задняя крышка", "Головка"):
+        o["workshop_axis"] = [0, -1, 0] if o.name == "Задняя крышка" else [1, 0, 0]
+        o["workshop_turns"] = 2.0 if o.name == "Задняя крышка" else 2.5
+        o["workshop_pitch"] = 1.2 if o.name == "Задняя крышка" else 0.35
     for slot in o.material_slots:
         if slot.material.name in replacements:
             slot.material = replacements[slot.material.name]

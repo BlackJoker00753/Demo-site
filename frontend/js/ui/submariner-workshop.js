@@ -1,6 +1,7 @@
 import { html } from "../core/dom.js";
 import { reduced } from "../core/motion.js";
 import { STEPS, describePart } from "./submariner-parts.js";
+import { timelineSeconds, TOTAL_SECONDS, motionCaption } from "./submariner-motion.js";
 
 export function renderSubmarinerWorkshop() {
   return html`<section class="sub-workshop container" id="explode" aria-labelledby="sub-title" data-ui>
@@ -39,6 +40,7 @@ export function renderSubmarinerWorkshop() {
         <button type="button" data-sub-play disabled>Разобрать часы</button>
         <button type="button" data-sub-next aria-label="Следующий этап" disabled>Далее</button>
       </div>
+      <div class="sub-playback"><output aria-label="Время разборки" aria-live="off">00:00 / 00:51</output><label>Темп <select aria-label="Скорость разборки"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option></select></label></div>
       <label class="sub-progress"><span>Собраны</span><input type="range" min="0" max="1000" step="1" value="0" aria-label="Степень разборки Submariner" disabled><span>Разобраны</span></label>
     </div>
     <details class="sub-catalogue"><summary>Найти деталь <span class="sub-catalogue__count"></span></summary>
@@ -54,31 +56,50 @@ export function mountSubmarinerWorkshop(root) {
   const $ = s => section.querySelector(s);
   const events = new AbortController();
   const { signal } = events;
-  let scene, loading, parts = [], value = 0, activeStep = 0, selected, disposed = false, playing = false, timer;
+  let scene, loading, parts = [], value = 0, target = 0, activeStep = -1, selected, disposed = false, direction = 1;
   let returnFocus = null;
   const canvas = $("canvas"), status = $(".sub-stage__status"), slider = $(".sub-progress input");
   const play = $("[data-sub-play]"), inspector = $(".sub-inspector"), back = $(".sub-stage__return");
-  const stop = () => { playing = false; clearTimeout(timer); play.textContent = value > 0.99 ? "Собрать часы" : "Разобрать часы"; };
-  const setValue = (t, refit = false) => {
+  const stepButtons = [...section.querySelectorAll("[data-sub-step]")];
+  const title = $(".sub-transport__caption h3"), caption = $(".sub-transport__caption p"), clock = $(".sub-playback output");
+  const text = (element, value) => { if (element.textContent !== value) element.textContent = value; };
+  const timecode = seconds => `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(Math.round(seconds) % 60).padStart(2, "0")}`;
+  const update = (t, moving = false) => {
     value = Math.max(0, Math.min(1, t));
     slider.value = Math.round(value * 1000);
-    slider.setAttribute("aria-valuetext", `${Math.round(value * 100)}%, ${STEPS[Math.min(7, Math.round(value * 7))][0]}`);
-    activeStep = Math.min(7, Math.round(value * 7));
-    for (const b of section.querySelectorAll("[data-sub-step]")) {
-      const active = +b.dataset.subStep === activeStep;
+    const nextStep = Math.max(0, Math.min(7, Math.ceil(value * 7 - 1e-6)));
+    if (nextStep !== activeStep) for (const b of stepButtons) {
+      const active = +b.dataset.subStep === nextStep;
       b.setAttribute("aria-current", active ? "step" : "false");
       if (active && window.innerWidth <= 900) {
         const nav = $(".sub-steps"), r = b.getBoundingClientRect(), n = nav.getBoundingClientRect();
         if (r.left < n.left || r.right > n.right) nav.scrollLeft += r.left - n.left - 16;
       }
     }
-    $(".sub-transport__caption h3").textContent = STEPS[activeStep][0];
-    $(".sub-transport__caption p").textContent = STEPS[activeStep][1];
+    activeStep = nextStep;
+    slider.setAttribute("aria-valuetext", `${Math.round(value * 100)}%, ${STEPS[activeStep][0]}`);
+    text(title, STEPS[activeStep][0]);
+    const description = moving ? motionCaption(value, direction < 0) : STEPS[activeStep][1];
+    text(caption, description);
+    text(clock, `${timecode(timelineSeconds(value))} / ${timecode(TOTAL_SECONDS)}`);
     $("[data-sub-prev]").disabled = !scene || value === 0;
-    $("[data-sub-next]").disabled = !scene || value === 1;
-    scene?.setT(value);
-    if (refit) scene?.view(value > 0.94 ? "tray" : value > 0.2 && value < 0.79 ? "back" : "front");
-    if (!playing) play.textContent = value > 0.99 ? "Собрать часы" : "Разобрать часы";
+    $("[data-sub-next]").disabled = !scene || target === 1;
+    text(play, moving ? "Пауза" : value >= 0.999 || direction < 0 && value > 0 ? "Собрать часы" : value > 0 ? "Продолжить разборку" : "Разобрать часы");
+  };
+  const stop = () => {
+    scene?.pause();
+    target = value;
+    update(value, false);
+  };
+  const setValue = (t, instant = false) => {
+    target = Math.max(0, Math.min(1, t));
+    const boundary = Math.round(target * 7) / 7;
+    if (Math.abs(target - boundary) < 0.0005) target = boundary;
+    direction = Math.sign(target - value) || direction;
+    const direct = instant || reduced();
+    scene?.setT(target, direct);
+    if (direct) scene?.view(target > 0.94 ? "tray" : target > 0.2 && target < 0.79 ? "back" : "front", reduced());
+    if (!scene) update(target);
   };
   const closePart = () => {
     const restoreFocus = !inspector.hidden && inspector.contains(document.activeElement);
@@ -91,6 +112,7 @@ export function mountSubmarinerWorkshop(root) {
   function selectPart(id, focus = false) {
     const part = parts.find(p => p.id === id);
     if (!part) return;
+    if (scene?.moving) stop();
     selected = part;
     returnFocus = document.activeElement;
     $(".sub-inspector h3").textContent = part.name;
@@ -134,6 +156,8 @@ export function mountSubmarinerWorkshop(root) {
         $(".sub-stage__tools").hidden = false;
         $(".sub-stage__gesture").hidden = false;
         play.disabled = false; slider.disabled = false;
+        scene.onProgress = update;
+        scene.setSpeed(+$(".sub-playback select").value);
         setValue(value, true); catalogue();
         if (window.__horologium) window.__horologium.submariner = scene;
       } catch (error) {
@@ -160,7 +184,7 @@ export function mountSubmarinerWorkshop(root) {
   $("[data-sub-load]").addEventListener("click", load, { signal });
   section.addEventListener("click", async e => {
     const step = e.target.closest("[data-sub-step]");
-    if (step) { stop(); await load(); if (!disposed && scene) { closePart(); setValue(+step.dataset.subStep / 7, true); } }
+    if (step) { stop(); await load(); if (!disposed && scene) { closePart(); setValue(+step.dataset.subStep / 7); } }
     const part = e.target.closest("[data-sub-part]");
     if (part) selectPart(part.dataset.subPart, true);
     const view = e.target.closest("[data-sub-view]");
@@ -168,26 +192,19 @@ export function mountSubmarinerWorkshop(root) {
     const zoom = e.target.closest("[data-sub-zoom]");
     if (zoom) scene?.zoom(+zoom.dataset.subZoom);
   }, { signal });
-  slider.addEventListener("input", () => { stop(); if (scene?.isolated) closePart(); setValue(+slider.value / 1000, true); }, { signal });
-  $("[data-sub-prev]").addEventListener("click", () => { stop(); closePart(); setValue(Math.max(0, activeStep - 1) / 7, true); }, { signal });
-  $("[data-sub-next]").addEventListener("click", () => { stop(); closePart(); setValue(Math.min(7, activeStep + 1) / 7, true); }, { signal });
+  slider.addEventListener("input", () => { const t = +slider.value / 1000; stop(); if (scene?.isolated) closePart(); setValue(t, true); }, { signal });
+  $("[data-sub-prev]").addEventListener("click", () => { const goal = Math.max(0, activeStep - 1) / 7; stop(); closePart(); setValue(goal); }, { signal });
+  $("[data-sub-next]").addEventListener("click", () => { const goal = Math.min(7, Math.round(target * 7) + 1) / 7; stop(); closePart(); setValue(goal); }, { signal });
   play.addEventListener("click", () => {
-    if (playing) { stop(); return; }
+    if (scene?.moving) { stop(); return; }
     closePart();
-    const direction = value > 0.99 ? -1 : 1;
-    if (reduced()) { setValue(direction === 1 ? 1 : 0, true); return; }
-    playing = true; play.textContent = "Пауза";
-    const advance = () => {
-      if (disposed || !playing) return;
-      if (document.hidden || !visible) { stop(); return; }
-      setValue(value + direction / 7, true);
-      if (value === 0 || value === 1) stop();
-      else timer = setTimeout(advance, 2100);
-    };
-    advance();
+    if (value >= 0.999) direction = -1;
+    if (value <= 0.001) direction = 1;
+    setValue(direction > 0 ? 1 : 0);
   }, { signal });
-  let visible = false;
-  const visibility = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (!visible) stop(); });
+  $(".sub-playback select").addEventListener("change", e => scene?.setSpeed(+e.target.value), { signal });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }, { signal });
+  const visibility = new IntersectionObserver(([e]) => { if (!e.isIntersecting) stop(); });
   visibility.observe(section);
   $(".sub-catalogue input").addEventListener("input", catalogue, { signal });
   $(".sub-inspector__close").addEventListener("click", closePart, { signal });
@@ -203,7 +220,7 @@ export function mountSubmarinerWorkshop(root) {
       if (e.key === "+" || e.key === "=") scene?.zoom(0.8);
       if (e.key === "-") scene?.zoom(1.25);
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-        e.preventDefault(); stop(); setValue(value + (e.key === "ArrowRight" ? 1 : -1) / 7, true);
+        e.preventDefault(); stop(); setValue(value + (e.key === "ArrowRight" ? 1 : -1) / 7);
       }
     }
   }, { signal });

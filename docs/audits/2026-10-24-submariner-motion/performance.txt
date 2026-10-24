@@ -1,0 +1,7 @@
+
+/watch/rolex-submariner
+  запросов 53, 393 КБ (Font 159 КБ, Script 154 КБ, Stylesheet 48 КБ, Image 22 КБ, Fetch 5 КБ, Document 4 КБ, Manifest 1 КБ, Other 1 КБ)
+  FCP 324 мс, LCP 1460 мс, DCL 539 мс, load 546 мс; блокировка потока (TBT) 544 мс; память JS 3 МБ
+  фон 10 с: запросов 1, 22 КБ, длинных задач 0 (TBT 0 мс)
+    /assets/photos/rolex-submariner/1-960.webp 22 КБ
+  прокрутка: кадров 150, медленных (>33 мс) 1, p95 17 мс

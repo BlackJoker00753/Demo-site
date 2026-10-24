@@ -5,8 +5,8 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { frameGate, lowPower, reduced } from "../core/motion.js";
 import { describePart } from "./submariner-parts.js";
+import { planParts, samplePart, timelineSeconds, timelineProgress } from "./submariner-motion.js";
 
-const smooth = (a, b, t) => { const x = THREE.MathUtils.clamp((t - a) / (b - a), 0, 1); return x * x * (3 - 2 * x); };
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 
 /** A demand-rendered viewer: geometry is generated once in Blender, never on the phone. */
@@ -40,7 +40,7 @@ export class SubmarinerScene {
     this.controls.touches.ONE = THREE.TOUCH.ROTATE;
     this.controls.touches.TWO = THREE.TOUCH.DOLLY_PAN;
     this.controls.addEventListener("change", () => this.request());
-    this.controls.addEventListener("start", () => { this.cameraGoal = null; });
+    this.controls.addEventListener("start", () => { this.cameraGoal = null; this.followMotion = false; });
     const key = new THREE.DirectionalLight(0xfff7eb, 1.1);
     key.position.set(-60, 150, 90);
     key.castShadow = true;
@@ -131,9 +131,19 @@ export class SubmarinerScene {
       const info = describePart(name);
       const id = `part-${index}`;
       node.userData.workshopId = id;
-      const home = node.position.clone();
       const center = box.getCenter(V());
-      const part = { ...info, id, node, home, center, quaternion: node.quaternion.clone(), materials: [] };
+      const pivot = new THREE.Group();
+      pivot.position.copy(center);
+      pivot.userData = { ...node.userData, workshopId: id };
+      this.scene.add(pivot);
+      pivot.attach(node);
+      const thread = node.userData.workshop_axis ? {
+        axis: V(...node.userData.workshop_axis).normalize(),
+        turns: node.userData.workshop_turns,
+        pitch: node.userData.workshop_pitch,
+        clearance: /^Винт/.test(name) ? Math.max(3, ...box.getSize(V()).toArray()) : 4,
+      } : null;
+      const part = { ...info, id, node: pivot, home: center.clone(), center, size: box.getSize(V()), thread, materials: [] };
       node.traverse(mesh => {
         if (!mesh.isMesh) return;
         mesh.castShadow = true;
@@ -188,14 +198,23 @@ export class SubmarinerScene {
       x += width; row = Math.max(row, depth);
       // Each phase opens its own compartment without burying the small components.
       const i = this.parts.filter(p => p.stage === part.stage).indexOf(part);
-      part.exploded = part.stage === 1
-        ? V((i % 4 - 1.5) * 25, -30, Math.floor(i / 4) * 11 - 70).sub(part.center).add(part.home)
-        : part.home.clone().add(V(
-        (i % 4 - 1.5) * 13,
-        part.stage === 6 ? 22 + i * 4 : -part.stage * 10 - i * 2.2,
-        part.stage === 1 ? (part.center.z > 0 ? 36 : -36) : (Math.floor(i / 4) - 1) * 13,
-      ));
+      if (part.stage === 1) {
+        const outward = V(0, part.center.y + 32, part.center.z).normalize().multiplyScalar(12);
+        outward.x = /лев/.test(part.name) ? -5 : /прав/.test(part.name) ? 5 : 0;
+        outward.z += Math.sign(part.center.z) * 6;
+        part.exploded = part.home.clone().add(outward);
+      } else if (part.name === "Задняя крышка") part.exploded = part.home.clone().add(V(0, -82, 0));
+      else if (/Головка|Трубка/.test(part.name)) part.exploded = part.home.clone().add(V(26, 0, 0));
+      else if (part.stage === 3) part.exploded = part.home.clone().add(V(part.thread ? 27 + i * 2 : 0, /Ротор/.test(part.name) ? -62 : -46, 0));
+      else if (part.stage === 6) {
+        const height = /Стекло/.test(part.name) ? 38 : /Вставка|Капсула/.test(part.name) ? 29 : /Безель/.test(part.name) ? 23
+          : /Секундная/.test(part.name) ? 21 : /Минутная/.test(part.name) ? 17 : /Часовая/.test(part.name) ? 13 : 8;
+        part.exploded = part.home.clone().add(V(0, height, 0));
+      } else part.exploded = part.home.clone().add(V((i % 4 - 1.5) * 12, -part.stage * 5 - i * 2, (Math.floor(i / 4) - 1) * 10));
     }
+    const dial = this.parts.find(p => p.name === "Циферблат");
+    if (dial) for (const p of this.parts.filter(p => /Метка/.test(p.name))) p.exploded = p.home.clone().add(dial.exploded.clone().sub(dial.home));
+    this.plans = planParts(this.parts);
     this.trayDepth = z + row;
     this.setT(this.targetT, true);
     this.view("front", true);
@@ -215,11 +234,28 @@ export class SubmarinerScene {
   }
 
   setT(t, instant = false) {
-    this.fromT = this.t;
-    this.motionStart = performance.now();
+    this.fromTime = timelineSeconds(this.t);
+    this.elapsed = 0;
+    this.lastFrameAt = null;
     this.targetT = THREE.MathUtils.clamp(t, 0, 1);
-    if (instant || reduced()) this.t = this.targetT;
+    this.targetTime = timelineSeconds(this.targetT);
+    this.moving = this.t !== this.targetT && !instant && !reduced();
+    this.followMotion = this.moving;
+    this.focusKey = null;
+    if (instant || reduced()) { this.t = this.targetT; this.positionParts(this.t); }
+    this.onProgress?.(this.t, this.moving);
     this.request();
+  }
+
+  setSpeed(speed) {
+    this.speed = Math.max(0.5, Math.min(1.5, speed));
+  }
+
+  pause() {
+    this.targetT = this.t;
+    this.moving = false;
+    this.cameraGoal = null;
+    this.onProgress?.(this.t, false);
   }
 
   select(id) {
@@ -231,7 +267,7 @@ export class SubmarinerScene {
   }
 
   isolate(id) {
-    this.t = this.targetT;
+    this.pause();
     this.positionParts(this.t);
     this.isolated = id;
     for (const p of this.parts) p.node.visible = !id || p.id === id;
@@ -243,13 +279,13 @@ export class SubmarinerScene {
   }
 
   view(name, instant = false) {
+    this.followMotion = false;
     this.isolated = null;
     for (const p of this.parts) p.node.visible = true;
     if (name === "tray") {
       const box = new THREE.Box3(V(-105, -10, -65), V(105, 10, Math.max(70, this.trayDepth)));
       this.fit(box, V(0.1, 1.5, 0.7), instant);
     } else {
-      this.positionParts(this.targetT);
       const box = new THREE.Box3();
       for (const p of this.parts) box.expandByObject(p.node);
       this.fit(box, name === "back" ? V(0.6, -0.8, 1.1) : V(0.45, 1.5, 1.1), instant);
@@ -271,7 +307,8 @@ export class SubmarinerScene {
     this.targetGoal = center;
     this.cameraFrom = this.camera.position.clone();
     this.targetFrom = this.controls.target.clone();
-    this.cameraStart = performance.now();
+    this.cameraElapsed = 0;
+    this.cameraDuration = 1.1;
     if (instant || reduced()) {
       this.camera.position.copy(this.cameraGoal);
       this.controls.target.copy(center);
@@ -282,6 +319,7 @@ export class SubmarinerScene {
   }
 
   zoom(amount) {
+    this.followMotion = false;
     this.cameraGoal = null;
     const offset = this.camera.position.clone().sub(this.controls.target).multiplyScalar(amount);
     const distance = offset.length();
@@ -303,35 +341,81 @@ export class SubmarinerScene {
   request() {
     if (this.pending || this.dead) return;
     this.pending = true;
-    this.raf(() => this.render());
+    this.raf(now => this.render(now));
   }
 
-  render() {
+  render(now) {
     this.pending = false;
-    if (this.dead || document.hidden) return;
-    const progress = THREE.MathUtils.clamp((performance.now() - (this.motionStart ?? 0)) / 650, 0, 1);
-    let moving = this.t !== this.targetT && progress < 1;
-    this.t = moving ? THREE.MathUtils.lerp(this.fromT, this.targetT, 1 - (1 - progress) ** 3) : this.targetT;
+    if (this.dead || document.hidden) { this.lastFrameAt = null; return; }
+    const dt = this.lastFrameAt == null ? 0 : Math.max(0, (now - this.lastFrameAt) / 1000);
+    this.lastFrameAt = now;
+    const wasMoving = this.moving;
+    if (this.moving) {
+      this.elapsed += dt * (this.speed ?? 1);
+      const direction = Math.sign(this.targetTime - this.fromTime);
+      const seconds = this.fromTime + direction * Math.min(this.elapsed, Math.abs(this.targetTime - this.fromTime));
+      this.t = timelineProgress(seconds);
+      if (this.elapsed >= Math.abs(this.targetTime - this.fromTime)) { this.t = this.targetT; this.moving = false; }
+    }
     this.positionParts(this.t);
+    if (wasMoving && !this.moving && this.t === 0 && this.followMotion) this.view("front");
+    if (this.followMotion && this.moving) this.focusMotion();
     if (this.cameraGoal) {
-      const t = reduced() ? 1 : THREE.MathUtils.clamp((performance.now() - this.cameraStart) / 650, 0, 1);
+      this.cameraElapsed += dt;
+      const t = reduced() ? 1 : THREE.MathUtils.clamp(this.cameraElapsed / this.cameraDuration, 0, 1);
       const ease = 1 - (1 - t) ** 3;
       this.camera.position.lerpVectors(this.cameraFrom, this.cameraGoal, ease);
       this.controls.target.lerpVectors(this.targetFrom, this.targetGoal, ease);
-      if (t < 1) moving = true;
-      else this.cameraGoal = null;
+      if (t === 1) this.cameraGoal = null;
     }
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
-    if (moving) this.request();
+    this.onProgress?.(this.t, this.moving);
+    if (this.moving || this.cameraGoal) this.request();
+    else this.lastFrameAt = null;
   }
 
   positionParts(t) {
     for (const p of this.parts) {
-      const phase = p.stage === 0 ? 0 : smooth((p.stage - 0.8) / 7, p.stage / 7, t);
-      p.node.position.lerpVectors(p.home, p.exploded, phase);
-      p.node.position.lerp(p.tray, smooth(0.88, 1, t));
+      const pose = samplePart(this.plans.get(p.id), t);
+      p.node.quaternion.identity();
+      if (p.thread) {
+        const distance = p.thread.turns * p.thread.pitch * pose.spin + p.thread.clearance * pose.exit;
+        p.node.position.copy(p.home).addScaledVector(p.thread.axis, distance).lerp(p.exploded, pose.travel);
+        p.node.quaternion.setFromAxisAngle(p.thread.axis, p.thread.turns * Math.PI * 2 * pose.spin);
+      } else p.node.position.lerpVectors(p.home, p.exploded, pose.travel);
+      p.node.position.lerp(p.tray, pose.layout);
     }
+  }
+
+  focusMotion() {
+    const stage = Math.max(1, Math.min(7, Math.ceil(this.t * 7 - 1e-6)));
+    const local = this.t * 7 - (stage - 1);
+    const macro = [1, 3, 4].includes(stage) && local < (stage === 1 ? 0.46 : 0.57);
+    const key = `${stage}-${macro}`;
+    if (key === this.focusKey) return;
+    this.focusKey = key;
+    const screw = macro && this.parts.filter(p => p.stage === stage && p.thread)
+      .sort((a, b) => this.plans.get(a.id).start - this.plans.get(b.id).start)[0];
+    let box;
+    if (screw) {
+      const size = stage === 1 ? V(16, 12, 16) : V(13, 11, 13);
+      const center = screw.home.clone().addScaledVector(screw.thread.axis, stage === 1 ? screw.size.x / 2 + 3 : 0);
+      box = new THREE.Box3(center.clone().sub(size), center.clone().add(size));
+    } else if (stage === 7) box = new THREE.Box3(V(-105, -10, -65), V(105, 10, Math.max(70, this.trayDepth)));
+    else {
+      box = new THREE.Box3();
+      for (const p of this.parts.filter(p => stage === 1 || p.stage === 0 || p.stage >= stage)) {
+        for (const center of p.stage === stage ? [p.home, p.exploded] : [p.home]) {
+          box.expandByPoint(center.clone().sub(p.size.clone().multiplyScalar(0.5)));
+          box.expandByPoint(center.clone().add(p.size.clone().multiplyScalar(0.5)));
+        }
+      }
+    }
+    // View the slotted head from its extraction side, not through the opposite link.
+    const direction = stage === 1 && screw ? screw.thread.axis.clone().multiplyScalar(1.6).add(V(0, 0.55, Math.sign(screw.home.z) * 0.8))
+      : stage >= 2 && stage <= 5 ? V(0.4, -1.3, 1) : V(0.45, 1.5, 1.1);
+    this.fit(box, direction);
   }
 
   disposeObject(object) {
