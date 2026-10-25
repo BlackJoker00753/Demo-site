@@ -83,13 +83,38 @@ export function samplePart(plan, progress) {
   return { spin: 0, exit: 0, travel: window(local, plan.start, plan.end), layout };
 }
 
-export function motionCaption(progress, reverse = false) {
+// Camera and captions share the same actions, so a close-up names what it shows.
+export function motionShot(progress) {
+  if (progress <= 0) return { key: "assembled", stage: 0, kind: "assembled" };
   const stage = Math.max(1, Math.min(7, Math.ceil(progress * 7 - 1e-6)));
   const local = progress * 7 - (stage - 1);
-  const forward = stage === 1 ? (local < 0.54 ? "Винты браслета: выкручивание" : local < 0.79 ? "Извлечение крепежа" : "Отделение звеньев")
-    : stage === 2 ? "Крышка и головка: выход по резьбе"
-    : stage === 3 || stage === 4 ? (local < 0.62 ? "Выкручивание крепёжных винтов" : "Снятие узлов после освобождения крепежа")
-    : stage === 5 ? "Поочерёдное снятие колёс и деталей барабана"
-    : stage === 6 ? "Безель, стекло, стрелки и циферблат" : "Раскладка деталей на столе";
-  return reverse ? (stage <= 4 && local < 0.62 ? "Затягивание резьбовых соединений" : "Возвращение деталей на посадочные места") : forward;
+  const kind = stage === 1 ? (local < 0.46 ? "thread" : "bracelet")
+    : stage === 2 ? (local < 0.58 ? "back" : "crown")
+    : stage === 3 ? (local < 0.48 ? "thread" : local < 0.74 ? "rotor" : "winding")
+    : stage === 4 ? (local < 0.62 ? "thread" : "balance")
+    : stage === 5 ? (local < 0.34 ? "wheels" : local < 0.60 ? "barrel" : local < 0.76 ? "cover" : local < 0.94 ? "spring" : "arbor")
+    : stage === 6 ? "front" : "tray";
+  return { key: `${stage}-${kind}`, stage, kind };
+}
+
+export function motionCaption(progress, reverse = false) {
+  const shot = motionShot(progress);
+  if (reverse) return shot.kind === "thread" || shot.kind === "back" || shot.kind === "crown"
+    ? "Затягивание резьбовых соединений" : "Возвращение деталей на посадочные места";
+  return {
+    thread: shot.stage === 1 ? "Винты браслета: выкручивание и извлечение" : "Выкручивание крепёжных винтов",
+    bracelet: "Освобождённые звенья отходят от корпуса",
+    back: "Задняя крышка: выход по резьбе",
+    crown: "Заводная головка: выход по резьбе",
+    rotor: "Снятие ротора автоподзавода",
+    winding: "Снятие моста и колёс автоподзавода",
+    balance: "Освобождение баланса со спиралью",
+    wheels: "Поочерёдное снятие колёс передачи",
+    barrel: "Извлечение барабана вместе с его содержимым",
+    cover: "Открытие крышки снятого барабана",
+    spring: "Извлечение заводной пружины",
+    arbor: "Снятие вала барабана",
+    front: "Безель, стекло, стрелки и циферблат",
+    tray: "Укладка деталей на столе",
+  }[shot.kind] ?? "Часы в сборе";
 }

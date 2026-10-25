@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { timelineSeconds, timelineProgress, TOTAL_SECONDS, planParts, samplePart } from "../frontend/js/ui/submariner-motion.js";
+import { timelineSeconds, timelineProgress, TOTAL_SECONDS, planParts, samplePart, motionShot, motionCaption } from "../frontend/js/ui/submariner-motion.js";
 
 const part = (name, stage, threaded = false) => ({ id: name, name, stage, thread: threaded ? {} : null });
 const fixture = [
@@ -48,4 +48,13 @@ test("scrubbing back exactly retraces every intermediate pose, with no finish-on
     }
     assert.deepEqual(samplePart(plan, 0), { spin: 0, exit: 0, travel: 0, layout: 0 });
   }
+});
+
+test("camera and captions follow rotor, barrel and spring actions in both directions", () => {
+  for (const [t, kind] of [[2.62/7,"rotor"],[3.88/7,"balance"],[4.58/7,"barrel"],[4.68/7,"cover"],[4.85/7,"spring"],[4.97/7,"arbor"],[1,"tray"]]) {
+    assert.equal(motionShot(t).kind, kind);
+    assert.ok(motionCaption(t).length > 10);
+    assert.match(motionCaption(t, true), /Возвращение/);
+  }
+  assert.equal(motionShot(0).kind,"assembled");
 });

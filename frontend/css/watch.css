@@ -509,9 +509,11 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 .sub-transport__actions button:first-child, .sub-transport__actions button:last-child { background: var(--surface-2); color: var(--text); }
 .sub-transport__actions button:disabled { opacity: .4; cursor: default; }
 .sub-progress { grid-column: 1 / -1; display: flex; gap: 16px; align-items: center; color: var(--text-2); font-size: 13px; }
-.sub-playback { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--text-2); font-size: 13px; }
+.sub-playback { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; color: var(--text-2); font-size: 13px; }
 .sub-playback output { font-variant-numeric: tabular-nums; }
 .sub-playback label { display: flex; gap: 10px; align-items: center; }
+.sub-playback__camera { min-height: 44px; cursor: pointer; }
+.sub-playback__camera input { width: 16px; height: 16px; accent-color: #d8dfe3; }
 .sub-playback select { min-height: 44px; padding: 8px 14px; color: var(--text); border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface-2); font: inherit; }
 .sub-progress input { flex: 1; min-width: 0; height: 44px; appearance: none; -webkit-appearance: none; background: transparent; accent-color: #d8dfe3; cursor: ew-resize; }
 .sub-progress input::-webkit-slider-runnable-track { height: 3px; border-radius: 99px; background: #646e76; }
@@ -537,7 +539,7 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 .sub-catalogue__list button:hover { color: var(--text); }
 .sub-about p { font-size: 15px; line-height: 1.75; color: var(--text-2); max-width: 72ch; margin: 16px 0; }
 .sub-about a { color: var(--text); text-underline-offset: 4px; font-size: 14px; }
-.sub-workshop :is(button, input, summary, canvas):focus-visible { outline: 2px solid var(--lume); outline-offset: 4px; }
+.sub-workshop :is(button, input, select, summary, canvas):focus-visible { outline: 2px solid var(--lume); outline-offset: 4px; }
 .sub-workshop [hidden] { display: none !important; }
 @media (max-width: 900px) {
   .sub-workshop__body { grid-template-columns: minmax(0, 1fr); }

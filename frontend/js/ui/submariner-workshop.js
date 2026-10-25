@@ -40,7 +40,7 @@ export function renderSubmarinerWorkshop() {
         <button type="button" data-sub-play disabled>Разобрать часы</button>
         <button type="button" data-sub-next aria-label="Следующий этап" disabled>Далее</button>
       </div>
-      <div class="sub-playback"><output aria-label="Время разборки" aria-live="off">00:00 / 00:51</output><label>Темп <select aria-label="Скорость разборки"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option></select></label></div>
+      <div class="sub-playback"><output aria-label="Время разборки" aria-live="off">00:00 / 00:51</output><label class="sub-playback__camera"><input type="checkbox" data-sub-camera checked>Автокамера</label><label>Темп <select aria-label="Скорость разборки"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option></select></label></div>
       <label class="sub-progress"><span>Собраны</span><input type="range" min="0" max="1000" step="1" value="0" aria-label="Степень разборки Submariner" disabled><span>Разобраны</span></label>
     </div>
     <details class="sub-catalogue"><summary>Найти деталь <span class="sub-catalogue__count"></span></summary>
@@ -82,8 +82,9 @@ export function mountSubmarinerWorkshop(root) {
     const description = moving ? motionCaption(value, direction < 0) : STEPS[activeStep][1];
     text(caption, description);
     text(clock, `${timecode(timelineSeconds(value))} / ${timecode(TOTAL_SECONDS)}`);
+    $("[data-sub-camera]").checked = scene?.autoCamera ?? true;
     $("[data-sub-prev]").disabled = !scene || value === 0;
-    $("[data-sub-next]").disabled = !scene || target === 1;
+    $("[data-sub-next]").disabled = !scene || activeStep >= 7;
     text(play, moving ? "Пауза" : value >= 0.999 || direction < 0 && value > 0 ? "Собрать часы" : value > 0 ? "Продолжить разборку" : "Разобрать часы");
   };
   const stop = () => {
@@ -98,7 +99,7 @@ export function mountSubmarinerWorkshop(root) {
     direction = Math.sign(target - value) || direction;
     const direct = instant || reduced();
     scene?.setT(target, direct);
-    if (direct) scene?.view(target > 0.94 ? "tray" : target > 0.2 && target < 0.79 ? "back" : "front", reduced());
+    if (direct && scene?.autoCamera) scene.focusMotion(reduced());
     if (!scene) update(target);
   };
   const closePart = () => {
@@ -188,13 +189,17 @@ export function mountSubmarinerWorkshop(root) {
     const part = e.target.closest("[data-sub-part]");
     if (part) selectPart(part.dataset.subPart, true);
     const view = e.target.closest("[data-sub-view]");
-    if (view) scene?.view(view.dataset.subView);
+    if (view) { scene?.setAutoCamera(false); scene?.view(view.dataset.subView); }
     const zoom = e.target.closest("[data-sub-zoom]");
     if (zoom) scene?.zoom(+zoom.dataset.subZoom);
   }, { signal });
   slider.addEventListener("input", () => { const t = +slider.value / 1000; stop(); if (scene?.isolated) closePart(); setValue(t, true); }, { signal });
   $("[data-sub-prev]").addEventListener("click", () => { const goal = Math.max(0, activeStep - 1) / 7; stop(); closePart(); setValue(goal); }, { signal });
-  $("[data-sub-next]").addEventListener("click", () => { const goal = Math.min(7, Math.round(target * 7) + 1) / 7; stop(); closePart(); setValue(goal); }, { signal });
+  $("[data-sub-next]").addEventListener("click", () => {
+    const step = scene?.moving && target > value && target < 1 ? Math.round(target * 7) : Math.max(0, activeStep);
+    const goal = Math.min(7, step + 1) / 7;
+    stop(); closePart(); setValue(goal);
+  }, { signal });
   play.addEventListener("click", () => {
     if (scene?.moving) { stop(); return; }
     closePart();
@@ -203,6 +208,7 @@ export function mountSubmarinerWorkshop(root) {
     setValue(direction > 0 ? 1 : 0);
   }, { signal });
   $(".sub-playback select").addEventListener("change", e => scene?.setSpeed(+e.target.value), { signal });
+  $("[data-sub-camera]").addEventListener("change", e => scene?.setAutoCamera(e.target.checked), { signal });
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }, { signal });
   const visibility = new IntersectionObserver(([e]) => { if (!e.isIntersecting) stop(); });
   visibility.observe(section);
