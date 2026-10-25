@@ -8,6 +8,9 @@ import pytest
 _TMP = Path(tempfile.mkdtemp(prefix="horologium-test-"))
 os.environ["HOROLOGIUM_DB"] = str(_TMP / "test.sqlite3")
 os.environ["HOROLOGIUM_RATES_LIVE"] = "0"  # тесты не ходят в сеть за курсами
+# HTTP-проверки используют testserver, независимо от адреса окружения хостинга.
+os.environ.pop("HOROLOGIUM_SITE_URL", None)
+os.environ.pop("RENDER_EXTERNAL_URL", None)
 
 
 @pytest.fixture(scope="session")

@@ -37,6 +37,10 @@ uv run horologium serve
 
 Откройте http://127.0.0.1:8765. База SQLite собирается из YAML-контента автоматически при первом запуске и при любом изменении файлов в `content/`.
 
+Размещение в интернете: [Deploy to Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FBlackJoker00753%2FDemo-site%2Ftree%2Ffeat%2Fsubmariner-workshop).
+Конфигурация в `render.yaml`: текущая ветка мастерской, Docker и автоматическое обновление после пуша.
+Порядок подключения аккаунта, домен и проверка контейнера: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 ## Команды
 
 | Команда | Что делает |
@@ -63,7 +67,8 @@ uv run horologium serve
 | Blender: `exec(open("scripts/blender/sub124060_scene.py").read(), G); G["make"](root)`, затем `Blender -b … -a` | модель, механизм, свет и анимация фильма-разборки; рендер кадров |
 | `uv run python scripts/teardown_film.py rolex-submariner` | кадры фильма → WebP для сайта и `film.json` с главами |
 
-Переменные окружения: `HOROLOGIUM_SITE_URL` (публичный адрес для canonical, Open Graph и sitemap),
+Переменные окружения: `HOROLOGIUM_SITE_URL` (публичный адрес для canonical, Open Graph и sitemap;
+на Render автоматически используется `RENDER_EXTERNAL_URL`),
 `HOROLOGIUM_RATES_LIVE=0` (не ходить в сеть за курсами валют), `HOROLOGIUM_DB`, `HOROLOGIUM_CONTENT`.
 
 API-документация: http://127.0.0.1:8765/api/docs

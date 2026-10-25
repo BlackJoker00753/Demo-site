@@ -157,7 +157,8 @@ content/*.yaml ──(loader + schema)──▶ ContentBundle ──(db/build)�
 заголовок и описание, canonical, Open Graph и Twitter (картинка: фото модели или бренда, снимок страны,
 иначе `assets/brand/og.jpg`), JSON-LD (`Product` с ценой для официальной розницы, `Brand`, `WebSite`,
 `BreadcrumbList`) и короткий текст страницы со ссылками в `<noscript>`. Неизвестные адреса отдают 404 и
-`noindex`, `/compare` и `/lab` не индексируются. Публичный адрес сайта: `HOROLOGIUM_SITE_URL` (иначе из
+`noindex`, `/compare` и `/lab` не индексируются. Публичный адрес сайта: `HOROLOGIUM_SITE_URL`,
+на Render его заменяет `RENDER_EXTERNAL_URL`, если своё значение не задано (иначе из
 запроса). `sitemap.xml` перечисляет все страницы стран, брендов, моделей, усложнений и калибров.
 
 **PWA.** `frontend/sw.js`: страницы, код и API сначала из сети, без сети из кеша (посещённые страницы

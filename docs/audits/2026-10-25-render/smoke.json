@@ -1,0 +1,54 @@
+{
+  "image": "sha256:ce6093eb92c12b718e226e6ab7bd58ef1e6e8c073ed9ce8a51fe3ab0086a18fe",
+  "container_port": 10000,
+  "host_binding": "0.0.0.0",
+  "https_canonical": "passed",
+  "checks": {
+    "/": {
+      "status": 200,
+      "bytes": 10149
+    },
+    "/watch/rolex-submariner": {
+      "status": 200,
+      "bytes": 11281
+    },
+    "/api/v1/stats": {
+      "status": 200,
+      "bytes": 245
+    },
+    "/sitemap.xml": {
+      "status": 200,
+      "bytes": 33421
+    },
+    "/js/ui/submariner-scene.js": {
+      "status": 200,
+      "bytes": 27636
+    },
+    "/vendor/three/three.module.js": {
+      "status": 200,
+      "bytes": 392831
+    },
+    "/assets/workshop/submariner/submariner.glb": {
+      "status": 200,
+      "bytes": 3314224,
+      "sha256": "85513a7fdbf75727ae6429d3866b92517231fabd6df5254a29fddf46a330bc0d"
+    }
+  },
+  "stats": {
+    "countries": 8,
+    "brands": 44,
+    "watches": 112,
+    "movements": 110,
+    "complications": 21,
+    "in_house_share": 0.795,
+    "prices": {
+      "count": 112,
+      "avg": 23263,
+      "median": 7775,
+      "min": 70,
+      "max": 385000
+    },
+    "content_digest": "dc1d2267cb668a6d",
+    "built_at": "2026-10-25T18:33:59+00:00"
+  }
+}

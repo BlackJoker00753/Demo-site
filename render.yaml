@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: horologium
+    runtime: docker
+    repo: https://github.com/BlackJoker00753/Demo-site
+    branch: feat/submariner-workshop
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/v1/stats
+    autoDeployTrigger: commit
