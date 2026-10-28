@@ -73,6 +73,10 @@ export class TcoCalculator {
   }
 
   render() {
+    const active = this.container.contains(document.activeElement) ? document.activeElement : null;
+    const option = ["years", "wear", "cond", "tier"].find(key => active?.hasAttribute(`data-${key}`));
+    const focusSelector = active?.id ? `#${CSS.escape(active.id)}`
+      : option ? `[data-${option}="${CSS.escape(active.getAttribute(`data-${option}`))}"]` : null;
     const res = this.calculate();
     const brandProfile = getBrandProfile(this.brandSlug);
 
@@ -112,11 +116,11 @@ export class TcoCalculator {
               <span>Горизонт владения:</span>
               <strong class="tco-val-highlight" id="tco-years-val">${this.state.years} ${this.formatYearsText(this.state.years)}</strong>
             </div>
-            <div class="tco-pills" role="radiogroup" aria-label="Срок владения">
+            <div class="tco-pills" role="group" aria-label="Срок владения">
               ${[5, 10, 15]
                 .map(
                   (y) => `
-                <button type="button" class="chip tco-pill ${this.state.years === y ? "is-active" : ""}" data-years="${y}">
+                <button type="button" class="chip tco-pill ${this.state.years === y ? "is-active" : ""}" data-years="${y}" aria-pressed="${this.state.years === y}">
                   ${y} лет
                 </button>
               `
@@ -140,11 +144,11 @@ export class TcoCalculator {
               <span>Частота носки на запястье:</span>
               <strong class="tco-val-highlight">${res.wearFrequency.daysPerYear} дн / год</strong>
             </div>
-            <div class="tco-pills" role="radiogroup" aria-label="Частота носки">
+            <div class="tco-pills tco-pills--options" role="group" aria-label="Частота носки">
               ${Object.values(WEAR_FREQUENCIES)
                 .map(
                   (wf) => `
-                <button type="button" class="chip tco-pill ${this.state.wearFrequencyId === wf.id ? "is-active" : ""}" data-wear="${wf.id}" title="${wf.desc}">
+                <button type="button" class="chip tco-pill ${this.state.wearFrequencyId === wf.id ? "is-active" : ""}" data-wear="${wf.id}" aria-pressed="${this.state.wearFrequencyId === wf.id}" title="${wf.desc}">
                   ${wf.name}
                 </button>
               `
@@ -159,11 +163,11 @@ export class TcoCalculator {
               <span>Состояние и комплектность:</span>
               <strong class="tco-val-highlight">${res.condition.badge}</strong>
             </div>
-            <div class="tco-pills" role="radiogroup" aria-label="Состояние часов">
+            <div class="tco-pills tco-pills--options" role="group" aria-label="Состояние часов">
               ${Object.values(CONDITION_MODIFIERS)
                 .map(
                   (c) => `
-                <button type="button" class="chip tco-pill ${this.state.conditionId === c.id ? "is-active" : ""}" data-cond="${c.id}">
+                <button type="button" class="chip tco-pill ${this.state.conditionId === c.id ? "is-active" : ""}" data-cond="${c.id}" aria-pressed="${this.state.conditionId === c.id}">
                   ${c.name}
                 </button>
               `
@@ -178,11 +182,11 @@ export class TcoCalculator {
               <span>Класс усложнений (репассаж):</span>
               <strong class="tco-val-highlight">${res.serviceTier.name} (${usd(res.serviceTier.baseCostUsd)} раз в ${res.serviceTier.intervalYears} лет)</strong>
             </div>
-            <div class="tco-pills" role="radiogroup" aria-label="Класс обслуживания">
+            <div class="tco-pills tco-pills--options" role="group" aria-label="Класс обслуживания">
               ${Object.values(SERVICE_COMPLICATION_TIERS)
                 .map(
                   (st) => `
-                <button type="button" class="chip tco-pill ${this.state.serviceTierId === st.id ? "is-active" : ""}" data-tier="${st.id}" title="${st.note}">
+                <button type="button" class="chip tco-pill ${this.state.serviceTierId === st.id ? "is-active" : ""}" data-tier="${st.id}" aria-pressed="${this.state.serviceTierId === st.id}" title="${st.note}">
                   ${st.name}
                 </button>
               `
@@ -329,6 +333,7 @@ export class TcoCalculator {
         </div>
       </div>
     `;
+    if (focusSelector) this.container.querySelector(focusSelector)?.focus({ preventScroll: true });
   }
 
   bind() {

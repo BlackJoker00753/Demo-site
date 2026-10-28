@@ -1,0 +1,109 @@
+{
+  "reports": [
+    {
+      "width": 320,
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 13.819505125831151,
+      "mutedContrast": 6.280756131015683,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить тёмную тему"
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 16.742925640773457,
+      "mutedContrast": 9.14875961706073,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить светлую тему"
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 13.819505125831151,
+      "mutedContrast": 6.280756131015683,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить тёмную тему"
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 16.742925640773457,
+      "mutedContrast": 9.14875961706073,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить светлую тему"
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 13.819505125831151,
+      "mutedContrast": 6.280756131015683,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить тёмную тему"
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 16.742925640773457,
+      "mutedContrast": 9.14875961706073,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить светлую тему"
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 13.819505125831151,
+      "mutedContrast": 6.280756131015683,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить тёмную тему"
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "navFits": true,
+      "contrast": 16.742925640773457,
+      "mutedContrast": 9.14875961706073,
+      "workbench": "rgb(229, 232, 235)",
+      "benchContrast": 12.157563611012462,
+      "selected": 1,
+      "themeButton": "Включить светлую тему"
+    }
+  ],
+  "problems": []
+}

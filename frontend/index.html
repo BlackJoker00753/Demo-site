@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-theme="dark">
+<html lang="ru" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,8 @@
   <meta property="og:title" content="<!--SSR:TITLE-->">
   <meta property="og:description" content="<!--SSR:DESCRIPTION-->">
   <!--SSR:HEAD-->
-  <meta name="theme-color" content="#07080a">
+  <meta name="theme-color" content="#f5f6f7">
+  <script src="/js/core/theme.js"></script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
@@ -28,6 +29,7 @@
   <link rel="stylesheet" href="/css/brand.css">
   <link rel="stylesheet" href="/css/watch.css">
   <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/themes.css">
 
   <script type="importmap">
   {
@@ -81,6 +83,10 @@
         </div>
       </div>
 
+      <button class="nav__theme" type="button" data-theme-toggle aria-label="Включить тёмную тему" aria-pressed="false" title="Включить тёмную тему">
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.8 8.8 0 0 1 10.8 3.5a8.8 8.8 0 1 0 9.7 9.7Z"/></svg>
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
       <button class="nav__search" id="search-open" type="button" aria-label="Поиск">
         <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
         <span>Поиск</span>

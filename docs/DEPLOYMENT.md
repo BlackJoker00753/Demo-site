@@ -3,6 +3,9 @@
 Проект запускается как Docker Web Service. Render собирает образ из GitHub и выдаёт постоянный
 HTTPS-адрес. Поднимать Python-сервер на своём компьютере для просмотра сайта не требуется.
 
+Опубликованный сайт: https://horologium-szy5.onrender.com/ .
+Мастерская: https://horologium-szy5.onrender.com/watch/rolex-submariner#explode .
+
 ## Первый запуск
 
 1. Открыть [Deploy to Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FBlackJoker00753%2FDemo-site%2Ftree%2Ffeat%2Fsubmariner-workshop).

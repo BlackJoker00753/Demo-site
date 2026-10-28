@@ -7,6 +7,7 @@
 //   WIDTHS=390 ONLY=/watch/ node scripts/site_audit.mjs http://localhost:8765
 //   PER_SECTION=3 node scripts/site_audit.mjs …   (по 3 страницы каждого раздела: быстро, для CI)
 //   SLOW_MS=0 …   не считать медленные переходы ошибкой (в CI без GPU 3D рисуется программно)
+//   THEME=dark …   повторить обход с сохранённой тёмной темой
 //
 // Выход: список проблем по страницам; код 1, если они есть.
 import { spawn } from "node:child_process";
@@ -75,6 +76,9 @@ await send("Runtime.enable");
 await send("Log.enable");
 await send("Network.enable");
 await send("Page.enable");
+if (["light", "dark"].includes(process.env.THEME)) {
+  await send("Page.addScriptToEvaluateOnNewDocument", { source: `localStorage.setItem("horologium-theme", ${JSON.stringify(process.env.THEME)})` });
+}
 
 const xml = await (await fetch(`${base}/sitemap.xml`)).text();
 const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname).concat(EXTRA).filter((p, i, all) => p.includes(only) && all.indexOf(p) === i)

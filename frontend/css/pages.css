@@ -1083,6 +1083,7 @@
   margin-top: var(--s-7);
 }
 .chrono-sim__header { display: grid; gap: 10px; }
+.chrono-sim > *, .chrono-sim__body > * { min-width: 0; }
 .chrono-sim__badge {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: var(--fs-13); color: var(--lume); text-transform: uppercase;
@@ -1111,7 +1112,14 @@
   align-items: center;
 }
 @media (max-width: 900px) {
-  .chrono-sim__body { grid-template-columns: 1fr; justify-items: center; }
+  .chrono-sim { padding: 20px; grid-template-columns: minmax(0, 1fr); }
+  .chrono-sim__header { grid-template-columns: minmax(0, 1fr); }
+  .chrono-sim__body { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .chrono-sim__console { width: 100%; grid-template-columns: minmax(0, 1fr); }
+  .chrono-sim__dial-wrap { max-width: 100%; padding: 0; }
+  .chrono-sim__badge { flex-wrap: wrap; }
+  .chrono-sim .chrono-display__time { font-size: clamp(26px, 7vw, 40px); }
+  .chrono-sim .chrono-pusher { height: auto; min-height: 48px; padding: 12px; white-space: normal; }
 }
 
 /* Dial and hands */
@@ -3351,8 +3359,10 @@
 
 .tco-val-highlight {
   color: var(--gold);
-  font-family: var(--font-mono);
-  font-size: var(--fs-13);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-14);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .tco-pills {
@@ -3362,14 +3372,17 @@
 }
 
 .tco-pill {
+  height: auto;
+  min-height: 44px;
+  line-height: 1.5;
   max-width: 100%;
   white-space: normal;
   text-align: left;
   cursor: pointer;
   border-radius: var(--r-pill);
-  font-size: var(--fs-12);
-  padding: 6px 12px;
-  transition: all 0.2s ease;
+  font-size: var(--fs-14);
+  padding: 10px 14px;
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
   user-select: none;
 }
 
@@ -3383,7 +3396,27 @@
   background: var(--surface-2);
   border-color: var(--gold);
   color: var(--gold);
-  box-shadow: 0 0 12px rgba(212, 163, 89, 0.2);
+  box-shadow: none;
+}
+
+.tco-pills--options { display: grid; grid-template-columns: minmax(0, 1fr); }
+.tco-pills--options .tco-pill {
+  width: 100%;
+  border-radius: var(--r-small);
+  justify-content: space-between;
+  gap: 16px;
+}
+.tco-pills--options .tco-pill::after {
+  content: "";
+  flex: none;
+  align-self: center;
+  width: 16px; height: 16px;
+  border: 1px solid var(--line-3);
+  border-radius: 50%;
+}
+.tco-pills--options .tco-pill.is-active::after {
+  border: 5px solid var(--gold);
+  background: var(--surface);
 }
 
 .tco-slider-wrap {
@@ -4005,7 +4038,7 @@
    ========================================================================== */
 
 .worldtime-view {
-  padding-top: 48px;
+  padding-top: calc(var(--nav-h) + var(--s-7));
   padding-bottom: 96px;
 }
 
@@ -4091,6 +4124,7 @@
 }
 
 .worldtime-sim__dial-wrap {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -4214,6 +4248,7 @@
 }
 
 .worldtime-sim__controls {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -4257,6 +4292,16 @@
   gap: 8px;
   font-size: 13px;
   padding: 12px 16px;
+  height: auto;
+  min-height: 48px;
+  white-space: normal;
+}
+
+.worldtime-sim__toggle-mech {
+  min-height: 48px;
+  height: auto;
+  white-space: normal;
+  padding-block: 12px;
 }
 
 .worldtime-sim__hint {
@@ -4269,6 +4314,7 @@
 .worldtime-sim__mode-toggle {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .worldtime-sim__manual-box {
@@ -4469,7 +4515,7 @@
 /* Адаптивность для мобильных и планшетов */
 @media (max-width: 1100px) {
   .worldtime-sim__stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .worldtime-sim__matrix-grid {
     grid-template-columns: repeat(3, 1fr);

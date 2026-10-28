@@ -1,0 +1,13 @@
+TASTESKILL · LINT   2 file(s)
+
+WARN
+  [shadow] Shadow. Elements at rest carry none; only real overlays (menu, dialog, sticky bar) may.  (4×)
+      frontend/css/themes.css:25  box-shadow:
+      frontend/css/themes.css:26  box-shadow:
+      frontend/css/themes.css:34  box-shadow:
+      frontend/css/themes.css:37  box-shadow:
+  [glass] Backdrop blur. One sticky bar at most; glass cards are a tell.  (1×)
+      frontend/css/themes.css:26  backdrop-filter:
+
+RESULT: 0 FAIL, 5 WARN
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.
