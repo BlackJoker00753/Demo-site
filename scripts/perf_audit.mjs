@@ -83,6 +83,8 @@ for (const path of pages) {
   await sleep(10000);
   const p2 = await evaluate(`__perf.long.slice()`);
   const idleLong = p2.slice(longBefore);
+  // Lazy resources reached by the scroll probe are not idle background traffic.
+  phase = "scroll";
   // прокрутка: 2,5 с плавной прокрутки, измеряем интервалы кадров
   const scroll = await evaluate(`(async () => {
     const H = document.documentElement.scrollHeight - innerHeight;
@@ -96,7 +98,7 @@ for (const path of pages) {
     return { frames: gaps.length, slow: gaps.filter((g) => g > 33).length, p95: Math.round(gaps[Math.floor(gaps.length * 0.95)]) };
   })()`);
   const all = [...reqs.values()];
-  const load = all.filter((r) => r.phase === "load"), idle = all.filter((r) => r.phase === "idle");
+  const load = all.filter((r) => r.phase === "load"), idle = all.filter((r) => r.phase === "idle"), scrolled = all.filter((r) => r.phase === "scroll");
   const byType = {};
   load.forEach((r) => (byType[r.type] = (byType[r.type] ?? 0) + r.bytes));
   const tbt = (list) => Math.round(list.reduce((s, [, d]) => s + Math.max(0, d - 50), 0));
@@ -106,6 +108,7 @@ for (const path of pages) {
   console.log(`  запросов ${r.reqs}, ${kb(r.bytes)} (${Object.entries(r.byType).sort((a, b) => b[1] - a[1]).map(([t, b]) => `${t} ${kb(b)}`).join(", ")})`);
   console.log(`  FCP ${Math.round(r.fcp)} мс, LCP ${Math.round(r.lcp)} мс, DCL ${Math.round(r.dcl)} мс, load ${Math.round(r.load)} мс; блокировка потока (TBT) ${r.tbtLoad} мс; память JS ${Math.round(r.heap / 1048576)} МБ`);
   console.log(`  фон 10 с: запросов ${r.idleReqs}, ${kb(r.idleBytes)}, длинных задач ${r.idleLongN} (TBT ${r.tbtIdle} мс)${r.idleTop.length ? "\n    " + r.idleTop.join("\n    ") : ""}`);
+  if (scrolled.length) console.log(`  загрузка при прокрутке: запросов ${scrolled.length}, ${kb(scrolled.reduce((sum, request) => sum + request.bytes, 0))}`);
   if (r.scroll) console.log(`  прокрутка: кадров ${r.scroll.frames}, медленных (>33 мс) ${r.scroll.slow}, p95 ${r.scroll.p95} мс`);
 }
 ws.close();

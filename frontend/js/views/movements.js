@@ -5,6 +5,7 @@ import { html, qs, qsa } from "../core/dom.js";
 import { hours, models, MOVEMENT, num, vph } from "../core/format.js";
 import { revealPhotos } from "../ui/photo.js";
 import { renderEscapementComparator, mountEscapementComparator } from "../ui/escapement-player.js";
+import { observeReveals, clearReveals } from "../core/motion.js";
 
 const STANDARDS = [
   {
@@ -91,64 +92,20 @@ export default {
   render({ movements, watchesByMov }) {
     return html`<section class="movements-page container">
       <header class="movements-head">
-        <p class="label" data-reveal>Механическое сердце</p>
-        <h1 class="display display--l" data-reveal>Калибры и стандарты точности</h1>
+        <h1 class="display display--l" data-reveal>Калибры часов</h1>
         <p class="lead" data-reveal>
-          Энциклопедия ${movements.length} калибров: от надежных рабочих лошадок до сложнейших мануфактурных турбийонов
-          из цельного золота. Изучите характеристики, сертификаты хронометрии и часы, в которых бьются эти механизмы.
+          Найдите механизм по названию или мануфактуре. В атласе ${movements.length} калибров с характеристиками и часами, в которых они установлены.
         </p>
       </header>
 
-      <!-- Интерактивная матрица стандартов точности -->
-      <section class="standards-block" data-reveal aria-label="Стандарты хронометрии">
-        <div class="standards-head">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
-            <div>
-              <span class="label">Метрология и сертификация</span>
-              <h2 class="display display--s">Стандарты хронометрической точности</h2>
-              <p class="muted">Ключевые сертификационные институты и мануфактурные стандарты часового мира:</p>
-            </div>
-            <a href="/timegrapher" data-link class="btn btn--subtle btn--sm">
-              <i class="ph-light ph-wave-sine" aria-hidden="true"></i> Виртуальный виброграф
-            </a>
-          </div>
-        </div>
-
-        <div class="standards-grid">
-          ${STANDARDS.map(
-            (std) => html`<div class="std-card" data-std="${std.id}">
-              <div class="std-card__top">
-                <span class="chip chip--lume">${std.badge}</span>
-                <span class="std-card__name">${std.name}</span>
-              </div>
-              <h3 class="std-card__title">${std.full}</h3>
-              <div class="std-card__metric">
-                <span class="std-card__metric-label">Допуск точности</span>
-                <b class="std-card__metric-val num">${std.accuracy}</b>
-              </div>
-              <div class="std-card__info">
-                <p><b>Испытания:</b> ${std.testing}</p>
-                <p><b>Магнитная защита:</b> ${std.magnetism}</p>
-                <p class="std-card__note">${std.notes}</p>
-              </div>
-            </div>`,
-          )}
-        </div>
-      </section>
-
-      <!-- Акустический компаратор частот -->
-      <section style="margin-bottom: var(--s-7);" data-reveal>
-        ${renderEscapementComparator()}
-      </section>
-
       <!-- Фильтры калибров -->
-      <section class="mfilters" data-reveal>
+      <section class="mfilters">
         <div class="mfilters__search">
           <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
-          <input type="search" id="msearch" placeholder="Поиск калибра по названию или мануфактуре (например, 3285, GP01800, ETA)..." autocomplete="off" />
+          <input aria-label="Найти калибр" type="search" id="msearch" placeholder="Поиск калибра по названию или мануфактуре (например, 3285, GP01800, ETA)..." autocomplete="off" />
         </div>
 
-        <div class="mfilters__row">
+        <details class="content-disclosure movement-filter-details"><summary>Фильтры калибров</summary><div class="mfilters__row">
           <div class="mfilters__group">
             <span class="mfilters__label">Тип:</span>
             <div class="mfilters__chips" id="mfilter-type">
@@ -180,11 +137,54 @@ export default {
           </div>
         </div>
 
+        </details>
         <div class="mfilters__status">
-          <span id="mcount" class="muted">${movements.length} калибров</span>
+          <span role="status" aria-live="polite" id="mcount" class="muted">${movements.length} калибров</span>
           <button type="button" class="btn btn--small btn--ghost" id="mreset" hidden>Сбросить фильтры</button>
         </div>
       </section>
+
+      <!-- Интерактивная матрица стандартов точности -->
+      <details class="standards-block" aria-label="Стандарты хронометрии"><summary>Стандарты точности и испытаний</summary>
+        <div class="standards-head">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <h2 class="display display--s">Стандарты хронометрической точности</h2>
+              <p class="muted">Ключевые сертификационные институты и мануфактурные стандарты часового мира:</p>
+            </div>
+            <a href="/timegrapher" data-link class="btn btn--subtle btn--sm">
+              <i class="ph-light ph-wave-sine" aria-hidden="true"></i> Виртуальный виброграф
+            </a>
+          </div>
+        </div>
+
+        <div class="standards-grid">
+          ${STANDARDS.map(
+            (std) => html`<div class="std-card" data-std="${std.id}">
+              <div class="std-card__top">
+                <span class="chip chip--lume">${std.badge}</span>
+                <span class="std-card__name">${std.name}</span>
+              </div>
+              <h3 class="std-card__title">${std.full}</h3>
+              <div class="std-card__metric">
+                <span class="std-card__metric-label">Допуск точности</span>
+                <b class="std-card__metric-val num">${std.accuracy}</b>
+              </div>
+              <div class="std-card__info">
+                <p><b>Испытания:</b> ${std.testing}</p>
+                <p><b>Магнитная защита:</b> ${std.magnetism}</p>
+                <p class="std-card__note">${std.notes}</p>
+              </div>
+            </div>`,
+          )}
+        </div>
+      </details>
+
+      <!-- Акустический компаратор частот -->
+      <details class="content-disclosure"><summary>Сравнить частоты и послушать ход</summary>
+        ${renderEscapementComparator()}
+      </details>
+
 
       <!-- Сетка калибров -->
       <div class="mgrid" id="mgrid">
@@ -240,7 +240,9 @@ export default {
       });
 
       if (gridEl) {
-        gridEl.innerHTML = filtered.map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i)).join("");
+        clearReveals(gridEl);
+        gridEl.innerHTML = filtered.length ? filtered.map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i)).join("") : `<p class="catalog-empty">Калибров с такими условиями нет. Измените запрос или сбросьте фильтры выше.</p>`;
+        observeReveals(gridEl);
       }
 
       if (countEl) {
@@ -261,8 +263,10 @@ export default {
       box?.addEventListener("click", (e) => {
         const chip = e.target.closest("button[data-val]");
         if (!chip) return;
-        qsa("button", box).forEach((b) => b.classList.remove("is-active"));
-        chip.classList.add("is-active");
+        qsa("button", box).forEach(b => {
+          b.classList.toggle("is-active", b === chip);
+          b.setAttribute("aria-pressed", String(b === chip));
+        });
         state[stateKey] = chip.dataset.val;
         updateFilter();
       });
@@ -277,10 +281,12 @@ export default {
       if (searchInput) searchInput.value = "";
       qsa(".mfilters__chips button", root).forEach((b) => {
         b.classList.toggle("is-active", b.dataset.val === "all");
+        b.setAttribute("aria-pressed", String(b.dataset.val === "all"));
       });
       updateFilter();
     });
 
+    root.querySelectorAll('.mfilters__chips button').forEach(b => b.setAttribute("aria-pressed", String(b.classList.contains("is-active"))));
     const offComp = mountEscapementComparator(root);
     return () => offComp?.();
   },

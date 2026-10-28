@@ -4,6 +4,16 @@ import { html, qs, qsa } from "../core/dom.js";
 import { escapementPlayer } from "./audio-engine.js";
 import { num, vph } from "../core/format.js";
 
+function stopWhenDisclosureCloses(element) {
+  const panel = element.closest("details");
+  const onToggle = () => { if (!panel.open) escapementPlayer.stop(); };
+  panel?.addEventListener("toggle", onToggle);
+  return () => {
+    panel?.removeEventListener("toggle", onToggle);
+    escapementPlayer.stop();
+  };
+}
+
 // Частотные пресеты для сравнительного прослушивания
 export const ESCAPEMENT_FREQUENCIES = [
   {
@@ -160,9 +170,7 @@ export function mountCaliberEscapementPlayer(root) {
     });
   });
 
-  return () => {
-    escapementPlayer.stop();
-  };
+  return stopWhenDisclosureCloses(playerEl);
 }
 
 // Полноразмерный компаратор частот спуска (для каталога калибров /movements)
@@ -287,7 +295,5 @@ export function mountEscapementComparator(root) {
     }
   });
 
-  return () => {
-    escapementPlayer.stop();
-  };
+  return stopWhenDisclosureCloses(comp);
 }

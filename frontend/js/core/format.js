@@ -68,11 +68,14 @@ const approx = (v) => {
   const step = 10 ** (Math.floor(Math.log10(v)) - 3);
   return Math.round(v / step) * step;
 };
-export const usd = (n) => {
+export const usd = (n, { fractionDigits = 0 } = {}) => {
   if (n == null) return "";
   const cur = getActiveCurrency();
-  const val = cur.code === "USD" ? Math.round(n) : approx(n * cur.rate);
-  return cur.pos === "before" ? `${cur.symbol}${nf.format(val)}` : `${nf.format(val)}\u00a0${cur.symbol}`;
+  const val = fractionDigits ? n * cur.rate : cur.code === "USD" ? Math.round(n) : approx(n * cur.rate);
+  const formatted = fractionDigits
+    ? val.toLocaleString("ru-RU", { minimumFractionDigits: fractionDigits, maximumFractionDigits: fractionDigits })
+    : nf.format(val);
+  return cur.pos === "before" ? `${cur.symbol}${formatted}` : `${formatted}\u00a0${cur.symbol}`;
 };
 
 /** Компактная подпись цены с учетом активной валюты */

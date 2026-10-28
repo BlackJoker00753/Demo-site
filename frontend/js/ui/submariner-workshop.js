@@ -56,7 +56,9 @@ export function mountSubmarinerWorkshop(root) {
   const $ = s => section.querySelector(s);
   const events = new AbortController();
   const { signal } = events;
-  let scene, loading, parts = [], value = 0, target = 0, activeStep = -1, selected, disposed = false, direction = 1;
+  const requestedStage = new URLSearchParams(location.search).get("stage");
+  const initialStage = /^[0-7]$/.test(requestedStage ?? "") ? Number(requestedStage) : 0;
+  let scene, loading, parts = [], value = initialStage / 7, target = value, activeStep = -1, selected, disposed = false, direction = 1;
   let returnFocus = null;
   const canvas = $("canvas"), status = $(".sub-stage__status"), slider = $(".sub-progress input");
   const play = $("[data-sub-play]"), inspector = $(".sub-inspector"), back = $(".sub-stage__return");
@@ -230,6 +232,7 @@ export function mountSubmarinerWorkshop(root) {
       }
     }
   }, { signal });
+  setValue(value, true);
   return () => {
     disposed = true; stop(); events.abort(); near.disconnect(); visibility.disconnect(); scene?.dispose();
     if (window.__horologium?.submariner === scene) delete window.__horologium.submariner;

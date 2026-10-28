@@ -102,6 +102,17 @@
 }
 
 /* ---------------------------------------------------------------- photos strip */
+.watch { --watch-nav-h: 52px; }
+.watch-nav { position: sticky; top: var(--nav-h); z-index: calc(var(--z-nav) - 1); display: flex; gap: 8px; overflow-x: auto; padding: 4px var(--gutter); background: var(--bg); scrollbar-width: thin; }
+.watch-nav a { flex: none; display: block; min-height: 44px; padding: 10px 14px; border-radius: var(--r-pill); font-size: 14px; color: var(--text-2); }
+.watch-nav a:hover, .watch-nav a[aria-current] { color: var(--text); background: var(--surface-2); }
+.watch :is(section[id], .sub-workshop) { scroll-margin-top: calc(var(--nav-h) + var(--watch-nav-h) + 16px); }
+.watch #top { scroll-margin-top: 0; }
+.watch .wstory.content-disclosure { padding-block: 20px; }
+.watch .wstory summary { font-size: 20px; }
+.watch .wstory__text { margin-top: 20px; }
+.watch .wtco-section > .lead { font-size: 16px; margin-block: 12px; }
+.watch-tco[open] > summary { margin-bottom: 20px; }
 
 .wphotos { padding-block: var(--s-8) var(--s-9); }
 .wphotos__head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px 32px; margin-bottom: var(--s-6); }
@@ -290,12 +301,12 @@
 }
 .wparts button small { color: var(--text-3); font-size: 11px; margin-left: 4px; }
 .wexplode__side {
-  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
+  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 20px); bottom: 110px; width: min(420px, 34vw);
   display: flex; flex-direction: column; gap: 22px; pointer-events: none; z-index: 1;
 }
 .wexplode__head { display: grid; gap: 10px; }
 .wexplode__head p { font-size: var(--fs-14); }
-.seg.wexplode__modes { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 24px); z-index: 2; }
+.seg.wexplode__modes { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 24px); z-index: 2; }
 
 /* переключатель режимов (сегменты с «пилюлей») */
 .seg {
@@ -324,7 +335,7 @@
 .wreal {
   position: absolute; margin: 0; z-index: 0; /* детали в полёте остаются под текстом слева */
   left: calc(var(--gutter) + min(420px, 34vw) + 24px); right: var(--gutter);
-  top: calc(var(--nav-h) + 90px); bottom: 70px;
+  top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 90px); bottom: 70px;
   display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; justify-items: center;
 }
 .wreal[hidden] { display: none; }
@@ -362,7 +373,7 @@
 .wreal__dot:hover span, .wreal__dot[aria-pressed="true"] span { transform: scale(1.35); box-shadow: 0 0 0 6px rgba(159, 233, 196, 0.3), 0 0 24px rgba(159, 233, 196, 1); }
 @keyframes wreal-ping { 0% { transform: scale(0.6); opacity: 0.9; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
 @media (max-width: 900px) {
-  .wreal { left: 12px; right: 12px; top: calc(var(--nav-h) + 150px); bottom: 110px; }
+  .wreal { left: 12px; right: 12px; top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 150px); bottom: 110px; }
   .seg.wexplode__modes { right: auto; left: 12px; top: auto; bottom: 96px; }
 }
 .wexplode__panel {

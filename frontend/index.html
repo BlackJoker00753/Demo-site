@@ -63,9 +63,7 @@
     <div class="nav__actions">
       <a class="nav__link" href="/watches" data-link>Каталог</a>
       <a class="nav__link" href="/movements" data-link>Калибры</a>
-      <a class="nav__link nav__link--more" href="/history" data-link>История</a>
-      <a class="nav__link nav__link--more" href="/timegrapher" data-link>Виброграф</a>
-      <a class="nav__link nav__link--more" href="/tco" data-link>Калькулятор TCO</a>
+      <a class="nav__link" href="/learn" data-link>Обучение</a>
       <a class="nav__link" href="/compare" data-link id="nav-compare-link" hidden>Сравнение <span class="nav__badge" id="compare-count">0</span></a>
       <a class="nav__link" href="/glossary" data-link>Усложнения</a>
       
@@ -98,18 +96,26 @@
     </div>
   </header>
 
-  <!-- Меню разделов: на телефоне все ссылки, на среднем экране те, что не уместились в шапку. -->
+  <!-- Сгруппированное меню разделов доступно на каждом экране. -->
   <nav class="mnav" id="mnav" aria-label="Разделы атласа" hidden>
-    <a href="/" data-link><i class="ph-light ph-globe-hemisphere-east" aria-hidden="true"></i>Глобус</a>
-    <a href="/watches" data-link><i class="ph-light ph-squares-four" aria-hidden="true"></i>Каталог часов</a>
-    <a href="/movements" data-link><i class="ph-light ph-circles-three" aria-hidden="true"></i>Калибры и точность</a>
-    <a href="/history" data-link><i class="ph-light ph-hourglass" aria-hidden="true"></i>История 500 лет</a>
-    <a href="/timegrapher" data-link><i class="ph-light ph-wave-sine" aria-hidden="true"></i>Виброграф</a>
-    <a href="/tco" data-link><i class="ph-light ph-calculator" aria-hidden="true"></i>Калькулятор TCO</a>
-    <a href="/world-time" data-link><i class="ph-light ph-globe-hemisphere-west" aria-hidden="true"></i>Мировое время</a>
-    <a href="/glossary" data-link><i class="ph-light ph-gear-six" aria-hidden="true"></i>Усложнения</a>
-    <a href="/compare" data-link id="mnav-compare" hidden><i class="ph-light ph-scales" aria-hidden="true"></i>Сравнение <span class="nav__badge" id="mnav-compare-count">0</span></a>
-    <a href="/credits" data-link><i class="ph-light ph-camera" aria-hidden="true"></i>Авторы фотографий</a>
+    <section aria-labelledby="mnav-reference"><h2 class="mnav__group" id="mnav-reference">Справочник</h2>
+      <a href="/" data-link>Глобус</a>
+      <a href="/watches" data-link>Каталог часов</a>
+      <a href="/movements" data-link>Калибры</a>
+      <a href="/compare" data-link id="mnav-compare" hidden>Сравнение <span class="nav__badge" id="mnav-compare-count">0</span></a>
+    </section>
+    <section aria-labelledby="mnav-learning"><h2 class="mnav__group" id="mnav-learning">Обучение</h2>
+      <a href="/learn" data-link>Как работают часы</a>
+      <a href="/glossary" data-link>Словарь усложнений</a>
+      <a href="/history" data-link>История часового дела</a>
+      <a href="/methodology" data-link>Источники и методика</a>
+      <a href="/credits" data-link>Авторы фотографий</a>
+    </section>
+    <section aria-labelledby="mnav-tools"><h2 class="mnav__group" id="mnav-tools">Инструменты</h2>
+      <a href="/tco" data-link>Расходы на владение</a>
+      <a href="/timegrapher" data-link>Виброграф</a>
+      <a href="/worldtime" data-link>Мировое время</a>
+    </section>
   </nav>
 
   <main id="view" class="view" tabindex="-1"></main>
@@ -132,13 +138,13 @@
   <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Поиск по атласу" hidden>
     <div class="search__backdrop" data-close></div>
     <div class="search__panel">
-      <label class="search__field">
+      <div class="search__field">
         <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
-        <span class="visually-hidden">Что найти</span>
-        <input id="search-input" type="search" autocomplete="off" spellcheck="false"
+        <label class="visually-hidden" for="search-input">Что найти</label>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"
                placeholder="Rolex, Speedmaster, турбийон, Япония…">
-        <kbd>Esc</kbd>
-      </label>
+        <button id="search-close" class="icon-btn" type="button" aria-label="Закрыть поиск"><i class="ph-light ph-x" aria-hidden="true"></i></button>
+      </div>
       <div class="search__results" id="search-results" role="listbox"></div>
     </div>
   </div>

@@ -154,6 +154,14 @@ export default {
           </div>
         </section>
 
+        <nav class="watch-nav" aria-label="Разделы модели">
+          <a href="#top" data-jump="top">Обзор</a>
+          <a href="#movement" data-jump="movement">Механизм</a>
+          <a href="#explode" data-jump="explode">Разборка</a>
+          <a href="#price" data-jump="price">Стоимость</a>
+          <a href="#wrist-fit" data-jump="wrist-fit">Примерка</a>
+        </nav>
+
         <section class="wintro container" id="story">
           <p class="wintro__summary" data-words>${w.summary}</p>
           ${w.highlights.length
@@ -198,12 +206,12 @@ export default {
           : ""}
 
         ${w.story.length
-          ? html`<section class="wstory container">
-              <h2 class="display display--l" data-reveal>История модели</h2>
+          ? html`<details class="wstory container content-disclosure">
+              <summary>История модели</summary>
               <div class="wstory__text">
-                ${w.story.map((p, i) => html`<p data-reveal style="--i:${i % 3}">${p}</p>`)}
+                ${w.story.map(p => html`<p>${p}</p>`)}
               </div>
-            </section>`
+            </details>`
           : ""}
 
         ${w.history.length
@@ -265,19 +273,21 @@ export default {
                     <span>Баланс делает ${num(m.frequency_vph)} полуколебаний в час. Это ${Math.round(m.frequency_vph / 3600)} шагов секундной стрелки в секунду.</span>
                   </div>`
                 : ""}
-              ${m.features.length ? html`<ul class="wmove__features" role="list" data-reveal>${m.features.map((f) => html`<li>${f}</li>`)}</ul>` : ""}
+              <details class="content-disclosure"><summary>Особенности и звук калибра</summary>
+              ${m.features.length ? html`<ul class="wmove__features" role="list">${m.features.map((f) => html`<li>${f}</li>`)}</ul>` : ""}
               ${renderCaliberEscapementPlayer(m)}
-              <div style="margin-top: 10px; margin-bottom: 12px;" data-reveal>
+              <div style="margin-top: 10px; margin-bottom: 12px;">
                 <a class="chip chip--sm chip--lume" href="/timegrapher" data-link>
                   <i class="ph-light ph-wave-sine" aria-hidden="true"></i> Проверить ход на виртуальном вибрографе
                 </a>
               </div>
               <a class="link-arrow" href="/movement/${m.slug}">Все часы с калибром ${m.caliber}<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+              </details>
             </div>
           </div>
-          <div class="wmove__kflow-wrap" data-reveal>
-            ${renderKinematicFlow(m.type, m.frequency_vph)}
-          </div>
+          <details class="content-disclosure"><summary>Как передаётся энергия</summary>
+            <div class="wmove__kflow-wrap">${renderKinematicFlow(m.type, m.frequency_vph)}</div>
+          </details>
         </section>
 
         ${w.complications_full.length
@@ -344,7 +354,10 @@ export default {
         ${priceBlock(w)}
 
         <section class="wtco-section container" id="tco-calc" aria-label="Калькулятор стоимости владения и ликвидности">
-          <div id="tco-watch-mount"></div>
+          <h2 class="display display--s">Расходы на владение</h2>
+          <p class="lead">Покупка, обслуживание и предполагаемая продажа в одном сценарии.</p>
+          <details class="watch-tco content-disclosure" id="watch-tco"><summary>Настроить расчёт для этих часов</summary><div id="tco-watch-mount"></div></details>
+          <a class="link-arrow" href="/tco?watch=${w.slug}" data-link>Открыть отдельный калькулятор<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
         </section>
 
         <section class="wwrist container" id="wrist-fit" aria-label="Примерка на запястье">
@@ -380,18 +393,31 @@ export default {
 
     // ---------------------------------------------------------- калькулятор ликвидности и TCO
     const tcoMount = qs("#tco-watch-mount", root);
-    if (tcoMount) {
-      const tcoCalc = new TcoCalculator({
-        container: tcoMount,
-        watch: w,
-        initialPriceUsd: w.price.usd,
-        brandSlug: w.brand,
-        brandName: w.brand_name,
-        complications: w.complications,
-        movementType: w.movement.type,
+    let tcoCalc;
+    const tcoDetails = qs("#watch-tco", root);
+    const mountTco = () => {
+      if (!tcoMount || tcoCalc || !tcoDetails.open) return;
+      tcoCalc = new TcoCalculator({ container: tcoMount, watch: w, initialPriceUsd: w.price.usd,
+        brandSlug: w.brand, brandName: w.brand_name, complications: w.complications,
+        movementType: w.movement.type, compact: true });
+    };
+    tcoDetails?.addEventListener("toggle", mountTco);
+    if (location.hash === "#tco-calc" && tcoDetails) { tcoDetails.open = true; mountTco(); }
+    const refreshDetails = () => ST?.refresh();
+    root.addEventListener("toggle", refreshDetails, true);
+    cleanups.push(() => { tcoDetails?.removeEventListener("toggle", mountTco); tcoCalc?.destroy(); root.removeEventListener("toggle", refreshDetails, true); });
+    // Active section follows scrolling without a persistent frame loop.
+    const sections = [...root.querySelectorAll("#top,#movement,#explode,#price,#wrist-fit")];
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (!visible.length) return;
+      root.querySelectorAll('.watch-nav a').forEach(link => {
+        if (link.hash === `#${visible[0].target.id}`) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
-      cleanups.push(() => tcoCalc.destroy());
-    }
+    }, { rootMargin: "-140px 0px -45% 0px" });
+    sections.forEach(section => sectionObserver.observe(section));
+    cleanups.push(() => sectionObserver.disconnect());
     if (!still) g.from(qsa("[data-h]", root), { y: 32, autoAlpha: 0, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.12 });
     const plate = qs(".whero__plate", root);
     const compareBtn = qs("#whero-compare-btn", root);
@@ -431,7 +457,10 @@ export default {
     qsa("[data-jump]", root).forEach((a) =>
       a.addEventListener("click", (e) => {
         e.preventDefault();
-        scrollToEl(qs(`#${a.dataset.jump}`, root), a.dataset.jump === "explode" ? 0 : -60);
+        if (a.dataset.jump === "tco-calc" && tcoDetails) { tcoDetails.open = true; mountTco(); }
+        const target = qs(`#${a.dataset.jump}`, root);
+        history.replaceState(history.state, "", `#${a.dataset.jump}`);
+        scrollToEl(target);
       }),
     );
 

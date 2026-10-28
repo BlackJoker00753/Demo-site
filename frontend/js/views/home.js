@@ -34,6 +34,7 @@ export default {
             <a class="btn" href="/country/switzerland">Начать со Швейцарии <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
             <button class="btn btn--ghost" type="button" data-open-search><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>Найти модель</button>
           </div>
+          <a class="home__learn" href="/learn" data-link>Впервые здесь? Как работают часы</a>
         </div>
 
         <nav class="home__countries interactive" aria-label="Страны">

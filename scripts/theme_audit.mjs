@@ -44,10 +44,16 @@ try {
     const result = await send("Page.captureScreenshot", { format: "png" });
     writeFileSync(join(out, `${name}.png`), Buffer.from(result.result.data, "base64"));
   };
+  const openCalculator = async () => {
+    await waitFor("!!document.querySelector('#watch-tco') && !document.querySelector('#intro')");
+    await evaluate("document.querySelector('#watch-tco').open=true");
+    await waitFor("!!document.querySelector('[data-cond]')");
+    await evaluate("document.querySelector('.tco-options').open=true");
+  };
   await send("Page.enable"); await send("Runtime.enable"); await send("Network.enable");
   await send("Network.setBypassServiceWorker", { bypass: true });
   await send("Page.navigate", { url: `${base}/watch/rolex-submariner` });
-  await waitFor("!!document.querySelector('[data-cond]') && !document.querySelector('#intro')");
+  await openCalculator();
   assert(await evaluate("document.documentElement.dataset.theme==='light'"), "fresh visit is not light");
   for (const width of [320, 390, 768, 1440]) {
     await send("Emulation.setDeviceMetricsOverride", { width, height: width < 700 ? 844 : 1000, deviceScaleFactor: 1, mobile: width < 700 });
@@ -94,7 +100,7 @@ try {
     }
   }
   await send("Page.reload");
-  await waitFor("!!document.querySelector('[data-cond]') && !document.querySelector('#intro')");
+  await openCalculator();
   assert(await evaluate("document.documentElement.dataset.theme==='dark'"), "theme preference lost on reload");
   await evaluate("window.__horologium.router.go('/watches')");
   await waitFor("location.pathname==='/watches' && !!document.querySelector('h1')");
@@ -116,7 +122,7 @@ try {
   }
   const blocked = await send("Page.addScriptToEvaluateOnNewDocument", { source: "Storage.prototype.getItem=Storage.prototype.setItem=()=>{throw new DOMException('Blocked','SecurityError')}" });
   await send("Page.reload");
-  await waitFor("!!document.querySelector('[data-cond]') && !document.querySelector('#intro')");
+  await openCalculator();
   assert(await evaluate("document.documentElement.dataset.theme==='light'"), "blocked storage did not fall back to light");
   await evaluate("document.querySelector('[data-theme-toggle]').click()");
   assert(await evaluate("document.documentElement.dataset.theme==='dark'"), "toggle fails with blocked storage");

@@ -1,0 +1,123 @@
+{
+  "reports": [
+    {
+      "preset": "rolex-submariner",
+      "selected": "Rolex Submariner"
+    },
+    {
+      "preset": "omega-speedmaster-moonwatch",
+      "selected": "Omega Speedmaster Moonwatch Professional"
+    },
+    {
+      "preset": "patek-philippe-nautilus-5811",
+      "selected": "Patek Philippe Nautilus"
+    },
+    {
+      "preset": "fp-journe-chronometre-souverain",
+      "selected": "F.P. Journe Chronomètre Souverain"
+    },
+    {
+      "preset": "cartier-santos",
+      "selected": "Cartier Santos de Cartier"
+    },
+    {
+      "preset": "tudor-black-bay-58",
+      "selected": "Tudor Black Bay 58"
+    },
+    {
+      "preset": "grand-seiko-snowflake",
+      "selected": "Grand Seiko Snowflake"
+    },
+    {
+      "preset": "audemars-piguet-royal-oak-jumbo",
+      "selected": "Audemars Piguet Royal Oak Jumbo Extra-Thin"
+    },
+    {
+      "reconciliation": {
+        "summary": "$-36",
+        "row": "$-36"
+      }
+    },
+    {
+      "width": 320,
+      "calibreSearchTop": 369
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "width": 320,
+      "catalogueFirstCardTop": 547
+    },
+    {
+      "width": 390,
+      "calibreSearchTop": 343
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "width": 390,
+      "catalogueFirstCardTop": 471
+    },
+    {
+      "width": 768,
+      "calibreSearchTop": 320
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "width": 768,
+      "catalogueFirstCardTop": 515
+    },
+    {
+      "width": 1440,
+      "calibreSearchTop": 372
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "width": 1440,
+      "catalogueFirstCardTop": 567
+    }
+  ],
+  "problems": []
+}

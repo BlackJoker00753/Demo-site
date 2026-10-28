@@ -49,9 +49,11 @@ export function scrollTop(immediate = true) {
   else window.scrollTo(0, 0);
 }
 
-export function scrollToEl(el, offset = -80) {
-  if (lenis) lenis.scrollTo(el, { offset, duration: 1.4 });
-  else el.scrollIntoView({ behavior: "smooth" });
+export function scrollToEl(el, offset = null) {
+  if (!el) return;
+  const adjustment = offset ?? -(parseFloat(getComputedStyle(el).scrollMarginTop) || 80);
+  if (lenis) lenis.scrollTo(el, { offset: adjustment, duration: 1.1 });
+  else window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top + adjustment, behavior: reduced() ? "instant" : "smooth" });
 }
 
 export function lockScroll(lock) {

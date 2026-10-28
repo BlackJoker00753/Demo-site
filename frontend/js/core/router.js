@@ -11,11 +11,13 @@
 // странице есть элемент с тем же ключом (рамка фото в шапке), снимок «перелетает» из карточки
 // на своё место (FLIP). ctx.shared = key, чтобы страница не запускала свою анимацию появления фото.
 
-import { gsap, reduced } from "./motion.js";
+import { gsap, reduced, clearReveals } from "./motion.js";
 import { scrollTop, scrollToEl, getLenis } from "./scroll.js";
 import { setHTML, html } from "./dom.js";
 
 const ROUTES = [
+  { name: "learn", re: /^\/learn\/?$/, load: () => import("../views/learn.js") },
+  { name: "methodology", re: /^\/methodology\/?$/, load: () => import("../views/methodology.js") },
   { name: "home", re: /^\/$/, load: () => import("../views/home.js") },
   { name: "country", re: /^\/country\/([a-z0-9-]+)\/?$/, load: () => import("../views/country.js") },
   { name: "brand", re: /^\/brand\/([a-z0-9-]+)\/?$/, load: () => import("../views/brand.js") },
@@ -54,7 +56,7 @@ export class Router {
     document.addEventListener("click", (e) => this.#onClick(e));
     window.addEventListener("popstate", (e) => this.go(location.pathname + location.search, { push: false, key: e.state?.key }));
     const key = this.#key();
-    history.replaceState({ key }, "", location.href);
+    history.replaceState({ ...history.state, key }, "", location.href);
     return this.go(location.pathname + location.search, { push: false, key, initial: true });
   }
 
@@ -94,7 +96,7 @@ export class Router {
     const el = document.getElementById(decodeURIComponent(hash.slice(1)));
     if (!el) return;
     if (immediate) el.scrollIntoView();
-    else scrollToEl(el, -80);
+    else scrollToEl(el);
     if (el.tabIndex < 0 && !el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
     el.focus({ preventScroll: true });
   }
@@ -216,6 +218,7 @@ export class Router {
     this.globe?.setMode(view.layer === "globe" ? "visible" : "hidden");
     this.root.dataset.layer = view.layer;
     this.root.dataset.route = route.name;
+    clearReveals(this.root);
     setHTML(this.root, view.render(data, ctx));
 
     const restore = !push && this.scrollMemory.has(key) ? this.scrollMemory.get(key) : 0;
@@ -271,6 +274,7 @@ export class Router {
   }
 
   #renderError(err) {
+    clearReveals(this.root);
     this.globe?.setMode("hidden");
     const notFound = err?.status === 404;
     setHTML(

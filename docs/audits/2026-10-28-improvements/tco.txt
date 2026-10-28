@@ -1,0 +1,14 @@
+✔ published five-year example includes the same insurance and inflation in summary and table (3.154179ms)
+✔ every selected horizon reconciles across brands, service classes, conditions and insurance (12.170226ms)
+✔ insurance changes all horizons, not only the highlighted summary (0.666902ms)
+✔ frequency of wearing changes cost per day but never total ownership costs (0.510668ms)
+✔ electronic movements are not assigned a mechanical overhaul (0.31959ms)
+✔ presets are eight distinct canonical selections (0.357527ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24.158747

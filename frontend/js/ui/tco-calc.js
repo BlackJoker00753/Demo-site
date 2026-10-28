@@ -1,10 +1,9 @@
 // Интерактивный калькулятор ликвидности, вторичной стоимости и совокупной стоимости владения (TCO)
 // Модуль для страниц моделей часов и отдельного аналитического раздела.
 
-import { html, qs, qsa } from "../core/dom.js";
+import { qs, qsa } from "../core/dom.js";
 import { usd, onCurrencyChange } from "../core/format.js";
 import {
-  BRAND_RETENTION_PROFILES,
   SERVICE_COMPLICATION_TIERS,
   CONDITION_MODIFIERS,
   WEAR_FREQUENCIES,
@@ -43,6 +42,16 @@ export class TcoCalculator {
       annualInflation: 0.025,
       customPriceUsd: this.priceUsd,
     };
+    this.historyKey = watch?.slug || this.brandSlug;
+    const saved = history.state?.tco?.[this.historyKey];
+    if (saved && typeof saved === "object") {
+      if (Number.isInteger(saved.years) && saved.years >= 1 && saved.years <= 15) this.state.years = saved.years;
+      if (Number.isFinite(saved.customPriceUsd) && saved.customPriceUsd > 0) this.state.customPriceUsd = saved.customPriceUsd;
+      for (const [key, values] of [["serviceTierId", SERVICE_COMPLICATION_TIERS], ["conditionId", CONDITION_MODIFIERS], ["wearFrequencyId", WEAR_FREQUENCIES]]) {
+        if (Object.hasOwn(values, saved[key])) this.state[key] = saved[key];
+      }
+      this.state.includeInsurance = saved.includeInsurance === true;
+    }
 
     this.currencyUnsub = null;
     this.render();
@@ -77,6 +86,7 @@ export class TcoCalculator {
     const option = ["years", "wear", "cond", "tier"].find(key => active?.hasAttribute(`data-${key}`));
     const focusSelector = active?.id ? `#${CSS.escape(active.id)}`
       : option ? `[data-${option}="${CSS.escape(active.getAttribute(`data-${option}`))}"]` : null;
+    const openPanels = [...this.container.querySelectorAll('details[data-tco-panel][open]')].map(el => el.dataset.tcoPanel);
     const res = this.calculate();
     const brandProfile = getBrandProfile(this.brandSlug);
 
@@ -95,19 +105,22 @@ export class TcoCalculator {
         <header class="tco-box__head">
           <div class="tco-box__title-row">
             <div class="tco-box__title-col">
-              <span class="label"><i class="ph-light ph-calculator" aria-hidden="true"></i> Экономика владения и ликвидность</span>
-              <h3 class="display display--s tco-box__title">Калькулятор вторичной стоимости и TCO</h3>
+              <h3 class="display display--s tco-box__title">Стоимость владения</h3>
             </div>
             <div class="tco-tier-badge ${tierBadgeClass}">
               <i class="ph-light ph-chart-line-up" aria-hidden="true"></i>
-              <span>${brandProfile.name}: ${brandProfile.tierName} (${brandProfile.rangeLabel})</span>
+              <span>Профиль сценария: ${brandProfile.name}</span>
             </div>
           </div>
           <p class="tco-box__desc">
-            Расчет амортизации, остаточной рыночной цены и совокупных затрат на регламентное обслуживание за 5, 10 и 15 лет по реальной статистике часового рынка.
+            Учебная оценка по заданным коэффициентам: покупка и расходы минус предполагаемая цена продажи. Коэффициенты бренда не являются прогнозом конкретной модели.
           </p>
         </header>
 
+        <div class="tco-live-summary" role="status" aria-live="polite">
+          <span>За ${this.state.years} ${this.formatYearsText(this.state.years)} после продажи</span>
+          <strong>${usd(res.netTcoUsd)}</strong><span>${usd(res.costPerDayUsd, { fractionDigits: 2 })} в день носки</span>
+        </div>
         <!-- Основная панель интерактивного управления -->
         <div class="tco-controls">
           <!-- 1. Срок владения (горизонт) -->
@@ -136,8 +149,16 @@ export class TcoCalculator {
                 <span>15 лет</span>
               </div>
             </div>
+            <div class="tco-price-input-row">
+              <label for="tco-price-input">Базовая цена покупки:</label>
+              <div class="tco-price-input-box">
+                <span class="tco-price-sym">$</span>
+                <input type="number" id="tco-price-input" min="1" step="0.01" value="${this.state.customPriceUsd}" aria-label="Цена покупки USD">
+              </div>
+            </div>
           </div>
 
+          <details class="tco-options" data-tco-panel="options"><summary>Состояние, носка и обслуживание</summary><div class="tco-options__grid">
           <!-- 2. Частота носки на руке -->
           <div class="tco-control-group">
             <div class="tco-control-label">
@@ -201,27 +222,22 @@ export class TcoCalculator {
               <input type="checkbox" id="tco-insurance-toggle" ${this.state.includeInsurance ? "checked" : ""}>
               <span>Страхование коллекции (1.2% в год)</span>
             </label>
-            <div class="tco-price-input-row">
-              <label for="tco-price-input">Базовая цена покупки:</label>
-              <div class="tco-price-input-box">
-                <span class="tco-price-sym">$</span>
-                <input type="number" id="tco-price-input" min="50" step="100" value="${this.state.customPriceUsd}" aria-label="Цена покупки USD">
-              </div>
-            </div>
+
           </div>
+          </div></details>
         </div>
 
         <!-- 4 Ключевые карточки результатов -->
         <div class="tco-metrics-grid">
           <!-- Карточка 1: Остаточная рыночная стоимость -->
           <div class="tco-metric-card">
-            <span class="tco-metric-card__label">Остаточная стоимость (${this.state.years} лет)</span>
+            <span class="tco-metric-card__label">Предполагаемая цена продажи</span>
             <div class="tco-metric-card__val num" id="tco-residual-val">${usd(res.residualValueUsd)}</div>
             <div class="tco-metric-card__badge ${res.retentionRate >= 100 ? "tco-badge--green" : "tco-badge--gold"}">
               <i class="ph-light ${res.retentionRate >= 100 ? "ph-trend-up" : "ph-shield-check"}" aria-hidden="true"></i>
-              <span>${res.retentionRate}% от ритейла ${profitDeltaUsd > 0 ? `(+${usd(profitDeltaUsd)})` : `(-${usd(Math.abs(profitDeltaUsd))})`}</span>
+              <span>${res.retentionRate}% от цены покупки ${profitDeltaUsd > 0 ? `(+${usd(profitDeltaUsd)})` : `(-${usd(Math.abs(profitDeltaUsd))})`}</span>
             </div>
-            <p class="tco-metric-card__hint">Расчетная стоимость модели на вторичном рынке при продаже через ${this.state.years} ${this.formatYearsText(this.state.years)}.</p>
+            <p class="tco-metric-card__hint">Значение сценария через ${this.state.years} ${this.formatYearsText(this.state.years)}, полученное из коэффициента профиля и выбранного состояния.</p>
           </div>
 
           <!-- Карточка 2: Затраты на ТО и обслуживание -->
@@ -233,22 +249,22 @@ export class TcoCalculator {
               <span>Водозащита: <b>${usd(res.totalWaterTestCostUsd)}</b></span>
               ${this.state.includeInsurance ? `<span>Страховка: <b>${usd(res.totalInsuranceCostUsd)}</b></span>` : ""}
             </div>
-            <p class="tco-metric-card__hint">Включает регламентные переборки механизма каждые ${res.serviceTier.intervalYears} лет и проверку герметичности с заменой сальников.</p>
+            <p class="tco-metric-card__hint">Условный сервис каждые ${res.serviceTier.intervalYears} лет, проверка водозащиты раз в 2 года и выбранная страховка.</p>
           </div>
 
           <!-- Карточка 3: Чистая совокупная стоимость владения (TCO) -->
           <div class="tco-metric-card ${isProfit ? "tco-metric-card--profit" : ""}">
-            <span class="tco-metric-card__label">Чистый TCO (${this.state.years} лет)</span>
+            <span class="tco-metric-card__label">Расходы после продажи (${this.state.years} лет)</span>
             <div class="tco-metric-card__val num ${isProfit ? "tco-val--profit" : ""}" id="tco-net-tco-val">
-              ${isProfit ? `+${usd(Math.abs(res.netTcoUsd))}` : usd(res.netTcoUsd)}
+              ${usd(res.netTcoUsd)}
             </div>
             <div class="tco-metric-card__badge ${isProfit ? "tco-badge--green" : "tco-badge--neutral"}">
-              ${isProfit ? "Чистый финансовый прирост" : "Совокупные чистые затраты"}
+              ${isProfit ? "Отрицательные расходы в сценарии" : "Совокупные расходы в сценарии"}
             </div>
             <p class="tco-metric-card__hint">
               ${isProfit
-                ? "Прирост рыночной стоимости полностью перекрывает цену покупки и расходы на сервис."
-                : "Реальная разница между ценой покупки, потерей стоимости и всеми расходами на сервис."}
+                ? "При заданной цене продажи итог отрицательный. Фактическая стоимость продажи и расходы могут отличаться."
+                : "Цена покупки плюс обслуживание и страховка, минус предполагаемая цена продажи."}
             </p>
           </div>
 
@@ -256,11 +272,11 @@ export class TcoCalculator {
           <div class="tco-metric-card tco-metric-card--hero">
             <span class="tco-metric-card__label">Стоимость одного дня носки</span>
             <div class="tco-metric-card__hero-num num" id="tco-day-val">
-              ${isProfit ? `+${usd(Math.abs(res.costPerDayUsd))}` : usd(res.costPerDayUsd)}
+              ${usd(res.costPerDayUsd, { fractionDigits: 2 })}
               <small>/ день</small>
             </div>
             <div class="tco-metric-card__badge ${isProfit ? "tco-badge--green" : "tco-badge--blue"}">
-              ${isProfit ? "Часы приносят капитал на запястье" : this.getDayCostAnalogy(res.costPerDayUsd)}
+              Итог ÷ число дней носки
             </div>
             <p class="tco-metric-card__hint">
               За ${this.state.years} ${this.formatYearsText(this.state.years)} часы будут на вашей руке ${res.totalDaysWorn.toLocaleString("ru-RU")} дней.
@@ -268,34 +284,19 @@ export class TcoCalculator {
           </div>
         </div>
 
-        <!-- Визуальная структура стоимости (Интерактивная диаграмма) -->
-        <div class="tco-breakdown-section">
-          <div class="tco-breakdown-head">
-            <span class="label">Структура баланса капитала</span>
-            <span class="tco-breakdown-sum">Ритейл: ${usd(res.retailPriceUsd)} | Вторичный возврат: ${usd(res.residualValueUsd)}</span>
-          </div>
-          <div class="tco-bar-track" role="img" aria-label="Диаграмма распределения стоимости">
-            <div class="tco-bar-seg tco-bar-seg--retention" style="width: ${Math.min(100, (res.residualValueUsd / (res.retailPriceUsd + res.totalMaintenanceCostUsd)) * 100)}%" title="Остаточная стоимость: ${usd(res.residualValueUsd)}"></div>
-            <div class="tco-bar-seg tco-bar-seg--service" style="width: ${Math.min(100, (res.totalMaintenanceCostUsd / (res.retailPriceUsd + res.totalMaintenanceCostUsd)) * 100)}%" title="Обслуживание: ${usd(res.totalMaintenanceCostUsd)}"></div>
-          </div>
-          <div class="tco-bar-legend">
-            <span class="tco-legend-item"><i class="tco-dot tco-dot--emerald"></i> Сохраняемый капитал (${res.retentionRate}%)</span>
-            <span class="tco-legend-item"><i class="tco-dot tco-dot--gold"></i> Регламентное ТО (${usd(res.totalMaintenanceCostUsd)})</span>
-            <span class="tco-legend-item"><i class="tco-dot tco-dot--slate"></i> Амортизация (${res.netDepreciationUsd > 0 ? usd(res.netDepreciationUsd) : "$0"})</span>
-          </div>
-        </div>
+        <p class="tco-equation">Покупка ${usd(res.retailPriceUsd)} + расходы ${usd(res.totalMaintenanceCostUsd)} − продажа ${usd(res.residualValueUsd)} = ${usd(res.netTcoUsd)}</p>
 
         <!-- Годовая таблица эволюции стоимости -->
         <div class="tco-timeline-table-wrap">
-          <h4 class="tco-table-title">Хроника удержания стоимости по горизонтам</h4>
+          <h4 class="tco-table-title">Тот же сценарий на разных сроках</h4>
           <table class="tco-table">
             <thead>
               <tr>
                 <th>Горизонт</th>
                 <th>Удержание</th>
-                <th>Рыночная цена</th>
-                <th>Стоимость ТО</th>
-                <th>Чистый TCO</th>
+                <th>Цена продажи</th>
+                <th>Все расходы</th>
+                <th>После продажи</th>
                 <th>Цена в день</th>
               </tr>
             </thead>
@@ -308,8 +309,8 @@ export class TcoCalculator {
                   <td><span class="chip chip--sm ${row.retentionRate >= 100 ? "chip--lume" : ""}">${row.retentionRate}%</span></td>
                   <td class="num">${usd(row.residualValueUsd)}</td>
                   <td class="num">${usd(row.maintenanceUsd)}</td>
-                  <td class="num ${row.netTcoUsd < 0 ? "tco-val--profit" : ""}">${row.netTcoUsd < 0 ? `+${usd(Math.abs(row.netTcoUsd))}` : usd(row.netTcoUsd)}</td>
-                  <td class="num"><b>${row.costPerDayUsd < 0 ? `+${usd(Math.abs(row.costPerDayUsd))}` : usd(row.costPerDayUsd)}</b></td>
+                  <td class="num ${row.netTcoUsd < 0 ? "tco-val--profit" : ""}">${usd(row.netTcoUsd)}</td>
+                  <td class="num"><b>${usd(row.costPerDayUsd, { fractionDigits: 2 })}</b></td>
                 </tr>
               `
                 )
@@ -318,22 +319,19 @@ export class TcoCalculator {
           </table>
         </div>
 
-        <!-- Экспертная справка о бренде и рекомендации -->
-        <div class="tco-insight-box">
-          <div class="tco-insight-icon">
-            <i class="ph-light ph-info" aria-hidden="true"></i>
-          </div>
-          <div class="tco-insight-text">
-            <h5>Аналитика ликвидности: ${brandProfile.name}</h5>
-            <p>${brandProfile.summary}</p>
-            <p class="tco-insight-rules">
-              <b>Золотое правило сохранения стоимости:</b> сохраняйте оригинальную коробку, заводской чек и гарантийную карту (Full Set дает +10% к цене на вторичном рынке). Избегайте частых грубых полировок корпуса: оригинальные нетронутые грани с заводскими фасками ценятся коллекционерами на 15-20% выше полированных экземпляров.
-            </p>
-          </div>
-        </div>
+        <details class="tco-assumptions" data-tco-panel="assumptions">
+          <summary>Допущения этого расчёта</summary>
+          <a class="link-arrow" href="/methodology" data-link>Методика и ограничения</a>
+          <p>Стоимость продажи рассчитывается из условного профиля ${brandProfile.name} и состояния часов. Датированной выборки сделок по выбранной модели здесь нет.</p>
+          <p>В расчёте: сервис ${usd(res.serviceTier.baseCostUsd)} раз в ${res.serviceTier.intervalYears} лет, тест водозащиты $80 раз в 2 года, рост этих расходов ${+(this.state.annualInflation * 100).toFixed(1)}% в год. Страховка при включении: 1,2% от сценарной стоимости за каждый год. Комиссия продажи, налоги и ремонт после повреждений не включены.</p>
+          <p>Итог и строки таблицы используют одинаковые правила. Каждая категория расходов округляется до доллара, затем суммы складываются. Общий результат делится на число дней носки.</p>
+        </details>
+
       </div>
     `;
+    for (const panel of openPanels) this.container.querySelector(`[data-tco-panel="${panel}"]`)?.setAttribute("open", "");
     if (focusSelector) this.container.querySelector(focusSelector)?.focus({ preventScroll: true });
+    history.replaceState({ ...history.state, tco: { ...history.state?.tco, [this.historyKey]: { ...this.state } } }, "");
   }
 
   bind() {
@@ -438,12 +436,4 @@ export class TcoCalculator {
     return "лет";
   }
 
-  getDayCostAnalogy(costPerDay) {
-    if (costPerDay <= 0) return "Прибыльное вложение";
-    if (costPerDay < 1.0) return "Дешевле жетона метро в день";
-    if (costPerDay < 3.0) return "Дешевле утренней чашки эспрессо";
-    if (costPerDay < 7.0) return "Сопоставимо с чашкой латте";
-    if (costPerDay < 15.0) return "Сопоставимо с деловым обедом";
-    return "Статус исключительного владения";
-  }
 }

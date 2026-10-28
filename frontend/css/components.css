@@ -92,7 +92,7 @@
 
 /* меню разделов на телефоне */
 .nav__menu {
-  display: none; place-items: center; width: 40px; height: 38px; border-radius: var(--r-pill);
+  display: inline-grid; place-items: center; width: 40px; height: 38px; border-radius: var(--r-pill);
   border: 1px solid var(--line-2); background: rgba(16, 18, 22, 0.5); color: var(--text-2); font-size: 18px;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -117,9 +117,8 @@
 .mnav a[aria-current="page"] i { color: var(--lume); }
 .mnav a[hidden] { display: none; }
 @keyframes mnav-in { from { opacity: 0; transform: translateY(-6px) scale(0.98); } }
-@media (min-width: 1361px) { .mnav { display: none !important; } }
 /* средний экран: второстепенные разделы уходят в меню, иначе «Калькулятор TCO» ломается на две строки */
-@media (min-width: 761px) and (max-width: 1360px) {
+@media (min-width: 761px) {
   .nav__link--more { display: none; }
   .nav__menu { display: inline-grid; }
   .mnav { left: auto; width: 340px; transform-origin: top right; }

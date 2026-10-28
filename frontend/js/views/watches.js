@@ -6,6 +6,7 @@ import { watchCard } from "../ui/cards.js";
 import { revealPhotos } from "../ui/photo.js";
 import { models, MOVEMENT, priceCompact, usd } from "../core/format.js";
 import { toggleCompare, hasCompare, onCompareChange } from "../core/compare.js";
+import { observeReveals, clearReveals } from "../core/motion.js";
 
 // Диапазоны бюджета в долларах; подписи в активной валюте.
 const BUDGETS = [["under1k", 0, 1000], ["1k-5k", 1000, 5000], ["5k-15k", 5000, 15000], ["over15k", 15000, Infinity]];
@@ -95,16 +96,17 @@ export default {
   render({ watches, countries }) {
     return html`<section class="catalog-page container">
       <header class="catalog-page__head">
-        <p class="label" data-reveal>Коллекция</p>
         <h1 class="display display--l" data-reveal>Все часы атласа</h1>
         <p class="lead" data-reveal>Полный справочник ${models(watches.length)} от ведущих мануфактур 8 стран мира. Настоящие фотографии, характеристики калибров и цены с источниками.</p>
         
-        <div class="catalog-filters" data-reveal>
+        <div class="catalog-filters">
           <div class="catalog-filters__search">
             <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
             <input type="search" id="catalog-search" placeholder="Поиск по названию, бренду, коллекции, калибру..." autocomplete="off" aria-label="Поиск по каталогу">
           </div>
           
+          <details class="catalog-filter-details" id="catalog-filter-details">
+            <summary>Все фильтры <span id="catalog-filter-count"></span></summary>
           <div class="catalog-filters__row">
             <div class="catalog-filters__group">
               <span class="catalog-filters__title">Страна:</span>
@@ -169,8 +171,10 @@ export default {
             </div>
           </div>
           
+          </details>
+          <div class="catalog-active" id="catalog-active" aria-label="Выбранные фильтры" hidden></div>
           <div class="catalog-status">
-            <span id="catalog-count">Показано: ${watches.length} из ${watches.length}</span>
+            <span id="catalog-count" role="status" aria-live="polite">Показано: ${watches.length} из ${watches.length}</span>
             <button type="button" class="catalog-reset" id="catalog-reset" style="display: none;">Сбросить все фильтры</button>
           </div>
         </div>
@@ -178,8 +182,9 @@ export default {
 
       <h2 class="visually-hidden">Модели</h2>
       <div class="catalog-grid" id="catalog-grid">
-        ${watches.map((w, i) => watchCard(w, { showBrand: true, i }))}
+        ${watches.slice(0, 12).map((w, i) => watchCard(w, { showBrand: true, i }))}
       </div>
+      <button type="button" id="catalog-more" class="btn btn--ghost catalog-more" hidden>Показать ещё</button>
     </section>`;
   },
 
@@ -194,6 +199,7 @@ export default {
 
     // Чтение параметров из URL
     const params = new URLSearchParams(window.location.search);
+    let visibleLimit = Math.min(watches.length, Math.max(12, parseInt(params.get("shown"), 10) || 12));
     let activeCountry = params.get("country") || "all";
     let activeMech = params.get("mech") || "all";
     let activeMaterial = params.get("material") || "all";
@@ -211,7 +217,9 @@ export default {
       const container = qs(containerSelector, root);
       if (!container) return;
       container.querySelectorAll(".catalog-chip").forEach((btn) => {
-        btn.classList.toggle("is-active", btn.dataset[dataAttr] === targetValue);
+        const selected = btn.dataset[dataAttr] === targetValue;
+        btn.classList.toggle("is-active", selected);
+        btn.setAttribute("aria-pressed", String(selected));
       });
     };
 
@@ -232,6 +240,7 @@ export default {
       if (activeWater !== "all") p.set("wr", activeWater);
       if (activePrice !== "all") p.set("price", activePrice);
       if (activeSort !== "default") p.set("sort", activeSort);
+      if (visibleLimit > 12) p.set("shown", String(visibleLimit));
 
       const qsStr = p.toString();
       const newUrl = window.location.pathname + (qsStr ? `?${qsStr}` : "");
@@ -253,7 +262,8 @@ export default {
       );
     };
 
-    const filterWatches = () => {
+    const filterWatches = (resetLimit = true) => {
+      if (resetLimit) visibleLimit = 12;
       let filtered = [...watches];
 
       if (searchQuery) {
@@ -312,22 +322,53 @@ export default {
         filtered.sort((a, b) => (b.water_resistance_m ?? 0) - (a.water_resistance_m ?? 0));
       }
 
-      grid.innerHTML = filtered.map((w, i) => watchCard(w, { showBrand: true, i })).join("");
-      countEl.textContent = `Показано: ${filtered.length} из ${watches.length}`;
+      clearReveals(grid);
+      grid.innerHTML = filtered.length
+        ? filtered.slice(0, visibleLimit).map((w, i) => watchCard(w, { showBrand: true, i })).join("")
+        : `<div class="catalog-empty"><h2>Совпадений нет</h2><p>Измените запрос или сбросьте ограничения.</p><button type="button" class="btn btn--ghost" data-clear-filters>Сбросить фильтры</button></div>`;
+      const active = [...root.querySelectorAll('.catalog-chip[aria-pressed="true"]')].filter(b => !["all", undefined].includes(Object.values(b.dataset)[0]));
+      const activeBox = qs("#catalog-active", root);
+      activeBox.replaceChildren(...active.map(button => {
+        const clear = document.createElement("button");
+        clear.type = "button"; clear.className = "chip";
+        clear.textContent = `${button.textContent} ×`;
+        clear.setAttribute("aria-label", `Убрать фильтр: ${button.textContent}`);
+        clear.addEventListener("click", () => {
+          button.parentElement.querySelector('button[data-country="all"],button[data-mech="all"],button[data-material="all"],button[data-diam="all"],button[data-water="all"],button[data-price="all"]').click();
+          qs("#catalog-filter-details > summary", root).focus({ preventScroll: true });
+        });
+        return clear;
+      }));
+      activeBox.hidden = !active.length;
+      qs("#catalog-filter-count", root).textContent = active.length ? `(${active.length})` : "";
+      countEl.textContent = `Найдено: ${filtered.length}. Показано: ${Math.min(visibleLimit, filtered.length)}`;
+      const more = qs("#catalog-more", root);
+      more.hidden = visibleLimit >= filtered.length;
+      more.textContent = `Показать ещё ${Math.min(12, filtered.length - visibleLimit)}`;
       if (resetBtn) resetBtn.style.display = isFiltered() ? "inline-block" : "none";
       revealPhotos(grid);
+      observeReveals(grid);
       syncURL();
     };
 
-    // Первоначальная фильтрация с учетом URL-параметров
-    filterWatches();
+    // The visible batch is also in the URL so Back restores the same catalogue.
+    filterWatches(false);
 
     root.addEventListener("click", (e) => {
+      if (e.target.closest("#catalog-more")) {
+        const previous = visibleLimit;
+        visibleLimit += 12;
+        filterWatches(false);
+        grid.querySelectorAll('.wcard')[previous]?.focus({ preventScroll: true });
+        return;
+      }
       const chip = e.target.closest(".catalog-chip");
       if (chip) {
         const parent = chip.parentElement;
-        parent.querySelectorAll(".catalog-chip").forEach((b) => b.classList.remove("is-active"));
-        chip.classList.add("is-active");
+        parent.querySelectorAll(".catalog-chip").forEach((b) => {
+          b.classList.toggle("is-active", b === chip);
+          b.setAttribute("aria-pressed", String(b === chip));
+        });
 
         if (chip.dataset.country !== undefined) activeCountry = chip.dataset.country;
         if (chip.dataset.mech !== undefined) activeMech = chip.dataset.mech;
@@ -339,7 +380,7 @@ export default {
         return;
       }
 
-      if (e.target.closest("#catalog-reset")) {
+      if (e.target.closest("#catalog-reset, [data-clear-filters]")) {
         activeCountry = "all";
         activeMech = "all";
         activeMaterial = "all";
@@ -360,6 +401,7 @@ export default {
         setChipActive("#filter-price", "price", "all");
 
         filterWatches();
+        searchInput?.focus({ preventScroll: true });
         return;
       }
 
@@ -391,7 +433,7 @@ export default {
 
     const onCur = () => {
       qsa("#filter-price [data-price]", root).forEach((b) => b.dataset.price !== "all" && (b.textContent = budgetLabel(b.dataset.price)));
-      filterWatches();
+      filterWatches(false);
     };
     window.addEventListener("currencychange", onCur);
 

@@ -150,6 +150,7 @@ try {
     }
     await evaluate(`(() => {document.querySelector('.sub-inspector__close').click();const slider=document.querySelector('.sub-progress input');slider.value=0;slider.dispatchEvent(new Event('input',{bubbles:true}));})()`);
     assert(await evaluate("window.__horologium.submariner.parts.every(p=>p.node.position.distanceTo(p.home)<1e-5&&p.node.quaternion.angleTo(window.__horologium.submariner.scene.quaternion)<1e-5)"), `${width}: returning from the tray left residual translation or rotation`);
+    await waitFor("!window.__horologium.submariner.moving && !window.__horologium.submariner.cameraGoal");
     await sleep(2000);
     const frame = await evaluate("window.__horologium.submariner.renderer.info.render.frame");
     await sleep(900);

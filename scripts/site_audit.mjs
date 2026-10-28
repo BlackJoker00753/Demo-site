@@ -87,7 +87,7 @@ const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1])
 // Проверки на отрисованной странице
 const CHECK = `(() => {
   const out = [];
-  const W = innerWidth;
+  const W = document.documentElement.clientWidth;
   if (document.documentElement.scrollWidth > W + 1) {
     const wide = [...document.querySelectorAll("body *")].filter((el) => {
       const r = el.getBoundingClientRect();
