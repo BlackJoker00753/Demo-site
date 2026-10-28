@@ -1,0 +1,264 @@
+[
+  {
+    "name": "calibres",
+    "top": [
+      {
+        "name": "(idle) ",
+        "ms": 3410
+      },
+      {
+        "name": "(program) ",
+        "ms": 1451
+      },
+      {
+        "name": "Sd /vendor/gsap/gsap.min.js",
+        "ms": 623
+      },
+      {
+        "name": "enable /vendor/gsap/ScrollTrigger.min.js",
+        "ms": 79
+      },
+      {
+        "name": "setHTML /js/core/dom.js",
+        "ms": 51
+      },
+      {
+        "name": " /js/core/format.js",
+        "ms": 46
+      },
+      {
+        "name": " /vendor/gsap/gsap.min.js",
+        "ms": 34
+      },
+      {
+        "name": " /js/core/theme.js",
+        "ms": 20
+      },
+      {
+        "name": "requestAnimationFrame ",
+        "ms": 19
+      },
+      {
+        "name": "vph /js/core/format.js",
+        "ms": 12
+      },
+      {
+        "name": "(garbage collector) ",
+        "ms": 11
+      },
+      {
+        "name": "boot /js/main.js",
+        "ms": 9
+      },
+      {
+        "name": "_refreshAll /vendor/gsap/ScrollTrigger.min.js",
+        "ms": 9
+      },
+      {
+        "name": "go /js/core/router.js",
+        "ms": 9
+      },
+      {
+        "name": "html /js/core/dom.js",
+        "ms": 8
+      },
+      {
+        "name": "_setterPlain /vendor/gsap/gsap.min.js",
+        "ms": 7
+      },
+      {
+        "name": "qa /vendor/gsap/gsap.min.js",
+        "ms": 6
+      },
+      {
+        "name": "render /js/core/dom.js",
+        "ms": 5
+      },
+      {
+        "name": "Rd /vendor/gsap/gsap.min.js",
+        "ms": 4
+      },
+      {
+        "name": "data /js/views/movements.js",
+        "ms": 4
+      },
+      {
+        "name": "zl /vendor/gsap/gsap.min.js",
+        "ms": 4
+      },
+      {
+        "name": "start /js/core/router.js",
+        "ms": 4
+      },
+      {
+        "name": " /js/main.js",
+        "ms": 4
+      },
+      {
+        "name": "fetch ",
+        "ms": 4
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 9383
+      },
+      {
+        "name": "LayoutCount",
+        "value": 118
+      },
+      {
+        "name": "RecalcStyleCount",
+        "value": 123
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 1.010169
+      },
+      {
+        "name": "RecalcStyleDuration",
+        "value": 0.281769
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.244668
+      },
+      {
+        "name": "TaskDuration",
+        "value": 2.518624
+      }
+    ]
+  },
+  {
+    "name": "globe",
+    "top": [
+      {
+        "name": "(program) ",
+        "ms": 4744
+      },
+      {
+        "name": "texSubImage2D /vendor/three/three.module.js",
+        "ms": 233
+      },
+      {
+        "name": "Sd /vendor/gsap/gsap.min.js",
+        "ms": 145
+      },
+      {
+        "name": "(idle) ",
+        "ms": 118
+      },
+      {
+        "name": "WebGLRenderer.setSize /vendor/three/three.module.js",
+        "ms": 50
+      },
+      {
+        "name": "(garbage collector) ",
+        "ms": 50
+      },
+      {
+        "name": "lonLatToVec3 /js/globe/geo.js",
+        "ms": 35
+      },
+      {
+        "name": "init /js/globe/scene.js",
+        "ms": 31
+      },
+      {
+        "name": "bordersGeometry /js/globe/geo.js",
+        "ms": 29
+      },
+      {
+        "name": "SphereGeometry /vendor/three/three.core.js",
+        "ms": 25
+      },
+      {
+        "name": " /vendor/three/three.module.js",
+        "ms": 21
+      },
+      {
+        "name": "Le /vendor/three/three.module.js",
+        "ms": 18
+      },
+      {
+        "name": "x /vendor/three/three.module.js",
+        "ms": 13
+      },
+      {
+        "name": "setFromBufferAttribute /vendor/three/three.core.js",
+        "ms": 12
+      },
+      {
+        "name": "n /vendor/three/three.module.js",
+        "ms": 11
+      },
+      {
+        "name": "computeBoundingSphere /vendor/three/three.core.js",
+        "ms": 10
+      },
+      {
+        "name": "Pe /vendor/three/three.module.js",
+        "ms": 9
+      },
+      {
+        "name": "Float32BufferAttribute /vendor/three/three.core.js",
+        "ms": 9
+      },
+      {
+        "name": " /vendor/gsap/gsap.min.js",
+        "ms": 8
+      },
+      {
+        "name": "#frame /js/globe/scene.js",
+        "ms": 8
+      },
+      {
+        "name": "_initTween /vendor/gsap/gsap.min.js",
+        "ms": 7
+      },
+      {
+        "name": "render /vendor/gsap/gsap.min.js",
+        "ms": 7
+      },
+      {
+        "name": "WebGLRenderer.render /vendor/three/three.module.js",
+        "ms": 7
+      },
+      {
+        "name": " /vendor/three/three.core.js",
+        "ms": 7
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 9864
+      },
+      {
+        "name": "LayoutCount",
+        "value": 76
+      },
+      {
+        "name": "RecalcStyleCount",
+        "value": 108
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.120868
+      },
+      {
+        "name": "RecalcStyleDuration",
+        "value": 0.124727
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.219605
+      },
+      {
+        "name": "TaskDuration",
+        "value": 5.971545
+      }
+    ]
+  }
+]

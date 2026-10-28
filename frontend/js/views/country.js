@@ -3,7 +3,7 @@
 
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
-import { brands, models, TIER, usd } from "../core/format.js";
+import { bindCurrencyPrices, brands, models, TIER, usd } from "../core/format.js";
 import { photoImg, revealPhotos } from "../ui/photo.js";
 
 const PANEL_W = () => Math.min(460, window.innerWidth * 0.36);
@@ -30,8 +30,8 @@ function brandRow(b, i) {
       <span class="cbrand__name">${b.name}</span>
       <span class="cbrand__meta">${b.founded}, ${b.city}</span>
       <span class="cbrand__price">
-        <span class="price num">${p.avg ? `≈ ${usd(p.avg)}` : "нет данных"}</span>
-        <span class="price-range num">${p.min ? `${usd(p.min)} - ${usd(p.max)}` : ""}</span>
+        <span class="price num">${p.avg ? html`≈ <span data-price-usd="${p.avg}">${usd(p.avg)}</span>` : "нет данных"}</span>
+        <span class="price-range num">${p.min ? html`<span data-price-usd="${p.min}">${usd(p.min)}</span> - <span data-price-usd="${p.max}">${usd(p.max)}</span>` : ""}</span>
       </span>
       <span class="cbrand__tier">${TIER[b.tier] ?? ""}${b.watch_count ? `, ${models(b.watch_count)}` : ""}</span>
     </a>
@@ -40,6 +40,7 @@ function brandRow(b, i) {
 
 export default {
   layer: "globe",
+  currencyAware: true,
 
   async data({ params }) {
     const [country, countries] = await Promise.all([api.country(params[0]), api.countries()]);
@@ -65,7 +66,7 @@ export default {
           <dl class="cpanel__facts" data-anim>
             <div><dt>Брендов в атласе</dt><dd class="num">${c.brand_count}</dd></div>
             <div><dt>Моделей</dt><dd class="num">${c.watch_count}</dd></div>
-            ${c.prices.avg ? html`<div><dt>Средняя цена</dt><dd class="num">${usd(c.prices.avg)}</dd></div>` : ""}
+            ${c.prices.avg ? html`<div><dt>Средняя цена</dt><dd class="num" data-price-usd="${c.prices.avg}">${usd(c.prices.avg)}</dd></div>` : ""}
             ${c.facts.slice(0, 3).map((f) => html`<div><dt>${f.label}</dt><dd>${f.value}</dd></div>`)}
           </dl>
 
@@ -115,9 +116,10 @@ export default {
     const list = qs(".cbrands", root);
     const pins = c.brands.map((b) => ({ slug: b.slug, name: b.name, lat: b.lat, lon: b.lon, meta: String(b.founded), href: `/brand/${b.slug}` }));
     let alive = true;
-    const offs = [];
+    const offs = [bindCurrencyPrices(root)];
 
     globe.whenReady(async (scene) => {
+      if (!alive) return;
       await scene.focus(c, { shift: countryShift() });
       if (!alive) return;
       scene.setPins(pins);

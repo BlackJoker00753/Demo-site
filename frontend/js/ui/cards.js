@@ -66,7 +66,7 @@ export function watchCard(w, { showBrand = false, i = 0 } = {}) {
         ${comps.map((c) => html`<span class="chip">${c.name}</span>`)}
       </div>
       <div class="wcard__foot">
-        <span class="price wcard__price num">${usd(w.price.usd)}</span>
+        <span class="price wcard__price num" data-price-usd="${w.price.usd}">${usd(w.price.usd)}</span>
         <span class="price-kind">${w.year_introduced ? `с ${w.year_introduced}` : ""}</span>
       </div>
     </div>

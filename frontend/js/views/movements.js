@@ -139,7 +139,7 @@ export default {
 
         </details>
         <div class="mfilters__status">
-          <span role="status" aria-live="polite" id="mcount" class="muted">${movements.length} калибров</span>
+          <span role="status" aria-live="polite" id="mcount" class="muted">Найдено: ${movements.length}. Показано: ${Math.min(12, movements.length)}</span>
           <button type="button" class="btn btn--small btn--ghost" id="mreset" hidden>Сбросить фильтры</button>
         </div>
       </section>
@@ -188,8 +188,9 @@ export default {
 
       <!-- Сетка калибров -->
       <div class="mgrid" id="mgrid">
-        ${movements.map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i))}
+        ${movements.slice(0, 12).map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i))}
       </div>
+      <button type="button" class="btn btn--ghost catalog-more" id="movement-more" ${movements.length <= 12 ? "hidden" : ""}>Показать ещё ${Math.min(12, Math.max(0, movements.length - 12))}</button>
     </section>`;
   },
 
@@ -200,15 +201,35 @@ export default {
     const countEl = qs("#mcount", root);
     const gridEl = qs("#mgrid", root);
     const resetBtn = qs("#mreset", root);
+    const more = qs("#movement-more", root);
+    const params = new URLSearchParams(location.search);
+    let limit = Math.min(movements.length, Math.max(12, parseInt(params.get("shown"), 10) || 12));
 
     let state = {
-      q: "",
+      q: params.get("q") || "",
       type: "all",
       inhouse: "all",
       power: "all",
     };
+    searchInput.value = state.q;
+    for (const [key, id] of [["type", "#mfilter-type"], ["inhouse", "#mfilter-inhouse"], ["power", "#mfilter-power"]]) {
+      const buttons = [...root.querySelectorAll(`${id} button`)];
+      const value = params.get(key);
+      if (buttons.some(button => button.dataset.val === value)) state[key] = value;
+      buttons.forEach(button => button.classList.toggle("is-active", button.dataset.val === state[key]));
+    }
 
-    const updateFilter = () => {
+    const syncURL = () => {
+      const p = new URLSearchParams();
+      if (state.q.trim()) p.set("q", state.q.trim());
+      for (const key of ["type", "inhouse", "power"]) if (state[key] !== "all") p.set(key, state[key]);
+      if (limit > 12) p.set("shown", String(limit));
+      const query = p.toString();
+      history.replaceState(history.state, "", location.pathname + (query ? `?${query}` : ""));
+    };
+
+    const updateFilter = (resetLimit = true) => {
+      if (resetLimit) limit = 12;
       const q = state.q.toLowerCase().trim();
       const filtered = movements.filter((m) => {
         if (q) {
@@ -241,23 +262,34 @@ export default {
 
       if (gridEl) {
         clearReveals(gridEl);
-        gridEl.innerHTML = filtered.length ? filtered.map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i)).join("") : `<p class="catalog-empty">Калибров с такими условиями нет. Измените запрос или сбросьте фильтры выше.</p>`;
+        gridEl.innerHTML = filtered.length ? filtered.slice(0, limit).map((m, i) => renderMovementCard(m, watchesByMov.get(m.caliber) || [], i)).join("") : `<p class="catalog-empty">Калибров с такими условиями нет. Измените запрос или сбросьте фильтры выше.</p>`;
         observeReveals(gridEl);
       }
 
       if (countEl) {
-        countEl.textContent = `${filtered.length} из ${movements.length} калибров`;
+        countEl.textContent = `Найдено: ${filtered.length} из ${movements.length}. Показано: ${Math.min(limit, filtered.length)}`;
       }
 
       const hasActive = state.q || state.type !== "all" || state.inhouse !== "all" || state.power !== "all";
       if (resetBtn) resetBtn.hidden = !hasActive;
+      more.hidden = limit >= filtered.length;
+      more.textContent = `Показать ещё ${Math.min(12, Math.max(0, filtered.length - limit))}`;
+      syncURL();
     };
+
+    more.addEventListener("click", () => {
+      const previous = limit;
+      limit += 12;
+      updateFilter(false);
+      gridEl.querySelectorAll('.mcard__title-link')[previous]?.focus({ preventScroll: true });
+    });
 
     searchInput?.addEventListener("input", (e) => {
       state.q = e.target.value;
       updateFilter();
     });
 
+    if (params.size) updateFilter(false);
     const bindChipGroup = (containerId, stateKey) => {
       const box = qs(containerId, root);
       box?.addEventListener("click", (e) => {
@@ -284,6 +316,7 @@ export default {
         b.setAttribute("aria-pressed", String(b.dataset.val === "all"));
       });
       updateFilter();
+      searchInput.focus({ preventScroll: true });
     });
 
     root.querySelectorAll('.mfilters__chips button').forEach(b => b.setAttribute("aria-pressed", String(b.classList.contains("is-active"))));

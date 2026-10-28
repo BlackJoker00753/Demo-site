@@ -2,7 +2,7 @@
 
 import { api } from "../core/api.js";
 import { html, qs } from "../core/dom.js";
-import { usd, PRICE_KIND } from "../core/format.js";
+import { bindCurrencyPrices, usd, PRICE_KIND } from "../core/format.js";
 import { photoImg, revealPhotos } from "../ui/photo.js";
 import { TcoCalculator } from "../ui/tco-calc.js";
 import { TCO_PRESETS, BRAND_RETENTION_PROFILES } from "../core/tco.js";
@@ -65,7 +65,7 @@ export default {
                     <div class="tco-selected-info">
                       <h4><a href="/watch/${sw.slug}" data-link>${sw.brand_name} ${sw.name}</a></h4>
                       <p class="muted">
-                        ${PRICE_KIND[sw.price.kind] || "Цена"}: <b class="num">${usd(sw.price.usd)}</b> | Калибр: <b>${sw.movement?.caliber || "Механический"}</b>
+                        ${PRICE_KIND[sw.price.kind] || "Цена"}: <b class="num" data-price-usd="${sw.price.usd}">${usd(sw.price.usd)}</b> | Калибр: <b>${sw.movement?.caliber || "Механический"}</b>
                       </p>
                     </div>
                   </div>
@@ -113,6 +113,13 @@ export default {
 
     // Обработка селектора часов
     const select = qs("#tco-select-watch", root);
+    const bySlug = new Map(watches.map(watch => [watch.slug, watch]));
+    const offPrices = bindCurrencyPrices(root, () => {
+      for (const option of select.options) {
+        const watch = bySlug.get(option.value);
+        if (watch) option.textContent = `${watch.brand_name} - ${watch.name} (${usd(watch.price.usd)})`;
+      }
+    });
     if (select) {
       select.addEventListener("change", (e) => {
         const val = e.target.value;
@@ -130,6 +137,7 @@ export default {
     revealPhotos(root);
 
     return () => {
+      offPrices();
       if (calc) calc.destroy();
     };
   },

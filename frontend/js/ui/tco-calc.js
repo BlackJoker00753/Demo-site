@@ -2,7 +2,7 @@
 // Модуль для страниц моделей часов и отдельного аналитического раздела.
 
 import { qs, qsa } from "../core/dom.js";
-import { usd, onCurrencyChange } from "../core/format.js";
+import { usd } from "../core/format.js";
 import {
   SERVICE_COMPLICATION_TIERS,
   CONDITION_MODIFIERS,
@@ -336,10 +336,12 @@ export class TcoCalculator {
 
   bind() {
     // Слушатель смены валюты в шапке
-    this.currencyUnsub = onCurrencyChange(() => {
+    const refreshCurrency = () => {
       this.render();
       this.bindEvents();
-    });
+    };
+    window.addEventListener("currencychange", refreshCurrency);
+    this.currencyUnsub = () => window.removeEventListener("currencychange", refreshCurrency);
 
     this.bindEvents();
   }

@@ -6,7 +6,7 @@
 
 import { api } from "../core/api.js";
 import { html, qs, qsa } from "../core/dom.js";
-import { date, DIFFICULTY, getActiveCurrency, hours, inUSD, MOVEMENT, num, PRICE_KIND, RATES, usd, vph } from "../core/format.js";
+import { bindCurrencyPrices, date, DIFFICULTY, getActiveCurrency, hours, inUSD, MOVEMENT, num, PRICE_KIND, RATES, usd, vph } from "../core/format.js";
 import { countUp, reduced, splitWords } from "../core/motion.js";
 import { getLenis, scrollToEl } from "../core/scroll.js";
 import { attachGallery, buildInfo, watchCard } from "../ui/cards.js";
@@ -62,27 +62,25 @@ function priceBlock(w) {
   return html`<section class="wprice container" id="price">
     <div class="wprice__main" data-reveal>
       <p class="label">${PRICE_KIND[p.kind] ?? "Цена"}</p>
-      <p class="price wprice__value num" data-count-price="${p.usd}">${usd(p.usd)}</p>
+      <p class="price wprice__value num" data-count-price="${p.usd}" data-price-usd="${p.usd}">${usd(p.usd)}</p>
       <p class="wprice__meta">
         Источник: ${p.url ? html`<a href="${p.url}" target="_blank" rel="noopener" data-external>${p.source}</a>` : p.source}.
         Проверено ${date(p.checked)}.${p.note ? html` ${p.note}.` : ""}
       </p>
-      ${getActiveCurrency().code !== "USD"
-        ? html`<p class="wprice__meta wprice__fx">Исходная цена ${inUSD(p.usd)}, пересчёт по курсу на ${date(RATES.date)}: примерная сумма, а не официальная цена в этой валюте.</p>`
-        : ""}
+      <p class="wprice__meta wprice__fx" ${getActiveCurrency().code === "USD" ? "hidden" : ""}>Исходная цена ${inUSD(p.usd)}, пересчёт по курсу на <span data-rate-date>${date(RATES.date)}</span>: примерная сумма, а не официальная цена в этой валюте.</p>
     </div>
     <div class="wprice__compare" data-reveal style="--i:1">
       <p class="wprice__diff">${diff === 0 ? "Ровно на уровне средней цены" : diff > 0 ? `На ${diff}% дороже` : `На ${Math.abs(diff)}% дешевле`}
-        ${diff === 0 ? "" : html`<span>средней цены ${w.brand_name} в атласе (${usd(bp.avg)})</span>`}</p>
+        ${diff === 0 ? "" : html`<span>средней цены ${w.brand_name} в атласе (<span data-price-usd="${bp.avg}">${usd(bp.avg)}</span>)</span>`}</p>
       <div class="wrange" role="img" aria-label="Положение цены в диапазоне бренда">
         <div class="wrange__line"></div>
         <div class="wrange__dot" style="left:${Math.min(100, Math.max(0, pos))}%"></div>
-        <span class="wrange__min num">${usd(bp.min)}</span>
-        <span class="wrange__max num">${usd(bp.max)}</span>
+        <span class="wrange__min num" data-price-usd="${bp.min}">${usd(bp.min)}</span>
+        <span class="wrange__max num" data-price-usd="${bp.max}">${usd(bp.max)}</span>
       </div>
       ${w.price_history.length > 1
         ? html`<ul class="wprice__history" role="list">
-            ${w.price_history.map((h) => html`<li><span>${date(h.fetched_at)}</span><span class="num">${usd(h.usd)}</span><span class="muted">${h.source}</span></li>`)}
+            ${w.price_history.map((h) => html`<li><span>${date(h.fetched_at)}</span><span class="num" data-price-usd="${h.usd}">${usd(h.usd)}</span><span class="muted">${h.source}</span></li>`)}
           </ul>`
         : ""}
     </div>
@@ -91,6 +89,7 @@ function priceBlock(w) {
 
 export default {
   layer: "page",
+  currencyAware: true,
 
   data: ({ params }) => api.watch(params[0]),
 
@@ -134,7 +133,7 @@ export default {
                 <span>${MOVEMENT[m.type]?.label}</span>
               </p>
               <div class="whero__buy" data-h>
-                <span class="price whero__price num">${usd(w.price.usd)}</span>
+                <span class="price whero__price num" data-price-usd="${w.price.usd}">${usd(w.price.usd)}</span>
                 <span class="price-kind">${PRICE_KIND[w.price.kind]}, ${date(w.price.checked)}</span>
               </div>
               <div class="whero__cta" data-h>
@@ -381,6 +380,11 @@ export default {
     const ST = window.ScrollTrigger;
     const still = reduced() || !g;
     const cleanups = [];
+    cleanups.push(bindCurrencyPrices(root, () => {
+      const note = qs('.wprice__fx', root);
+      note.hidden = getActiveCurrency().code === "USD";
+      qs('[data-rate-date]', note).textContent = date(RATES.date);
+    }));
     const info = buildInfo(w);
     const calibre = w.movement.caliber.replace(new RegExp(`^${w.brand_name}\\s*`, "i"), "");
     const opts = { ...info, calibre };

@@ -30,6 +30,8 @@ export class SubmarinerScene {
     this.renderer.toneMappingExposure = 0.9;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.renderer.shadowMap.autoUpdate = false;
+    this.renderer.shadowMap.needsUpdate = true;
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(32, 1, 0.1, 4000);
     this.camera.position.set(85, 115, 150);
@@ -302,6 +304,7 @@ export class SubmarinerScene {
     this.positionParts(this.t);
     this.isolated = id;
     for (const p of this.parts) p.node.visible = !id || p.id === id;
+    this.renderer.shadowMap.needsUpdate = true;
     if (id) {
       const p = this.parts.find(p => p.id === id);
       if (p) this.fit(new THREE.Box3().setFromObject(p.node), V(0.7, 1, 1));
@@ -314,6 +317,7 @@ export class SubmarinerScene {
     this.followMotion = false;
     this.isolated = null;
     for (const p of this.parts) p.node.visible = true;
+    this.renderer.shadowMap.needsUpdate = true;
     if (name === "tray") {
       this.fit(this.trayBounds, V(0.1, 2.6, 0.8), instant);
     } else {
@@ -418,6 +422,9 @@ export class SubmarinerScene {
   }
 
   positionParts(t) {
+    if (this.positionedT === t) return;
+    this.positionedT = t;
+    this.renderer.shadowMap.needsUpdate = true;
     for (const p of this.parts) {
       const pose = p.pose = samplePart(this.plans.get(p.id), t);
       p.node.quaternion.identity();
@@ -461,6 +468,7 @@ export class SubmarinerScene {
   }
 
   layoutTray() {
+    this.positionedT = null;
     const width = this.camera.aspect < 1 ? 124 : 240;
     const measured = this.parts.map(p => {
       p.node.position.copy(p.home);

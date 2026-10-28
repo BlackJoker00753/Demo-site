@@ -67,6 +67,8 @@ uv run horologium serve
 | `node scripts/theme_audit.mjs http://127.0.0.1:8765` | обе темы, сохранение выбора, контраст, длинные варианты калькулятора и шапка на 320/390/768/1440 px |
 | `node scripts/tco.test.mjs`, `node scripts/compare.test.mjs` | согласованность расходов и страховки, сохранение четырёх выбранных моделей |
 | `node scripts/ux_audit.mjs http://127.0.0.1:8765` | пресеты и возврат к расчёту, каталог, обучение, мобильная вёрстка и клавиатура |
+| `node scripts/optimization_audit.mjs http://127.0.0.1:8765` | выдача калибров, сон и пробуждение глобуса, повторное использование теней, смена валюты без пересоздания 3D |
+| `node scripts/globe_texture_audit.mjs http://127.0.0.1:8765` | большой экран, отложенная 8K-текстура и Save-Data |
 | `uv run python scripts/check_public_startup.py` | несколько последовательных HTTP-замеров Render; первый запуск проверяют после естественного простоя |
 | `node scripts/perf_audit.mjs http://127.0.0.1:8765` | скорость страниц как на слабом ноутбуке: вес, FCP/LCP, блокировка потока, фоновая активность, плавность прокрутки |
 | `uv run --with fonttools --with brotli python scripts/icons_subset.py` | шрифт иконок только с иконками из кода (после новой иконки `ph-*`) |

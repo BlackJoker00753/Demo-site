@@ -78,6 +78,18 @@ export const usd = (n, { fractionDigits = 0 } = {}) => {
   return cur.pos === "before" ? `${cur.symbol}${formatted}` : `${formatted}\u00a0${cur.symbol}`;
 };
 
+/** Update monetary text without recreating the page or its WebGL scenes. */
+export function bindCurrencyPrices(root, onChange = () => {}) {
+  const update = () => {
+    root.querySelectorAll('[data-price-usd]').forEach(element => {
+      element.textContent = usd(Number(element.dataset.priceUsd));
+    });
+    onChange();
+  };
+  window.addEventListener("currencychange", update);
+  return () => window.removeEventListener("currencychange", update);
+}
+
 /** Компактная подпись цены с учетом активной валюты */
 export function usdShort(n) {
   if (n == null) return "";

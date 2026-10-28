@@ -501,6 +501,7 @@ details.standards-block[open] > summary { margin-bottom: 20px; }
 .mfilters__group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .mfilters__label { font-size: var(--fs-13); color: var(--text-3); }
 .mfilters__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+#mreset[hidden] { display: none; }
 .mfilters__chips .chip { height: auto; min-height: 44px; cursor: pointer; transition: all 0.2s ease; }
 .mfilters__chips .chip:hover { border-color: var(--line-3); color: var(--text); }
 .mfilters__chips .chip.is-active { background: var(--surface-2); border-color: var(--lume); color: var(--lume); }
