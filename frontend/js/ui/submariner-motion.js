@@ -22,6 +22,7 @@ export function timelineProgress(seconds) {
 /** Local phase windows express dependencies: a retaining screw exits before its part lifts. */
 export function planParts(parts) {
   const plans = new Map();
+  const catalogue = parts.some(p => p.role);
   for (let stage = 0; stage <= 6; stage++) {
     const group = parts.filter(p => p.stage === stage).sort((a, b) => a.name.localeCompare(b.name, "ru", { numeric: true }));
     const screws = group.filter(p => p.thread).sort((a, b) => Number(/ротора/.test(b.name)) - Number(/ротора/.test(a.name)) || a.name.localeCompare(b.name, "ru", { numeric: true }));
@@ -64,6 +65,24 @@ export function planParts(parts) {
         else { plan.start = 0.03 + Math.max(0, screwRank) * 0.18; plan.turnEnd = plan.start + 0.25; }
         plan.exitEnd = plan.turnEnd + (stage === 2 ? 0.12 : 0.14);
         plan.end = Math.min(1, plan.exitEnd + 0.12);
+      }
+      if (catalogue && stage === 2) {
+        if (p.thread) {
+          plan.start = .02 + screwRank * .15;
+          plan.turnEnd = plan.start + .25;
+          plan.exitEnd = plan.turnEnd + .15;
+          plan.end = plan.exitEnd + .12;
+        } else { plan.start = .76; plan.end = 1; }
+      }
+      if (catalogue && stage === 6) {
+        if (p.thread) {
+          plan.start = screwRank * .08; plan.turnEnd = plan.start + .18;
+          plan.exitEnd = plan.turnEnd + .12; plan.end = plan.exitEnd + .1;
+        } else {
+          [plan.start, plan.end] = /bezel/.test(p.role) ? [.5, .6]
+            : /crystal/.test(p.role) ? [.6, .7]
+              : /hand/.test(p.role) ? [.7 + rank * .08, .82 + rank * .08] : [.9, 1];
+        }
       }
       plans.set(p.id, plan);
     }

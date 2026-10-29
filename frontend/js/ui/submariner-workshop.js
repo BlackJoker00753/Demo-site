@@ -2,20 +2,26 @@ import { html } from "../core/dom.js";
 import { reduced } from "../core/motion.js";
 import { STEPS, describePart } from "./submariner-parts.js";
 import { timelineSeconds, TOTAL_SECONDS, motionCaption } from "./submariner-motion.js";
+import { workshopProfile, catalogueCaption } from "../workshop/profiles.js";
+import { photoImg } from "./photo.js";
 
-export function renderSubmarinerWorkshop() {
+export function renderSubmarinerWorkshop(watch = null) {
+  const catalogue = watch && watch.slug !== "rolex-submariner";
+  const profile = catalogue ? workshopProfile(watch) : null;
+  const steps = profile?.steps || STEPS;
+  const title = catalogue ? watch.name : "Submariner";
   return html`<section class="sub-workshop container" id="explode" aria-labelledby="sub-title" data-ui>
     <header class="sub-workshop__heading">
-      <h2 id="sub-title">Submariner. Изнутри.</h2>
-      <p>Разберите часы и узнайте, как работает каждая деталь.</p>
+      <h2 id="sub-title">${title}. Изнутри.</h2>
+      <p>${catalogue ? "Учебная 3D-реконструкция. Выберите деталь или запустите разборку." : "Разберите часы и узнайте, как работает каждая деталь."}</p>
     </header>
     <div class="sub-workshop__body">
       <nav class="sub-steps" aria-label="Этапы разборки">
-        ${STEPS.map(([name], i) => html`<button type="button" data-sub-step="${i}" aria-current="${i === 0 ? "step" : "false"}"><span>${i + 1}</span>${name}</button>`)}
+        ${steps.map(([name], i) => html`<button type="button" data-sub-step="${i}" aria-current="${i === 0 ? "step" : "false"}"><span>${i + 1}</span>${name}</button>`)}
       </nav>
       <div class="sub-stage">
-        <img class="sub-stage__poster" src="/assets/photos/rolex-submariner/1-960.webp" alt="Rolex Submariner 124060, вид часов в сборе" width="720" height="960" loading="lazy">
-        <canvas tabindex="0" aria-label="Объёмный Rolex Submariner. Потяните для поворота; кнопки под сценой управляют разборкой." hidden></canvas>
+        ${catalogue ? html`<div class="sub-stage__poster">${photoImg(watch.photos?.find(p => !p.context), { sizes: "720px", alt: `${watch.brand_name} ${watch.name}` })}</div>` : html`<img class="sub-stage__poster" src="/assets/photos/rolex-submariner/1-960.webp" alt="Rolex Submariner 124060, вид часов в сборе" width="720" height="960" loading="lazy">`}
+        <canvas tabindex="0" aria-label="Объёмные ${title}. Потяните для поворота; кнопки под сценой управляют разборкой." hidden></canvas>
         <div class="sub-stage__status" role="status"><span>3D-мастерская</span><button type="button" data-sub-load>Открыть 3D</button></div>
         <div class="sub-stage__tools" aria-label="Управление камерой" hidden>
           <button type="button" data-sub-view="front">Спереди</button>
@@ -34,24 +40,28 @@ export function renderSubmarinerWorkshop() {
       </aside>
     </div>
     <div class="sub-transport">
-      <div class="sub-transport__caption" aria-live="polite" aria-atomic="true"><h3>${STEPS[0][0]}</h3><p>${STEPS[0][1]}</p></div>
+      <div class="sub-transport__caption" aria-live="polite" aria-atomic="true"><h3>${steps[0][0]}</h3><p>${steps[0][1]}</p></div>
       <div class="sub-transport__actions">
         <button type="button" data-sub-prev aria-label="Предыдущий этап" disabled>Назад</button>
         <button type="button" data-sub-play disabled>Разобрать часы</button>
         <button type="button" data-sub-next aria-label="Следующий этап" disabled>Далее</button>
       </div>
       <div class="sub-playback"><output aria-label="Время разборки" aria-live="off">00:00 / 00:51</output><label class="sub-playback__camera"><input type="checkbox" data-sub-camera checked>Автокамера</label><label>Темп <select aria-label="Скорость разборки"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option></select></label></div>
-      <label class="sub-progress"><span>Собраны</span><input type="range" min="0" max="1000" step="1" value="0" aria-label="Степень разборки Submariner" disabled><span>Разобраны</span></label>
+      <label class="sub-progress"><span>Собраны</span><input type="range" min="0" max="1000" step="1" value="0" aria-label="Степень разборки ${title}" disabled><span>Разобраны</span></label>
     </div>
     <details class="sub-catalogue"><summary>Найти деталь <span class="sub-catalogue__count"></span></summary>
-      <label>Название детали<input type="search" placeholder="Например, баланс или стекло" autocomplete="off"></label>
+      <label>Название детали<input type="search" placeholder="${profile && !profile.mechanical ? "Например, батарея или стекло" : "Например, баланс или стекло"}" autocomplete="off"></label>
       <div class="sub-catalogue__list" role="group" aria-label="Детали модели"></div><p class="sub-catalogue__empty" hidden>Совпадений нет. Попробуйте другое название.</p>
     </details>
-    <details class="sub-about"><summary>О точности модели</summary><p>Объёмная учебная модель Submariner 124060: корпус 41 мм, браслет Oyster и основные узлы калибра 3230. Внешняя геометрия восстановлена по официальным фотографиям Rolex. Печать циферблата и деления безеля взяты с этих снимков. Расположение и часть конструкции механизма, включая заводную пружину, упрощены для изучения; это не инструкция по ремонту и не заводская CAD-модель.</p><a href="https://www.rolex.com/watches/submariner/m124060-0001" target="_blank" rel="noopener">Официальная страница модели</a></details>
+    <details class="sub-about"><summary>О точности модели</summary>${catalogue ? html`<p>Учебная объёмная реконструкция ${watch.brand_name} ${watch.name}, ${watch.case.diameter_mm} мм, калибр ${watch.movement.caliber}. Форма, отделка и индикация заданы конфигурацией модели в атласе. Внутренние узлы соответствуют типу механизма и указанным функциям; их расположение, крепления и часть конструкции упрощены. Это не заводская CAD-модель и не инструкция по ремонту. Некоторые микродетали объединены в узлы. Настоящие фотографии и источники характеристик доступны выше на странице.</p>` : html`<p>Объёмная учебная модель Submariner 124060: корпус 41 мм, браслет Oyster и основные узлы калибра 3230. Внешняя геометрия восстановлена по официальным фотографиям Rolex. Печать циферблата и деления безеля взяты с этих снимков. Расположение и часть конструкции механизма, включая заводную пружину, упрощены для изучения; это не инструкция по ремонту и не заводская CAD-модель.</p><a href="https://www.rolex.com/watches/submariner/m124060-0001" target="_blank" rel="noopener">Официальная страница модели</a>`}</details>
   </section>`;
 }
 
-export function mountSubmarinerWorkshop(root) {
+export function mountSubmarinerWorkshop(root, watch = null) {
+  const catalogue = watch && watch.slug !== "rolex-submariner";
+  const profile = catalogue ? workshopProfile(watch) : null;
+  const steps = profile?.steps || STEPS;
+  const debugKey = catalogue ? "workshop" : "submariner";
   const section = root.querySelector(".sub-workshop");
   const $ = s => section.querySelector(s);
   const events = new AbortController();
@@ -60,7 +70,8 @@ export function mountSubmarinerWorkshop(root) {
   const initialStage = /^[0-7]$/.test(requestedStage ?? "") ? Number(requestedStage) : 0;
   let scene, loading, parts = [], value = initialStage / 7, target = value, activeStep = -1, selected, disposed = false, direction = 1;
   let returnFocus = null;
-  const canvas = $("canvas"), status = $(".sub-stage__status"), slider = $(".sub-progress input");
+  let canvas = $("canvas");
+  const status = $(".sub-stage__status"), slider = $(".sub-progress input");
   const play = $("[data-sub-play]"), inspector = $(".sub-inspector"), back = $(".sub-stage__return");
   const stepButtons = [...section.querySelectorAll("[data-sub-step]")];
   const title = $(".sub-transport__caption h3"), caption = $(".sub-transport__caption p"), clock = $(".sub-playback output");
@@ -79,9 +90,9 @@ export function mountSubmarinerWorkshop(root) {
       }
     }
     activeStep = nextStep;
-    slider.setAttribute("aria-valuetext", `${Math.round(value * 100)}%, ${STEPS[activeStep][0]}`);
-    text(title, STEPS[activeStep][0]);
-    const description = moving ? motionCaption(value, direction < 0) : STEPS[activeStep][1];
+    slider.setAttribute("aria-valuetext", `${Math.round(value * 100)}%, ${steps[activeStep][0]}`);
+    text(title, steps[activeStep][0]);
+    const description = moving ? catalogue ? catalogueCaption(profile, value, direction < 0) : motionCaption(value, direction < 0) : steps[activeStep][1];
     text(caption, description);
     text(clock, `${timecode(timelineSeconds(value))} / ${timecode(TOTAL_SECONDS)}`);
     $("[data-sub-camera]").checked = scene?.autoCamera ?? true;
@@ -127,7 +138,7 @@ export function mountSubmarinerWorkshop(root) {
     if (window.innerWidth <= 900) inspector.scrollIntoView({ block: "nearest", behavior: reduced() ? "instant" : "smooth" });
     if (focus) $(".sub-inspector__close").focus({ preventScroll: true });
   }
-  function catalogue() {
+  function renderPartList() {
     const list = $(".sub-catalogue__list");
     list.replaceChildren();
     const query = $(".sub-catalogue input").value.toLocaleLowerCase("ru").trim();
@@ -150,7 +161,7 @@ export function mountSubmarinerWorkshop(root) {
       try {
         const { SubmarinerScene } = await import("./submariner-scene.js");
         if (disposed) return;
-        scene = new SubmarinerScene(canvas, id => selectPart(id));
+        scene = new SubmarinerScene(canvas, id => selectPart(id), catalogue ? { catalogue: true, asset: `/assets/workshop/catalogue/${watch.slug}.glb` } : {});
         canvas.hidden = false;
         parts = await scene.load();
         if (disposed) return;
@@ -161,20 +172,23 @@ export function mountSubmarinerWorkshop(root) {
         play.disabled = false; slider.disabled = false;
         scene.onProgress = update;
         scene.setSpeed(+$(".sub-playback select").value);
-        setValue(value, true); catalogue();
-        if (window.__horologium) window.__horologium.submariner = scene;
+        setValue(value, true); renderPartList();
+        if (window.__horologium) window.__horologium[debugKey] = scene;
       } catch (error) {
         if (disposed) return;
-        console.error("Submariner 3D:", error);
+        console.error("3D-мастерская:", error);
         scene?.dispose(); scene = null;
         canvas.hidden = true;
-        status.querySelector("span").textContent = "3D не загрузилось. Фото часов доступно; попробуйте ещё раз.";
+        // dispose() deliberately loses the GPU context. Retry needs a fresh drawing surface.
+        const replacement = canvas.cloneNode(false);
+        canvas.replaceWith(replacement); canvas = replacement;
+        status.querySelector("span").textContent = "3D не загрузилось. Попробуйте ещё раз.";
         $("[data-sub-load]").hidden = false;
         $("[data-sub-load]").textContent = "Повторить загрузку";
-        parts = ["Корпус", "Безель", "Стекло", "Задняя крышка", "Ротор Perpetual", "Баланс", "Спираль Parachrom", "Барабан", "Центральное колесо"].map((name, i) => ({ ...describePart(name), id: `fallback-${i}` }));
-        catalogue(); loading = null;
+        parts = catalogue ? [] : ["Корпус", "Безель", "Стекло", "Задняя крышка", "Ротор Perpetual", "Баланс", "Спираль Parachrom", "Барабан", "Центральное колесо"].map((name, i) => ({ ...describePart(name), id: `fallback-${i}` }));
+        renderPartList();
       }
-    })();
+    })().finally(() => { if (!scene) loading = null; });
     return loading;
   }
   const near = new IntersectionObserver(([e]) => {
@@ -214,7 +228,7 @@ export function mountSubmarinerWorkshop(root) {
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }, { signal });
   const visibility = new IntersectionObserver(([e]) => { if (!e.isIntersecting) stop(); });
   visibility.observe(section);
-  $(".sub-catalogue input").addEventListener("input", catalogue, { signal });
+  $(".sub-catalogue input").addEventListener("input", renderPartList, { signal });
   $(".sub-inspector__close").addEventListener("click", closePart, { signal });
   $(".sub-inspector__isolate").addEventListener("click", () => {
     if (!scene || !selected) return;
@@ -235,6 +249,6 @@ export function mountSubmarinerWorkshop(root) {
   setValue(value, true);
   return () => {
     disposed = true; stop(); events.abort(); near.disconnect(); visibility.disconnect(); scene?.dispose();
-    if (window.__horologium?.submariner === scene) delete window.__horologium.submariner;
+    if (window.__horologium?.[debugKey] === scene) delete window.__horologium[debugKey];
   };
 }

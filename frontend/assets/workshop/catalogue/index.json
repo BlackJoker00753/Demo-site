@@ -1,0 +1,1005 @@
+{
+  "version": 1,
+  "models": {
+    "omega-speedmaster-moonwatch": {
+      "family": "manual-chronograph",
+      "caliber": "Omega 3861",
+      "parts": 162,
+      "triangles": 77932,
+      "bytes": 2180716,
+      "sha256": "cd97202c6876eabd1891ada856fe0938801bd91a66b8b9f7c34598d64a9d5288",
+      "sourceHash": "f977b3bcdf8a157e9b196b9f3e83adaab3e162abe3a88ab14a2d3782fea264c1"
+    },
+    "raketa-big-zero": {
+      "family": "automatic",
+      "caliber": "Ракета 2615",
+      "parts": 53,
+      "triangles": 69048,
+      "bytes": 1979236,
+      "sha256": "81688103eeaf0e0b751ecaa746cff6bd99e3c14460ac8084162fb304c0aced54",
+      "sourceHash": "6cf6415170f7e263cbfa516086dccd6a66b3f11f809a772689b73a76dafed154"
+    },
+    "christopher-ward-c1-bel-canto": {
+      "family": "automatic",
+      "caliber": "Christopher Ward FS01",
+      "parts": 127,
+      "triangles": 67776,
+      "bytes": 1923660,
+      "sha256": "0a452b6eb627857218461dbf5525e2ee01f81e626afdbe0af06247408ee7b8b9",
+      "sourceHash": "e9246fa8eb2c504f52f0f3382c05d53fca1d2f3ea068f7bbc0c9b6b4f9984e57"
+    },
+    "hamilton-khaki-field-mechanical": {
+      "family": "manual",
+      "caliber": "Hamilton H-50",
+      "parts": 48,
+      "triangles": 61076,
+      "bytes": 1608380,
+      "sha256": "fe5d7b72c38e0358386d87f6a3efb043380fd20f55b49c646727647af0a70235",
+      "sourceHash": "bf6732103b8ef518e27a61490567efab9ce1ae1201217fd37de44012da8a1c56"
+    },
+    "a-lange-soehne-lange-1": {
+      "family": "manual",
+      "caliber": "A. Lange & Söhne L121.1",
+      "parts": 49,
+      "triangles": 64776,
+      "bytes": 1854832,
+      "sha256": "1045caa6bc9800f27e10e06543703b0a8383fa4d3bae3aac45134fb26c225ee0",
+      "sourceHash": "5d196696a00f08ea642cdf160da92f035df3a9a36d88f0ff13d604e38337d530"
+    },
+    "panerai-luminor-marina": {
+      "family": "automatic",
+      "caliber": "Panerai P.9010",
+      "parts": 56,
+      "triangles": 69896,
+      "bytes": 2007568,
+      "sha256": "43987c9e395ceef7e4a33f253f76a474d391d3c73eb9d4c62f19399a202630d8",
+      "sourceHash": "64fd212f272e16a9c9403b64b0fed2e4699d01a5775b315eb4fd71aec9504a1e"
+    },
+    "seiko-prospex-spb143": {
+      "family": "automatic",
+      "caliber": "Seiko 6R35",
+      "parts": 128,
+      "triangles": 70852,
+      "bytes": 1983964,
+      "sha256": "41067aa6969cad8b347b493d00431405dc19dcee464d1c7c5793f4920bc4fa6d",
+      "sourceHash": "04d7d3709feb41783bed6d4e78920ebd343e6a7d76bb99f7e541971b27471da1"
+    },
+    "cartier-santos": {
+      "family": "automatic",
+      "caliber": "Cartier 1847 MC",
+      "parts": 131,
+      "triangles": 68996,
+      "bytes": 2159168,
+      "sha256": "1f344d33adac3665e05c8535c73fcf54e40f8f229d79c896424f52f7b8988d78",
+      "sourceHash": "cbec92e5e6487f423097db59843e2d363fc4e2517da09492e9f65f88c1288c3f"
+    },
+    "rolex-submariner-date": {
+      "family": "automatic",
+      "caliber": "Rolex 3235",
+      "parts": 129,
+      "triangles": 72956,
+      "bytes": 2049260,
+      "sha256": "36760abbdb4d8253fc2377f664f88faa10133a8a64f06f9ededb2f9b22d3906a",
+      "sourceHash": "f5f31379e979b80ae7b408f1513933d7469b1f01181bf6e3e74a5a5d89f21e39"
+    },
+    "panerai-radiomir": {
+      "family": "manual",
+      "caliber": "Panerai P.6000",
+      "parts": 46,
+      "triangles": 62152,
+      "bytes": 1731056,
+      "sha256": "6b35f7a9c9a5d6558faa1aaa428bd471f327eab01feb5cc14cd76ff6a2014657",
+      "sourceHash": "46aaced3d58cc7f2ef8baa2be1e4dd7130240ae9aadf71ce3b4174f9de472a7a"
+    },
+    "a-lange-soehne-saxonia-thin": {
+      "family": "manual",
+      "caliber": "A. Lange & Söhne L093.1",
+      "parts": 56,
+      "triangles": 61968,
+      "bytes": 1656724,
+      "sha256": "f69d4c0a748c558306b91fd3f1d49d841b7158e12fc1b36b8fe9aeef841d1425",
+      "sourceHash": "1e4a265a19b15039009c792d0a54d37df44633c2bb53e3ee6913173c7d9fba37"
+    },
+    "seiko-5-sports-srpd55": {
+      "family": "automatic",
+      "caliber": "Seiko 4R36",
+      "parts": 128,
+      "triangles": 74776,
+      "bytes": 2159044,
+      "sha256": "f19e71a82920c1684c179a3edc8f492ce23fedf3aca5674e6fde1b8bafc0d22e",
+      "sourceHash": "3fef75e553bd31cd037092675299bf99f14a80aa4ca9cbe9fe435ea86b0c540c"
+    },
+    "cartier-tank-must": {
+      "family": "solar",
+      "caliber": "Cartier SolarBeat",
+      "parts": 33,
+      "triangles": 36160,
+      "bytes": 1087016,
+      "sha256": "cf38364b7ed10237d834250cf7c072b476869060e5be9966129b4b20ab86e70f",
+      "sourceHash": "f58f17db11666b777540a7dd54842481a3820c312502ec5f03c0ee159ac5d64a"
+    },
+    "hamilton-ventura": {
+      "family": "quartz",
+      "caliber": "ETA F06.115",
+      "parts": 44,
+      "triangles": 36456,
+      "bytes": 1054016,
+      "sha256": "8751a05a78e07f37fbc176567d524f2cfc1d428ebbe960ca654c3f56fcb4e65f",
+      "sourceHash": "a00a3986d4ec8957d45ad31dd165915cac4291e67e5f1f9a2442b5b70d9236b5"
+    },
+    "cartier-ballon-bleu": {
+      "family": "automatic",
+      "caliber": "Cartier 1847 MC",
+      "parts": 117,
+      "triangles": 64532,
+      "bytes": 1885760,
+      "sha256": "bfd9d369cc703be7db311039db79839f8cf83a8a53be53415a73de227cbd0f52",
+      "sourceHash": "202973d437403ebd758ea23230389669fb25a41f669d124d83ffd37e8ddb8ee7"
+    },
+    "rolex-gmt-master-ii-pepsi": {
+      "family": "automatic",
+      "caliber": "Rolex 3285",
+      "parts": 163,
+      "triangles": 78004,
+      "bytes": 2260232,
+      "sha256": "5db098fd9767610727091db7a78a56a24b8425703db1df22cf130e13954f3aa2",
+      "sourceHash": "c4d1e36c198ec6e2879c72addfd8081eb1e877e3b3ac4786c2004d4ba076e872"
+    },
+    "a-lange-soehne-odysseus": {
+      "family": "automatic",
+      "caliber": "A. Lange & Söhne L155.1 Datomatic",
+      "parts": 145,
+      "triangles": 72548,
+      "bytes": 2095428,
+      "sha256": "ac7be5dcc56e45b3b9bc843d4ced2644df0ee6e08b48c1532d86f98fa5a1540c",
+      "sourceHash": "6725f6e9395cc241447f57204c0e8a29d6dd7840250e8989019e309e7f6ed955"
+    },
+    "seiko-presage-cocktail-time": {
+      "family": "automatic",
+      "caliber": "Seiko 4R35",
+      "parts": 64,
+      "triangles": 73680,
+      "bytes": 1927592,
+      "sha256": "f6bbe77edce78d8044fb4597eac9f8aa8c83cf059db453c339df286a880a8a0e",
+      "sourceHash": "4fa6fb1fe2f1e5f122bdaa01cddc25d7c96b26b34ff4e5ca79f6f73969731abc"
+    },
+    "rolex-cosmograph-daytona": {
+      "family": "automatic-chronograph",
+      "caliber": "Rolex 4131",
+      "parts": 138,
+      "triangles": 80840,
+      "bytes": 2330476,
+      "sha256": "34c3d871ddc3521ece550990022d0b3c105ead3917d5fb333b4b348ca0780c80",
+      "sourceHash": "c397612936016ca40eda8d8ade8e5387031cd22d32bb3bda82ed9121f30ad091"
+    },
+    "rolex-datejust-41": {
+      "family": "automatic",
+      "caliber": "Rolex 3235",
+      "parts": 159,
+      "triangles": 81928,
+      "bytes": 2105672,
+      "sha256": "5fff055c70f4f21591e720b7d774377e05e503c080db96a7abfa04079c808da3",
+      "sourceHash": "7b7c3756bd438670d1ef2812037d7f47faeccdbb528748a88ac432acc33bc2b7"
+    },
+    "rolex-day-date-40": {
+      "family": "automatic",
+      "caliber": "Rolex 3255",
+      "parts": 133,
+      "triangles": 82720,
+      "bytes": 2194764,
+      "sha256": "1d69676492326bdaf77772e183e7b5e5bcae3e31e1015ae8a2bd834bec83fd68",
+      "sourceHash": "064afcd17acc84faf40f7311829064a2e6159b03b56d217aa7acced4ccbc1cb6"
+    },
+    "rolex-sky-dweller": {
+      "family": "automatic",
+      "caliber": "Rolex 9002",
+      "parts": 129,
+      "triangles": 86336,
+      "bytes": 2263304,
+      "sha256": "a6b1ef574cbe09eef26d3dbefe3c6e2d7461687154ff453971e8c26f2173085c",
+      "sourceHash": "38fdc452a5227373411f54c52e2727ac429dcee248f1e85ac7e66b3261a72663"
+    },
+    "rolex-land-dweller-40": {
+      "family": "automatic",
+      "caliber": "Rolex 7135",
+      "parts": 140,
+      "triangles": 79420,
+      "bytes": 2038932,
+      "sha256": "f3ce24301718ed80e839ea4895319929eab5d94232c9fa3959f00c883485861b",
+      "sourceHash": "6ee9eca309d6c674594e4b17379f04630b33eaf143d1feb48ff7cf5912e49d18"
+    },
+    "rolex-explorer-40": {
+      "family": "automatic",
+      "caliber": "Rolex 3230",
+      "parts": 124,
+      "triangles": 68248,
+      "bytes": 1936036,
+      "sha256": "b14133ecfa0088f4527a22c415efcc765fa8ba80497e8e0e4dde5a8dfa0a9f2c",
+      "sourceHash": "860845d05fa5421ea2d6cdd4d8e735e9f2eff2afa27c8dfd5db256760a8d30d6"
+    },
+    "rolex-1908": {
+      "family": "automatic",
+      "caliber": "Rolex 7140",
+      "parts": 61,
+      "triangles": 88424,
+      "bytes": 2111884,
+      "sha256": "41e11e55f9a5bb19cdb66c4dc3f981b144ba421be6f0805f8e36ab189ac1a639",
+      "sourceHash": "f4561282c46581646a8bba02faf1c1aa9f26ed983ee7db9e5b7380b18e42ccf9"
+    },
+    "rolex-oyster-perpetual-41": {
+      "family": "automatic",
+      "caliber": "Rolex 3230",
+      "parts": 127,
+      "triangles": 67776,
+      "bytes": 1908552,
+      "sha256": "78cb0a94dcd318ae1411e3ffca8bdf613e4af9c317580d9e304e1e61962adea8",
+      "sourceHash": "8f9ccd29c7bfa552fc3a7ceff55bd399459b5a64abf67220cda70d4443e24874"
+    },
+    "vostok-amphibia": {
+      "family": "automatic",
+      "caliber": "Восток 2416Б",
+      "parts": 128,
+      "triangles": 74448,
+      "bytes": 2013424,
+      "sha256": "18dfe8e41a136a21089fa43eaca0fc9bcb11264fd1c2c169516899bc8914074e",
+      "sourceHash": "59885a85e5480bed756e98818957f7c63afe4e3fec9275e990b10e5ef091718f"
+    },
+    "baltic-aquascaphe": {
+      "family": "automatic",
+      "caliber": "Miyota 9039",
+      "parts": 66,
+      "triangles": 78692,
+      "bytes": 2012796,
+      "sha256": "e9443ecc0814ba69b0486bb8f1a86aacc3ad346cff0722fb0f46d584e3f3e616",
+      "sourceHash": "ef42915ab641b3e8aeb2192c1397ad15de7a6e43485a65ac5ca9fa32b44f0f37"
+    },
+    "bulova-lunar-pilot": {
+      "family": "quartz",
+      "caliber": "Bulova NP20 High Precision Quartz",
+      "parts": 50,
+      "triangles": 41800,
+      "bytes": 1138124,
+      "sha256": "c297a66b64be2174cddf820e995dd98f698337e38d28c852cdcac25523acfeb3",
+      "sourceHash": "ab01b7103d76840626539c514bde0573b5d141e010f5fa1d8508cfb42ee21bef"
+    },
+    "bulgari-octo-finissimo": {
+      "family": "automatic",
+      "caliber": "Bulgari BVL 138",
+      "parts": 159,
+      "triangles": 66612,
+      "bytes": 2013360,
+      "sha256": "cf1d4768f2a6e06a1c3750c6b549389165f3744f5db441c97bc20c0231c5cf18",
+      "sourceHash": "c544a3acf73acea2ba7c7e24bb626eec5a88283d8df5333f5541804e218e3cd6"
+    },
+    "glashutte-original-panomaticlunar": {
+      "family": "automatic",
+      "caliber": "Glashütte Original 90-02",
+      "parts": 55,
+      "triangles": 67668,
+      "bytes": 1901328,
+      "sha256": "94ffb903ff092213eb25c04d1bea7d80cbf64e96265fc8fb61025c2a4537a453",
+      "sourceHash": "8f81f03de27f3949c7515e99dd086d0259bf04a7abc8faa53e6408d6aa9768f4"
+    },
+    "grand-seiko-snowflake": {
+      "family": "spring-drive",
+      "caliber": "Grand Seiko 9R65",
+      "parts": 124,
+      "triangles": 69472,
+      "bytes": 2077036,
+      "sha256": "9f2b66f2a17e9ce17ff915a08da460a5c4ff6bf7a50a7cadde3fa3db5f494977",
+      "sourceHash": "9f96d33ed7f36d41370212bcae8e078c2facdb702983d13ab42f579e09270c64"
+    },
+    "omega-seamaster-diver-300m": {
+      "family": "automatic",
+      "caliber": "Omega 8800",
+      "parts": 160,
+      "triangles": 69836,
+      "bytes": 2017992,
+      "sha256": "c7231070a95d9010ea0f5db46fea1ef002b359aba94af9ccc361dc044d7efb49",
+      "sourceHash": "7321af2d7dc52418152776aa266aeac465c161e25bbfe3829145d228c26a044c"
+    },
+    "grand-seiko-white-birch": {
+      "family": "automatic",
+      "caliber": "Grand Seiko 9SA5",
+      "parts": 127,
+      "triangles": 67440,
+      "bytes": 1911896,
+      "sha256": "f5f84ccd9bb1ea6a69ce65aeb682b4d7bcfe9cf7447a22e8186944e7782f1452",
+      "sourceHash": "d3e497716839ea245c01113b7d4384a542a2e179f055ddda095f5748dee99f88"
+    },
+    "grand-seiko-sbgw231": {
+      "family": "manual",
+      "caliber": "Grand Seiko 9S64",
+      "parts": 57,
+      "triangles": 66780,
+      "bytes": 1704272,
+      "sha256": "d9061f26d39f47c680d8cf47753ba90284f90074bdf109c7f251a0b4584e1c00",
+      "sourceHash": "08d8da4bf204661ad914c10c7469f18ee82b01ad0d1a2b086a0c423a0e4ac7e0"
+    },
+    "omega-aqua-terra-41": {
+      "family": "automatic",
+      "caliber": "Omega 8900",
+      "parts": 127,
+      "triangles": 67688,
+      "bytes": 1910644,
+      "sha256": "01a897b3a3e3da35a49e9de6259a3bcbcc23c952d77a43864efc906018099e82",
+      "sourceHash": "51a01c0b764f060418e41778e54b032d0cb3eb672a32eabc0430e48d7505a6cc"
+    },
+    "omega-de-ville-prestige": {
+      "family": "automatic",
+      "caliber": "Omega 8800",
+      "parts": 116,
+      "triangles": 63904,
+      "bytes": 1847492,
+      "sha256": "04a618940b044fbf7429662e9d7d04a95f7abc2ff0d0ac62eb8d71b699efd9db",
+      "sourceHash": "05538839cdec40789fb129ac39d42eae6df3be819bff318910720831a132f789"
+    },
+    "grand-seiko-quartz-gmt": {
+      "family": "quartz",
+      "caliber": "Grand Seiko 9F86",
+      "parts": 110,
+      "triangles": 39088,
+      "bytes": 1130268,
+      "sha256": "bf9f712a56a1093c1d66796f27786281b3c124b30a119a521a00e8e7492fb333",
+      "sourceHash": "f6f04bd67a21ee8a366e012001b944de867fcc1e799b3bb6b992d95fb549166c"
+    },
+    "tudor-black-bay-58": {
+      "family": "automatic",
+      "caliber": "Tudor MT5402",
+      "parts": 128,
+      "triangles": 69972,
+      "bytes": 1983616,
+      "sha256": "81ea9cbc877407b5f089e48b7421b214a1ad0bf645ca6a4203a4e5bfc9846a82",
+      "sourceHash": "898f013df1a23fcf307d9e78fc18c80d35f57f119d971919da043ec4706805e4"
+    },
+    "citizen-promaster-diver": {
+      "family": "solar",
+      "caliber": "Citizen E168 Eco-Drive",
+      "parts": 49,
+      "triangles": 43020,
+      "bytes": 1099708,
+      "sha256": "379a4ad3b99698921ec01a6be161991e2b51183a43794001c452392fde8f33dd",
+      "sourceHash": "39bd0b84b9caf76016acc5ede4b97183a9fa6cff5fe01813b7d441b5b6fb195b"
+    },
+    "nomos-tangente-38": {
+      "family": "manual",
+      "caliber": "NOMOS Alpha",
+      "parts": 45,
+      "triangles": 58088,
+      "bytes": 1601684,
+      "sha256": "8304b171cccb63763c6285df249afeff07f45a887fabe05efa373d7b439e5cf5",
+      "sourceHash": "8dd082066471c671899ae3b47bfea40af95acdffac3bf4317faa72bcf46b748c"
+    },
+    "tudor-black-bay-54": {
+      "family": "automatic",
+      "caliber": "Tudor MT5402",
+      "parts": 66,
+      "triangles": 74148,
+      "bytes": 1937780,
+      "sha256": "edffb207231ba4f61261cde1c86b88f72aecd2110e192ceb5100d0052030c321",
+      "sourceHash": "7677cbce3317fa0291451e31dc9b44ba2d8fa248942f085e8a30e5e01c521155"
+    },
+    "nomos-club-campus": {
+      "family": "manual",
+      "caliber": "NOMOS Alpha",
+      "parts": 45,
+      "triangles": 58132,
+      "bytes": 1573508,
+      "sha256": "98342a20881d626eb0d63ceb49bb2ce884cdf9e1809f6be9a2955d5c597ea9a8",
+      "sourceHash": "0633656645f2891bb4c9cb3f5b4d359c6115d2dab237df6dc0d7e411e7d4f33c"
+    },
+    "citizen-tsuyosa": {
+      "family": "automatic",
+      "caliber": "Miyota 8210",
+      "parts": 143,
+      "triangles": 67016,
+      "bytes": 1869276,
+      "sha256": "1914aa98215dcd1d224e812e9f1bfe652071f83072282e227d00fbe6cb609f9c",
+      "sourceHash": "155be2b12dbbbcfca0f3130996647762f5d46b77c23931077ce2f2dd7aab7af9"
+    },
+    "tudor-pelagos-39": {
+      "family": "automatic",
+      "caliber": "Tudor MT5402",
+      "parts": 128,
+      "triangles": 69972,
+      "bytes": 1985856,
+      "sha256": "a078ab2f1ebf647168c36daf961f56231f111b6003c2c5cafe8a294aad61e8fe",
+      "sourceHash": "f481135dd962ee0f3ea7756e18fc2d10f70f8694c7251dc9e0bae11849513561"
+    },
+    "nomos-tangente-neomatik-update": {
+      "family": "automatic",
+      "caliber": "NOMOS DUW 6101",
+      "parts": 52,
+      "triangles": 65120,
+      "bytes": 1801760,
+      "sha256": "81652b2687e4888c1abd3cb1515cf9117967884a184c1e5a06836e9508c57883",
+      "sourceHash": "1b88abc56d05418b82b3f7e2c7d0819161fbad0f3ae1b58bae7c7c00b5202b16"
+    },
+    "tudor-black-bay-gmt": {
+      "family": "automatic",
+      "caliber": "Tudor MT5652",
+      "parts": 130,
+      "triangles": 74900,
+      "bytes": 2167492,
+      "sha256": "3e97fcc028ba2252999ba3d469186a8a2b2bae82ff8b5571d4cf73ac6233e476",
+      "sourceHash": "19e99193de179cb4e899d15d28e974df6ab4a5f30122a475c9c9a20b6dbc40e5"
+    },
+    "tudor-black-bay-chrono": {
+      "family": "automatic-chronograph",
+      "caliber": "Tudor MT5813",
+      "parts": 137,
+      "triangles": 79476,
+      "bytes": 2299476,
+      "sha256": "accfc236b45ce04477e1a580d76d39a0c5031d5bb9c6a57eb0116b45035a7725",
+      "sourceHash": "f9e09ccc0bab98b581d14492b56ac6e2134bae9d29f01369a9d9e3a726f73d19"
+    },
+    "tudor-1926": {
+      "family": "automatic",
+      "caliber": "Tudor T601",
+      "parts": 116,
+      "triangles": 63904,
+      "bytes": 1861764,
+      "sha256": "f3399f29286591ff75bcee9955aaf623c68fcec2391cb7fe14e12202aa292129",
+      "sourceHash": "3f5bd038b190ce45120e47c932dd8891954b1578e515d3d666197370c0212d5b"
+    },
+    "sinn-104-st-sa": {
+      "family": "automatic",
+      "caliber": "Sellita SW220-1",
+      "parts": 56,
+      "triangles": 76356,
+      "bytes": 2102600,
+      "sha256": "860fd79fe007476d41dbee8b3d85459cd83d980e8c3ea2e7d240402a0808f881",
+      "sourceHash": "d9d99a83d6f63085eb5dc88d3b064cbd473369b56458972ecc329479d42e6cc6"
+    },
+    "casio-g-shock-dw5600": {
+      "family": "digital",
+      "caliber": "Casio модуль 3229",
+      "parts": 26,
+      "triangles": 21084,
+      "bytes": 589560,
+      "sha256": "943413cb30bbbc9140f2be2b8914f8e0324b0b770b76e0b64e67196f4dc00566",
+      "sourceHash": "365dbdfcfda2a63e8436933164200aa437de55ae460ff6329ebac43c8a8eea78"
+    },
+    "patek-philippe-nautilus-5811": {
+      "family": "automatic",
+      "caliber": "Patek Philippe 26-330 S C",
+      "parts": 135,
+      "triangles": 67418,
+      "bytes": 2002896,
+      "sha256": "d3f99e7201378c47f9db1f910ea6fda7976426f1364666f88d3eec5bc1128879",
+      "sourceHash": "684c0660975ab94e8e7956df4975021bce178677660a22c0c55742bcd29983e5"
+    },
+    "patek-philippe-calatrava-5227": {
+      "family": "automatic",
+      "caliber": "Patek Philippe 26-330 S C",
+      "parts": 65,
+      "triangles": 76300,
+      "bytes": 1952740,
+      "sha256": "2b04710ac1b20a388d0cc4e3de3311aef120b7642085dbf6c7ae8da8cb850912",
+      "sourceHash": "cd1ca7f9c06c194b1278a1f392af8ccc0426585a97402c5ad32f78a0eef3902f"
+    },
+    "casio-g-shock-ga2100": {
+      "family": "quartz",
+      "caliber": "Casio модуль 5611",
+      "parts": 62,
+      "triangles": 40232,
+      "bytes": 1033500,
+      "sha256": "4ae1d1afc04abebb6313d625f7203956baa8bcaff0d92f8a3bf937b6137b0a98",
+      "sourceHash": "18d66fbf0ccdb5e4150fed11b73255bdef788c561092554ebc4ac6470db2b9ee"
+    },
+    "sinn-u1": {
+      "family": "automatic",
+      "caliber": "Sellita SW200-1",
+      "parts": 67,
+      "triangles": 75616,
+      "bytes": 1945700,
+      "sha256": "72f0b6ec951d02c2eba8f0b2ee27ac5d4b7dfebae80459b1c2c3ba378aa8ffc9",
+      "sourceHash": "ade74d03ac55147dfd10ca07b96e7190a76738520d7138617bf2bdaf572fd011"
+    },
+    "patek-philippe-annual-calendar-5205": {
+      "family": "automatic",
+      "caliber": "Patek Philippe 324 S QA LU 24H/303",
+      "parts": 66,
+      "triangles": 76192,
+      "bytes": 2093120,
+      "sha256": "d78a43661139b8434f21d3c8c739a646f1496de32da6476d6fa2187d1e0b944a",
+      "sourceHash": "04a0c6a763ad5a4a1a9fbe37d62009a1ce323d3b61a04e54292b160f2467893b"
+    },
+    "casio-g-shock-gbd-h2000": {
+      "family": "smart",
+      "caliber": "Casio модуль 3515",
+      "parts": 31,
+      "triangles": 18240,
+      "bytes": 439384,
+      "sha256": "a1ffbb7645dc550081afa14047e7dd8aba73145534cbae0b6961f4f55675c2fd",
+      "sourceHash": "97b40e4789aedb3a6bbb6ad930ca8f70fe6d800b16d7db156e68c207190d3625"
+    },
+    "patek-philippe-perpetual-calendar-5327": {
+      "family": "automatic",
+      "caliber": "Patek Philippe 240 Q",
+      "parts": 58,
+      "triangles": 73892,
+      "bytes": 2061180,
+      "sha256": "0b97611d6d7f9e8086e11919f2fce5db99f1a20101109be3b0e9026c45e121a8",
+      "sourceHash": "aa4e7c2e6ff313d853b28b67ad10dd017e938fb6e2f83186c9fe032cb03006de"
+    },
+    "patek-philippe-minute-repeater-5078": {
+      "family": "automatic",
+      "caliber": "Patek Philippe R 27 PS",
+      "parts": 58,
+      "triangles": 70764,
+      "bytes": 1905644,
+      "sha256": "4ed3e11092fdd39e8dbf13d276d6d0f906e883701df201232c3046faa62a5878",
+      "sourceHash": "55033fb2b609e274f82521ac01ec32ca35b0fddf5209203b2ce2fa98cffa526a"
+    },
+    "patek-philippe-split-seconds-5370": {
+      "family": "manual-chronograph",
+      "caliber": "Patek Philippe CHR 29-535 PS",
+      "parts": 57,
+      "triangles": 77668,
+      "bytes": 2168096,
+      "sha256": "2951c736848d00124c2f2704560eef6ab2798d2c696e79dba6b8119e6641d1a9",
+      "sourceHash": "c8d3c95b45b39c3998c19e78986cdfe26f2c1db691867bc5610e248ca0d6f5fd"
+    },
+    "patek-philippe-twenty-4": {
+      "family": "quartz",
+      "caliber": "Patek Philippe E15",
+      "parts": 110,
+      "triangles": 36832,
+      "bytes": 1274760,
+      "sha256": "77061000a5173aca8f6fb0ef6f990765bff878dc186ef82349278de423899059",
+      "sourceHash": "ee6865a3987643c0088a6b367529d8c3632a1af2507084ad5c0b0a987ab766e5"
+    },
+    "orient-bambino": {
+      "family": "automatic",
+      "caliber": "Orient F6724",
+      "parts": 52,
+      "triangles": 69808,
+      "bytes": 1862540,
+      "sha256": "f2004dc29d5750f6c9de403f581d545632db010ce378ebf81f3c6fdf5f7ed5ec",
+      "sourceHash": "b281173bc7e1d8429a71816afbde43d0b386d6e178b0657acc0ab36fd1936808"
+    },
+    "junghans-max-bill-automatic": {
+      "family": "automatic",
+      "caliber": "Junghans J800.1",
+      "parts": 52,
+      "triangles": 69728,
+      "bytes": 1854740,
+      "sha256": "2dbd87c42c1a1f29324d3a0d4d9357a71a0231a350207655a4e6dc87f58b5dd5",
+      "sourceHash": "e39aa9fb141281a65c8bac5091672d82af8b300e5875f11ed29f068ce4f2338f"
+    },
+    "audemars-piguet-royal-oak-15510": {
+      "family": "automatic",
+      "caliber": "Audemars Piguet 4302",
+      "parts": 159,
+      "triangles": 66484,
+      "bytes": 1963536,
+      "sha256": "f537291eba89239677c34c1aaaa35f3f4d80813e571f3ff553d1dee9db18999b",
+      "sourceHash": "72bb91e62d50852a28d8fc04b61367dd79b34df6fd06c2ff3a437f0390b40b4b"
+    },
+    "junghans-max-bill-mega-solar": {
+      "family": "solar",
+      "caliber": "Junghans J101.85",
+      "parts": 36,
+      "triangles": 38700,
+      "bytes": 1017744,
+      "sha256": "3a0ff98443badb7fc7d53025e2691aefe55297d4435d437e0eeeb55d82ddd33e",
+      "sourceHash": "2c7afba602012487934e261d9d29c0b6e3edd2a53686474d366b129398e43726"
+    },
+    "audemars-piguet-royal-oak-jumbo": {
+      "family": "automatic",
+      "caliber": "Audemars Piguet 7121",
+      "parts": 158,
+      "triangles": 66344,
+      "bytes": 1983856,
+      "sha256": "d63973e1a893f8e05b530e72cef41bef0337349fedc61fdb382e109c6ed615a7",
+      "sourceHash": "c798cb63adbd9e554374704bcef8cba3840b4c778477fa04210087941b902cb4"
+    },
+    "audemars-piguet-royal-oak-offshore": {
+      "family": "automatic-chronograph",
+      "caliber": "Audemars Piguet 4404",
+      "parts": 82,
+      "triangles": 83004,
+      "bytes": 2345452,
+      "sha256": "a609c467cc6465b8ebcb34d2f13fedbda01ad7c7a52c8c79b85b624e57ceb70e",
+      "sourceHash": "7cbce96bd19b996005ea50a218740536b72e7f17096a5fd20e5634aad15d5547"
+    },
+    "audemars-piguet-royal-oak-33": {
+      "family": "quartz",
+      "caliber": "Audemars Piguet 2713",
+      "parts": 140,
+      "triangles": 34540,
+      "bytes": 1091112,
+      "sha256": "62b241ab41e76b3d20d0a137317047f54e3bf50e368a90ac5957f16b5767d9a9",
+      "sourceHash": "7c71492ddc186484ba89e11584c5f28a64cd7df8930d7e0d12a9260815a391b4"
+    },
+    "vacheron-constantin-overseas": {
+      "family": "automatic",
+      "caliber": "Vacheron Constantin 5100",
+      "parts": 143,
+      "triangles": 66216,
+      "bytes": 1902748,
+      "sha256": "2cf9cb15333e57ac1cba8d780bef7b7f77d811052bc5d3de6e55469375c95169",
+      "sourceHash": "b53f3a95d99cbd3e75dca4441a55999d39e7fe1fc3c97a946b4b4306c6f1516f"
+    },
+    "vacheron-constantin-overseas-retrograde": {
+      "family": "automatic",
+      "caliber": "Vacheron Constantin 2460 R31L/2",
+      "parts": 144,
+      "triangles": 71308,
+      "bytes": 2088604,
+      "sha256": "58a43026528911bac89b74e575ce5ea726fb5c95bdabee1651970f0159857d64",
+      "sourceHash": "44502beb71380cabde91615904eeb4a631fbaa4dfc14c24453cc3d38cf734a87"
+    },
+    "vacheron-constantin-222": {
+      "family": "automatic",
+      "caliber": "Vacheron Constantin 2455/2",
+      "parts": 143,
+      "triangles": 80112,
+      "bytes": 2030764,
+      "sha256": "793ea92eaec38063da2a5c7f59683babdad996081dffb6edb7339ee0bfd6f0b4",
+      "sourceHash": "a81023002974fd3f94853236f50f443c0587b32879d5fd6f526d0c5d5c0bc7d9"
+    },
+    "vacheron-constantin-patrimony": {
+      "family": "automatic",
+      "caliber": "Vacheron Constantin 2450 Q6",
+      "parts": 64,
+      "triangles": 73600,
+      "bytes": 1925632,
+      "sha256": "a0deb439576ad4d6019e9bb537ff7f93c604debd4b39e54f88e5f723a5b8f09e",
+      "sourceHash": "6709c728356f18edbcf04c0ea8255d6b14a868ebd7e6b854d13f70d8329e4b7f"
+    },
+    "jaeger-lecoultre-reverso-tribute": {
+      "family": "manual",
+      "caliber": "Jaeger-LeCoultre 822/2",
+      "parts": 55,
+      "triangles": 64416,
+      "bytes": 1842092,
+      "sha256": "c711359a0cb7d1768d92dc7278907a3342889c55f263c488a71b8c79e890a113",
+      "sourceHash": "ea7841203e538ffd992ff8e1c8a9d1be5b43f9fce8c65110a03b94beabde490d"
+    },
+    "jaeger-lecoultre-polaris-date": {
+      "family": "automatic",
+      "caliber": "Jaeger-LeCoultre 899",
+      "parts": 54,
+      "triangles": 68120,
+      "bytes": 1805412,
+      "sha256": "151b94646aaccef815ce41cfa23bfce4740e3cb9df033b129e1bfff69b59ad39",
+      "sourceHash": "60b35bee91b21e6b6b18d81e694d160b412c31b7ba183bc2e4ccebdda836a414"
+    },
+    "jaeger-lecoultre-master-ultra-thin-moon": {
+      "family": "automatic",
+      "caliber": "Jaeger-LeCoultre 925/1",
+      "parts": 64,
+      "triangles": 69024,
+      "bytes": 1865896,
+      "sha256": "0398334aed0c82a3752c1e6900a2e62f70566bfff6a59e91c18334b593dbf6cf",
+      "sourceHash": "38b74df6b52769ae18c0fdcc4beba4db724c754d89d34d9719ffe4e1ee6d918e"
+    },
+    "iwc-portugieser-chronograph": {
+      "family": "automatic-chronograph",
+      "caliber": "IWC 69355",
+      "parts": 73,
+      "triangles": 80028,
+      "bytes": 2219208,
+      "sha256": "5b1320ba85748ffb7adb73884831716f55f374f81d86aaaa8daaa5f419abf03a",
+      "sourceHash": "5bdbd1348a7955ebcc0eddbeaf77a95c393446016d662eee5f42a9cdb3635205"
+    },
+    "iwc-pilots-watch-mark-xx": {
+      "family": "automatic",
+      "caliber": "IWC 32111",
+      "parts": 116,
+      "triangles": 63944,
+      "bytes": 1843012,
+      "sha256": "a8d0cdad2b76a5238e3e8ab32b60f87d3df64540940ee63814b034274713f2e0",
+      "sourceHash": "95030509c403102ac997ffee7167045056c400138480bbfe222e73b2d7ed390e"
+    },
+    "iwc-ingenieur-40": {
+      "family": "automatic",
+      "caliber": "IWC 32111",
+      "parts": 155,
+      "triangles": 66520,
+      "bytes": 1932036,
+      "sha256": "ceeebbd4daa2ce2584dc367770eb123d59d5e6ebf614b1e734dc2d03218e96a9",
+      "sourceHash": "90d786d142616893aeb9895d04e1ad724bba9e95799bf56c508a9e1f8cc73c12"
+    },
+    "longines-spirit-zulu-time": {
+      "family": "automatic",
+      "caliber": "Longines L844.4",
+      "parts": 130,
+      "triangles": 75588,
+      "bytes": 2169648,
+      "sha256": "59bf84e7402d4054f0f085356a5b53b2e44433b762b86da6c15b4860d736b03a",
+      "sourceHash": "4d7c17ce4ec6f031b8309019222b775850445a20d3f342f85680c801e0c05530"
+    },
+    "longines-spirit-pilot": {
+      "family": "automatic",
+      "caliber": "Longines L888.4",
+      "parts": 65,
+      "triangles": 71564,
+      "bytes": 1903808,
+      "sha256": "f4a6753b1f66b236a224a7abc3eb06edf4cf7d286b8afc2111384dc18ac1a206",
+      "sourceHash": "4c8e7424e2fabdee1997388364fd11c35fda27cbc89f105cf95202694a00ddbc"
+    },
+    "longines-spirit-flyback": {
+      "family": "automatic-chronograph",
+      "caliber": "Longines L791.4",
+      "parts": 75,
+      "triangles": 87156,
+      "bytes": 2409212,
+      "sha256": "01f5bf929cec97c545dba3d618814a02618e6c901d1a0fe3f9d246e512e5d69b",
+      "sourceHash": "aba7e8b14525b89618fc91b6b97c984be7d8bb32040c5f81020ec2af31db3949"
+    },
+    "longines-master-collection-moonphase": {
+      "family": "automatic",
+      "caliber": "Longines L899.5",
+      "parts": 54,
+      "triangles": 66352,
+      "bytes": 1834916,
+      "sha256": "4592248aa75ae6f225ac32c0eef108d5c4fe7a8482c01aef620da6c6591ec317",
+      "sourceHash": "b0e0537bb4fe06d53c9313103f68cf25b472d4370237de1a0489e23bd437ef1d"
+    },
+    "tissot-prx-powermatic-80": {
+      "family": "automatic",
+      "caliber": "Powermatic 80",
+      "parts": 143,
+      "triangles": 66364,
+      "bytes": 1908704,
+      "sha256": "753bbbe83b967038b70fac7820f91ffce49d684fc1babdb8375e42c5b5b622d7",
+      "sourceHash": "de109b9b469568cff7094988acb5eea3229614a0356bc4869ee05e4995d93e9d"
+    },
+    "tissot-prx-quartz": {
+      "family": "quartz",
+      "caliber": "ETA F06.115",
+      "parts": 124,
+      "triangles": 34652,
+      "bytes": 1005004,
+      "sha256": "d6bb411ceae9824587d8337f978537a8795765ba0ede37471f5846db790a95c9",
+      "sourceHash": "9041c84669f69b7861a2d476acc14aad12dd8f21b5cc784390a9526c5c4ead74"
+    },
+    "tag-heuer-carrera-chronograph": {
+      "family": "automatic-chronograph",
+      "caliber": "TAG Heuer Heuer 02",
+      "parts": 73,
+      "triangles": 84348,
+      "bytes": 2252344,
+      "sha256": "6f17e107363f355eff5b3b915256c359af58cc67233197552d258238fd135cbf",
+      "sourceHash": "cd68076c637094239b059c520c5be9902083b6b6b933f543376f9a5503a69e80"
+    },
+    "tag-heuer-monaco": {
+      "family": "automatic-chronograph",
+      "caliber": "TAG Heuer Heuer 02",
+      "parts": 134,
+      "triangles": 78176,
+      "bytes": 2367696,
+      "sha256": "4870ff6848988d454247eb9f11224bece4c911d2c4af2a367fb866e78cfd8e23",
+      "sourceHash": "e9bc757a7de44f2401f97c4ed728e847520125f85cecb172a57d3a9a63045180"
+    },
+    "tag-heuer-aquaracer-300": {
+      "family": "automatic",
+      "caliber": "TAG Heuer Calibre 5",
+      "parts": 129,
+      "triangles": 71440,
+      "bytes": 2000820,
+      "sha256": "0729d1697dd70a1988454f9ffeb432d6623c9c313e7f17e4fbb9f3a6ee7a8381",
+      "sourceHash": "a1421827dda6047b4adaf5f053823c39123c84067cce38c98a85acbe3167c601"
+    },
+    "tag-heuer-formula-1": {
+      "family": "quartz",
+      "caliber": "TAG Heuer Quartz",
+      "parts": 40,
+      "triangles": 38700,
+      "bytes": 1037156,
+      "sha256": "57a5d11172d4d99dbf103b92212abc2b626a4bf04e02bfcebb362c0907c08b6e",
+      "sourceHash": "2e2107c46338f87e2b09cb65dc40f50ce5b6b437f2b4f72363743a21c91803b4"
+    },
+    "breitling-navitimer-b01-43": {
+      "family": "automatic-chronograph",
+      "caliber": "Breitling B01",
+      "parts": 76,
+      "triangles": 84568,
+      "bytes": 2307452,
+      "sha256": "9c3d237bab47adfaf64b73a7be47eff2df46b7d7834ac38e400a003aca451066",
+      "sourceHash": "15f6a0faa4e16bbfaee407d8d4263433517af3e6e89f12345f7ea18c66460e3d"
+    },
+    "breitling-superocean-heritage": {
+      "family": "automatic",
+      "caliber": "Breitling B31",
+      "parts": 66,
+      "triangles": 75048,
+      "bytes": 1959512,
+      "sha256": "28a5c30afc11ba66ca13d8996ec361eba5081c39bc7f52f637d27c510ae4fe27",
+      "sourceHash": "ddecc484e587e6dd490144664b3864c9a8b319e3a4e635accffff47acbc5b3e6"
+    },
+    "zenith-chronomaster-original": {
+      "family": "automatic-chronograph",
+      "caliber": "Zenith El Primero 3600",
+      "parts": 137,
+      "triangles": 78188,
+      "bytes": 2237016,
+      "sha256": "8e8b7cb59fe65a9dba9eb32ccc30ce5f2c0c3b8078c81e2aafcf8caa308e4bb1",
+      "sourceHash": "ec9a0d61bb6ad6b0694f991ddaf335218b8433be0cb0db61fad8146c67f342ed"
+    },
+    "zenith-chronomaster-sport": {
+      "family": "automatic-chronograph",
+      "caliber": "Zenith El Primero 3600",
+      "parts": 138,
+      "triangles": 80444,
+      "bytes": 2303444,
+      "sha256": "07cd7d5a06dedd1504c6772c69624711e32b56bab13422177b6d0ddc4ac3284f",
+      "sourceHash": "c8f1306d9a8e1f9bc3bf8801c18af23e27eb38c77e200b26fb93bbe3b4bebaa7"
+    },
+    "zenith-defy-skyline": {
+      "family": "automatic",
+      "caliber": "Zenith El Primero 3620",
+      "parts": 158,
+      "triangles": 66100,
+      "bytes": 1990624,
+      "sha256": "9a0ce9694122ef61314f599511be191fde7475baf41cf8f76d085da8325cf659",
+      "sourceHash": "dbbcf5977f48c96cbd6a660b5799f40c6308ccf03b4bc4ca9b6abf24bb22516d"
+    },
+    "breguet-classique-5177": {
+      "family": "automatic",
+      "caliber": "Breguet 777Q",
+      "parts": 54,
+      "triangles": 84120,
+      "bytes": 2076996,
+      "sha256": "d95ed1441781322ff53fc8d257d294e592e9527bccf96897f9a5ca722c481acf",
+      "sourceHash": "e74b9117aeb3569b5f3162b663d0e67326d22bfe2b11f32b4d589654fdca2146"
+    },
+    "breguet-classique-tourbillon-5367": {
+      "family": "automatic",
+      "caliber": "Breguet 581",
+      "parts": 54,
+      "triangles": 84888,
+      "bytes": 2089688,
+      "sha256": "7ae7eca1faaae0fec2676badb942fb0e4fd5d2c7abc9740e562bc00dc46e28de",
+      "sourceHash": "3caf396a7d035235d8437ff8b94971517a92d2dbdc7ecc6c9fae95ae78fe3000"
+    },
+    "breguet-type-xx": {
+      "family": "automatic-chronograph",
+      "caliber": "Breguet 728",
+      "parts": 66,
+      "triangles": 87384,
+      "bytes": 2431780,
+      "sha256": "dbe55634f6661ccf27b0d55990cc61aea3e1dbb4d0d994e29a93f80afe1a8f0c",
+      "sourceHash": "2bf00c2f3ea973887764e204065ff6119da12a33252628aedad45661d00e2799"
+    },
+    "blancpain-fifty-fathoms": {
+      "family": "automatic",
+      "caliber": "Blancpain 1315",
+      "parts": 55,
+      "triangles": 71284,
+      "bytes": 1900668,
+      "sha256": "31d9b6b358286e18ebe38e030a415c20e130df5ca200e1d7a15997f8421a4811",
+      "sourceHash": "1f02429fb03d89c62616aa47f0671141db8322ad7ce5379fa6e5bab4345c6eb9"
+    },
+    "blancpain-villeret-quantieme-complet": {
+      "family": "automatic",
+      "caliber": "Blancpain 6654.4",
+      "parts": 56,
+      "triangles": 74048,
+      "bytes": 2061380,
+      "sha256": "538f1f059701120e98a4f119d9fb34ebcfc054add9acf3f9263db16a3e8f7257",
+      "sourceHash": "f8fec99e595a3c891491eb3cedfd6aae6c14bb6265e97f9951c53e3dede7f580"
+    },
+    "oris-aquis-date-calibre-400": {
+      "family": "automatic",
+      "caliber": "Oris 400",
+      "parts": 128,
+      "triangles": 69496,
+      "bytes": 1926552,
+      "sha256": "d40f1e16b0f6fefdf04f0b59f78cd57998abd39a4d6f8a6fc52416dd5a4f43ef",
+      "sourceHash": "b1c75fe69001c59edacb6d9372c3b0383202939b16fb4aa9e0df1fd92f4db082"
+    },
+    "oris-divers-sixty-five": {
+      "family": "automatic",
+      "caliber": "Oris 733",
+      "parts": 128,
+      "triangles": 74516,
+      "bytes": 2034368,
+      "sha256": "fba1b9cdbc2066975789fac890b24b2347fc1938d2dc6035f9e84063c070b768",
+      "sourceHash": "111878c3013c3c5133678e60bd9e4b02b09b9e1f4d20b490059a74f6b1df0dfe"
+    },
+    "hublot-big-bang-unico": {
+      "family": "automatic-chronograph",
+      "caliber": "Hublot HUB1280 Unico",
+      "parts": 87,
+      "triangles": 87684,
+      "bytes": 2395220,
+      "sha256": "1599b7145f9fbf8a4961e8bf03b81ac263d70349c767726f03eba71ca98052ac",
+      "sourceHash": "4e002e6daf29d6e435072e1af22333ffc0de3fc6726bb3dc3952784625f4bae4"
+    },
+    "hublot-classic-fusion": {
+      "family": "automatic",
+      "caliber": "Hublot HUB1112",
+      "parts": 77,
+      "triangles": 71924,
+      "bytes": 1876616,
+      "sha256": "002b97ab16c64e1537f1fe71496c1d7b3330cf23196a3afadc7f8a74fa0a4673",
+      "sourceHash": "3b9edf1bc87be7691dc20cba0eb3009bd43c77f05596bf8c6ad1c4eeac1087f9"
+    },
+    "chopard-alpine-eagle-41": {
+      "family": "automatic",
+      "caliber": "Chopard 01.01-C",
+      "parts": 144,
+      "triangles": 62776,
+      "bytes": 1849608,
+      "sha256": "e7649ee80991c0083cd3d47721201ff8cd3c41a8f4c7b810b571dd0c5ba17112",
+      "sourceHash": "e38fd3137aaa87d69b30e722aeed8906012d7c9727f5b5438c6350e6813bb29d"
+    },
+    "swatch-moonswatch": {
+      "family": "quartz",
+      "caliber": "Swatch кварцевый хронограф",
+      "parts": 51,
+      "triangles": 46216,
+      "bytes": 1152708,
+      "sha256": "59a4e1b60f4fe3c8bb790a873fae4ad33083ab395dc1365324d4d7537cea43d0",
+      "sourceHash": "ad3b9c0347df61628ca0c415222a159904e3f1d5d199618e58f2aca126834388"
+    },
+    "richard-mille-rm-67-02": {
+      "family": "automatic",
+      "caliber": "Richard Mille RMAL1",
+      "parts": 52,
+      "triangles": 69092,
+      "bytes": 2045512,
+      "sha256": "e69c7cbef736b5a6268788364b9085c7dc79216e6ca4a491c67a8918e4772115",
+      "sourceHash": "3aa88944307020745ebc847fbb3a1ddf1a7723b7ac40167bd2f80eb8795b1f63"
+    },
+    "swatch-sistem51": {
+      "family": "automatic",
+      "caliber": "Swatch Sistem51",
+      "parts": 54,
+      "triangles": 68024,
+      "bytes": 1772964,
+      "sha256": "c6131ec0aa8fc9f38a2c2163d4b4c03005770d87e942eb3606de492f509dd0ac",
+      "sourceHash": "9d14c8d0e3421c21637a30f937aafbfe9a6fd5a6f9cd44f0966663a7a46ee750"
+    },
+    "rado-captain-cook": {
+      "family": "automatic",
+      "caliber": "Rado R808",
+      "parts": 128,
+      "triangles": 70872,
+      "bytes": 1989544,
+      "sha256": "dbbdd22bf1a2a7c9262dd2ccce9a7e99545704c6400494d02521bab08e2a36a5",
+      "sourceHash": "c4ec36a3b85febef25743898d7f6593d94964450138911c1e447e0478f78189c"
+    },
+    "h-moser-endeavour-centre-seconds": {
+      "family": "automatic",
+      "caliber": "H. Moser HMC 200",
+      "parts": 52,
+      "triangles": 65872,
+      "bytes": 1821004,
+      "sha256": "100ad86f84d9985f039fb5e098b93903c4eb9a18b87533d7614d4d08c18847ca",
+      "sourceHash": "f722cf11ade0722be90958cc45c24bcc0472cb1b5b0c7294eb33cd95533eec12"
+    },
+    "fp-journe-chronometre-souverain": {
+      "family": "manual",
+      "caliber": "F.P. Journe 1304",
+      "parts": 48,
+      "triangles": 65864,
+      "bytes": 1827284,
+      "sha256": "2852bb1163e33b313215d3601b52a438071f14168af98c95683fbddedde05e3b",
+      "sourceHash": "e73c061249b23946dbcd0ae91722af02cdb87677ffc134e9a1404580c202b94d"
+    },
+    "girard-perregaux-laureato-42": {
+      "family": "automatic",
+      "caliber": "GP01800",
+      "parts": 159,
+      "triangles": 66484,
+      "bytes": 1990136,
+      "sha256": "3daf35d2d6b6aa03f26dadd9f93eca938e2be2e2540d43035d2e29c4fef196eb",
+      "sourceHash": "b3b6772c972c79aac797545e4b4546a108a6b9ebaef427fec3cc547745e457cc"
+    },
+    "ulysse-nardin-freak-one": {
+      "family": "automatic",
+      "caliber": "UN-230",
+      "parts": 53,
+      "triangles": 69668,
+      "bytes": 1865548,
+      "sha256": "a12a1e9c8f2bfb201dc1ee860f84cad0ad38986d5d8e4f81b22aa750bbd5721d",
+      "sourceHash": "ecfcc61cc7a54554eb0143f7dc1177db6023784811e4a70714152810c6a8fe99"
+    }
+  },
+  "generatorHash": "0cdb658939e226e09c4e54808c7b394364d18c3bb1fdf950d0cf5b83c530cf01"
+}

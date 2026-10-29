@@ -1,0 +1,15 @@
+{
+  "reports": [
+    {
+      "slug": "casio-g-shock-gbd-h2000",
+      "width": 768,
+      "mobile": true
+    },
+    {
+      "slug": "casio-g-shock-gbd-h2000",
+      "width": 390,
+      "mobile": true
+    }
+  ],
+  "problems": []
+}

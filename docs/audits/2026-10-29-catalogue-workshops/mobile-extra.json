@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "slug": "citizen-promaster-diver",
+      "width": 768,
+      "mobile": true
+    },
+    {
+      "slug": "casio-g-shock-gbd-h2000",
+      "width": 768,
+      "mobile": true
+    },
+    {
+      "slug": "rolex-cosmograph-daytona",
+      "width": 768,
+      "mobile": true
+    },
+    {
+      "slug": "breguet-classique-tourbillon-5367",
+      "width": 768,
+      "mobile": true
+    },
+    {
+      "slug": "citizen-promaster-diver",
+      "width": 390,
+      "mobile": true
+    },
+    {
+      "slug": "casio-g-shock-gbd-h2000",
+      "width": 390,
+      "mobile": true
+    },
+    {
+      "slug": "rolex-cosmograph-daytona",
+      "width": 390,
+      "mobile": true
+    },
+    {
+      "slug": "breguet-classique-tourbillon-5367",
+      "width": 390,
+      "mobile": true
+    }
+  ],
+  "problems": []
+}

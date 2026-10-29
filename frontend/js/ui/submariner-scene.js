@@ -9,9 +9,10 @@ import { planParts, samplePart, timelineSeconds, timelineProgress, motionShot } 
 
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 
-/** A demand-rendered viewer: geometry is generated once in Blender, never on the phone. */
+/** A demand-rendered viewer: geometry is baked offline, never generated on the phone. */
 export class SubmarinerScene {
-  constructor(canvas, onPick) {
+  constructor(canvas, onPick, configuration = {}) {
+    this.configuration = configuration;
     this.canvas = canvas;
     this.onPick = onPick;
     this.parts = [];
@@ -21,9 +22,9 @@ export class SubmarinerScene {
     this.t = this.targetT = 0;
     this.dead = false;
     this.pending = false;
-    this.raf = frameGate(canvas, "0px");
     this.abort = new AbortController();
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" });
+    this.raf = frameGate(canvas, "0px");
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, lowPower() ? 1 : 1.5));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -112,7 +113,7 @@ export class SubmarinerScene {
   }
 
   async load(onProgress) {
-    const response = await fetch("/assets/workshop/submariner/submariner.glb", { signal: this.abort.signal });
+    const response = await fetch(this.configuration.asset || "/assets/workshop/submariner/submariner.glb", { signal: this.abort.signal });
     if (!response.ok) throw new Error("Модель недоступна");
     const loader = new GLTFLoader();
     // Embedded images use <img> (img-src blob:), preserving the site's strict connect-src.
@@ -124,12 +125,13 @@ export class SubmarinerScene {
     if (this.dead) { this.disposeObject(asset.scene); return []; }
     this.model = asset.scene;
     this.scene.add(this.model);
-    // All dimensions are normalized to the measured 41 mm bezel diameter.
+    // Normalize the original Submariner to 41 mm; catalogue assets are already in millimetres.
     const bezel = this.model.getObjectByName("Безель");
     const size = new THREE.Box3().setFromObject(bezel ?? this.model).getSize(V());
-    const scale = bezel ? 41 / Math.max(size.x, size.z) : 1;
+    const scale = !this.configuration.catalogue && bezel ? 41 / Math.max(size.x, size.z) : 1;
     this.model.scale.setScalar(scale);
     this.model.updateMatrixWorld(true);
+    if (this.configuration.catalogue) this.floor.position.y = Math.min(-82, new THREE.Box3().setFromObject(this.model).min.y - 12);
     // Preserve children (lume inserts, rubies, hands): they move with their physical parent.
     const nodes = [...this.model.children];
     for (const [index, node] of nodes.entries()) {
@@ -139,7 +141,8 @@ export class SubmarinerScene {
       // Three sanitizes animation bindings with underscores; retain the author's labels.
       const rawName = (node.userData.name ?? node.name.replaceAll("_", " ")).replace(/^_+/, "");
       const name = rawName.charAt(0).toLocaleUpperCase("ru") + rawName.slice(1);
-      const info = describePart(name);
+      const info = this.configuration.catalogue ? node.userData.workshop : describePart(name);
+      if (!info || !Number.isInteger(info.stage)) throw new Error(`Нет описания детали: ${name}`);
       const id = `part-${index}`;
       node.userData.workshopId = id;
       const center = box.getCenter(V());
@@ -155,7 +158,7 @@ export class SubmarinerScene {
         clearance: /^Винт/.test(name) ? Math.max(3, ...box.getSize(V()).toArray()) : 4,
       } : null;
       const trayRotation = /Звено|звено|Застёжка/.test(name)
-        ? node.getWorldQuaternion(new THREE.Quaternion()).invert()
+        ? new THREE.Quaternion().setFromAxisAngle(V(1, 0, 0), this.configuration.catalogue ? -Math.PI / 2 : 0).multiply(node.getWorldQuaternion(new THREE.Quaternion()).invert())
         : !thread && (info.stage >= 3 && info.stage <= 5 || name === "Задняя крышка")
           ? new THREE.Quaternion().setFromAxisAngle(V(1, 0, 0), Math.PI) : new THREE.Quaternion();
       const part = { ...info, id, node: pivot, home: center.clone(), center, size: box.getSize(V()), thread, trayRotation, materials: [] };
@@ -208,7 +211,7 @@ export class SubmarinerScene {
       const i = this.parts.filter(p => p.stage === part.stage).indexOf(part);
       if (part.stage === 1) {
         // Removed bracelet halves park beside the head, clear of the movement.
-        const side = /12/.test(part.name) ? -1 : 1;
+        const side = this.configuration.catalogue ? (part.home.z < 0 ? -1 : 1) : /12/.test(part.name) ? -1 : 1;
         const outward = V(side * 64, 0, -48);
         outward.x += /лев/.test(part.name) ? -4 : /прав/.test(part.name) ? 4 : 0;
         if (/Застёжка/.test(part.name)) outward.set(-92, 0, -65);
@@ -507,6 +510,24 @@ export class SubmarinerScene {
     const { stage, kind, key } = motionShot(this.t);
     if (key === this.focusKey && !instant) return;
     this.focusKey = key;
+    if (this.configuration.catalogue && stage > 0 && stage < 7) {
+      const screw = kind === "thread" && this.parts.find(part => part.stage === stage && part.thread);
+      if (screw) {
+        const box = new THREE.Box3().setFromCenterAndSize(screw.home, screw.size.clone().addScalar(8));
+        box.expandByPoint(screw.home.clone().addScaledVector(screw.thread.axis, screw.thread.clearance + 3));
+        this.fit(box, stage === 1 ? V(1.4, .7, Math.sign(screw.home.z) * .8) : V(.4, -1.8, .65), instant);
+        return;
+      }
+      const candidates = this.parts.filter(part => part.stage === stage && !part.thread);
+      const box = new THREE.Box3();
+      for (const part of candidates) {
+        for (const center of [part.home, part.exploded]) {
+          box.expandByPoint(center.clone().sub(part.size.clone().multiplyScalar(.5)));
+          box.expandByPoint(center.clone().add(part.size.clone().multiplyScalar(.5)));
+        }
+      }
+      if (!box.isEmpty()) { box.expandByScalar(3); this.fit(box, stage >= 2 && stage <= 5 ? V(.35, -1.8, .65) : V(.45, 1.5, 1.1), instant); return; }
+    }
     if (kind === "assembled") {
       const box = new THREE.Box3();
       for (const p of this.parts) box.expandByObject(p.node);

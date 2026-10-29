@@ -1,0 +1,14 @@
+✔ timeline has real, reversible seconds at every stage and scrub position (4.35713ms)
+✔ all bracelet screws clear before links separate (0.297878ms)
+✔ retaining screws and bridges precede the parts they retain (0.271798ms)
+✔ barrel, cover, mainspring and arbor form a sequence (0.191017ms)
+✔ scrubbing back exactly retraces every intermediate pose, with no finish-only spin (12.1731ms)
+✔ camera and captions follow rotor, barrel and spring actions in both directions (0.640323ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25.478461

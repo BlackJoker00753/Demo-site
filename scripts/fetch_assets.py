@@ -71,6 +71,7 @@ def cached(name: str, url: str) -> bytes:
 
 THREE_ADDONS = [
     "loaders/GLTFLoader.js",
+    "exporters/GLTFExporter.js",  # build-time only; visitors load baked GLBs
     "utils/SkeletonUtils.js",
     "controls/OrbitControls.js",
     "environments/RoomEnvironment.js",
@@ -103,6 +104,7 @@ THREE_ADDONS = [
 def fetch_vendor() -> None:
     print("vendor")
     base = f"{JSD}/three@{THREE}"
+    save(VENDOR / "three" / "LICENSE", get(f"{base}/LICENSE"))
     # jsDelivr минифицирует на лету; имена сохраняем исходные, чтобы работали внутренние импорты.
     save(VENDOR / "three" / "three.module.js", get(f"{base}/build/three.module.min.js"))
     save(VENDOR / "three" / "three.core.js", get(f"{base}/build/three.core.min.js"))

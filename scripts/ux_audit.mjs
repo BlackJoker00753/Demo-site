@@ -106,11 +106,11 @@ try {
     for (const slug of ["rolex-gmt-master-ii-pepsi", "longines-spirit-zulu-time"]) {
       await go(`/watch/${slug}`);
       await evaluate("document.querySelector('[data-jump=explode]').click()");
-      await sleep(1600);
+      await wait("!!window.__horologium.workshop?.parts.length");
       assert(await evaluate("document.querySelector('#explode').getBoundingClientRect().top >= document.querySelector('.watch-nav').getBoundingClientRect().bottom-1"), `${width}/${slug}: jump hides section under navigation`);
-      await evaluate("scrollTo({top:document.querySelector('.wexplode__pin').getBoundingClientRect().top+scrollY,behavior:'instant'})");
-      assert(await evaluate("document.querySelector('.wexplode__head').getBoundingClientRect().top >= document.querySelector('.watch-nav').getBoundingClientRect().bottom-1"), `${width}/${slug}: legacy viewer controls behind navigation`);
-      if (slug === "rolex-gmt-master-ii-pepsi") await shot(`${width}-legacy-viewer`);
+      await evaluate("document.querySelector('.sub-workshop__body').scrollIntoView({block:'center',behavior:'instant'})");
+      assert(await evaluate("document.querySelector('.sub-stage__tools').getBoundingClientRect().top >= document.querySelector('.watch-nav').getBoundingClientRect().bottom-1"), `${width}/${slug}: workshop controls behind navigation`);
+      if (slug === "rolex-gmt-master-ii-pepsi") await shot(`${width}-catalogue-viewer`);
     }
   }
   await go("/tco?watch=rolex-submariner");
