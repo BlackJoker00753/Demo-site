@@ -6,7 +6,8 @@ const listeners = new Set();
 export function getComparedSlugs() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? [...new Set(parsed.filter(slug => typeof slug === "string" && /^[a-z0-9-]+$/.test(slug)))].slice(0, 4) : [];
   } catch (_) {
     return [];
   }
@@ -22,7 +23,10 @@ export function toggleCompare(slug) {
   if (idx >= 0) {
     list.splice(idx, 1);
   } else {
-    if (list.length >= 4) list.shift(); // максимум 4 модели
+    if (list.length >= 4) {
+      window.dispatchEvent(new CustomEvent("comparelimit"));
+      return false;
+    }
     list.push(slug);
   }
   saveCompare(list);

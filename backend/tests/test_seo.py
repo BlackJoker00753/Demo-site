@@ -42,6 +42,18 @@ def test_private_pages_are_noindex(client):
     assert 'content="noindex"' not in client.get("/watches").text
 
 
+def test_learning_and_methodology_are_public_and_linked_without_javascript(client):
+    for path, text, link in (("/learn", "Как работают", "/watch/rolex-submariner#explode"),
+                             ("/methodology", "методика", "/tco")):
+        page = client.get(path)
+        assert page.status_code == 200
+        assert text.lower() in page.text.lower()
+        assert f'href="http://testserver{path}"' in page.text
+        assert f'href="{link}"' in page.text
+        assert 'content="noindex"' not in page.text
+        assert f"http://testserver{path}" in client.get("/sitemap.xml").text
+
+
 def test_sitemap_and_robots(client):
     sm = client.get("/sitemap.xml")
     assert sm.status_code == 200 and sm.headers["content-type"].startswith("application/xml")

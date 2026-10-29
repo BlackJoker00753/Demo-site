@@ -1,6 +1,6 @@
 /* ==========================================================================
    Horologium design tokens
-   Тема одна и заблокирована: тёмная («ночное небо» над глобусом).
+   Светлая тема по умолчанию; data-theme="dark" сохраняет ночную палитру.
    Палитра «холодная роскошь»: графит, сталь, серебро и один акцент цвета
    люминесцентной массы стрелок (lume). Акцент используется только для
    активных состояний, ценовых акцентов и подсветки на глобусе.
@@ -40,6 +40,17 @@
   --lume-glow: rgba(159, 233, 196, 0.35);
 
   --danger: #f2a39b;
+  --positive: #57d99d;
+  --info: #83b9fb;
+  --button-hover: #ffffff;
+  --panel-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+
+  /* Neutral inspection surface in both themes: dark components stay visible. */
+  --workbench: #e5e8eb;
+  --workbench-text: #20282e;
+  --workbench-muted: #505c65;
+  --workbench-control: #f9fafb;
+  --workbench-active: #233c36;
 
   /* Typography */
   --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
@@ -97,5 +108,34 @@
   --z-curtain: 30;
   --z-intro: 40;
 
-  --nav-h: 68px;
+  --nav-h: calc(68px + env(safe-area-inset-top, 0px));
+}
+
+:root:not([data-theme="dark"]) {
+  color-scheme: light;
+  --bg: #f5f6f7;
+  --bg-2: #edf0f2;
+  --surface: #ffffff;
+  --surface-2: #eef1f3;
+  --surface-3: #e1e6e9;
+  --glass: rgba(255, 255, 255, 0.88);
+  --glass-strong: rgba(255, 255, 255, 0.97);
+  --line: rgba(31, 46, 57, 0.12);
+  --line-2: rgba(31, 46, 57, 0.2);
+  --line-3: rgba(31, 46, 57, 0.35);
+  --text: #20282e;
+  --text-2: #4f5d66;
+  --text-3: #606d76;
+  --text-4: #76818a;
+  --steel: #4c5e6b;
+  --gold: #75561c;
+  --lume: #196449;
+  --lume-2: #15573f;
+  --lume-dim: rgba(25, 100, 73, 0.1);
+  --lume-glow: rgba(25, 100, 73, 0.18);
+  --danger: #ad3932;
+  --positive: #19724e;
+  --info: #29659c;
+  --button-hover: #36434c;
+  --panel-shadow: 0 16px 48px rgba(31, 46, 57, 0.12);
 }

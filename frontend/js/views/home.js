@@ -2,7 +2,7 @@
 
 import { api } from "../core/api.js";
 import { html, qsa } from "../core/dom.js";
-import { brands, usd } from "../core/format.js";
+import { bindCurrencyPrices, brands, usd } from "../core/format.js";
 
 const isMobile = () => window.innerWidth < 760;
 
@@ -14,6 +14,7 @@ export function homeShift() {
 
 export default {
   layer: "globe",
+  currencyAware: true,
 
   async data() {
     const [countries, stats] = await Promise.all([api.countries(), api.stats()]);
@@ -34,6 +35,7 @@ export default {
             <a class="btn" href="/country/switzerland">Начать со Швейцарии <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
             <button class="btn btn--ghost" type="button" data-open-search><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>Найти модель</button>
           </div>
+          <a class="home__learn" href="/learn" data-link>Впервые здесь? Как работают часы</a>
         </div>
 
         <nav class="home__countries interactive" aria-label="Страны">
@@ -43,7 +45,7 @@ export default {
                 <a class="hcountry ${c.brand_count ? "" : "is-empty"}" href="/country/${c.slug}" data-slug="${c.slug}">
                   <span class="hcountry__name">${c.name}</span>
                   <span class="hcountry__meta">${c.brand_count ? brands(c.brand_count) : "скоро"}</span>
-                  <span class="hcountry__price num">${c.prices.min ? `от\u00a0${usd(c.prices.min)}` : ""}</span>
+                  <span class="hcountry__price num">${c.prices.min ? html`от <span data-price-usd="${c.prices.min}">${usd(c.prices.min)}</span>` : ""}</span>
                 </a>
               </li>`,
             )}
@@ -61,12 +63,14 @@ export default {
   },
 
   mount(root, { countries }, { globe, from }) {
+    let alive = true;
+    const offPrices = bindCurrencyPrices(root);
     const bySlug = new Map(countries.map((c) => [c.slug, c]));
-    globe.whenReady(() => globe.scene.overview({ shift: homeShift() }));
+    globe.whenReady(() => { if (alive) globe.scene.overview({ shift: homeShift() }); });
 
     const links = qsa(".hcountry", root);
     const offHover = globe.whenReady(() =>
-      globe.scene.on("hover", (country) => {
+      alive && globe.scene.on("hover", (country) => {
         links.forEach((a) => a.classList.toggle("is-hot", country?.slug === a.dataset.slug));
       }),
     );
@@ -93,6 +97,8 @@ export default {
     const onResize = () => globe.scene?.ready && !globe.scene.focused && globe.scene.setShift(homeShift(), 0.6);
     window.addEventListener("resize", onResize);
     return () => {
+      alive = false;
+      offPrices();
       window.removeEventListener("resize", onResize);
       Promise.resolve(offHover).then((off) => typeof off === "function" && off());
       globe.scene?.preview(null);

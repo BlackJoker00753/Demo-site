@@ -148,11 +148,12 @@ def test_complication_routes(client):
 def test_tco_route(client):
     res_tco = client.get("/tco")
     assert res_tco.status_code == 200
-    assert "Калькулятор ликвидности и стоимости владения" in res_tco.text
+    assert "Стоимость владения часами: сценарий расходов" in res_tco.text
+    assert "не рыночный прогноз" in res_tco.text
 
     res_calc = client.get("/calculator")
     assert res_calc.status_code == 200
-    assert "Калькулятор ликвидности и стоимости владения" in res_calc.text
+    assert "Стоимость владения часами: сценарий расходов" in res_calc.text
 
 
 def test_world_time_route(client):

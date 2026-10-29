@@ -58,6 +58,11 @@ async function loadTexture(url, raw = false) {
   return tex;
 }
 
+function disposeTexture(texture) {
+  texture?.dispose();
+  texture?.image?.close?.(); // ImageBitmap owns decoded memory separately from the GPU texture.
+}
+
 export class GlobeScene {
   constructor(canvas, markers) {
     this.canvas = canvas;
@@ -204,8 +209,7 @@ export class GlobeScene {
     this.#applyShift();
     if (this.mode === "visible") this.#start();
     // карта для наведения строится в фоне и не задерживает появление глобуса; до готовности наведение молчит
-    loadIdPicker().then((p) => (this.picker = p), () => {});
-    this.#upgradeDayTexture();
+    loadIdPicker().then(p => { this.picker = p; this.needsPick = true; this.#invalidate(); }, () => {});
     return this;
   }
 
@@ -214,15 +218,20 @@ export class GlobeScene {
     // на телефонах и слабых устройствах остаётся 2K (иначе мобильный Safari может закрыть вкладку).
     const small = Math.min(screen.width, screen.height) < 820 || (navigator.deviceMemory ?? 8) < 4;
     const saveData = navigator.connection?.saveData;
-    if (small || saveData || lowPower() || this.renderer.capabilities.maxTextureSize < 8192) return;
+    if (this.highDay || this.upgradingDay || small || saveData || lowPower() || this.renderer.capabilities.maxTextureSize < 8192) return;
+    this.upgradingDay = true;
     const hi = await loadTexture("/assets/earth/day-8k.jpg").catch(() => null);
+    this.upgradingDay = false;
     if (!hi) return;
+    if (this.mode !== "visible" || (!this.focused && this.rig.dist >= 2.2)) { disposeTexture(hi); return; }
     hi.colorSpace = THREE.SRGBColorSpace;
     hi.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
     this.renderer.initTexture(hi);
     const old = this.earthUniforms.uDay.value;
     this.earthUniforms.uDay.value = hi;
-    old.dispose();
+    this.highDay = true;
+    disposeTexture(old);
+    this.#invalidate();
   }
 
   #buildStars() {
@@ -262,6 +271,7 @@ export class GlobeScene {
     (this.borderMats ?? []).forEach((m) => m.resolution.set(w, h));
     this.#applyShift();
     this.#layoutPins();
+    this.#invalidate();
   }
 
   /** Дистанция камеры, при которой глобус занимает долю k от меньшей стороны экрана. */
@@ -291,6 +301,7 @@ export class GlobeScene {
       el.setPointerCapture(e.pointerId);
       this.autoRotate = false;
       this.layer.classList.add("is-dragging");
+      this.#invalidate(1400);
     });
     el.addEventListener("pointermove", (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
@@ -310,17 +321,19 @@ export class GlobeScene {
       this.parallax.tx = (e.clientX / w - 0.5) * 2;
       this.parallax.ty = (e.clientY / h - 0.5) * 2;
       this.needsPick = true;
+      this.#invalidate(1400);
     });
     const end = (e) => {
       if (!this.drag.active) return;
       this.drag.active = false;
       this.layer.classList.remove("is-dragging");
       clearTimeout(this.autoTimer);
-      this.autoTimer = setTimeout(() => { if (!this.focused) this.autoRotate = true; }, 4000);
+      this.autoTimer = setTimeout(() => { if (!this.focused) { this.autoRotate = true; this.#invalidate(); } }, 4000);
+      this.#invalidate(1400);
     };
     el.addEventListener("pointerup", end);
     el.addEventListener("pointercancel", end);
-    el.addEventListener("pointerleave", () => { this.pointer = null; this.needsPick = true; });
+    el.addEventListener("pointerleave", () => { this.pointer = null; this.needsPick = true; this.#invalidate(); });
     el.addEventListener("click", (e) => {
       if (this.drag.moved > 6) return;
       const hit = this.#pick(e.clientX, e.clientY);
@@ -331,6 +344,8 @@ export class GlobeScene {
       e.preventDefault();
       const base = this.fitDist();
       this.rig.dist = THREE.MathUtils.clamp(this.rig.dist * (1 + e.deltaY * 0.0012), 1.6, base * 1.35);
+      if (this.rig.dist < 2.2) this.#upgradeDayTexture();
+      this.#invalidate(1400);
     }, { passive: false });
     document.addEventListener("visibilitychange", () => (document.hidden ? this.#stop() : this.mode === "visible" && this.#start()));
   }
@@ -391,6 +406,7 @@ export class GlobeScene {
       this.canvas.style.display = "";
       this.#start();
     } else {
+      this.#stop(); // The CSS fade can reuse the last frame while the next page becomes interactive.
       clearTimeout(this.stopTimer);
       this.stopTimer = setTimeout(() => {
         if (this.mode === "hidden") {
@@ -406,6 +422,7 @@ export class GlobeScene {
   setShift({ x = 0, y = 0 } = {}, duration = 1.2) {
     const g = window.gsap;
     if (!this.ready) { Object.assign(this.rig, { sx: x, sy: y }); return; }
+    this.#invalidate(duration * 1000 + 200);
     if (!g || reduced() || !duration) { Object.assign(this.rig, { sx: x, sy: y }); this.#applyShift(); return; }
     g.to(this.rig, { sx: x, sy: y, duration, ease: "expo.inOut", onUpdate: () => this.#applyShift(), overwrite: "auto" });
   }
@@ -414,6 +431,7 @@ export class GlobeScene {
   peek(country) {
     const g = window.gsap;
     if (this.focused || !g || !this.ready) return;
+    this.#invalidate(1600);
     this.autoRotate = false;
     clearTimeout(this.autoTimer);
     let lon = country.lon;
@@ -424,10 +442,11 @@ export class GlobeScene {
 
   release() {
     clearTimeout(this.autoTimer);
-    this.autoTimer = setTimeout(() => { if (!this.focused) this.autoRotate = true; }, 2500);
+    this.autoTimer = setTimeout(() => { if (!this.focused) { this.autoRotate = true; this.#invalidate(); } }, 2500);
   }
 
   overview({ shift = {} } = {}) {
+    this.#invalidate(3000);
     const g = window.gsap;
     const wasFocused = this.focused;
     this.focused = null;
@@ -455,13 +474,17 @@ export class GlobeScene {
   preview(iso) {
     const f = iso ? this.countriesByIso.get(iso) : null;
     this.earthUniforms.uHover.value = f ? f.id : -1;
+    this.#invalidate();
   }
 
   /** Перелёт к стране. country: { slug, iso_a3, lat, lon, altitude }. */
   async focus(country, { shift = {} } = {}) {
+    this.#invalidate(3200);
     const g = window.gsap;
     this.focused = country;
     this.autoRotate = false;
+    this.drag.vx = this.drag.vy = 0;
+    this.#upgradeDayTexture();
     this.clearPins();
     const feature = this.countriesByIso.get(country.iso_a3);
     this.earthUniforms.uSelected.value = feature?.id ?? -1;
@@ -596,6 +619,7 @@ export class GlobeScene {
   }
 
   #showCountryLayer(instant = false) {
+    this.#invalidate(instant || reduced() ? 100 : 2600);
     const g = window.gsap;
     const mats = this.borderMats ?? [];
     if (instant || !g || reduced()) {
@@ -620,8 +644,8 @@ export class GlobeScene {
       layer.traverse((o) => {
         o.geometry?.dispose?.();
         if (o.material) {
-          o.material.uniforms?.uMap?.value?.dispose?.();
-          o.material.uniforms?.uMask?.value?.dispose?.();
+          disposeTexture(o.material.uniforms?.uMap?.value);
+          disposeTexture(o.material.uniforms?.uMask?.value);
           o.material.dispose();
         }
       });
@@ -640,6 +664,7 @@ export class GlobeScene {
     this.clearPins();
     this.pins = pins.map((p) => ({ ...p, pos: lonLatToVec3(p.lon, p.lat, 1.001) }));
     if (this.focused && !this.rigBusy) this.#layoutPins(true);
+    this.#invalidate();
   }
 
   clearPins() {
@@ -753,22 +778,35 @@ export class GlobeScene {
 
   // ------------------------------------------------------------------ loop
 
+  #invalidate(duration = 100) {
+    this.wakeUntil = reduced() ? performance.now() : Math.max(this.wakeUntil ?? 0, performance.now() + duration);
+    this.#start();
+  }
+
   #start() {
-    if (this.running || !this.ready) return;
+    if (this.running || !this.ready || this.mode !== "visible" || document.hidden) return;
     this.running = true;
     this.time.last = performance.now();
-    // слабый ноутбук: пока глобус просто вращается сам, 30 кадров в секунду (вдвое меньше работы процессору
-    // и видеокарте, прокрутка страницы не дёргается); наведение, перетаскивание и перелёты в полной частоте
-    const lite = lowPower();
+    // Ambient rotation is capped at 30 fps; interaction and camera flights use the display cadence.
     let drawn = -Infinity;
     const tick = (t = performance.now()) => {
       if (!this.running) return;
-      this.raf = requestAnimationFrame(tick);
-      if (lite && t - drawn < 30 && this.#calm(t)) return;
+      const calm = this.#calm(t);
+      if (calm && t - drawn < 30) { this.raf = requestAnimationFrame(tick); return; }
+      const gap = t - drawn;
       drawn = t;
+      const started = performance.now();
       this.#frame();
+      // Sustained slow frames stop decorative rotation. Dragging, picking and camera flights stay live.
+      if (calm && Number.isFinite(gap)) {
+        this.slowFrames = gap > 80 || performance.now() - started > 50 ? (this.slowFrames ?? 0) + 1 : 0;
+        if (this.slowFrames >= 6) this.ambientSuspended = true;
+      }
+      const ambient = !this.focused && this.autoRotate && !reduced() && !this.ambientSuspended;
+      if (ambient || !this.#calm(performance.now()) || performance.now() < (this.wakeUntil ?? 0)) this.raf = requestAnimationFrame(tick);
+      else { this.running = false; this.raf = 0; }
     };
-    tick();
+    this.raf = requestAnimationFrame(tick);
   }
 
   /** Глобус в покое: никто не тянет и не наводит, инерция погасла, камера не летит. */
@@ -791,7 +829,7 @@ export class GlobeScene {
     const rig = this.rig;
 
     if (!this.focused && !this.drag.active) {
-      if (this.autoRotate && !reduced()) rig.lon -= dt * 2.4;
+      if (this.autoRotate && !reduced() && !this.ambientSuspended) rig.lon -= dt * 2.4;
       // инерция после перетаскивания
       rig.lon += this.drag.vx;
       rig.lat = THREE.MathUtils.clamp(rig.lat + this.drag.vy, -70, 75);

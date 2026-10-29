@@ -3,6 +3,7 @@
 import { html, setHTML } from "../core/dom.js";
 import { date, getActiveCurrency, onCurrencyChange, RATES, setActiveCurrency } from "../core/format.js";
 import { getComparedSlugs, clearCompare, onCompareChange } from "../core/compare.js";
+import { toast } from "./toast.js";
 
 export function initNav() {
   const nav = document.getElementById("nav");
@@ -24,6 +25,7 @@ export function initNav() {
     if (curDropdown) {
       curDropdown.querySelectorAll("[data-cur]").forEach((b) => {
         b.classList.toggle("is-selected", b.dataset.cur === cur.code);
+        b.setAttribute("aria-selected", String(b.dataset.cur === cur.code));
       });
     }
   };
@@ -36,11 +38,27 @@ export function initNav() {
     if (isHidden) {
       curDropdown?.removeAttribute("hidden");
       curBtn.setAttribute("aria-expanded", "true");
+      curDropdown?.querySelector('.is-selected')?.focus();
     } else {
       curDropdown?.setAttribute("hidden", "");
       curBtn.setAttribute("aria-expanded", "false");
     }
   });
+
+  document.getElementById("nav-currency")?.addEventListener("keydown", event => {
+    if (curDropdown?.hidden) return;
+    if (event.key === "Escape") {
+      event.preventDefault(); curDropdown.hidden = true;
+      curBtn.setAttribute("aria-expanded", "false"); curBtn.focus();
+    } else if (["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      const options = [...curDropdown.querySelectorAll('[data-cur]')];
+      const current = options.indexOf(document.activeElement);
+      const index = event.key === "Home" ? 0 : event.key === "End" ? options.length - 1 : (current + (event.key === "ArrowDown" ? 1 : -1) + options.length) % options.length;
+      options[index]?.focus();
+    }
+  });
+  window.addEventListener("comparelimit", () => toast("В сравнении уже 4 модели. Удалите одну на странице сравнения, чтобы добавить другую.", { icon: "ph-info", duration: 5000 }));
 
   curDropdown?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-cur]");

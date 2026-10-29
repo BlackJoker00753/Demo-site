@@ -28,7 +28,9 @@ class Settings:
     site_name: str = "Horologium"
     site_tagline: str = "Атлас часового искусства"
     # Публичный адрес сайта для canonical, Open Graph и sitemap (иначе берётся из запроса).
-    site_url: str | None = field(default_factory=lambda: (os.environ.get("HOROLOGIUM_SITE_URL") or "").rstrip("/") or None)
+    site_url: str | None = field(default_factory=lambda: (
+        os.environ.get("HOROLOGIUM_SITE_URL") or os.environ.get("RENDER_EXTERNAL_URL") or ""
+    ).rstrip("/") or None)
     # Перестраивать SQLite при старте, если YAML-контент изменился.
     auto_rebuild: bool = field(default_factory=lambda: os.environ.get("HOROLOGIUM_AUTO_REBUILD", "1") != "0")
 

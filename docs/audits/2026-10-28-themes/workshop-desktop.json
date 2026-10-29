@@ -1,0 +1,48 @@
+{
+  "reports": [
+    {
+      "animation": {
+        "t": 0.060315873015872976,
+        "moving": true,
+        "following": true,
+        "camera": "1-thread",
+        "angle": 2.5820692745215945,
+        "axial": 1.0874013828527576,
+        "sideways": 0,
+        "linkTravel": 0
+      },
+      "reverse": "restored",
+      "pause": "stable",
+      "offscreen": "paused",
+      "speed": 1.5
+    },
+    {
+      "tray": {
+        "width": 1440,
+        "overlaps": 0,
+        "maxGroundError": 1.0766881530788197e-7,
+        "minLandingClearance": 0.11999998779157295
+      }
+    },
+    {
+      "parts": 136,
+      "triangles": 461976,
+      "calls": 423,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "wide": [
+        [
+          "globe-layer is-hidden",
+          1476,
+          1458
+        ],
+        [
+          "globe-markers",
+          1476,
+          1458
+        ]
+      ]
+    }
+  ],
+  "problems": []
+}

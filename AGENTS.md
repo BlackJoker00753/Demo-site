@@ -33,3 +33,19 @@
   другой официальный (так печать под стрелками взята с голого циферблата raw-dial). Условность механизма
   подписывать в `content/teardown/films.yaml` (`note`). Проверять кадры глазами до полного рендера.
 - **Коммиты** от `Olzhas Raiganiyev <93197973+BlackJoker00753@users.noreply.github.com>` (настроено локально в репозитории).
+
+## Мастерская Submariner и дизайн
+
+- `/watch/rolex-submariner#explode`: самостоятельная GLB-мастерская. Сначала прочитайте
+  `docs/SUBMARINER_WORKSHOP.md`. Для остальных моделей: `docs/CATALOGUE_WORKSHOPS.md`, готовые GLB и общий интерфейс.
+  Новую модель добавлять вместе с экспортом и проверкой покрытия. Не подменять справочные фото 3D.
+- Для интерфейса доступны официальные Taste (`.agents/skills/design-taste-frontend/SKILL.md`) и
+  Impeccable (`.agents/skills/impeccable/SKILL.md`). Контекст продукта в `docs/PRODUCT.md`,
+  действующая визуальная система в `docs/DESIGN.md`. Кеш Impeccable: `sh scripts/design_tools.sh`.
+- После изменения мастерской: дополнительно `node scripts/submariner_audit.mjs <url>`.
+  Проверять изображения, выбор геометрии, описания, сборку, 390/768/1440 px, reduced-motion,
+  Save-Data и остановку кадров в покое. Бюджет GLB проверяет `test_assets.py`.
+
+- После изменения общих мастерских: также `node scripts/catalogue_workshops_audit.mjs <url>`.
+  Проверять все GLB, архитектуру механизмов, отдельные детали, обратную сборку, мобильный экран,
+  темы, Save-Data и освобождение сцены. Исходный Submariner не регенерировать общей фабрикой.

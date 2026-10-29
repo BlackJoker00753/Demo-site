@@ -8,6 +8,9 @@ export const lowPower = () =>
 export const gsap = () => window.gsap;
 
 let io;
+export function clearReveals(root) {
+  root.querySelectorAll("[data-reveal]").forEach(el => io?.unobserve(el));
+}
 /** Плавное появление элементов с [data-reveal] при входе в кадр. */
 export function observeReveals(root = document) {
   io ??= new IntersectionObserver(

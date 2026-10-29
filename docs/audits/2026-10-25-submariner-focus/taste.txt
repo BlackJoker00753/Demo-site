@@ -1,0 +1,8 @@
+TASTESKILL · LINT   3 file(s)
+
+WARN
+  [numbering] Zero-padding in script. Fine for a clock, a date or a price; if it builds 01 / 02 / 03 labels, remove it.  (1×)
+      frontend/js/ui/submariner-workshop.js:66  padStart(2, "0")
+
+RESULT: 0 FAIL, 1 WARN
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.

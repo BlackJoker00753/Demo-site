@@ -1,0 +1,21 @@
+{
+  "url": "https://horologium-szy5.onrender.com/watch/rolex-submariner",
+  "note": "Полное время ответа HTTP, не время появления интерфейса. Первый запрос не обязательно холодный.",
+  "results": [
+    {
+      "request": 1,
+      "status": 200,
+      "seconds": 23.864
+    },
+    {
+      "request": 2,
+      "status": 200,
+      "seconds": 0.393
+    },
+    {
+      "request": 3,
+      "status": 200,
+      "seconds": 0.344
+    }
+  ]
+}

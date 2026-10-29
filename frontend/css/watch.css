@@ -102,6 +102,17 @@
 }
 
 /* ---------------------------------------------------------------- photos strip */
+.watch { --watch-nav-h: 52px; }
+.watch-nav { position: sticky; top: var(--nav-h); z-index: calc(var(--z-nav) - 1); display: flex; gap: 8px; overflow-x: auto; padding: 4px var(--gutter); background: var(--bg); scrollbar-width: thin; }
+.watch-nav a { flex: none; display: block; min-height: 44px; padding: 10px 14px; border-radius: var(--r-pill); font-size: 14px; color: var(--text-2); }
+.watch-nav a:hover, .watch-nav a[aria-current] { color: var(--text); background: var(--surface-2); }
+.watch :is(section[id], .sub-workshop) { scroll-margin-top: calc(var(--nav-h) + var(--watch-nav-h) + 16px); }
+.watch #top { scroll-margin-top: 0; }
+.watch .wstory.content-disclosure { padding-block: 20px; }
+.watch .wstory summary { font-size: 20px; }
+.watch .wstory__text { margin-top: 20px; }
+.watch .wtco-section > .lead { font-size: 16px; margin-block: 12px; }
+.watch-tco[open] > summary { margin-bottom: 20px; }
 
 .wphotos { padding-block: var(--s-8) var(--s-9); }
 .wphotos__head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px 32px; margin-bottom: var(--s-6); }
@@ -290,12 +301,12 @@
 }
 .wparts button small { color: var(--text-3); font-size: 11px; margin-left: 4px; }
 .wexplode__side {
-  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + 20px); bottom: 110px; width: min(420px, 34vw);
+  position: absolute; left: var(--gutter); top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 20px); bottom: 110px; width: min(420px, 34vw);
   display: flex; flex-direction: column; gap: 22px; pointer-events: none; z-index: 1;
 }
 .wexplode__head { display: grid; gap: 10px; }
 .wexplode__head p { font-size: var(--fs-14); }
-.seg.wexplode__modes { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 24px); z-index: 2; }
+.seg.wexplode__modes { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 24px); z-index: 2; }
 
 /* переключатель режимов (сегменты с «пилюлей») */
 .seg {
@@ -324,7 +335,7 @@
 .wreal {
   position: absolute; margin: 0; z-index: 0; /* детали в полёте остаются под текстом слева */
   left: calc(var(--gutter) + min(420px, 34vw) + 24px); right: var(--gutter);
-  top: calc(var(--nav-h) + 90px); bottom: 70px;
+  top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 90px); bottom: 70px;
   display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; justify-items: center;
 }
 .wreal[hidden] { display: none; }
@@ -362,7 +373,7 @@
 .wreal__dot:hover span, .wreal__dot[aria-pressed="true"] span { transform: scale(1.35); box-shadow: 0 0 0 6px rgba(159, 233, 196, 0.3), 0 0 24px rgba(159, 233, 196, 1); }
 @keyframes wreal-ping { 0% { transform: scale(0.6); opacity: 0.9; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
 @media (max-width: 900px) {
-  .wreal { left: 12px; right: 12px; top: calc(var(--nav-h) + 150px); bottom: 110px; }
+  .wreal { left: 12px; right: 12px; top: calc(var(--nav-h) + var(--watch-nav-h, 0px) + 150px); bottom: 110px; }
   .seg.wexplode__modes { right: auto; left: 12px; top: auto; bottom: 96px; }
 }
 .wexplode__panel {
@@ -480,3 +491,101 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 .wfilm-ch[hidden] { display: none; }
 /* на широком экране описание шага в списке глав, карточка поверх кадра только на телефоне */
 @media (min-width: 901px) { .wfilm-cap { display: none !important; } }
+/* Submariner workshop: the model leads, with controls outside the image. */
+.sub-workshop { padding-block: 48px 80px; scroll-margin-top: 80px; }
+.sub-workshop__heading { margin-bottom: 32px; }
+.sub-workshop__heading h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.6rem); line-height: 1.06; font-weight: 400; letter-spacing: -.025em; margin: 0 0 16px; text-wrap: balance; }
+.sub-workshop__heading > p { font-size: 18px; color: var(--text-2); max-width: 48ch; line-height: 1.6; }
+.sub-workshop__body {
+  --bg: var(--workbench-control);
+  --text: var(--workbench-text);
+  --text-2: var(--workbench-muted);
+  --text-3: var(--workbench-muted);
+  --line-2: rgba(31, 46, 57, 0.2);
+  --line-3: rgba(31, 46, 57, 0.35);
+  --surface: var(--workbench-control);
+  --surface-2: #d6dce0;
+  --lume: var(--workbench-active);
+  display: grid; grid-template-columns: 210px minmax(0, 1fr); position: relative;
+  background: var(--workbench); color: var(--text); color-scheme: light;
+  border-radius: 20px; overflow: clip;
+}
+.sub-steps { align-self: center; padding: 28px 12px 28px 24px; display: grid; gap: 8px; }
+.sub-steps button { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 4px; text-align: left; font: 400 15px/1.4 var(--font-sans); color: var(--text-2); background: none; border: 0; cursor: pointer; }
+.sub-steps button span { width: 24px; height: 24px; display: grid; place-items: center; flex: none; font-size: 12px; border-radius: 50%; background: var(--surface-2); }
+.sub-steps button[aria-current="step"] { color: var(--text); font-weight: 500; }
+.sub-steps button[aria-current="step"] span { background: var(--workbench-active); color: #fff; }
+.sub-steps button:hover { color: var(--text); }
+.sub-stage { position: relative; height: clamp(496px, 58vh, 600px); min-width: 0; }
+.sub-stage canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.sub-stage canvas:active { cursor: grabbing; }
+.sub-stage__poster { position: absolute; inset: 8% 12%; width: 76%; height: 76%; object-fit: contain; opacity: .85; }
+.sub-stage__poster .photo { width: 100%; height: 100%; object-fit: contain; }
+.sub-stage__status { position: absolute; inset: auto 20px 80px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; color: var(--text); }
+.sub-stage__status button, .sub-transport__actions button, .sub-inspector__isolate { min-height: 44px; padding: 12px 20px; border: 0; background: var(--text); color: var(--bg); border-radius: 999px; cursor: pointer; font: 500 14px/1.3 var(--font-sans); }
+.sub-stage__tools { position: absolute; right: 20px; top: 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+.sub-stage__tools button, .sub-stage__return { padding: 10px 14px; min-width: 44px; min-height: 44px; background: var(--surface); color: var(--text); border: 0; border-radius: 999px; cursor: pointer; font: 400 13px/1.3 var(--font-sans); }
+.sub-stage__tools button:hover, .sub-stage__return:hover { background: var(--surface-2); }
+.sub-stage__gesture { position: absolute; bottom: 24px; left: 20px; right: 20px; text-align: center; color: var(--text-2); font-size: 13px; pointer-events: none; }
+.sub-stage__return { position: absolute; bottom: 54px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.sub-transport { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 28px 0; }
+.sub-transport__caption h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; }
+.sub-transport__caption p { color: var(--text-2); font-size: 15px; line-height: 1.6; max-width: 58ch; min-height: 2lh; }
+.sub-transport__actions { display: flex; align-items: center; gap: 8px; }
+.sub-transport__actions button:first-child, .sub-transport__actions button:last-child { background: var(--surface-2); color: var(--text); }
+.sub-transport__actions button:disabled { opacity: .4; cursor: default; }
+.sub-progress { grid-column: 1 / -1; display: flex; gap: 16px; align-items: center; color: var(--text-2); font-size: 13px; }
+.sub-playback { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; color: var(--text-2); font-size: 13px; }
+.sub-playback output { font-variant-numeric: tabular-nums; }
+.sub-playback label { display: flex; gap: 10px; align-items: center; }
+.sub-playback__camera { min-height: 44px; cursor: pointer; }
+.sub-playback__camera input { width: 18px; height: 18px; accent-color: var(--lume); }
+.sub-playback select { min-height: 44px; padding: 8px 14px; color: var(--text); border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface-2); font: inherit; }
+.sub-progress input { flex: 1; min-width: 0; height: 44px; appearance: none; -webkit-appearance: none; background: transparent; accent-color: var(--text); cursor: ew-resize; }
+.sub-progress input::-webkit-slider-runnable-track { height: 3px; border-radius: 99px; background: #646e76; }
+.sub-progress input::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -7.5px; border: 4px solid var(--text); border-radius: 50%; background: var(--bg); }
+.sub-progress input::-moz-range-track { height: 3px; border-radius: 99px; background: #646e76; }
+.sub-progress input::-moz-range-thumb { width: 10px; height: 10px; border: 4px solid var(--text); border-radius: 50%; background: var(--bg); }
+.sub-inspector { position: absolute; right: 20px; bottom: 20px; width: min(340px, calc(100% - 40px)); padding: 24px; background: var(--surface); border-radius: 16px; box-shadow: var(--panel-shadow); }
+.sub-inspector h3 { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.15; margin: 12px 0 16px; }
+.sub-inspector p { font-size: 14px; line-height: 1.65; color: var(--text-2); }
+.sub-inspector__close { display: block; margin-left: auto; min-height: 44px; padding: 0 4px; background: none; border: 0; color: var(--text-2); font-size: 13px; cursor: pointer; }
+.sub-inspector details { margin: 16px 0; }
+.sub-inspector summary { font-size: 13px; color: var(--text-2); cursor: pointer; }
+.sub-inspector details p { margin-top: 10px; }
+.sub-inspector__isolate { width: 100%; margin-top: 8px; }
+.sub-catalogue, .sub-about { padding: 20px 0; }
+.sub-catalogue > summary, .sub-about > summary { cursor: pointer; font-size: 16px; min-height: 32px; color: var(--text); }
+.sub-catalogue__count { color: var(--text-2); }
+.sub-catalogue > label { display: grid; gap: 8px; max-width: 440px; margin-top: 20px; font-size: 14px; }
+.sub-catalogue input { padding: 14px 18px; border: 1px solid var(--line-3); border-radius: 12px; background: var(--surface); color: var(--text); font: 400 16px var(--font-sans); width: 100%; }
+.sub-catalogue input::placeholder { color: var(--text-2); }
+.sub-catalogue__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 20px; margin-top: 20px; max-height: 320px; overflow: auto; overscroll-behavior: contain; scrollbar-color: var(--text-3) var(--surface); }
+.sub-catalogue__list button { padding: 12px 4px; min-height: 44px; background: none; border: 0; color: var(--text-2); text-align: left; font: 400 14px/1.5 var(--font-sans); cursor: pointer; }
+.sub-catalogue__list button:hover { color: var(--text); }
+.sub-about p { font-size: 15px; line-height: 1.75; color: var(--text-2); max-width: 72ch; margin: 16px 0; }
+.sub-about a { color: var(--text); text-underline-offset: 4px; font-size: 14px; }
+.sub-workshop :is(button, input, select, summary, canvas):focus-visible { outline: 2px solid var(--lume); outline-offset: 4px; }
+.sub-workshop [hidden] { display: none !important; }
+@media (max-width: 900px) {
+  .sub-workshop__body { grid-template-columns: minmax(0, 1fr); }
+  .sub-steps { display: flex; overflow-x: auto; padding: 16px; gap: 16px; scrollbar-width: thin; }
+  .sub-steps button { white-space: nowrap; gap: 8px; flex: none; }
+  .sub-stage { height: clamp(400px, 70vw, 560px); }
+  .sub-transport { grid-template-columns: 1fr; gap: 16px; }
+  .sub-transport__actions { justify-content: space-between; }
+  .sub-inspector { position: static; width: auto; margin: 0 16px 16px; box-shadow: none; }
+  .sub-catalogue__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .sub-workshop { padding-block: 64px 40px; }
+  .sub-workshop__heading > p { font-size: 16px; }
+  .sub-stage { height: 410px; }
+  .sub-stage__tools { top: 8px; right: 12px; gap: 4px; }
+  .sub-stage__tools button { padding: 8px 12px; }
+  .sub-stage__gesture { font-size: 12px; bottom: 16px; }
+  .sub-transport__actions button { padding-inline: 16px; }
+  .sub-transport__caption p { min-height: 3lh; }
+  .sub-progress { gap: 10px; font-size: 12px; }
+  .sub-catalogue__list { grid-template-columns: 1fr; }
+}

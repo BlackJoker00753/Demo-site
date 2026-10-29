@@ -9,11 +9,13 @@
 //
 // Без сети открываются все страницы, которые уже смотрели: SPA-шелл берётся из кеша, данные тоже.
 
-const VERSION = "v2";
+const VERSION = "v5-catalogue-workshops";
 const SHELL = `shell-${VERSION}`;
 const STATIC = `static-${VERSION}`;
 const MEDIA = `media-${VERSION}`;
+const WORKSHOPS = `workshops-${VERSION}`;
 const MAX_MEDIA = 400;
+const MAX_WORKSHOPS = 6;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -23,7 +25,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  const keep = new Set([SHELL, STATIC, MEDIA]);
+  const keep = new Set([SHELL, STATIC, MEDIA, WORKSHOPS]);
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
@@ -49,8 +51,13 @@ async function cacheFirst(request, cacheName) {
   if (hit) return hit;
   const res = await fetch(request);
   if (res.ok) {
-    await cache.put(request, res.clone());
+    // A full device cache must not turn a successful model download into a failed load.
+    await cache.put(request, res.clone()).catch(() => {});
     if (cacheName === MEDIA) trim();
+    if (cacheName === WORKSHOPS) {
+      const keys = await cache.keys();
+      await Promise.all(keys.slice(0, Math.max(0, keys.length - MAX_WORKSHOPS)).map(key => cache.delete(key)));
+    }
   }
   return res;
 }
@@ -80,6 +87,8 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(request, STATIC));
   } else if ((p.startsWith("/assets/teardown/") && p.endsWith(".json")) || p.startsWith("/assets/teardown-tasks/")) {
     event.respondWith(networkFirst(request, STATIC)); // меняются при пересборке
+  } else if (p.startsWith("/assets/workshop/") && p.endsWith(".glb")) {
+    event.respondWith(cacheFirst(request, WORKSHOPS));
   } else if (p.startsWith("/assets/")) {
     event.respondWith(cacheFirst(request, MEDIA));
   }

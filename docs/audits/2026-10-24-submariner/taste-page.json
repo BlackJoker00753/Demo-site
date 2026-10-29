@@ -1,0 +1,4742 @@
+{
+ "url": "http://127.0.0.1:8765/watch/rolex-submariner",
+ "at": "2026-10-24T04:59:32.534Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.99,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73,
+    0.73
+   ],
+   "motion": {
+    "elements": 62,
+    "css": 5,
+    "transitions": 37,
+    "scripted": 20,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 10042,
+     "screens": 11.2,
+     "words": 1044,
+     "img": 6,
+     "video": 0,
+     "canvas": 3,
+     "svg": 2,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "1-960.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Submariner",
+     "words": 1,
+     "chars": 10,
+     "lines": 1,
+     "size": 88.6,
+     "vw": 6.2,
+     "font": "Cormorant Garamond",
+     "weight": 300,
+     "tracking": -0.035,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.34,
+     "top": 472,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Submariner",
+     "words": 1,
+     "lines": 1,
+     "size": 88.6,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Submariner",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 88.6,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 472,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 47,
+      "vw": 3.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 618,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner без даты. Самая чистая и симметричная версия эталонных часов дайвера.",
+      "words": 11,
+      "chars": 80,
+      "lines": 4,
+      "size": 65.3,
+      "vw": 4.5,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 1671,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "41мм",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "12,5мм",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "300м",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "70ч",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "4Гц",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "31",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 75.2,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.14,
+      "top": 2375,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "История модели",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 117.8,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2711,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Rolex 3230",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 117.8,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 3177,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "70",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 91.2,
+      "vw": 6.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.09,
+      "top": 3559,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Как энергия превращается во время",
+      "words": 5,
+      "chars": 33,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 2.1,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 4308,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Что умеют эти часы",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 80,
+      "vw": 5.6,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4915,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Безель дайвера",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 5087,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner. Изнутри.",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.06,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 5378,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 113.6,
+      "vw": 7.9,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 6647,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "На 41% дешевле средней цены Rolex в атласе ($17 145)",
+      "words": 10,
+      "chars": 52,
+      "lines": 2,
+      "size": 35.2,
+      "vw": 2.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 6673,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "+$0 / день",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Onest",
+      "weight": 800,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.17,
+      "top": 7641,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Примерка Rolex Submariner на запястье",
+      "words": 5,
+      "chars": 37,
+      "lines": 1,
+      "size": 35.2,
+      "vw": 2.4,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 8647,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ещё Rolex",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 80,
+      "vw": 5.6,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 9471,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 4,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 1,
+     "medianWords": 2,
+     "mixedFontHeadings": 6
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.05,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      30,
+      32,
+      35,
+      47,
+      65,
+      75,
+      80,
+      89,
+      91,
+      114,
+      118
+     ],
+     "sizeCount": 25,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 189,
+     "max": {
+      "size": 117.8,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "text": "История модели"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "USD $",
+      "Ref. 124060",
+      "28 800 пк/ч · 4 Гц",
+      "1",
+      "2",
+      "3"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.034,
+     "microSamples": [
+      "Механизм",
+      "Акустика спуска калибра",
+      "Механическая кинематическая цепь",
+      "Официальная розничная цена",
+      "Экономика владения и ликвидность",
+      "Остаточная стоимость (5 лет)"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 58
+    },
+    "eyebrows": [
+     {
+      "text": "Диаметр",
+      "above": "41мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Толщина",
+      "above": "12,5мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Водозащита",
+      "above": "300м",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Запас хода",
+      "above": "70ч",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Частота",
+      "above": "4Гц",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Камни",
+      "above": "31",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2346
+     },
+     {
+      "text": "Механизм",
+      "above": "Rolex 3230",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3142
+     },
+     {
+      "text": "Механическая кинематическая цепь",
+      "above": "Как энергия превращается во время",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 4281
+     },
+     {
+      "text": "Простое",
+      "above": "Безель дайвера",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 5055
+     },
+     {
+      "text": "Официальная розничная цена",
+      "above": "$10 050",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6618
+     },
+     {
+      "text": "Стоимость одного дня носки",
+      "above": "+$0 / день",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 7611
+     },
+     {
+      "text": "Анатомическая примерка",
+      "above": "Примерка Rolex Submariner на запястье",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8616
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#07080a",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.18,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#101216",
+       "top": 88,
+       "hsl": {
+        "h": 220,
+        "s": 0.16,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#101214",
+       "top": 5532,
+       "hsl": {
+        "h": 210,
+        "s": 0.11,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#07080a",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.18,
+        "l": 0.03
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a9b0b8",
+       "share": 0.51
+      },
+      {
+       "color": "#7c848d",
+       "share": 0.26
+      },
+      {
+       "color": "#e8ebee",
+       "share": 0.13
+      },
+      {
+       "color": "#9fe9c4",
+       "share": 0.05
+      },
+      {
+       "color": "#d8c08a",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#161a1f",
+      "hsl": {
+       "h": 213,
+       "s": 0.17,
+       "l": 0.1
+      },
+      "fg": "#07080a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 33,
+     "inHero": 8,
+     "radius": "pill",
+     "height": 28,
+     "withShadow": 4,
+     "withGradient": 0,
+     "mono": 1,
+     "upper": 0,
+     "heroLabels": [
+      "К содержимому",
+      "USD $",
+      "Поиск ⌘K",
+      "Разобрать часы",
+      "Сравнить"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 7,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "button#esc-toggle-btn.btn.btn--lume → rgba(159, 233, 196, 0.35) 0px 0px 16px 0px",
+      "button.kflow__node.is-active → rgba(159, 233, 196, 0.12) 0px 0px 16px 0px",
+      "div.tco-box → rgba(0, 0, 0, 0.4) 0px 20px 48px 0px",
+      "button.chip.tco-pill → rgba(212, 163, 89, 0.2) 0px 0px 12px 0px"
+     ],
+     "gradients": 5,
+     "scrims": 6,
+     "gradientSamples": [
+      "div.whero__sticky → radial-gradient(55% 60% at 64% 46%, rgba(170, 186, 206, 0.12), rgba(0, 0, 0, 0) 70%), radial-gradient(30% 30% ",
+      "li → linear-gradient(160deg, rgba(159, 233, 196, 0.12), rgba(12, 14, 17, 0.6))",
+      "div.tco-metric-card.tco-metric-card--profit → linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)",
+      "div.tco-metric-card.tco-metric-card--hero → linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 8,
+     "hairlineSamples": [
+      "div.wspecs__grid 1288px",
+      "section#movement.wmove.container 1400px",
+      "p.wcomp__inv 1234px",
+      "p.tco-insight-rules 1136px",
+      "div.wrist-fit__recommendation 662px"
+     ],
+     "outlinedBoxes": 32,
+     "dashed": 1,
+     "blurred": 7,
+     "roundedBoxes": 34,
+     "boxRadius": 20,
+     "squareMedia": 2,
+     "roundedMedia": 6,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 4410
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7113
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7590
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "img",
+      "ratio": 0.55
+     }
+    ],
+    "nav": {
+     "links": 10,
+     "fixed": true,
+     "height": 68,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jetbrains mono",
+     "onest",
+     "phosphor-light"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 10043,
+    "margins": {
+     "left": 76,
+     "right": 96
+    },
+    "sections": [
+     {
+      "sel": "section#top.whero.whero--photo",
+      "tag": "section",
+      "top": 0,
+      "height": 1575,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 639,
+      "right": 70,
+      "textLeft": 875,
+      "textRight": 70,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "section#story.wintro.container",
+      "tag": "section",
+      "top": 1575,
+      "height": 666,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Submariner",
+       "size": 65,
+       "tag": "span"
+      },
+      "left": 76,
+      "right": 668,
+      "textLeft": 76,
+      "textRight": 668,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wspecs.container",
+      "tag": "section",
+      "top": 2241,
+      "height": 378,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wstory.container",
+      "tag": "section",
+      "top": 2619,
+      "height": 425,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__head",
+      "tag": "div",
+      "top": 3142,
+      "height": 203,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Rolex 3230",
+       "size": 118,
+       "tag": "h2"
+      },
+      "left": 76,
+      "right": 895,
+      "textLeft": 76,
+      "textRight": 895,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__grid",
+      "tag": "div",
+      "top": 3393,
+      "height": 755,
+      "words": 116,
+      "media": 1,
+      "middle": 64,
+      "heading": {
+       "text": "70",
+       "size": 91,
+       "tag": "span"
+      },
+      "left": 76,
+      "right": 101,
+      "textLeft": 204,
+      "textRight": 101,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__kflow-wrap.is-in",
+      "tag": "div",
+      "top": 4196,
+      "height": 531,
+      "words": 82,
+      "media": 0,
+      "middle": 10,
+      "heading": {
+       "text": "Как энергия превращается во время",
+       "size": 30,
+       "tag": "h3"
+      },
+      "left": 105,
+      "right": 105,
+      "textLeft": 105,
+      "textRight": 141,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.wcomps.container",
+      "tag": "section",
+      "top": 4823,
+      "height": 509,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#explode.sub-workshop.container",
+      "tag": "section",
+      "top": 5331,
+      "height": 1163,
+      "words": 57,
+      "media": 1,
+      "middle": 5,
+      "heading": {
+       "text": "Submariner. Изнутри.",
+       "size": 72,
+       "tag": "h2"
+      },
+      "left": 76,
+      "right": 76,
+      "textLeft": 76,
+      "textRight": 76,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#price.wprice.container",
+      "tag": "section",
+      "top": 6495,
+      "height": 390,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#tco-calc.wtco-section.container",
+      "tag": "section",
+      "top": 6948,
+      "height": 1572,
+      "words": 428,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "+$0",
+       "size": 32,
+       "tag": "div"
+      },
+      "left": 109,
+      "right": 124,
+      "textLeft": 109,
+      "textRight": 124,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#wrist-fit.wwrist.container",
+      "tag": "section",
+      "top": 8584,
+      "height": 822,
+      "words": 169,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Примерка Rolex Submariner на запястье",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 109,
+      "right": 129,
+      "textLeft": 109,
+      "textRight": 129,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wmore.container",
+      "tag": "section",
+      "top": 9407,
+      "height": 637,
+      "words": 4,
+      "media": 0,
+      "middle": 864,
+      "heading": {
+       "text": "Ещё Rolex",
+       "size": 80,
+       "tag": "h2"
+      },
+      "left": 76,
+      "right": 99,
+      "textLeft": 76,
+      "textRight": 99,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1968,
+      "height": 1172
+     },
+     {
+      "top": 4676,
+      "height": 696
+     },
+     {
+      "top": 6580,
+      "height": 400
+     }
+    ],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 105,
+      "n": 6
+     },
+     {
+      "x": 76,
+      "n": 2
+     },
+     {
+      "x": 130,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 9,
+    "bodySize": 12,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": true,
+    "ground": "#07080a",
+    "sidebar": null,
+    "topbar": {
+     "h": 68
+    },
+    "canvas": {
+     "left": 76,
+     "right": 76
+    },
+    "hero": null,
+    "charts": 2,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 387,
+       "at": 9561,
+       "panel": "Ещё Rolex"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 27,
+     "radii": [
+      [
+       12,
+       8
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       20,
+       5
+      ],
+      [
+       16,
+       4
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "heavyBorders": 26,
+     "borderSamples": [
+      "#d9e6e6 on #07080a (15.66:1)",
+      "#d9e6e6 on #07080a (15.66:1)",
+      "#d9e6e6 on #101216 (14.65:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 3,
+     "shadowSamples": [],
+     "glass": 1
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 25,
+     "leftAligned": 25,
+     "figures": 36,
+     "tabularShare": 0.75,
+     "kpiMax": 113.6
+    },
+    "rows": {
+     "count": 5,
+     "median": 53
+    },
+    "chartHues": 3,
+    "placeholders": [],
+    "type": {
+     "under13": 0.3,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      30,
+      32,
+      35,
+      65,
+      72,
+      75,
+      80,
+      91,
+      114,
+      118
+     ]
+    },
+    "title": {
+     "text": "",
+     "size": 89,
+     "top": 1107
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.99,
+    0.35,
+    0.38,
+    0.38,
+    0.38,
+    0.38,
+    0.38,
+    0.38,
+    0.38,
+    0.35,
+    0.35,
+    0.36
+   ],
+   "motion": {
+    "elements": 64,
+    "css": 5,
+    "transitions": 39,
+    "scripted": 20,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 12261,
+     "screens": 12,
+     "words": 1040,
+     "img": 6,
+     "video": 0,
+     "canvas": 3,
+     "svg": 3,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "1-960.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Submariner",
+     "words": 1,
+     "chars": 10,
+     "lines": 1,
+     "size": 58,
+     "vw": 7.5,
+     "font": "Cormorant Garamond",
+     "weight": 300,
+     "tracking": -0.04,
+     "leading": 0.92,
+     "top": 737,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Submariner",
+     "words": 1,
+     "lines": 1,
+     "size": 57.7,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Submariner",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 57.7,
+      "vw": 7.5,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 777,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36.3,
+      "vw": 4.7,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 881,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner без даты. Самая чистая и симметричная версия эталонных часов дайвера.",
+      "words": 11,
+      "chars": 80,
+      "lines": 4,
+      "size": 43.8,
+      "vw": 5.7,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.65,
+      "top": 1195,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "41мм",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1803,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "12,5мм",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1803,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "300м",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 1803,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "70ч",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 1803,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "4Гц",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1938,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "31",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 55,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1938,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "История модели",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 74.8,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2324,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Rolex 3230",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 74.8,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2859,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "70",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 71,
+      "vw": 9.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.16,
+      "top": 3156,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Что умеют эти часы",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 56.3,
+      "vw": 7.3,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5033,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Безель дайвера",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 5181,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner. Изнутри.",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.06,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5472,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 80,
+      "vw": 10.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6854,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "На 41% дешевле средней цены Rolex в атласе ($17 145)",
+      "words": 10,
+      "chars": 52,
+      "lines": 2,
+      "size": 35.2,
+      "vw": 4.6,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7055,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "$11 558",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8393,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "$794",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8572,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "+$714",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8785,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "+$0 / день",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Onest",
+      "weight": 800,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8964,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Примерка Rolex Submariner на запястье",
+      "words": 5,
+      "chars": 37,
+      "lines": 1,
+      "size": 35.2,
+      "vw": 4.6,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 9971,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ещё Rolex",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 56.3,
+      "vw": 7.3,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 11333,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 23,
+     "maxLines": 4,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 1,
+     "medianWords": 2,
+     "mixedFontHeadings": 6
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.05,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      32,
+      35,
+      36,
+      44,
+      55,
+      56,
+      58,
+      71,
+      75,
+      80
+     ],
+     "sizeCount": 24,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 96,
+     "max": {
+      "size": 80,
+      "vw": 10.4,
+      "font": "Cormorant Garamond",
+      "text": "$10 050"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "USD $",
+      "Ref. 124060",
+      "28 800 пк/ч · 4 Гц",
+      "1",
+      "2",
+      "3"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.034,
+     "microSamples": [
+      "Механизм",
+      "Акустика спуска калибра",
+      "Механическая кинематическая цепь",
+      "Официальная розничная цена",
+      "Экономика владения и ликвидность",
+      "Остаточная стоимость (5 лет)"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.03,
+     "smallText": 58
+    },
+    "eyebrows": [
+     {
+      "text": "Rolex",
+      "above": "Submariner",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 743
+     },
+     {
+      "text": "Ref. 124060",
+      "above": "$10 050",
+      "upper": false,
+      "tracked": false,
+      "mono": true,
+      "pill": false,
+      "size": 13.8,
+      "top": 845
+     },
+     {
+      "text": "Диаметр",
+      "above": "41мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1774
+     },
+     {
+      "text": "Толщина",
+      "above": "12,5мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1774
+     },
+     {
+      "text": "Водозащита",
+      "above": "300м",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1774
+     },
+     {
+      "text": "Запас хода",
+      "above": "70ч",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1774
+     },
+     {
+      "text": "Частота",
+      "above": "4Гц",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1909
+     },
+     {
+      "text": "Камни",
+      "above": "31",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1909
+     },
+     {
+      "text": "Механизм",
+      "above": "Rolex 3230",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2824
+     },
+     {
+      "text": "Простое",
+      "above": "Безель дайвера",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 5149
+     },
+     {
+      "text": "Официальная розничная цена",
+      "above": "$10 050",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6825
+     },
+     {
+      "text": "Остаточная стоимость (5 лет)",
+      "above": "$11 558",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8364
+     },
+     {
+      "text": "Затраты на ТО и уход",
+      "above": "$794",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8543
+     },
+     {
+      "text": "Чистый TCO (5 лет)",
+      "above": "+$714",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8756
+     },
+     {
+      "text": "Стоимость одного дня носки",
+      "above": "+$0 / день",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8935
+     },
+     {
+      "text": "Анатомическая примерка",
+      "above": "Примерка Rolex Submariner на запястье",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 9940
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#07080a",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.18,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#101216",
+       "top": 80,
+       "hsl": {
+        "h": 220,
+        "s": 0.16,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#101214",
+       "top": 5592,
+       "hsl": {
+        "h": 210,
+        "s": 0.11,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#161a1f",
+       "top": 10201,
+       "hsl": {
+        "h": 213,
+        "s": 0.17,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#07080a",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.18,
+        "l": 0.03
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a9b0b8",
+       "share": 0.51
+      },
+      {
+       "color": "#7c848d",
+       "share": 0.26
+      },
+      {
+       "color": "#e8ebee",
+       "share": 0.13
+      },
+      {
+       "color": "#9fe9c4",
+       "share": 0.05
+      },
+      {
+       "color": "#d8c08a",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#161a1f",
+      "hsl": {
+       "h": 213,
+       "s": 0.17,
+       "l": 0.1
+      },
+      "fg": "#07080a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 33,
+     "inHero": 8,
+     "radius": "pill",
+     "height": 28,
+     "withShadow": 4,
+     "withGradient": 0,
+     "mono": 1,
+     "upper": 0,
+     "heroLabels": [
+      "К содержимому",
+      "USD $",
+      "Поиск ⌘K",
+      "Разобрать часы",
+      "Сравнить"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 8,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.whero__frame → rgba(0, 0, 0, 0.8) 0px 50px 100px -40px, rgba(214, 224, 234, 0.08) 0px 0px 0px 1",
+      "button#esc-toggle-btn.btn.btn--lume → rgba(159, 233, 196, 0.35) 0px 0px 16px 0px",
+      "button.kflow__node.is-active → rgba(159, 233, 196, 0.12) 0px 0px 16px 0px",
+      "div.tco-box → rgba(0, 0, 0, 0.4) 0px 20px 48px 0px"
+     ],
+     "gradients": 5,
+     "scrims": 6,
+     "gradientSamples": [
+      "div.whero__sticky → radial-gradient(55% 60% at 64% 46%, rgba(170, 186, 206, 0.12), rgba(0, 0, 0, 0) 70%), radial-gradient(30% 30% ",
+      "li → linear-gradient(160deg, rgba(159, 233, 196, 0.12), rgba(12, 14, 17, 0.6))",
+      "div.tco-metric-card.tco-metric-card--profit → linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)",
+      "div.tco-metric-card.tco-metric-card--hero → linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 8,
+     "hairlineSamples": [
+      "div.wspecs__grid 707px",
+      "section#movement.wmove.container 768px",
+      "p.wcomp__inv 653px",
+      "p.tco-insight-rules 579px",
+      "div.wrist-fit__recommendation 553px"
+     ],
+     "outlinedBoxes": 32,
+     "dashed": 1,
+     "blurred": 7,
+     "roundedBoxes": 34,
+     "boxRadius": 20,
+     "squareMedia": 2,
+     "roundedMedia": 6,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 4385
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7532
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8343
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "img",
+      "ratio": 0.64
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 68,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jetbrains mono",
+     "onest",
+     "phosphor-light"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 12261,
+    "margins": {
+     "left": 31,
+     "right": 43
+    },
+    "sections": [
+     {
+      "sel": "section#top.whero.whero--photo",
+      "tag": "section",
+      "top": 0,
+      "height": 1099,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 60,
+      "right": 43,
+      "textLeft": 230,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#story.wintro.container",
+      "tag": "section",
+      "top": 1099,
+      "height": 570,
+      "words": 18,
+      "media": 0,
+      "middle": 37,
+      "heading": {
+       "text": "Submariner",
+       "size": 44,
+       "tag": "span"
+      },
+      "left": 31,
+      "right": 93,
+      "textLeft": 31,
+      "textRight": 93,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wspecs.container",
+      "tag": "section",
+      "top": 1669,
+      "height": 562,
+      "words": 15,
+      "media": 0,
+      "middle": 101,
+      "heading": {
+       "text": "41",
+       "size": 55,
+       "tag": "span"
+      },
+      "left": 31,
+      "right": 138,
+      "textLeft": 31,
+      "textRight": 138,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wstory.container",
+      "tag": "section",
+      "top": 2232,
+      "height": 495,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__head",
+      "tag": "div",
+      "top": 2824,
+      "height": 159,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Rolex 3230",
+       "size": 75,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 334,
+      "textLeft": 31,
+      "textRight": 334,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__grid",
+      "tag": "div",
+      "top": 3031,
+      "height": 1099,
+      "words": 67,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 31,
+      "right": 56,
+      "textLeft": 31,
+      "textRight": 56,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.wcomps.container",
+      "tag": "section",
+      "top": 4941,
+      "height": 483,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#explode.sub-workshop.container",
+      "tag": "section",
+      "top": 5424,
+      "height": 1277,
+      "words": 57,
+      "media": 1,
+      "middle": 529,
+      "heading": {
+       "text": "Submariner. Изнутри.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 0,
+      "textLeft": 31,
+      "textRight": -610,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#price.wprice.container",
+      "tag": "section",
+      "top": 6701,
+      "height": 564,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#tco-calc.wtco-section.container",
+      "tag": "section",
+      "top": 7329,
+      "height": 2514,
+      "words": 428,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "$11 558",
+       "size": 26,
+       "tag": "div"
+      },
+      "left": 52,
+      "right": 71,
+      "textLeft": 52,
+      "textRight": 71,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#wrist-fit.wwrist.container",
+      "tag": "section",
+      "top": 9907,
+      "height": 1361,
+      "words": 169,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Примерка Rolex Submariner на запястье",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 64,
+      "right": 74,
+      "textLeft": 64,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wmore.container",
+      "tag": "section",
+      "top": 11268,
+      "height": 992,
+      "words": 4,
+      "media": 0,
+      "middle": 376,
+      "heading": {
+       "text": "Ещё Rolex",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 54,
+      "textLeft": 31,
+      "textRight": 54,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 680,
+      "height": 512
+     },
+     {
+      "top": 1968,
+      "height": 856
+     },
+     {
+      "top": 2976,
+      "height": 824
+     },
+     {
+      "top": 4128,
+      "height": 1340
+     },
+     {
+      "top": 6788,
+      "height": 560
+     }
+    ],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 2
+     },
+     {
+      "x": 52,
+      "n": 2
+     },
+     {
+      "x": 64,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 12,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": true,
+    "ground": "#07080a",
+    "sidebar": null,
+    "topbar": {
+     "h": 68
+    },
+    "canvas": {
+     "left": 31,
+     "right": -73
+    },
+    "hero": {
+     "text": "Submariner",
+     "words": 1,
+     "chars": 10,
+     "lines": 1,
+     "size": 58,
+     "vw": 7.5,
+     "font": "Cormorant Garamond",
+     "weight": 300,
+     "tracking": -0.04,
+     "leading": 0.92,
+     "top": 737,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 2,
+    "layout": {
+     "panels": 14,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 49,
+       "at": 1833,
+       "panel": "Диаметр"
+      },
+      {
+       "gap": 48,
+       "at": 4415,
+       "panel": "1"
+      },
+      {
+       "gap": 48,
+       "at": 4415,
+       "panel": "2"
+      },
+      {
+       "gap": 48,
+       "at": 4415,
+       "panel": "3"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 29,
+     "radii": [
+      [
+       12,
+       8
+      ],
+      [
+       20,
+       7
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       16,
+       4
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "heavyBorders": 28,
+     "borderSamples": [
+      "#a0ebc3 on #07080a (14.47:1)",
+      "#d9e6e6 on #07080a (15.66:1)",
+      "#d9e6e6 on #07080a (15.66:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 3,
+     "shadowSamples": [],
+     "glass": 1
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 25,
+     "leftAligned": 25,
+     "figures": 36,
+     "tabularShare": 0.75,
+     "kpiMax": 80
+    },
+    "rows": {
+     "count": 5,
+     "median": 53
+    },
+    "chartHues": 3,
+    "placeholders": [],
+    "type": {
+     "under13": 0.3,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      32,
+      35,
+      40,
+      44,
+      55,
+      56,
+      71,
+      75,
+      80
+     ]
+    },
+    "title": {
+     "text": "",
+     "size": 58,
+     "top": 737
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.99,
+    0.79,
+    0.79,
+    0.79,
+    0.76,
+    0.76,
+    0.76,
+    0.76,
+    0.76,
+    0.76,
+    0.76,
+    0.76
+   ],
+   "motion": {
+    "elements": 57,
+    "css": 5,
+    "transitions": 32,
+    "scripted": 20,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 15386,
+     "screens": 18.2,
+     "words": 1028,
+     "img": 6,
+     "video": 0,
+     "canvas": 3,
+     "svg": 3,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "1-480.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Submariner",
+     "words": 1,
+     "chars": 10,
+     "lines": 1,
+     "size": 48,
+     "vw": 12.3,
+     "font": "Cormorant Garamond",
+     "weight": 300,
+     "tracking": -0.03,
+     "leading": 0.92,
+     "top": 626,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Submariner",
+     "words": 1,
+     "lines": 1,
+     "size": 48,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Submariner",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 666,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 760,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner без даты. Самая чистая и симметричная версия эталонных часов дайвера.",
+      "words": 11,
+      "chars": 80,
+      "lines": 4,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1161,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "41мм",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2044,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "12,5мм",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2044,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "300м",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2172,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "70ч",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2172,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "4Гц",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2300,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "31",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.03,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2300,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "История модели",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 13.1,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2816,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Rolex 3230",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 13.1,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3481,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "70",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3797,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Как энергия превращается во время",
+      "words": 5,
+      "chars": 33,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 5288,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Заводной барабан",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 23.2,
+      "vw": 5.9,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.61,
+      "top": 5950,
+      "tag": "h4",
+      "kind": "heading"
+     },
+     {
+      "text": "Что умеют эти часы",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 10.7,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6422,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Безель дайвера",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 6555,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner. Изнутри.",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.06,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6863,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$10 050",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 8124,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "На 41% дешевле средней цены Rolex в атласе ($17 145)",
+      "words": 10,
+      "chars": 52,
+      "lines": 2,
+      "size": 35.2,
+      "vw": 9,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 8309,
+      "mixedFonts": [
+       "Cormorant Garamond",
+       "Onest"
+      ],
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Калькулятор вторичной стоимости и TCO",
+      "words": 5,
+      "chars": 37,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8647,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "$11 558",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.7,
+      "top": 10023,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "$794",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.7,
+      "top": 10219,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "+$714",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Onest",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.7,
+      "top": 10449,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "+$0 / день",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Onest",
+      "weight": 800,
+      "tracking": 0,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.7,
+      "top": 10663,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Примерка Rolex Submariner на запястье",
+      "words": 5,
+      "chars": 37,
+      "lines": 3,
+      "size": 35.2,
+      "vw": 9,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 12045,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ещё Rolex",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 10.7,
+      "font": "Cormorant Garamond",
+      "weight": 300,
+      "tracking": -0.02,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 13714,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Submariner Date",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 24.8,
+      "vw": 6.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 14017,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "GMT-Master II «Pepsi»",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 24.8,
+      "vw": 6.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 14397,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Cosmograph Daytona",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 24.8,
+      "vw": 6.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 14777,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Datejust 41",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 24.8,
+      "vw": 6.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 15157,
+      "tag": "h3",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 30,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 3,
+     "centered": 1,
+     "medianWords": 2,
+     "mixedFontHeadings": 6
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.05,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      32,
+      35,
+      42,
+      48,
+      51,
+      64
+     ],
+     "sizeCount": 19,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 38,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "text": "70"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "USD $",
+      "Ref. 124060",
+      "28 800 пк/ч · 4 Гц",
+      "1",
+      "2",
+      "3"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "Механизм",
+      "Акустика спуска калибра",
+      "Механическая кинематическая цепь",
+      "Официальная розничная цена",
+      "Экономика владения и ликвидность",
+      "Остаточная стоимость (5 лет)"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 58
+    },
+    "eyebrows": [
+     {
+      "text": "Rolex",
+      "above": "Submariner",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 631
+     },
+     {
+      "text": "Ref. 124060",
+      "above": "$10 050",
+      "upper": false,
+      "tracked": false,
+      "mono": true,
+      "pill": false,
+      "size": 13.8,
+      "top": 724
+     },
+     {
+      "text": "Диаметр",
+      "above": "41мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2015
+     },
+     {
+      "text": "Толщина",
+      "above": "12,5мм",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2015
+     },
+     {
+      "text": "Водозащита",
+      "above": "300м",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2143
+     },
+     {
+      "text": "Запас хода",
+      "above": "70ч",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2143
+     },
+     {
+      "text": "Частота",
+      "above": "4Гц",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2271
+     },
+     {
+      "text": "Камни",
+      "above": "31",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2271
+     },
+     {
+      "text": "Механизм",
+      "above": "Rolex 3230",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3445
+     },
+     {
+      "text": "Простое",
+      "above": "Безель дайвера",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6524
+     },
+     {
+      "text": "Официальная розничная цена",
+      "above": "$10 050",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8094
+     },
+     {
+      "text": "Экономика владения и ликвидность",
+      "above": "Калькулятор вторичной стоимости и TCO",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8604
+     },
+     {
+      "text": "Остаточная стоимость (5 лет)",
+      "above": "$11 558",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 9993
+     },
+     {
+      "text": "Затраты на ТО и уход",
+      "above": "$794",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 10190
+     },
+     {
+      "text": "Чистый TCO (5 лет)",
+      "above": "+$714",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 10420
+     },
+     {
+      "text": "Стоимость одного дня носки",
+      "above": "+$0 / день",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 10633
+     },
+     {
+      "text": "Анатомическая примерка",
+      "above": "Примерка Rolex Submariner на запястье",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 12014
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#07080a",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.18,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#101216",
+       "top": 80,
+       "hsl": {
+        "h": 220,
+        "s": 0.16,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#101214",
+       "top": 7004,
+       "hsl": {
+        "h": 210,
+        "s": 0.11,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#161a1f",
+       "top": 11502,
+       "hsl": {
+        "h": 213,
+        "s": 0.17,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#07080a",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.18,
+        "l": 0.03
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a9b0b8",
+       "share": 0.51
+      },
+      {
+       "color": "#7c848d",
+       "share": 0.26
+      },
+      {
+       "color": "#e8ebee",
+       "share": 0.13
+      },
+      {
+       "color": "#9fe9c4",
+       "share": 0.05
+      },
+      {
+       "color": "#d8c08a",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#161a1f",
+      "hsl": {
+       "h": 213,
+       "s": 0.17,
+       "l": 0.1
+      },
+      "fg": "#07080a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 31,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 28,
+     "withShadow": 4,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "К содержимому"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 8,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.whero__frame → rgba(0, 0, 0, 0.8) 0px 50px 100px -40px, rgba(214, 224, 234, 0.08) 0px 0px 0px 1",
+      "button#esc-toggle-btn.btn.btn--lume → rgba(159, 233, 196, 0.35) 0px 0px 16px 0px",
+      "button.kflow__node.is-active → rgba(159, 233, 196, 0.12) 0px 0px 16px 0px",
+      "div.tco-box → rgba(0, 0, 0, 0.4) 0px 20px 48px 0px"
+     ],
+     "gradients": 5,
+     "scrims": 6,
+     "gradientSamples": [
+      "div.whero__sticky → radial-gradient(55% 60% at 64% 46%, rgba(170, 186, 206, 0.12), rgba(0, 0, 0, 0) 70%), radial-gradient(30% 30% ",
+      "li → linear-gradient(160deg, rgba(159, 233, 196, 0.12), rgba(12, 14, 17, 0.6))",
+      "div.tco-metric-card.tco-metric-card--profit → linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)",
+      "div.tco-metric-card.tco-metric-card--hero → linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "div.wspecs__grid 358px",
+      "section#movement.wmove.container 390px",
+      "p.wcomp__inv 304px",
+      "div.wrist-fit__foot 292px",
+      "section.wmore.container 390px"
+     ],
+     "outlinedBoxes": 28,
+     "dashed": 1,
+     "blurred": 6,
+     "roundedBoxes": 30,
+     "boxRadius": 20,
+     "squareMedia": 2,
+     "roundedMedia": 6,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8894
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 9972
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "img",
+      "ratio": 0.61
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 68,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jetbrains mono",
+     "onest",
+     "phosphor-light"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 15386,
+    "margins": {
+     "left": 16,
+     "right": 22
+    },
+    "sections": [
+     {
+      "sel": "section#top.whero.whero--photo",
+      "tag": "section",
+      "top": 0,
+      "height": 1065,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 31,
+      "right": 22,
+      "textLeft": 73,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#story.wintro.container",
+      "tag": "section",
+      "top": 1065,
+      "height": 845,
+      "words": 16,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Submariner",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 16,
+      "right": 33,
+      "textLeft": 16,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wspecs.container",
+      "tag": "section",
+      "top": 1910,
+      "height": 815,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wstory.container",
+      "tag": "section",
+      "top": 2724,
+      "height": 624,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__head",
+      "tag": "div",
+      "top": 3445,
+      "height": 175,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Rolex 3230",
+       "size": 51,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 156,
+      "textLeft": 16,
+      "textRight": 156,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.wmove__grid",
+      "tag": "div",
+      "top": 3669,
+      "height": 1459,
+      "words": 67,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 44,
+      "textLeft": 16,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.wcomps.container",
+      "tag": "section",
+      "top": 6330,
+      "height": 468,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#explode.sub-workshop.container",
+      "tag": "section",
+      "top": 6799,
+      "height": 1172,
+      "words": 57,
+      "media": 1,
+      "middle": 893,
+      "heading": {
+       "text": "Submariner. Изнутри.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": -974,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#price.wprice.container",
+      "tag": "section",
+      "top": 7970,
+      "height": 549,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#tco-calc.wtco-section.container",
+      "tag": "section",
+      "top": 8583,
+      "height": 3334,
+      "words": 428,
+      "media": 0,
+      "middle": 93,
+      "heading": {
+       "text": "$11 558",
+       "size": 26,
+       "tag": "div"
+      },
+      "left": 37,
+      "right": 0,
+      "textLeft": 37,
+      "textRight": -123,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#wrist-fit.wwrist.container",
+      "tag": "section",
+      "top": 11981,
+      "height": 1668,
+      "words": 169,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Примерка Rolex Submariner на запястье",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 49,
+      "right": 50,
+      "textLeft": 49,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wmore.container",
+      "tag": "section",
+      "top": 13649,
+      "height": 1737,
+      "words": 4,
+      "media": 0,
+      "middle": 86,
+      "heading": {
+       "text": "Ещё Rolex",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 39,
+      "textLeft": 16,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 572,
+      "height": 584
+     },
+     {
+      "top": 1660,
+      "height": 1784
+     },
+     {
+      "top": 3616,
+      "height": 1008
+     },
+     {
+      "top": 5128,
+      "height": 1728
+     },
+     {
+      "top": 8228,
+      "height": 376
+     }
+    ],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 2
+     },
+     {
+      "x": 37,
+      "n": 2
+     },
+     {
+      "x": 49,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 12,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": true,
+    "ground": "#07080a",
+    "sidebar": null,
+    "topbar": {
+     "h": 68
+    },
+    "canvas": {
+     "left": 16,
+     "right": -440
+    },
+    "hero": {
+     "text": "Submariner",
+     "words": 1,
+     "chars": 10,
+     "lines": 1,
+     "size": 48,
+     "vw": 12.3,
+     "font": "Cormorant Garamond",
+     "weight": 300,
+     "tracking": -0.03,
+     "leading": 0.92,
+     "top": 626,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 2,
+    "layout": {
+     "panels": 13,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 48,
+       "at": 5489,
+       "panel": "1"
+      },
+      {
+       "gap": 48,
+       "at": 5489,
+       "panel": "2"
+      },
+      {
+       "gap": 48,
+       "at": 5632,
+       "panel": "3"
+      },
+      {
+       "gap": 48,
+       "at": 5632,
+       "panel": "4"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 29,
+     "radii": [
+      [
+       12,
+       8
+      ],
+      [
+       14,
+       7
+      ],
+      [
+       20,
+       6
+      ],
+      [
+       16,
+       4
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "heavyBorders": 28,
+     "borderSamples": [
+      "#a0ebc3 on #07080a (14.47:1)",
+      "#d9e6e6 on #07080a (15.66:1)",
+      "#d9e6e6 on #07080a (15.66:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 3,
+     "shadowSamples": [],
+     "glass": 1
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 25,
+     "leftAligned": 25,
+     "figures": 36,
+     "tabularShare": 0.75,
+     "kpiMax": 64
+    },
+    "rows": {
+     "count": 5,
+     "median": 53
+    },
+    "chartHues": 3,
+    "placeholders": [],
+    "type": {
+     "under13": 0.3,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      32,
+      35,
+      40,
+      42,
+      48,
+      51,
+      64
+     ]
+    },
+    "title": {
+     "text": "",
+     "size": 48,
+     "top": 626
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"Submariner без даты. Самая чистая и симметричная\" → 4 lines (11 words, 65.3px, a paragraph set above 36px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "6 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "11 tiny uppercase letter-spaced labels (e.g. \"Механизм\", \"Акустика спуска калибра\", \"Механическая кинематическая цепь\", \"Официальная розничная цена\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "5 gradient fill(s): div.whero__sticky → radial-gradient(55% 60% at 64% 46%, rgba(170, 186, 206, 0.12), rgba(0, 0, 0, 0) 70%), radial-gradient(30% 30%  | li → linear-gradient(160deg, rgba(159, 233, 196, 0.12), rgba(12, 14, 17, 0.6)) | div.tco-metric-card.tco-metric-card--profit → linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(12, 14, 17, 0.8) 100%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Onest, Cormorant Garamond, JetBrains Mono).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "blank-gap",
+   "width": 1440,
+   "message": "3 stretch(es) of the page hold nothing at all: 1172px at 1968px; 696px at 4676px; 400px at 6580px (the screen is 900px tall).",
+   "fix": "A fixed picture layer covers the screen here, so the DOM cannot tell whether the stretch is empty: check the screenshots. Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "heavy-borders",
+   "width": 1440,
+   "message": "26 panel borders are dark against their ground: #d9e6e6 on #07080a (15.66:1) | #d9e6e6 on #07080a (15.66:1) | #d9e6e6 on #101216 (14.65:1)",
+   "fix": "A panel border is a whisper: about 1.1–1.3:1 against its ground on a light screen (#e5e7eb–#ededed on white), and about 1.2–1.5:1 on a dark one (#1a1a1a on #000, #2e2e2e on #111). Darker lines turn the screen into a grid of boxes; keep the stronger line for controls.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "radius-mix",
+   "width": 1440,
+   "message": "Panels use 5 corner radii (12, 14, 20, 16, 0px).",
+   "fix": "One radius for panels, one for controls, full round only for pills and avatars.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "numeric-align",
+   "width": 1440,
+   "message": "25 of 25 numeric table cells are left-aligned.",
+   "fix": "Right-align numbers, amounts and percentages (and their column headers) so the digits line up.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "below-fold",
+   "width": 1440,
+   "message": "Only 0 of 6 blocks start on the first 1440px screen.",
+   "fix": "Every block the brief names shows its header and first rows on the first desktop screen: size the headline block to its question, cap long lists with \"View all\", and put time-sensitive blocks before long tables."
+  },
+  {
+   "level": "WARN",
+   "id": "panel-void",
+   "width": 1440,
+   "message": "1 card(s) hold a blank band inside: 387px in \"Ещё Rolex\".",
+   "fix": "A card stretches to its neighbour only when it has content to fill. Keep a legend or a note directly under its chart (only an action or a total may sit at a stretched card's foot), let a short card keep its own height (align-items: start), and let a filtered block shrink to its rows."
+  },
+  {
+   "level": "WARN",
+   "id": "app-title-size",
+   "width": 1440,
+   "message": "The h1 is 89px (\"\").",
+   "fix": "An app screen is not a landing page: the title is 18-32px (20-24px on a phone).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "kpi-size",
+   "width": 1440,
+   "message": "A figure is set at 114px.",
+   "fix": "Figures run 16-40px on app screens; none of the studied screens reaches 48px. Size and isolation make a number loud, not display type.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"Submariner без даты. Самая чистая и симметричная\" → 4 lines (11 words, 43.8px, a paragraph set above 32px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "2 headline(s) wrap past two lines at 390px: \"Submariner без даты. Самая чистая и симметричная\" → 4 lines (11 words, 32px, a paragraph set above 24px); \"Примерка Rolex Submariner на запястье\" → 3 lines (5 words, 35.2px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/tmp/submariner-taste/desktop-fold.jpg",
+   "pages": [
+    "/tmp/submariner-taste/desktop-page-01.jpg",
+    "/tmp/submariner-taste/desktop-page-02.jpg",
+    "/tmp/submariner-taste/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/tmp/submariner-taste/tablet-fold.jpg",
+   "pages": [
+    "/tmp/submariner-taste/tablet-page-01.jpg",
+    "/tmp/submariner-taste/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/tmp/submariner-taste/mobile-fold.jpg",
+   "pages": [
+    "/tmp/submariner-taste/mobile-page-01.jpg",
+    "/tmp/submariner-taste/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

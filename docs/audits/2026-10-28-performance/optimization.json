@@ -1,0 +1,30 @@
+{
+  "reports": [
+    {
+      "catalogue": {
+        "cards": 12,
+        "elements": 643
+      }
+    },
+    {
+      "overview": {
+        "framesInOneSecond": 0,
+        "ambientSuspended": true
+      }
+    },
+    {
+      "country": "stationary renderer asleep; borders and pins retained"
+    },
+    {
+      "workshop": {
+        "fullCalls": 423,
+        "cameraCalls": 213,
+        "samePose": true
+      }
+    },
+    {
+      "currency": "country and workshop instances retained; all tagged prices updated"
+    }
+  ],
+  "problems": []
+}

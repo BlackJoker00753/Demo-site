@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 # Multi-stage build for Horologium Watch Atlas
 FROM python:3.12-slim-bookworm AS builder
 
@@ -12,18 +13,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Copy dependency manifests
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml uv.lock README.md ./
 
 # Install python dependencies into a virtualenv
-RUN uv sync --frozen --no-dev --no-install-project
+RUN --mount=type=secret,id=proxy_ca \
+    if [ -f /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca; fi; \
+    uv sync --frozen --no-dev --no-install-project
 
 # Copy application source code
 COPY backend ./backend
+
+# Editable install preserves /app/backend and repository-relative resource paths.
+RUN --mount=type=secret,id=proxy_ca \
+    if [ -f /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca; fi; \
+    uv sync --frozen --no-dev
+
 COPY content ./content
 COPY frontend ./frontend
-
-# Install the horologium package
-RUN uv sync --frozen --no-dev
 
 # Final runtime image
 FROM python:3.12-slim-bookworm AS runner
@@ -39,12 +45,11 @@ COPY pyproject.toml ./
 
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
-    PORT=8765 \
-    HOST=0.0.0.0
+    PORT=8765
 
 # Pre-build database on image creation
 RUN python -m horologium.cli build-db
 
 EXPOSE 8765
 
-CMD ["python", "-m", "horologium.cli", "serve"]
+CMD ["python", "-m", "horologium.cli", "serve", "--host", "0.0.0.0"]

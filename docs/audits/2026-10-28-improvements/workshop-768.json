@@ -1,0 +1,32 @@
+{
+  "reports": [
+    {
+      "tray": {
+        "width": 768,
+        "overlaps": 0,
+        "maxGroundError": 1.0766881530788197e-7,
+        "minLandingClearance": 0.11999998779157295
+      }
+    },
+    {
+      "parts": 136,
+      "triangles": 12,
+      "calls": 1,
+      "width": 768,
+      "scrollWidth": 768,
+      "wide": [
+        [
+          "globe-layer is-hidden",
+          787.199951171875,
+          777.5999755859375
+        ],
+        [
+          "globe-markers",
+          787.199951171875,
+          777.5999755859375
+        ]
+      ]
+    }
+  ],
+  "problems": []
+}

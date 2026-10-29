@@ -1,0 +1,15 @@
+{
+  "reports": [
+    {
+      "imageWidth": 8192,
+      "requests": 1,
+      "saveData": false
+    },
+    {
+      "imageWidth": 2048,
+      "requests": 0,
+      "saveData": true
+    }
+  ],
+  "problems": []
+}

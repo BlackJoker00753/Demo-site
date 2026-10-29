@@ -1,0 +1,9 @@
+{
+  "objects": 166,
+  "source": "Blender model measured from official Rolex 124060 photographs",
+  "units": "mm",
+  "bytes": 3314224,
+  "sha256": "85513a7fdbf75727ae6429d3866b92517231fabd6df5254a29fddf46a330bc0d",
+  "triangles": 195868,
+  "optimizer": "gltfpack -kn -km -ke -si 0.75"
+}

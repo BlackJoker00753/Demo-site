@@ -229,3 +229,5 @@ teardown_src/
 
 # курсы валют, скачанные сервером
 data/rates.json
+.taste-skill/inspect/
+.impeccable/

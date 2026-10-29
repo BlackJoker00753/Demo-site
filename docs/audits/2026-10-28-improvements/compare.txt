@@ -1,0 +1,10 @@
+✔ a fifth watch never silently removes any of the four chosen watches (2.286996ms)
+✔ corrupted saved comparison recovers to a usable list (0.241583ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.634285

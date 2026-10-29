@@ -928,17 +928,20 @@ def _frame(p0, p1, zc):
 def _block(name, w, L, T, crown=0.12, round_out=0.0, side=0):
     """Деталь звена: сверху слегка выпуклая, края на скосах. side: 0 центр, ±1 боковая (скругление наружу)."""
     bm = bmesh.new()
-    nx, ny = 10, 4
+    nx, ny = 16, 8
     grid = {}
     for i in range(nx + 1):
         for j in range(ny + 1):
             x = -w / 2 + w * i / nx
             y = -L / 2 + L * j / ny
             u = x / (w / 2)
-            zt = T / 2 + crown * (1 - u * u)
+            v = y / (L / 2)
+            # Oyster links have a gently pillowed top in both directions. The old
+            # four-row surface and large outer slope produced visibly folded plates.
+            zt = T / 2 + crown * (1 - u * u) + 0.13 * (1 - v * v)
             if side and round_out:
                 k = max(0.0, side * u)                    # к внешнему краю браслета
-                zt -= round_out * k ** 2.2
+                zt -= min(round_out, 0.28) * k ** 3
             grid[i, j, 1] = bm.verts.new((x, y, zt))
             grid[i, j, 0] = bm.verts.new((x, y, -T / 2))
     for i in range(nx):
@@ -958,7 +961,12 @@ def _block(name, w, L, T, crown=0.12, round_out=0.0, side=0):
 
 
 def _link_finish(o, M, bevel=0.32):
-    finish(o, bevel=bevel, seg=4, angle=25)
+    finish(o, bevel=max(bevel, 0.36), seg=6, angle=45)
+    # Weighted normals flatten the broad convex surfaces into white facets.
+    # Area-smoothed normals keep the highlight continuous across each link.
+    for modifier in list(o.modifiers):
+        if modifier.type == "WEIGHTED_NORMAL":
+            o.modifiers.remove(modifier)
     o.data.materials.append(M["brushed"])
     o.data.materials.append(M["polished"])
     for p in o.data.polygons:
